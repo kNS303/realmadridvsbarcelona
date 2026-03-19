@@ -1,0 +1,416 @@
+/**
+ * DataService - Datos estadísticos embebidos
+ * Los datos están incrustados directamente para funcionar sin servidor local
+ */
+class DataService {
+    constructor() {
+        this.data = null;
+    }
+
+    async init() {
+        this.data = DataService.STATS_DATA;
+        return this.data;
+    }
+
+    getTeamInfo(team) {
+        return this.data?.equipos?.[team] || null;
+    }
+
+    getTitulos() {
+        return {
+            realMadrid: this.data.titulos.realMadrid,
+            barcelona: this.data.titulos.barcelona,
+            labels: this.data.titulosLabels
+        };
+    }
+
+    getTotalTitulos(team) {
+        const titulos = this.data.titulos[team];
+        return Object.values(titulos).reduce((sum, val) => sum + val, 0);
+    }
+
+    getHistorial() {
+        return this.data.historialGeneral;
+    }
+
+    getClasico() {
+        return this.data.elClasico;
+    }
+
+    getEstadisticas() {
+        return {
+            realMadrid: this.data.estadisticasDetalladas.realMadrid,
+            barcelona: this.data.estadisticasDetalladas.barcelona,
+            labels: this.data.estadisticasLabels
+        };
+    }
+
+    getJugadores() {
+        return this.data.topJugadores;
+    }
+}
+
+// ====== DATOS ESTADÍSTICOS EMBEBIDOS ======
+DataService.STATS_DATA = {
+  "meta": {
+    "lastUpdated": "2026-03-19",
+    "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
+    "nota": "Datos historicos acumulados hasta marzo 2026"
+  },
+  "equipos": {
+    "realMadrid": {
+      "nombre": "Real Madrid CF",
+      "nombreCorto": "Real Madrid",
+      "fundacion": 1902,
+      "estadio": "Santiago Bernabeu",
+      "capacidad": 83186,
+      "colores": {
+        "primario": "#FFFFFF",
+        "secundario": "#FEBE10",
+        "acento": "#00529F"
+      },
+      "logo": "assets/madrid-logo.svg"
+    },
+    "barcelona": {
+      "nombre": "Futbol Club Barcelona",
+      "nombreCorto": "FC Barcelona",
+      "fundacion": 1899,
+      "estadio": "Spotify Camp Nou",
+      "capacidad": 99354,
+      "colores": {
+        "primario": "#A50044",
+        "secundario": "#004D98",
+        "acento": "#EDBB00"
+      },
+      "logo": "assets/barca-logo.svg"
+    }
+  },
+  "titulos": {
+    "realMadrid": {
+      "liga": 36,
+      "championsLeague": 15,
+      "copaDelRey": 20,
+      "supercopaEspana": 13,
+      "supercopaEuropa": 5,
+      "mundialClubes": 8,
+      "copaLiga": 1,
+      "recopa": 0
+    },
+    "barcelona": {
+      "liga": 27,
+      "championsLeague": 5,
+      "copaDelRey": 31,
+      "supercopaEspana": 14,
+      "supercopaEuropa": 5,
+      "mundialClubes": 3,
+      "copaLiga": 2,
+      "recopa": 4
+    }
+  },
+  "titulosLabels": {
+    "liga": "La Liga",
+    "championsLeague": "Champions League",
+    "copaDelRey": "Copa del Rey",
+    "supercopaEspana": "Supercopa de Espana",
+    "supercopaEuropa": "Supercopa de Europa",
+    "mundialClubes": "Mundial de Clubes",
+    "copaLiga": "Copa de la Liga",
+    "recopa": "Recopa de Europa"
+  },
+  "historialGeneral": {
+    "realMadrid": {
+      "partidosJugados": 4850,
+      "ganados": 2710,
+      "empatados": 910,
+      "perdidos": 1230,
+      "golesAFavor": 9250,
+      "golesEnContra": 5520
+    },
+    "barcelona": {
+      "partidosJugados": 4780,
+      "ganados": 2680,
+      "empatados": 890,
+      "perdidos": 1210,
+      "golesAFavor": 9150,
+      "golesEnContra": 5380
+    }
+  },
+  "elClasico": {
+    "totalPartidos": 257,
+    "victoriasRealMadrid": 105,
+    "victoriasBarcelona": 100,
+    "empates": 52,
+    "golesRealMadrid": 420,
+    "golesBarcelona": 403,
+    "mayorGoleadaRM": {
+      "resultado": "11-1",
+      "fecha": "13 junio 1943",
+      "competicion": "Copa del Generalisimo"
+    },
+    "mayorGoleadaFCB": {
+      "resultado": "0-5",
+      "fecha": "29 noviembre 2010",
+      "competicion": "La Liga"
+    },
+    "porCompeticion": {
+      "liga": {
+        "partidos": 186,
+        "rmVictorias": 76,
+        "fcbVictorias": 73,
+        "empates": 37
+      },
+      "copaDelRey": {
+        "partidos": 37,
+        "rmVictorias": 15,
+        "fcbVictorias": 14,
+        "empates": 8
+      },
+      "championsLeague": {
+        "partidos": 10,
+        "rmVictorias": 5,
+        "fcbVictorias": 3,
+        "empates": 2
+      },
+      "supercopa": {
+        "partidos": 24,
+        "rmVictorias": 9,
+        "fcbVictorias": 10,
+        "empates": 5
+      }
+    },
+    "evolucionHistorica": [
+      {
+        "decada": "1930s",
+        "rmVictorias": 8,
+        "fcbVictorias": 7,
+        "empates": 5
+      },
+      {
+        "decada": "1940s",
+        "rmVictorias": 10,
+        "fcbVictorias": 6,
+        "empates": 4
+      },
+      {
+        "decada": "1950s",
+        "rmVictorias": 12,
+        "fcbVictorias": 5,
+        "empates": 3
+      },
+      {
+        "decada": "1960s",
+        "rmVictorias": 9,
+        "fcbVictorias": 8,
+        "empates": 3
+      },
+      {
+        "decada": "1970s",
+        "rmVictorias": 7,
+        "fcbVictorias": 9,
+        "empates": 4
+      },
+      {
+        "decada": "1980s",
+        "rmVictorias": 8,
+        "fcbVictorias": 7,
+        "empates": 5
+      },
+      {
+        "decada": "1990s",
+        "rmVictorias": 9,
+        "fcbVictorias": 10,
+        "empates": 1
+      },
+      {
+        "decada": "2000s",
+        "rmVictorias": 10,
+        "fcbVictorias": 12,
+        "empates": 8
+      },
+      {
+        "decada": "2010s",
+        "rmVictorias": 11,
+        "fcbVictorias": 15,
+        "empates": 6
+      },
+      {
+        "decada": "2020s",
+        "rmVictorias": 5,
+        "fcbVictorias": 4,
+        "empates": 3
+      }
+    ]
+  },
+  "estadisticasDetalladas": {
+    "realMadrid": {
+      "penaltisAFavor": 1850,
+      "penaltisEnContra": 1100,
+      "tarjetasAmarillas": 7200,
+      "tarjetasRojas": 420,
+      "corners": 28000,
+      "faltas": 35000,
+      "fuerasDeJuego": 12000,
+      "posesionMedia": 52,
+      "tirosAPuerta": 45000,
+      "tirosAFuera": 38000
+    },
+    "barcelona": {
+      "penaltisAFavor": 1800,
+      "penaltisEnContra": 1050,
+      "tarjetasAmarillas": 6900,
+      "tarjetasRojas": 390,
+      "corners": 29500,
+      "faltas": 33000,
+      "fuerasDeJuego": 11500,
+      "posesionMedia": 58,
+      "tirosAPuerta": 44000,
+      "tirosAFuera": 37000
+    }
+  },
+  "estadisticasLabels": {
+    "penaltisAFavor": "Penaltis a favor",
+    "penaltisEnContra": "Penaltis en contra",
+    "tarjetasAmarillas": "Tarjetas amarillas",
+    "tarjetasRojas": "Tarjetas rojas",
+    "corners": "Corners",
+    "faltas": "Faltas cometidas",
+    "fuerasDeJuego": "Fueras de juego",
+    "posesionMedia": "Posesion media (%)",
+    "tirosAPuerta": "Tiros a puerta",
+    "tirosAFuera": "Tiros a fuera"
+  },
+  "topJugadores": {
+    "goleadores": {
+      "realMadrid": [
+        {
+          "nombre": "Cristiano Ronaldo",
+          "goles": 451,
+          "partidos": 438,
+          "periodo": "2009-2018"
+        },
+        {
+          "nombre": "Karim Benzema",
+          "goles": 354,
+          "partidos": 648,
+          "periodo": "2009-2023"
+        },
+        {
+          "nombre": "Raul Gonzalez",
+          "goles": 323,
+          "partidos": 741,
+          "periodo": "1994-2010"
+        },
+        {
+          "nombre": "Alfredo Di Stefano",
+          "goles": 308,
+          "partidos": 396,
+          "periodo": "1953-1964"
+        },
+        {
+          "nombre": "Santillana",
+          "goles": 290,
+          "partidos": 645,
+          "periodo": "1971-1988"
+        }
+      ],
+      "barcelona": [
+        {
+          "nombre": "Lionel Messi",
+          "goles": 672,
+          "partidos": 778,
+          "periodo": "2004-2021"
+        },
+        {
+          "nombre": "Cesar Rodriguez",
+          "goles": 232,
+          "partidos": 351,
+          "periodo": "1942-1955"
+        },
+        {
+          "nombre": "Luis Suarez",
+          "goles": 198,
+          "partidos": 283,
+          "periodo": "2014-2020"
+        },
+        {
+          "nombre": "Laszlo Kubala",
+          "goles": 194,
+          "partidos": 345,
+          "periodo": "1951-1961"
+        },
+        {
+          "nombre": "Josep Samitier",
+          "goles": 184,
+          "partidos": 454,
+          "periodo": "1919-1932"
+        }
+      ]
+    },
+    "asistentes": {
+      "realMadrid": [
+        {
+          "nombre": "Karim Benzema",
+          "asistencias": 165,
+          "partidos": 648,
+          "periodo": "2009-2023"
+        },
+        {
+          "nombre": "Cristiano Ronaldo",
+          "asistencias": 131,
+          "partidos": 438,
+          "periodo": "2009-2018"
+        },
+        {
+          "nombre": "Toni Kroos",
+          "asistencias": 98,
+          "partidos": 463,
+          "periodo": "2014-2024"
+        },
+        {
+          "nombre": "Mesut Ozil",
+          "asistencias": 80,
+          "partidos": 159,
+          "periodo": "2010-2013"
+        },
+        {
+          "nombre": "Michel",
+          "asistencias": 78,
+          "partidos": 559,
+          "periodo": "1984-1996"
+        }
+      ],
+      "barcelona": [
+        {
+          "nombre": "Lionel Messi",
+          "asistencias": 303,
+          "partidos": 778,
+          "periodo": "2004-2021"
+        },
+        {
+          "nombre": "Xavi Hernandez",
+          "asistencias": 185,
+          "partidos": 767,
+          "periodo": "1998-2015"
+        },
+        {
+          "nombre": "Andres Iniesta",
+          "asistencias": 135,
+          "partidos": 674,
+          "periodo": "2002-2018"
+        },
+        {
+          "nombre": "Dani Alves",
+          "asistencias": 101,
+          "partidos": 391,
+          "periodo": "2008-2016"
+        },
+        {
+          "nombre": "Neymar Jr",
+          "asistencias": 76,
+          "partidos": 186,
+          "periodo": "2013-2017"
+        }
+      ]
+    }
+  }
+};

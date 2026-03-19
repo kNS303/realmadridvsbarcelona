@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Clasico en Numeros | Real Madrid vs FC Barcelona</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading">
+        <div class="loader"></div>
+        <p>Cargando estadisticas...</p>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="main-nav">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <span class="nav-logo-rm">RM</span>
+                <span class="nav-logo-vs">vs</span>
+                <span class="nav-logo-fcb">FCB</span>
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#titulos">Titulos</a></li>
+                <li><a href="#historial">Historial</a></li>
+                <li><a href="#clasico">El Clasico</a></li>
+                <li><a href="#estadisticas">Estadisticas</a></li>
+                <li><a href="#jugadores">Jugadores</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="content">
+
+        <!-- HERO Section -->
+        <section id="hero">
+            <div class="hero-bg-particles"></div>
+            <div class="hero-content">
+                <div class="hero-team hero-rm animate-on-scroll">
+                    <img src="assets/madrid-logo.svg" alt="Real Madrid" class="hero-logo">
+                    <h2>Real Madrid</h2>
+                    <p class="hero-founded">Fundado en <span data-counter="1902">1902</span></p>
+                </div>
+                <div class="hero-vs animate-on-scroll">
+                    <span class="vs-text">VS</span>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="hero-stat-number" data-counter="257">0</span>
+                            <span class="hero-stat-label">Clasicos disputados</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-number" data-counter="823">0</span>
+                            <span class="hero-stat-label">Goles en clasicos</span>
+                        </div>
+                    </div>
+                    <p class="hero-subtitle">Mas de 125 anos de rivalidad</p>
+                </div>
+                <div class="hero-team hero-fcb animate-on-scroll">
+                    <img src="assets/barca-logo.svg" alt="FC Barcelona" class="hero-logo">
+                    <h2>FC Barcelona</h2>
+                    <p class="hero-founded">Fundado en <span data-counter="1899">1899</span></p>
+                </div>
+            </div>
+            <a href="#titulos" class="scroll-indicator" aria-label="Scroll abajo">
+                <svg width="30" height="30" viewBox="0 0 30 30">
+                    <path d="M15 5 L15 25 M5 18 L15 25 L25 18" stroke="currentColor" stroke-width="2" fill="none"/>
+                </svg>
+            </a>
+        </section>
+
+        <!-- TITULOS Section -->
+        <section id="titulos" class="dashboard-section">
+            <div class="section-container">
+                <h2 class="section-title animate-on-scroll">
+                    <span class="section-icon">🏆</span> Palmarés Comparativo
+                </h2>
+                <p class="section-subtitle animate-on-scroll">Todos los titulos oficiales de ambos clubes</p>
+
+                <!-- Title counters -->
+                <div class="counter-grid animate-on-scroll">
+                    <div class="counter-card rm-card">
+                        <span class="counter-number" data-counter="98" id="rm-total-titulos">0</span>
+                        <span class="counter-label">Titulos totales</span>
+                        <span class="counter-team">Real Madrid</span>
+                    </div>
+                    <div class="counter-card neutral-card">
+                        <span class="counter-icon">🏆</span>
+                    </div>
+                    <div class="counter-card fcb-card">
+                        <span class="counter-number" data-counter="91" id="fcb-total-titulos">0</span>
+                        <span class="counter-label">Titulos totales</span>
+                        <span class="counter-team">FC Barcelona</span>
+                    </div>
+                </div>
+
+                <!-- Face-to-face bar chart -->
+                <div class="chart-container animate-on-scroll">
+                    <canvas id="chart-titulos-bar"></canvas>
+                </div>
+
+                <!-- Donut charts side by side -->
+                <div class="chart-row animate-on-scroll">
+                    <div class="chart-half">
+                        <h3 class="chart-subtitle rm-text">Real Madrid</h3>
+                        <div class="chart-container-sm">
+                            <canvas id="chart-titulos-donut-rm"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-half">
+                        <h3 class="chart-subtitle fcb-text">FC Barcelona</h3>
+                        <div class="chart-container-sm">
+                            <canvas id="chart-titulos-donut-fcb"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HISTORIAL GENERAL Section -->
+        <section id="historial" class="dashboard-section alt-bg">
+            <div class="section-container">
+                <h2 class="section-title animate-on-scroll">
+                    <span class="section-icon">📊</span> Historial General
+                </h2>
+                <p class="section-subtitle animate-on-scroll">Rendimiento historico en todas las competiciones</p>
+
+                <!-- Counter cards -->
+                <div class="counter-grid-4 animate-on-scroll">
+                    <div class="counter-card rm-card">
+                        <span class="counter-number" data-counter="4850">0</span>
+                        <span class="counter-label">Partidos jugados</span>
+                    </div>
+                    <div class="counter-card rm-card">
+                        <span class="counter-number" data-counter="9250">0</span>
+                        <span class="counter-label">Goles a favor</span>
+                    </div>
+                    <div class="counter-card fcb-card">
+                        <span class="counter-number" data-counter="4780">0</span>
+                        <span class="counter-label">Partidos jugados</span>
+                    </div>
+                    <div class="counter-card fcb-card">
+                        <span class="counter-number" data-counter="9150">0</span>
+                        <span class="counter-label">Goles a favor</span>
+                    </div>
+                </div>
+
+                <!-- W/D/L bar chart -->
+                <div class="chart-container animate-on-scroll">
+                    <canvas id="chart-historial-bar"></canvas>
+                </div>
+
+                <!-- Goals donut charts -->
+                <div class="chart-row animate-on-scroll">
+                    <div class="chart-half">
+                        <h3 class="chart-subtitle rm-text">Goles Real Madrid</h3>
+                        <div class="chart-container-sm">
+                            <canvas id="chart-goles-donut-rm"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-half">
+                        <h3 class="chart-subtitle fcb-text">Goles FC Barcelona</h3>
+                        <div class="chart-container-sm">
+                            <canvas id="chart-goles-donut-fcb"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EL CLASICO Section -->
+        <section id="clasico" class="dashboard-section">
+            <div class="section-container">
+                <h2 class="section-title animate-on-scroll">
+                    <span class="section-icon">⚔️</span> El Clasico
+                </h2>
+                <p class="section-subtitle animate-on-scroll">Enfrentamientos directos a lo largo de la historia</p>
+
+                <!-- Clasico counters -->
+                <div class="counter-grid animate-on-scroll">
+                    <div class="counter-card rm-card">
+                        <span class="counter-number" data-counter="105">0</span>
+                        <span class="counter-label">Victorias RM</span>
+                    </div>
+                    <div class="counter-card neutral-card">
+                        <span class="counter-number" data-counter="52">0</span>
+                        <span class="counter-label">Empates</span>
+                    </div>
+                    <div class="counter-card fcb-card">
+                        <span class="counter-number" data-counter="100">0</span>
+                        <span class="counter-label">Victorias FCB</span>
+                    </div>
+                </div>
+
+                <!-- Clasico donut -->
+                <div class="chart-row animate-on-scroll">
+                    <div class="chart-half">
+                        <h3 class="chart-subtitle">Resultados globales</h3>
+                        <div class="chart-container-sm">
+                            <canvas id="chart-clasico-donut"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-half">
+                        <h3 class="chart-subtitle">Por competicion</h3>
+                        <div class="chart-container-sm">
+                            <canvas id="chart-clasico-competicion"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline -->
+                <div class="chart-container animate-on-scroll">
+                    <h3 class="chart-subtitle">Evolucion por decada</h3>
+                    <canvas id="chart-clasico-timeline"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- ESTADISTICAS DETALLADAS Section -->
+        <section id="estadisticas" class="dashboard-section alt-bg">
+            <div class="section-container">
+                <h2 class="section-title animate-on-scroll">
+                    <span class="section-icon">📈</span> Estadisticas Detalladas
+                </h2>
+                <p class="section-subtitle animate-on-scroll">Comparativa exhaustiva de rendimiento</p>
+
+                <!-- Radar chart -->
+                <div class="chart-container animate-on-scroll">
+                    <canvas id="chart-radar"></canvas>
+                </div>
+
+                <!-- CSS Comparative bars -->
+                <div class="comparative-bars animate-on-scroll" id="comparative-bars">
+                    <!-- Generated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- TOP JUGADORES Section -->
+        <section id="jugadores" class="dashboard-section">
+            <div class="section-container">
+                <h2 class="section-title animate-on-scroll">
+                    <span class="section-icon">⭐</span> Leyendas del Club
+                </h2>
+                <p class="section-subtitle animate-on-scroll">Maximos goleadores y asistentes de la historia</p>
+
+                <!-- Goleadores -->
+                <h3 class="subsection-title animate-on-scroll">⚽ Maximos Goleadores</h3>
+                <div class="tables-row animate-on-scroll">
+                    <div class="table-half">
+                        <div class="table-header rm-header">
+                            <img src="assets/madrid-logo.svg" alt="" class="table-logo">
+                            <span>Real Madrid</span>
+                        </div>
+                        <div id="table-goleadores-rm"></div>
+                    </div>
+                    <div class="table-half">
+                        <div class="table-header fcb-header">
+                            <img src="assets/barca-logo.svg" alt="" class="table-logo">
+                            <span>FC Barcelona</span>
+                        </div>
+                        <div id="table-goleadores-fcb"></div>
+                    </div>
+                </div>
+
+                <!-- Asistentes -->
+                <h3 class="subsection-title animate-on-scroll">🎯 Maximos Asistentes</h3>
+                <div class="tables-row animate-on-scroll">
+                    <div class="table-half">
+                        <div class="table-header rm-header">
+                            <img src="assets/madrid-logo.svg" alt="" class="table-logo">
+                            <span>Real Madrid</span>
+                        </div>
+                        <div id="table-asistentes-rm"></div>
+                    </div>
+                    <div class="table-half">
+                        <div class="table-header fcb-header">
+                            <img src="assets/barca-logo.svg" alt="" class="table-logo">
+                            <span>FC Barcelona</span>
+                        </div>
+                        <div id="table-asistentes-fcb"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="footer-content">
+            <p class="footer-title">El Clasico en Numeros</p>
+            <p class="footer-sources">Fuentes: Wikipedia, Transfermarkt, BDFutbol, RFEF</p>
+            <p class="footer-disclaimer">Los datos son aproximados y corresponden a registros historicos acumulados hasta marzo 2026.</p>
+            <p class="footer-copy">&copy; 2026 - Dashboard informativo sin animo de lucro</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/tables.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

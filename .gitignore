@@ -1,0 +1,5 @@
+node_modules/
+.claude/
+*.bak
+scripts/update-log.txt
+server.js
