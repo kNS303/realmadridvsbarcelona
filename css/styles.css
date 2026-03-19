@@ -897,7 +897,8 @@ body {
     }
 
     .player-table .player-period {
-        font-size: 0.65rem !important;
+        font-size: 0.6rem !important;
+        white-space: nowrap;
     }
 
     .player-bar-cell {
