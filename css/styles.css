@@ -883,7 +883,7 @@ body {
     }
 
     .player-table .player-period {
-        display: none;
+        font-size: 0.65rem !important;
     }
 
     .player-bar-cell {
