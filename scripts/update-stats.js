@@ -265,6 +265,80 @@ async function fetchCurrentSeason() {
 }
 
 // ============================================================
+// Fuente: Último partido (football-data.org - todas las competiciones)
+// ============================================================
+
+async function fetchUltimoPartido() {
+    if (!API_KEY) {
+        console.log('\n📅 Último partido: requiere API_KEY para obtener datos en vivo');
+        return null;
+    }
+
+    console.log('\n📅 Obteniendo último partido de cada equipo (todas las competiciones)...');
+
+    const result = {};
+
+    try {
+        // football-data.org team IDs: Real Madrid = 86, FC Barcelona = 81
+        const teams = [
+            { key: 'realMadrid', id: 86, name: 'Real Madrid' },
+            { key: 'barcelona', id: 81, name: 'FC Barcelona' }
+        ];
+
+        for (const team of teams) {
+            const data = await fetchJSON(
+                `https://api.football-data.org/v4/teams/${team.id}/matches?status=FINISHED&limit=1`,
+                { 'X-Auth-Token': API_KEY }
+            );
+
+            const match = data.matches?.[0];
+            if (!match) {
+                console.log(`  ⚠️  ${team.name}: sin partidos recientes`);
+                continue;
+            }
+
+            const esLocal = match.homeTeam.id === team.id;
+            const rival = esLocal ? match.awayTeam.shortName || match.awayTeam.name : match.homeTeam.shortName || match.homeTeam.name;
+            const golesLocal = match.score.fullTime.home;
+            const golesVisitante = match.score.fullTime.away;
+            const golesEquipo = esLocal ? golesLocal : golesVisitante;
+            const golesRival = esLocal ? golesVisitante : golesLocal;
+
+            let resultado;
+            if (golesEquipo > golesRival) resultado = 'victoria';
+            else if (golesEquipo < golesRival) resultado = 'derrota';
+            else resultado = 'empate';
+
+            // Mapear competición
+            const compMap = {
+                'PD': 'La Liga',
+                'CL': 'Champions League',
+                'CDR': 'Copa del Rey',
+                'SA': 'Supercopa',
+                'FL1': 'Ligue 1'
+            };
+            const competicion = compMap[match.competition.code] || match.competition.name;
+
+            result[team.key] = {
+                rival,
+                golesLocal,
+                golesVisitante,
+                esLocal,
+                competicion,
+                fecha: match.utcDate.split('T')[0],
+                resultado
+            };
+
+            console.log(`  ✅ ${team.name}: vs ${rival} (${golesLocal}-${golesVisitante}) — ${competicion} — ${resultado}`);
+        }
+    } catch (err) {
+        console.warn('  ⚠️  Error obteniendo último partido:', err.message);
+    }
+
+    return Object.keys(result).length > 0 ? result : null;
+}
+
+// ============================================================
 // Merge con validación de cordura
 // ============================================================
 
@@ -314,6 +388,13 @@ function mergeStats(existing, scraped) {
     if (scraped.temporadaActual) {
         updated.temporadaActual = scraped.temporadaActual;
         console.log('  📝 Temporada actual actualizada');
+        changes++;
+    }
+
+    // Último partido (todas las competiciones)
+    if (scraped.ultimoPartido) {
+        updated.ultimoPartido = scraped.ultimoPartido;
+        console.log('  📝 Último partido actualizado (todas las competiciones)');
         changes++;
     }
 
@@ -381,14 +462,15 @@ async function main() {
     }
 
     // 2. Obtener datos de todas las fuentes en paralelo
-    const [titulos, clasico, temporadaActual] = await Promise.all([
+    const [titulos, clasico, temporadaActual, ultimoPartido] = await Promise.all([
         fetchFromWikidataAPI(),
         fetchClasicoData(),
-        fetchCurrentSeason()
+        fetchCurrentSeason(),
+        fetchUltimoPartido()
     ]);
 
     // 3. Merge con validación
-    const scraped = { titulos, clasico, temporadaActual };
+    const scraped = { titulos, clasico, temporadaActual, ultimoPartido };
     const { updated, changes } = mergeStats(existing, scraped);
 
     // 4. Guardar (si no es dry-run y hay cambios)

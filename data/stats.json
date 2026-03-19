@@ -362,21 +362,21 @@
   },
   "ultimoPartido": {
     "realMadrid": {
-      "rival": "Celta de Vigo",
-      "golesLocal": 2,
-      "golesVisitante": 0,
-      "esLocal": true,
-      "competicion": "La Liga",
-      "fecha": "2026-03-16",
+      "rival": "Manchester City",
+      "golesLocal": 1,
+      "golesVisitante": 2,
+      "esLocal": false,
+      "competicion": "Champions League",
+      "fecha": "2026-03-17",
       "resultado": "victoria"
     },
     "barcelona": {
-      "rival": "Valencia CF",
-      "golesLocal": 3,
-      "golesVisitante": 1,
+      "rival": "Newcastle United",
+      "golesLocal": 7,
+      "golesVisitante": 2,
       "esLocal": true,
-      "competicion": "La Liga",
-      "fecha": "2026-03-15",
+      "competicion": "Champions League",
+      "fecha": "2026-03-18",
       "resultado": "victoria"
     }
   }

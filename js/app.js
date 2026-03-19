@@ -179,7 +179,7 @@ function renderLastMatch(containerId, matchData) {
     const container = document.getElementById(containerId);
     if (!container || !matchData) return;
 
-    const { rival, golesLocal, golesVisitante, esLocal, resultado } = matchData;
+    const { rival, golesLocal, golesVisitante, esLocal, competicion, resultado } = matchData;
 
     const resultClasses = {
         'victoria': 'result-win',
@@ -199,9 +199,11 @@ function renderLastMatch(containerId, matchData) {
 
     const cssClass = resultClasses[resultado] || 'result-draw';
     const label = resultLabels[resultado] || resultado;
+    const compLabel = competicion ? `<span class="match-competition">${competicion}</span>` : '';
 
     container.innerHTML = `
         <span class="match-opponent">vs ${rival}</span>
+        ${compLabel}
         <span class="match-score">${score}</span>
         <span class="match-result ${cssClass}">${label}</span>
     `;
