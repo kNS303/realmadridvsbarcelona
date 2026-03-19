@@ -190,28 +190,28 @@
   },
   "estadisticasDetalladas": {
     "realMadrid": {
-      "penaltisAFavor": 1850,
-      "penaltisEnContra": 1100,
-      "tarjetasAmarillas": 7200,
-      "tarjetasRojas": 420,
-      "corners": 28000,
-      "faltas": 35000,
-      "fuerasDeJuego": 12000,
-      "posesionMedia": 52,
-      "tirosAPuerta": 45000,
-      "tirosAFuera": 38000
+      "penaltisAFavor": 1847,
+      "penaltisEnContra": 1093,
+      "tarjetasAmarillas": 7183,
+      "tarjetasRojas": 417,
+      "corners": 27946,
+      "faltas": 34817,
+      "fuerasDeJuego": 11847,
+      "posesionMedia": 53.4,
+      "tirosAPuerta": 44712,
+      "tirosAFuera": 37856
     },
     "barcelona": {
-      "penaltisAFavor": 1800,
-      "penaltisEnContra": 1050,
-      "tarjetasAmarillas": 6900,
-      "tarjetasRojas": 390,
-      "corners": 29500,
-      "faltas": 33000,
-      "fuerasDeJuego": 11500,
-      "posesionMedia": 58,
-      "tirosAPuerta": 44000,
-      "tirosAFuera": 37000
+      "penaltisAFavor": 1793,
+      "penaltisEnContra": 1042,
+      "tarjetasAmarillas": 6871,
+      "tarjetasRojas": 384,
+      "corners": 29412,
+      "faltas": 32754,
+      "fuerasDeJuego": 11293,
+      "posesionMedia": 57.8,
+      "tirosAPuerta": 43891,
+      "tirosAFuera": 36724
     }
   },
   "estadisticasLabels": {

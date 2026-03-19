@@ -806,12 +806,12 @@ body {
     .hero-teams-row {
         flex-direction: row;
         gap: 1rem;
-        align-items: flex-start;
+        align-items: center;
     }
 
     .hero-logo {
-        width: 90px;
-        height: 90px;
+        width: 105px;
+        height: 105px;
     }
 
     .hero-team h2 {
@@ -824,8 +824,8 @@ body {
     }
 
     .hero-stats {
-        flex-direction: row;
-        gap: 2rem;
+        flex-direction: column;
+        gap: 0.5rem;
     }
 
     .hero-stat-number {
@@ -902,12 +902,12 @@ body {
     }
 
     .hero-logo {
-        width: 72px;
-        height: 72px;
+        width: 85px;
+        height: 85px;
     }
 
     .hero-teams-row {
-        gap: 0.6rem;
+        gap: 0.5rem;
     }
 
     .hero-team h2 {
@@ -923,7 +923,7 @@ body {
     }
 
     .hero-stats {
-        gap: 1.5rem;
+        gap: 0.4rem;
     }
 
     .chart-container {
@@ -942,8 +942,8 @@ body {
     }
 
     .hero-logo {
-        width: 60px;
-        height: 60px;
+        width: 72px;
+        height: 72px;
     }
 
     .hero-team h2 {
