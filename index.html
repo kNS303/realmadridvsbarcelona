@@ -20,9 +20,9 @@
     <nav id="main-nav">
         <div class="nav-container">
             <a href="#hero" class="nav-logo">
-                <span class="nav-logo-rm">RM</span>
+                <img src="assets/madrid-logo.svg" alt="Real Madrid" class="nav-crest">
                 <span class="nav-logo-vs">vs</span>
-                <span class="nav-logo-fcb">FCB</span>
+                <img src="assets/barca-logo.svg" alt="FC Barcelona" class="nav-crest">
             </a>
             <button class="hamburger" id="hamburger" aria-label="Menu">
                 <span></span>
@@ -46,14 +46,22 @@
         <section id="hero">
             <div class="hero-bg-particles"></div>
             <div class="hero-content">
-                <div class="hero-team hero-rm animate-on-scroll">
-                    <img src="assets/madrid-logo.svg" alt="Real Madrid" class="hero-logo">
-                    <h2>Real Madrid</h2>
-                    <p class="hero-founded">Fundado en <span data-counter="1902">1902</span></p>
-                    <div class="hero-last-match" id="last-match-rm"></div>
+                <div class="hero-teams-row">
+                    <div class="hero-team hero-rm animate-on-scroll">
+                        <img src="assets/madrid-logo.svg" alt="Real Madrid" class="hero-logo">
+                        <h2>Real Madrid</h2>
+                        <div class="hero-last-match" id="last-match-rm"></div>
+                    </div>
+                    <div class="hero-vs animate-on-scroll">
+                        <span class="vs-text">VS</span>
+                    </div>
+                    <div class="hero-team hero-fcb animate-on-scroll">
+                        <img src="assets/barca-logo.svg" alt="FC Barcelona" class="hero-logo">
+                        <h2>FC Barcelona</h2>
+                        <div class="hero-last-match" id="last-match-fcb"></div>
+                    </div>
                 </div>
-                <div class="hero-vs animate-on-scroll">
-                    <span class="vs-text">VS</span>
+                <div class="hero-global-stats animate-on-scroll">
                     <div class="hero-stats">
                         <div class="hero-stat">
                             <span class="hero-stat-number" data-counter="257">0</span>
@@ -66,15 +74,9 @@
                     </div>
                     <p class="hero-subtitle">Mas de 125 anos de rivalidad</p>
                 </div>
-                <div class="hero-team hero-fcb animate-on-scroll">
-                    <img src="assets/barca-logo.svg" alt="FC Barcelona" class="hero-logo">
-                    <h2>FC Barcelona</h2>
-                    <p class="hero-founded">Fundado en <span data-counter="1899">1899</span></p>
-                    <div class="hero-last-match" id="last-match-fcb"></div>
-                </div>
             </div>
             <a href="#titulos" class="scroll-indicator" aria-label="Scroll abajo">
-                <svg width="30" height="30" viewBox="0 0 30 30">
+                <svg width="24" height="24" viewBox="0 0 30 30">
                     <path d="M15 5 L15 25 M5 18 L15 25 L25 18" stroke="currentColor" stroke-width="2" fill="none"/>
                 </svg>
             </a>
@@ -113,13 +115,19 @@
                 <!-- Donut charts side by side -->
                 <div class="chart-row animate-on-scroll">
                     <div class="chart-half">
-                        <h3 class="chart-subtitle rm-text">Real Madrid</h3>
+                        <h3 class="chart-subtitle rm-text">
+                            <img src="assets/madrid-logo.svg" alt="" class="chart-subtitle-logo">
+                            Real Madrid
+                        </h3>
                         <div class="chart-container-sm">
                             <canvas id="chart-titulos-donut-rm"></canvas>
                         </div>
                     </div>
                     <div class="chart-half">
-                        <h3 class="chart-subtitle fcb-text">FC Barcelona</h3>
+                        <h3 class="chart-subtitle fcb-text">
+                            <img src="assets/barca-logo.svg" alt="" class="chart-subtitle-logo">
+                            FC Barcelona
+                        </h3>
                         <div class="chart-container-sm">
                             <canvas id="chart-titulos-donut-fcb"></canvas>
                         </div>
@@ -164,13 +172,19 @@
                 <!-- Goals donut charts -->
                 <div class="chart-row animate-on-scroll">
                     <div class="chart-half">
-                        <h3 class="chart-subtitle rm-text">Goles Real Madrid</h3>
+                        <h3 class="chart-subtitle rm-text">
+                            <img src="assets/madrid-logo.svg" alt="" class="chart-subtitle-logo">
+                            Goles Real Madrid
+                        </h3>
                         <div class="chart-container-sm">
                             <canvas id="chart-goles-donut-rm"></canvas>
                         </div>
                     </div>
                     <div class="chart-half">
-                        <h3 class="chart-subtitle fcb-text">Goles FC Barcelona</h3>
+                        <h3 class="chart-subtitle fcb-text">
+                            <img src="assets/barca-logo.svg" alt="" class="chart-subtitle-logo">
+                            Goles FC Barcelona
+                        </h3>
                         <div class="chart-container-sm">
                             <canvas id="chart-goles-donut-fcb"></canvas>
                         </div>
