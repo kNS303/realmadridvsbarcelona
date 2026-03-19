@@ -21,13 +21,17 @@ document.addEventListener('DOMContentLoaded', async () => {
         createPlayerTable('table-asistentes-rm', jugadores.asistentes.realMadrid, 'asistencias', 'rm');
         createPlayerTable('table-asistentes-fcb', jugadores.asistentes.barcelona, 'asistencias', 'fcb');
 
-        // 5. Crear barras comparativas CSS
+        // 5. Renderizar último partido en el Hero
+        renderLastMatch('last-match-rm', dataService.getUltimoPartido('realMadrid'));
+        renderLastMatch('last-match-fcb', dataService.getUltimoPartido('barcelona'));
+
+        // 6. Crear barras comparativas CSS
         initComparativeBars(dataService.getEstadisticas());
 
-        // 6. Inicializar animaciones de scroll (después de crear todo el DOM)
+        // 7. Inicializar animaciones de scroll (después de crear todo el DOM)
         initScrollAnimations();
 
-        // 7. Ocultar loading, mostrar contenido
+        // 8. Ocultar loading, mostrar contenido
         setTimeout(() => {
             document.getElementById('loading').classList.add('hidden');
         }, 500);
@@ -148,6 +152,12 @@ function initNavigation() {
 
     sections.forEach(section => sectionObserver.observe(section));
 
+    // Cerrar menú al hacer scroll
+    window.addEventListener('scroll', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('open');
+    }, { passive: true });
+
     // Cambiar opacidad del nav al hacer scroll
     const nav = document.getElementById('main-nav');
     let lastScroll = 0;
@@ -160,4 +170,39 @@ function initNavigation() {
         }
         lastScroll = currentScroll;
     }, { passive: true });
+}
+
+/**
+ * Renderiza el último partido jugado bajo el escudo del equipo
+ */
+function renderLastMatch(containerId, matchData) {
+    const container = document.getElementById(containerId);
+    if (!container || !matchData) return;
+
+    const { rival, golesLocal, golesVisitante, esLocal, resultado } = matchData;
+
+    const resultClasses = {
+        'victoria': 'result-win',
+        'empate': 'result-draw',
+        'derrota': 'result-loss'
+    };
+
+    const resultLabels = {
+        'victoria': 'Victoria',
+        'empate': 'Empate',
+        'derrota': 'Derrota'
+    };
+
+    const score = esLocal
+        ? `${golesLocal} - ${golesVisitante}`
+        : `${golesVisitante} - ${golesLocal}`;
+
+    const cssClass = resultClasses[resultado] || 'result-draw';
+    const label = resultLabels[resultado] || resultado;
+
+    container.innerHTML = `
+        <span class="match-opponent">vs ${rival}</span>
+        <span class="match-score">${score}</span>
+        <span class="match-result ${cssClass}">${label}</span>
+    `;
 }

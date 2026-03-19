@@ -48,6 +48,10 @@ class DataService {
     getJugadores() {
         return this.data.topJugadores;
     }
+
+    getUltimoPartido(team) {
+        return this.data?.ultimoPartido?.[team] || null;
+    }
 }
 
 // ====== DATOS ESTADÍSTICOS EMBEBIDOS ======
@@ -91,7 +95,7 @@ DataService.STATS_DATA = {
       "championsLeague": 15,
       "copaDelRey": 20,
       "supercopaEspana": 13,
-      "supercopaEuropa": 5,
+      "supercopaEuropa": 6,
       "mundialClubes": 8,
       "copaLiga": 1,
       "recopa": 0
@@ -411,6 +415,26 @@ DataService.STATS_DATA = {
           "periodo": "2013-2017"
         }
       ]
+    }
+  },
+  "ultimoPartido": {
+    "realMadrid": {
+      "rival": "Celta de Vigo",
+      "golesLocal": 2,
+      "golesVisitante": 0,
+      "esLocal": true,
+      "competicion": "La Liga",
+      "fecha": "2026-03-16",
+      "resultado": "victoria"
+    },
+    "barcelona": {
+      "rival": "Valencia CF",
+      "golesLocal": 3,
+      "golesVisitante": 1,
+      "esLocal": true,
+      "competicion": "La Liga",
+      "fecha": "2026-03-15",
+      "resultado": "victoria"
     }
   }
 };

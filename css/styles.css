@@ -774,20 +774,61 @@ body {
         font-size: 1rem;
     }
 
-    /* Hero mobile */
+    /* Hero mobile - logos side by side */
     .hero-content {
-        flex-direction: column;
-        gap: 2rem;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.8rem;
         padding-top: 5rem;
+        align-items: flex-start;
+        justify-content: center;
     }
 
+    .hero-team {
+        flex: 0 0 auto;
+        max-width: 120px;
+    }
+
+    .hero-vs {
+        flex: 0 0 auto;
+        max-width: 140px;
+        order: 0;
+    }
+
+    .hero-rm { order: -1; }
+    .hero-fcb { order: 1; }
+
     .hero-logo {
-        width: 100px;
-        height: 100px;
+        width: 70px;
+        height: 70px;
+    }
+
+    .hero-team h2 {
+        font-size: 0.85rem;
     }
 
     .vs-text {
-        font-size: 2.5rem;
+        font-size: 2rem;
+    }
+
+    .hero-stats {
+        gap: 0.5rem;
+    }
+
+    .hero-stat-number {
+        font-size: 1.3rem;
+    }
+
+    .hero-stat-label {
+        font-size: 0.6rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.7rem;
+    }
+
+    .hero-last-match {
+        font-size: 0.65rem;
     }
 
     /* Sections */
@@ -848,8 +889,16 @@ body {
     }
 
     .hero-logo {
-        width: 80px;
-        height: 80px;
+        width: 55px;
+        height: 55px;
+    }
+
+    .hero-team {
+        max-width: 100px;
+    }
+
+    .hero-team h2 {
+        font-size: 0.75rem;
     }
 
     .chart-container {
@@ -874,6 +923,59 @@ body {
         opacity: 1;
         transform: none;
     }
+}
+
+/* ========================================
+   Hero Last Match
+   ======================================== */
+.hero-last-match {
+    margin-top: 0.6rem;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-align: center;
+    line-height: 1.4;
+}
+
+.hero-last-match .match-opponent {
+    display: block;
+    color: var(--text-muted);
+    font-size: 0.7rem;
+    margin-bottom: 0.15rem;
+}
+
+.hero-last-match .match-result {
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.7rem;
+    letter-spacing: 0.03em;
+}
+
+.hero-last-match .match-score {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.85rem;
+    display: block;
+    margin-bottom: 0.15rem;
+}
+
+.result-win {
+    background: rgba(34, 197, 94, 0.15);
+    color: #22c55e;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.result-draw {
+    background: rgba(255, 255, 255, 0.1);
+    color: #e0e0e0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.result-loss {
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.3);
 }
 
 /* ========================================
