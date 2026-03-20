@@ -513,7 +513,7 @@ const ChartFactory = {
             tarjetasAmarillas: 'T. Amarillas',
             tarjetasRojas: 'T. Rojas',
             corners: 'Corners',
-            posesionMedia: 'Posesion',
+            posesionMedia: 'Posesión',
             tirosAPuerta: 'Tiros a puerta'
         };
 
