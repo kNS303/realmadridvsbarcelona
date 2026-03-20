@@ -222,6 +222,18 @@ function switchMode(newMode, dataService, chartInstances, loadedSections, modeRe
         requestAnimationFrame(() => {
             sections.forEach(s => s.classList.remove('data-transitioning'));
         });
+
+        // Apply bar widths after DOM settles (observer already fired and unobserved)
+        setTimeout(() => {
+            document.querySelectorAll('.comp-bar-fill-rm, .comp-bar-fill-fcb').forEach(bar => {
+                const w = bar.dataset.width;
+                if (w) bar.style.width = w + '%';
+            });
+            document.querySelectorAll('.player-bar').forEach(bar => {
+                const w = bar.dataset.width;
+                if (w) bar.style.width = w + '%';
+            });
+        }, 100);
     }, 280);
 }
 
