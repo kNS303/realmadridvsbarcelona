@@ -671,11 +671,36 @@ function renderComparadorMatch(rmPlayers, fcbPlayers) {
     // Render avatars
     const avatarRM = document.getElementById('comparador-avatar-rm');
     const avatarFCB = document.getElementById('comparador-avatar-fcb');
+    const playerSvg = (color, accent, facing) => {
+        const fl = facing === 'left';
+        const eyeX = fl ? 52 : 68;
+        const mouthX1 = fl ? 53 : 63;
+        const mouthX2 = fl ? 62 : 72;
+        const armF = fl ? 'M32 75 Q15 72 12 60' : 'M88 75 Q105 72 108 60';
+        const armB = fl ? 'M88 78 Q100 90 95 105' : 'M32 78 Q20 90 25 105';
+        return `<svg viewBox="0 0 120 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g${fl ? ' transform="scale(1,1)"' : ''}>
+                <path d="M30 140 L30 85 Q30 65 50 58 L70 58 Q90 65 90 85 L90 140" fill="${color}" opacity="0.9"/>
+                <path d="M48 58 Q60 65 72 58" stroke="${accent}" stroke-width="2" fill="none"/>
+                <line x1="60" y1="62" x2="60" y2="110" stroke="${accent}" stroke-width="1.5" opacity="0.4"/>
+                <path d="M35 110 L35 140 L55 140 L55 115 Q60 118 65 115 L65 140 L85 140 L85 110" fill="${color}" opacity="0.7"/>
+                <circle cx="60" cy="38" r="22" fill="#d1d1d6" opacity="0.85"/>
+                <path d="M38 32 Q40 15 60 14 Q80 15 82 32 Q80 24 60 22 Q40 24 38 32Z" fill="${color}" opacity="0.6"/>
+                <circle cx="${eyeX}" cy="35" r="2" fill="#0c0c0e" opacity="0.5"/>
+                <line x1="${mouthX1}" y1="45" x2="${mouthX2}" y2="44" stroke="#0c0c0e" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/>
+                <path d="${armF}" stroke="${color}" stroke-width="8" stroke-linecap="round" fill="none" opacity="0.8"/>
+                <path d="${armB}" stroke="${color}" stroke-width="7" stroke-linecap="round" fill="none" opacity="0.6"/>
+                <text x="60" y="95" text-anchor="middle" fill="${accent}" font-family="'DM Mono', monospace" font-size="18" font-weight="700" opacity="0.6">10</text>
+                <rect x="38" y="125" width="14" height="15" rx="3" fill="${accent}" opacity="0.5"/>
+                <rect x="68" y="125" width="14" height="15" rx="3" fill="${accent}" opacity="0.5"/>
+            </g>
+        </svg>`;
+    };
     if (avatarRM) {
-        avatarRM.innerHTML = `<img src="https://ui-avatars.com/api/?name=${encodeURIComponent(rmPlayer.nombre)}&background=D4A012&color=0c0c0e&size=120&bold=true" alt="${rmPlayer.nombre}">`;
+        avatarRM.innerHTML = playerSvg('#D4A012', '#0c0c0e', 'right');
     }
     if (avatarFCB) {
-        avatarFCB.innerHTML = `<img src="https://ui-avatars.com/api/?name=${encodeURIComponent(fcbPlayer.nombre)}&background=9B1B4D&color=0c0c0e&size=120&bold=true" alt="${fcbPlayer.nombre}">`;
+        avatarFCB.innerHTML = playerSvg('#9B1B4D', '#d1d1d6', 'left');
     }
 
     // Render info
