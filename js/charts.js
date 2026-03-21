@@ -6,30 +6,30 @@ const ChartFactory = {
 
     // Colores globales
     colors: {
-        rmGold: '#FEBE10',
-        rmGoldAlpha: 'rgba(254, 190, 16, 0.6)',
-        rmGoldBg: 'rgba(254, 190, 16, 0.15)',
-        fcbGarnet: '#A50044',
-        fcbGarnetAlpha: 'rgba(165, 0, 68, 0.6)',
-        fcbGarnetBg: 'rgba(165, 0, 68, 0.15)',
+        rmGold: '#D4A012',
+        rmGoldAlpha: 'rgba(212, 160, 18, 0.5)',
+        rmGoldBg: 'rgba(212, 160, 18, 0.10)',
+        fcbGarnet: '#9B1B4D',
+        fcbGarnetAlpha: 'rgba(155, 27, 77, 0.5)',
+        fcbGarnetBg: 'rgba(155, 27, 77, 0.10)',
         fcbBlue: '#004D98',
-        neutral: '#555566',
-        neutralAlpha: 'rgba(85, 85, 102, 0.5)',
-        text: '#9999aa',
-        grid: 'rgba(255, 255, 255, 0.06)'
+        neutral: '#3a3a3c',
+        neutralAlpha: 'rgba(58, 58, 60, 0.5)',
+        text: '#8e8e93',
+        grid: 'rgba(200, 200, 200, 0.04)'
     },
 
     // Configuración de tooltip global en español
     tooltipConfig: {
-        backgroundColor: 'rgba(20, 20, 35, 0.95)',
-        titleColor: '#e8e8ef',
-        bodyColor: '#9999aa',
-        borderColor: 'rgba(255, 255, 255, 0.1)',
+        backgroundColor: 'rgba(28, 28, 30, 0.96)',
+        titleColor: '#d1d1d6',
+        bodyColor: '#8e8e93',
+        borderColor: 'rgba(200, 200, 200, 0.08)',
         borderWidth: 1,
-        cornerRadius: 8,
+        cornerRadius: 12,
         padding: 12,
-        titleFont: { family: "'Inter', sans-serif", weight: '600' },
-        bodyFont: { family: "'Inter', sans-serif" },
+        titleFont: { family: "'DM Sans', sans-serif", weight: '600' },
+        bodyFont: { family: "'DM Sans', sans-serif" },
     },
 
     /**
@@ -77,7 +77,7 @@ const ChartFactory = {
                         labels: {
                             color: this.colors.text,
                             usePointStyle: true,
-                            font: { family: "'Inter', sans-serif", size: 12 }
+                            font: { family: "'DM Sans', sans-serif", size: 12 }
                         }
                     },
                     tooltip: {
@@ -103,7 +103,7 @@ const ChartFactory = {
                         grid: { display: false },
                         ticks: {
                             color: this.colors.text,
-                            font: { family: "'Inter', sans-serif", size: 11 }
+                            font: { family: "'DM Sans', sans-serif", size: 11 }
                         }
                     }
                 }
@@ -123,7 +123,7 @@ const ChartFactory = {
         const displayLabels = keys.map(k => labels[k]);
         const total = values.reduce((a, b) => a + b, 0);
 
-        const baseColor = isRM ? [254, 190, 16] : [165, 0, 68];
+        const baseColor = isRM ? [212, 160, 18] : [155, 27, 77];
         const bgColors = values.map((_, i) => {
             const opacity = 0.4 + (i / values.length) * 0.6;
             return `rgba(${baseColor[0]}, ${baseColor[1]}, ${baseColor[2]}, ${opacity})`;
@@ -136,7 +136,7 @@ const ChartFactory = {
                 datasets: [{
                     data: values,
                     backgroundColor: bgColors,
-                    borderColor: 'rgba(26, 26, 46, 0.8)',
+                    borderColor: 'rgba(28, 28, 30, 0.9)',
                     borderWidth: 2,
                     hoverOffset: 8
                 }]
@@ -151,7 +151,7 @@ const ChartFactory = {
                         position: 'bottom',
                         labels: {
                             color: this.colors.text,
-                            font: { size: 10, family: "'Inter', sans-serif" },
+                            font: { size: 10, family: "'DM Sans', sans-serif" },
                             usePointStyle: true,
                             padding: 8,
                             boxWidth: 8
@@ -222,7 +222,7 @@ const ChartFactory = {
                         labels: {
                             color: this.colors.text,
                             usePointStyle: true,
-                            font: { family: "'Inter', sans-serif", size: 12 }
+                            font: { family: "'DM Sans', sans-serif", size: 12 }
                         }
                     },
                     tooltip: {
@@ -270,7 +270,7 @@ const ChartFactory = {
                 datasets: [{
                     data: [teamData.golesAFavor, teamData.golesEnContra],
                     backgroundColor: [primary, secondary],
-                    borderColor: 'rgba(26, 26, 46, 0.8)',
+                    borderColor: 'rgba(28, 28, 30, 0.9)',
                     borderWidth: 2,
                     hoverOffset: 8
                 }]
@@ -285,7 +285,7 @@ const ChartFactory = {
                         position: 'bottom',
                         labels: {
                             color: this.colors.text,
-                            font: { size: 11, family: "'Inter', sans-serif" },
+                            font: { size: 11, family: "'DM Sans', sans-serif" },
                             usePointStyle: true,
                             padding: 12
                         }
@@ -315,7 +315,7 @@ const ChartFactory = {
                 datasets: [{
                     data: [clasico.victoriasRealMadrid, clasico.victoriasBarcelona, clasico.empates],
                     backgroundColor: [this.colors.rmGold, this.colors.fcbGarnet, this.colors.neutralAlpha],
-                    borderColor: 'rgba(26, 26, 46, 0.8)',
+                    borderColor: 'rgba(28, 28, 30, 0.9)',
                     borderWidth: 2,
                     hoverOffset: 8
                 }]
@@ -330,7 +330,7 @@ const ChartFactory = {
                         position: 'bottom',
                         labels: {
                             color: this.colors.text,
-                            font: { size: 11, family: "'Inter', sans-serif" },
+                            font: { size: 11, family: "'DM Sans', sans-serif" },
                             usePointStyle: true,
                             padding: 12
                         }
@@ -399,7 +399,7 @@ const ChartFactory = {
                         labels: {
                             color: this.colors.text,
                             usePointStyle: true,
-                            font: { size: 10, family: "'Inter', sans-serif" }
+                            font: { size: 10, family: "'DM Sans', sans-serif" }
                         }
                     },
                     tooltip: this.tooltipConfig
@@ -478,7 +478,7 @@ const ChartFactory = {
                         labels: {
                             color: this.colors.text,
                             usePointStyle: true,
-                            font: { size: 11, family: "'Inter', sans-serif" }
+                            font: { size: 11, family: "'DM Sans', sans-serif" }
                         }
                     },
                     tooltip: this.tooltipConfig
@@ -535,7 +535,7 @@ const ChartFactory = {
                         label: 'Real Madrid',
                         data: rmNormalized,
                         borderColor: this.colors.rmGold,
-                        backgroundColor: 'rgba(254, 190, 16, 0.15)',
+                        backgroundColor: 'rgba(212, 160, 18, 0.12)',
                         borderWidth: 2.5,
                         pointRadius: 4,
                         pointBackgroundColor: this.colors.rmGold,
@@ -545,7 +545,7 @@ const ChartFactory = {
                         label: 'FC Barcelona',
                         data: fcbNormalized,
                         borderColor: this.colors.fcbGarnet,
-                        backgroundColor: 'rgba(165, 0, 68, 0.15)',
+                        backgroundColor: 'rgba(155, 27, 77, 0.12)',
                         borderWidth: 2.5,
                         pointRadius: 4,
                         pointBackgroundColor: this.colors.fcbGarnet,
@@ -562,7 +562,7 @@ const ChartFactory = {
                         labels: {
                             color: this.colors.text,
                             usePointStyle: true,
-                            font: { size: 12, family: "'Inter', sans-serif" }
+                            font: { size: 12, family: "'DM Sans', sans-serif" }
                         }
                     },
                     tooltip: {
@@ -579,11 +579,11 @@ const ChartFactory = {
                 },
                 scales: {
                     r: {
-                        grid: { color: 'rgba(255, 255, 255, 0.08)' },
-                        angleLines: { color: 'rgba(255, 255, 255, 0.08)' },
+                        grid: { color: 'rgba(200, 200, 200, 0.05)' },
+                        angleLines: { color: 'rgba(200, 200, 200, 0.05)' },
                         pointLabels: {
                             color: this.colors.text,
-                            font: { size: 11, family: "'Inter', sans-serif" }
+                            font: { size: 11, family: "'DM Sans', sans-serif" }
                         },
                         ticks: {
                             display: false,

@@ -2,34 +2,37 @@
    CSS Variables & Reset
    ======================================== */
 :root {
-    --bg-primary: #0a0a0f;
-    --bg-secondary: #0e0e16;
-    --bg-card: #1a1a2e;
-    --bg-card-hover: #22223a;
-    --text-primary: #e8e8ef;
-    --text-secondary: #9999aa;
-    --text-muted: #666677;
+    --bg-primary: #0c0c0e;
+    --bg-secondary: #111113;
+    --bg-card: #1c1c1e;
+    --bg-card-hover: #2c2c2e;
+    --text-primary: #d1d1d6;
+    --text-secondary: #8e8e93;
+    --text-muted: #48484a;
 
-    --rm-gold: #FEBE10;
-    --rm-gold-dim: rgba(254, 190, 16, 0.15);
-    --rm-gold-mid: rgba(254, 190, 16, 0.4);
-    --rm-white: #FFFFFF;
+    --rm-gold: #D4A012;
+    --rm-gold-dim: rgba(212, 160, 18, 0.10);
+    --rm-gold-mid: rgba(212, 160, 18, 0.30);
     --rm-blue: #00529F;
 
-    --fcb-garnet: #A50044;
-    --fcb-garnet-dim: rgba(165, 0, 68, 0.15);
-    --fcb-garnet-mid: rgba(165, 0, 68, 0.4);
+    --fcb-garnet: #9B1B4D;
+    --fcb-garnet-dim: rgba(155, 27, 77, 0.10);
+    --fcb-garnet-mid: rgba(155, 27, 77, 0.30);
     --fcb-blue: #004D98;
     --fcb-yellow: #EDBB00;
 
-    --neutral: #555566;
-    --neutral-dim: rgba(85, 85, 102, 0.2);
+    --neutral: #3a3a3c;
+    --neutral-dim: rgba(58, 58, 60, 0.25);
 
-    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    --font-heading: 'Oswald', 'Inter', sans-serif;
+    --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-heading: 'DM Sans', -apple-system, sans-serif;
+    --font-mono: 'DM Mono', 'SF Mono', monospace;
 
-    --border-radius: 12px;
-    --border-radius-sm: 8px;
+    --border-radius: 16px;
+    --border-radius-sm: 12px;
+    --border-subtle: rgba(200, 200, 200, 0.06);
+    --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.4);
     --transition: 0.3s ease;
     --transition-slow: 0.6s ease;
 }
@@ -49,9 +52,22 @@ body {
     font-family: var(--font-body);
     background: var(--bg-primary);
     color: var(--text-primary);
-    line-height: 1.6;
+    line-height: 1.5;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Subtle noise texture overlay */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+    pointer-events: none;
+    opacity: 0.018;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    background-size: 256px 256px;
 }
 
 /* ========================================
@@ -104,10 +120,10 @@ body {
     left: 0;
     right: 0;
     z-index: 1000;
-    background: rgba(10, 10, 15, 0.85);
+    background: rgba(12, 12, 14, 0.85);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid var(--border-subtle);
     transition: background var(--transition);
 }
 
@@ -151,7 +167,7 @@ body {
     padding: 0.5rem 1rem;
     font-size: 0.85rem;
     font-weight: 500;
-    border-radius: 6px;
+    border-radius: 8px;
     transition: all var(--transition);
     letter-spacing: 0.02em;
 }
@@ -159,7 +175,7 @@ body {
 .nav-links a:hover,
 .nav-links a.active {
     color: var(--text-primary);
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(200, 200, 200, 0.06);
 }
 
 .hamburger {
@@ -198,10 +214,10 @@ body {
     align-items: center;
     gap: 0.6rem;
     padding: 0.5rem 1rem;
-    background: rgba(20, 20, 35, 0.92);
+    background: rgba(18, 18, 20, 0.95);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-subtle);
     border-radius: 50px;
     cursor: pointer;
     user-select: none;
@@ -211,7 +227,7 @@ body {
 
 .mode-toggle:hover {
     box-shadow: 0 6px 32px rgba(0, 0, 0, 0.6);
-    border-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(200, 200, 200, 0.10);
 }
 
 .toggle-label {
@@ -231,7 +247,7 @@ body {
 .toggle-track {
     width: 36px;
     height: 20px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(200, 200, 200, 0.08);
     border-radius: 10px;
     position: relative;
     flex-shrink: 0;
@@ -255,7 +271,7 @@ body {
 }
 
 .mode-toggle[aria-checked="true"] .toggle-track {
-    background: rgba(255, 255, 255, 0.18);
+    background: rgba(200, 200, 200, 0.14);
 }
 
 /* Data transition animation */
@@ -278,8 +294,8 @@ body {
     position: relative;
     overflow: hidden;
     padding-bottom: 3.5rem;
-    background: radial-gradient(ellipse at 20% 50%, rgba(254, 190, 16, 0.05) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 50%, rgba(165, 0, 68, 0.05) 0%, transparent 50%),
+    background: radial-gradient(ellipse at 20% 50%, rgba(212, 160, 18, 0.04) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 50%, rgba(155, 27, 77, 0.04) 0%, transparent 50%),
                 var(--bg-primary);
 }
 
@@ -311,18 +327,18 @@ body {
 .hero-logo {
     width: 140px;
     height: 140px;
-    filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.1));
+    filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.5));
     transition: transform var(--transition-slow);
 }
 
 .hero-rm .hero-logo:hover {
     transform: scale(1.08);
-    filter: drop-shadow(0 0 40px rgba(254, 190, 16, 0.3));
+    filter: drop-shadow(0 0 30px rgba(212, 160, 18, 0.25));
 }
 
 .hero-fcb .hero-logo:hover {
     transform: scale(1.08);
-    filter: drop-shadow(0 0 40px rgba(165, 0, 68, 0.3));
+    filter: drop-shadow(0 0 30px rgba(155, 27, 77, 0.25));
 }
 
 .hero-team h2 {
@@ -331,6 +347,7 @@ body {
     margin-top: 1rem;
     letter-spacing: 0.05em;
     text-transform: uppercase;
+    font-weight: 600;
 }
 
 .hero-rm h2 { color: var(--rm-gold); }
@@ -371,9 +388,9 @@ body {
 }
 
 .hero-stat-number {
-    font-family: var(--font-heading);
+    font-family: var(--font-mono);
     font-size: 2rem;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--text-primary);
     font-variant-numeric: tabular-nums;
 }
@@ -428,6 +445,7 @@ body {
     margin-bottom: 0.5rem;
     letter-spacing: 0.03em;
     text-transform: uppercase;
+    font-weight: 700;
 }
 
 .section-icon {
@@ -448,6 +466,7 @@ body {
     margin: 3rem 0 1.5rem;
     color: var(--text-primary);
     letter-spacing: 0.03em;
+    font-weight: 600;
 }
 
 /* ========================================
@@ -473,22 +492,24 @@ body {
     border-radius: var(--border-radius);
     padding: 1.5rem;
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-card);
     transition: transform var(--transition), box-shadow var(--transition);
 }
 
 .counter-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--shadow-card-hover);
 }
 
-.rm-card { border-left: 3px solid var(--rm-gold); }
-.fcb-card { border-left: 3px solid var(--fcb-garnet); }
+.rm-card { border-left: 2px solid var(--rm-gold); }
+.fcb-card { border-left: 2px solid var(--fcb-garnet); }
 
 .neutral-card {
     border: none;
     background: transparent;
     padding: 0.5rem;
+    box-shadow: none;
 }
 
 .counter-icon {
@@ -497,9 +518,9 @@ body {
 
 .counter-number {
     display: block;
-    font-family: var(--font-heading);
+    font-family: var(--font-mono);
     font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 700;
+    font-weight: 500;
     color: var(--text-primary);
     font-variant-numeric: tabular-nums;
     line-height: 1.1;
@@ -532,7 +553,8 @@ body {
     border-radius: var(--border-radius);
     padding: 2rem;
     margin-bottom: 2rem;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-card);
     position: relative;
     height: 400px;
 }
@@ -557,7 +579,8 @@ body {
     background: var(--bg-card);
     border-radius: var(--border-radius);
     padding: 1.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-card);
     height: 300px;
     position: relative;
 }
@@ -578,6 +601,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 0.4rem;
+    font-weight: 500;
 }
 
 .chart-subtitle-logo {
@@ -596,7 +620,7 @@ body {
     color: var(--text-muted);
     text-align: center;
     line-height: 1.6;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid var(--border-subtle);
     font-style: italic;
     max-width: 700px;
     margin-left: auto;
@@ -616,7 +640,8 @@ body {
     background: var(--bg-card);
     border-radius: var(--border-radius-sm);
     padding: 1rem 1.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-card);
 }
 
 .comp-bar-label {
@@ -636,9 +661,9 @@ body {
 }
 
 .comp-bar-value {
-    font-family: var(--font-heading);
+    font-family: var(--font-mono);
     font-size: 1.1rem;
-    font-weight: 600;
+    font-weight: 500;
     font-variant-numeric: tabular-nums;
 }
 
@@ -657,7 +682,7 @@ body {
     height: 28px;
     border-radius: 14px;
     overflow: hidden;
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(200, 200, 200, 0.04);
 }
 
 .comp-bar-fill-rm {
@@ -690,7 +715,8 @@ body {
     background: var(--bg-card);
     border-radius: var(--border-radius);
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-card);
 }
 
 .table-header {
@@ -702,6 +728,7 @@ body {
     font-size: 1rem;
     letter-spacing: 0.03em;
     text-transform: uppercase;
+    font-weight: 600;
 }
 
 .rm-header {
@@ -733,14 +760,14 @@ body {
     text-transform: uppercase;
     letter-spacing: 0.05em;
     text-align: left;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid var(--border-subtle);
     font-weight: 500;
 }
 
 .player-table td {
     padding: 0.7rem 1rem;
     font-size: 0.85rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(200, 200, 200, 0.03);
 }
 
 .player-table tr:last-child td {
@@ -748,12 +775,12 @@ body {
 }
 
 .player-table tr:hover {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(200, 200, 200, 0.03);
 }
 
 .player-rank {
-    font-family: var(--font-heading);
-    font-weight: 600;
+    font-family: var(--font-mono);
+    font-weight: 500;
     color: var(--text-muted);
     width: 30px;
 }
@@ -764,8 +791,8 @@ body {
 }
 
 .player-stat {
-    font-family: var(--font-heading);
-    font-weight: 600;
+    font-family: var(--font-mono);
+    font-weight: 500;
     font-size: 1rem !important;
 }
 
@@ -821,7 +848,7 @@ body {
    ======================================== */
 #footer {
     background: var(--bg-secondary);
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid var(--border-subtle);
     padding: 3rem 1.5rem;
     text-align: center;
 }
@@ -834,6 +861,7 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    font-weight: 600;
 }
 
 .footer-sources {
@@ -875,11 +903,11 @@ body {
         top: 60px;
         left: 0;
         right: 0;
-        background: rgba(10, 10, 15, 0.95);
+        background: rgba(12, 12, 14, 0.95);
         backdrop-filter: blur(12px);
         flex-direction: column;
         padding: 1rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        border-bottom: 1px solid var(--border-subtle);
     }
 
     .nav-links.open {
@@ -1103,8 +1131,8 @@ body {
 }
 
 .hero-last-match .match-score {
-    font-family: var(--font-heading);
-    font-weight: 700;
+    font-family: var(--font-mono);
+    font-weight: 500;
     font-size: 0.9rem;
     display: block;
     margin-bottom: 0.4rem;
@@ -1113,28 +1141,28 @@ body {
 .hero-last-match .match-result {
     display: inline-block;
     padding: 0.2rem 0.6rem;
-    border-radius: 4px;
+    border-radius: 6px;
     font-weight: 600;
     font-size: 0.68rem;
     letter-spacing: 0.03em;
 }
 
 .result-win {
-    background: rgba(34, 197, 94, 0.15);
-    color: #22c55e;
-    border: 1px solid rgba(34, 197, 94, 0.3);
+    background: rgba(34, 197, 94, 0.12);
+    color: #34d399;
+    border: 1px solid rgba(34, 197, 94, 0.25);
 }
 
 .result-draw {
-    background: rgba(255, 255, 255, 0.1);
-    color: #e0e0e0;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(200, 200, 200, 0.08);
+    color: #a1a1a6;
+    border: 1px solid rgba(200, 200, 200, 0.15);
 }
 
 .result-loss {
-    background: rgba(239, 68, 68, 0.15);
-    color: #ef4444;
-    border: 1px solid rgba(239, 68, 68, 0.3);
+    background: rgba(239, 68, 68, 0.12);
+    color: #f87171;
+    border: 1px solid rgba(239, 68, 68, 0.25);
 }
 
 /* ========================================

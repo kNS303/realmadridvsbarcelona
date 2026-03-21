@@ -46,9 +46,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     } catch (error) {
         console.error('Error inicializando la app:', error);
         document.getElementById('loading').innerHTML = `
-            <p style="color: #ff4444; text-align: center;">
+            <p style="color: #ff453a; text-align: center;">
                 Error cargando los datos.<br>
-                <small style="color: #999;">Asegúrate de servir la página desde un servidor local (Live Server, etc.)</small>
+                <small style="color: #8e8e93;">Asegúrate de servir la página desde un servidor local (Live Server, etc.)</small>
             </p>
         `;
     }
@@ -415,9 +415,9 @@ function initNavigation() {
     const nav = document.getElementById('main-nav');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 100) {
-            nav.style.background = 'rgba(10, 10, 15, 0.95)';
+            nav.style.background = 'rgba(12, 12, 14, 0.95)';
         } else {
-            nav.style.background = 'rgba(10, 10, 15, 0.85)';
+            nav.style.background = 'rgba(12, 12, 14, 0.85)';
         }
     }, { passive: true });
 }
