@@ -823,27 +823,21 @@ function renderClasicosCards(dataService, mode) {
 
     container.innerHTML = partidos.map(p => {
         const winnerClass = p.ganador === 'rm' ? 'winner-rm' : p.ganador === 'fcb' ? 'winner-fcb' : 'winner-empate';
-        const resultClass = p.ganador === 'rm' ? 'result-rm' : p.ganador === 'fcb' ? 'result-fcb' : 'result-empate';
-        const crestWinner = p.ganador === 'rm' ? '<img src="https://crests.football-data.org/86.png" alt="RM" class="clasico-card-crest">' : p.ganador === 'fcb' ? '<img src="https://crests.football-data.org/81.png" alt="FCB" class="clasico-card-crest">' : '';
-        const resultLabel = p.ganador === 'rm' ? `Victoria ${crestWinner}` : p.ganador === 'fcb' ? `Victoria ${crestWinner}` : 'Empate';
-        const rmWinner = p.ganador === 'rm' ? ' team-winner' : '';
-        const fcbWinner = p.ganador === 'fcb' ? ' team-winner' : '';
 
         return `
             <div class="clasico-card ${winnerClass}">
-                <div class="clasico-card-date">${p.fecha}</div>
+                <div class="clasico-card-header">
+                    <span class="clasico-card-date">${p.fecha}</span>
+                    <span class="clasico-card-comp">${p.competicion}</span>
+                </div>
                 <div class="clasico-card-score">
-                    <span class="clasico-card-team team-rm${rmWinner}"><img src="https://crests.football-data.org/86.png" alt="RM" class="clasico-score-crest"/></span>
+                    <span class="clasico-card-team"><img src="https://crests.football-data.org/86.png" alt="RM" class="clasico-score-crest"/></span>
                     <span class="clasico-card-goals">
                         <span class="goal-rm">${p.golesRM}</span>
                         <span class="goal-separator">-</span>
                         <span class="goal-fcb">${p.golesFCB}</span>
                     </span>
-                    <span class="clasico-card-team team-fcb${fcbWinner}"><img src="https://crests.football-data.org/81.png" alt="FCB" class="clasico-score-crest"/></span>
-                </div>
-                <div class="clasico-card-footer">
-                    <span class="clasico-card-comp">${p.competicion}</span>
-                    <span class="clasico-card-result ${resultClass}">${resultLabel}</span>
+                    <span class="clasico-card-team"><img src="https://crests.football-data.org/81.png" alt="FCB" class="clasico-score-crest"/></span>
                 </div>
             </div>
         `;
