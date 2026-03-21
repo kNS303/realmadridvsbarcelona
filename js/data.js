@@ -107,7 +107,7 @@ class DataService {
 // ====== DATOS ESTADÍSTICOS EMBEBIDOS ======
 DataService.STATS_DATA = {
   "meta": {
-    "lastUpdated": "2026-03-19",
+    "lastUpdated": "2026-03-21",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -469,7 +469,7 @@ DataService.STATS_DATA = {
   },
   "ultimoPartido": {
     "realMadrid": {
-      "rival": "Manchester City",
+      "rival": "Man City",
       "golesLocal": 1,
       "golesVisitante": 2,
       "esLocal": false,
@@ -478,7 +478,7 @@ DataService.STATS_DATA = {
       "resultado": "victoria"
     },
     "barcelona": {
-      "rival": "Newcastle United",
+      "rival": "Newcastle",
       "golesLocal": 7,
       "golesVisitante": 2,
       "esLocal": true,
@@ -490,11 +490,11 @@ DataService.STATS_DATA = {
   "temporadaActual": {
     "meta": {
       "temporada": "2025-26",
-      "nota": "Datos de la temporada 2025-26 (todas las competiciones) hasta marzo 2026"
+      "nota": "Datos de la temporada 2025-26 en todas las competiciones. Actualizado automaticamente."
     },
     "heroStats": {
-      "clasicosDisputados": 2,
-      "golesEnClasicos": 8,
+      "clasicosDisputados": 1,
+      "golesEnClasicos": 3,
       "subtitulo": "Temporada 2025-26"
     },
     "titulos": {
@@ -512,7 +512,7 @@ DataService.STATS_DATA = {
         "liga": 0,
         "championsLeague": 0,
         "copaDelRey": 0,
-        "supercopaEspana": 1,
+        "supercopaEspana": 0,
         "supercopaEuropa": 0,
         "mundialClubes": 0,
         "copaLiga": 0,
@@ -521,41 +521,35 @@ DataService.STATS_DATA = {
     },
     "historialGeneral": {
       "realMadrid": {
-        "partidosJugados": 44,
-        "ganados": 31,
-        "empatados": 5,
-        "perdidos": 8,
-        "golesAFavor": 96,
-        "golesEnContra": 50
+        "partidosJugados": 40,
+        "ganados": 30,
+        "empatados": 3,
+        "perdidos": 7,
+        "golesAFavor": 89,
+        "golesEnContra": 38
       },
       "barcelona": {
-        "partidosJugados": 49,
-        "ganados": 38,
+        "partidosJugados": 38,
+        "ganados": 29,
         "empatados": 3,
-        "perdidos": 8,
-        "golesAFavor": 144,
-        "golesEnContra": 52
+        "perdidos": 6,
+        "golesAFavor": 107,
+        "golesEnContra": 45
       }
     },
     "elClasico": {
-      "totalPartidos": 2,
+      "totalPartidos": 1,
       "victoriasRealMadrid": 1,
-      "victoriasBarcelona": 1,
+      "victoriasBarcelona": 0,
       "empates": 0,
-      "golesRealMadrid": 4,
-      "golesBarcelona": 4,
+      "golesRealMadrid": 2,
+      "golesBarcelona": 1,
       "partidos": [
         {
-          "fecha": "26 octubre 2025",
-          "competicion": "La Liga (J10)",
+          "fecha": "26 de octubre de 2025",
+          "competicion": "La Liga",
           "resultado": "Real Madrid 2-1 FC Barcelona",
-          "goleadores": "Mbappé, Bellingham; Fermín"
-        },
-        {
-          "fecha": "11 enero 2026",
-          "competicion": "Supercopa de España (Final)",
-          "resultado": "FC Barcelona 3-2 Real Madrid",
-          "goleadores": "Raphinha x2, Lewandowski; Vinícius, G. García"
+          "goleadores": ""
         }
       ],
       "porCompeticion": {
@@ -578,9 +572,9 @@ DataService.STATS_DATA = {
           "empates": 0
         },
         "supercopa": {
-          "partidos": 1,
+          "partidos": 0,
           "rmVictorias": 0,
-          "fcbVictorias": 1,
+          "fcbVictorias": 0,
           "empates": 0
         }
       },
@@ -588,62 +582,82 @@ DataService.STATS_DATA = {
     },
     "estadisticasDetalladas": {
       "realMadrid": {
-        "penaltisAFavor": 14,
-        "penaltisEnContra": 8,
-        "tarjetasAmarillas": 112,
+        "penaltisAFavor": 13,
+        "penaltisEnContra": 7,
+        "tarjetasAmarillas": 100,
         "tarjetasRojas": 5,
-        "corners": 265,
-        "faltas": 420,
-        "fuerasDeJuego": 95,
-        "posesionMedia": 54.2,
-        "tirosAPuerta": 330,
-        "tirosAFuera": 285
+        "corners": 232,
+        "faltas": 380,
+        "fuerasDeJuego": 84,
+        "posesionMedia": 55,
+        "tirosAPuerta": 288,
+        "tirosAFuera": 252
       },
       "barcelona": {
-        "penaltisAFavor": 11,
-        "penaltisEnContra": 6,
-        "tarjetasAmarillas": 98,
-        "tarjetasRojas": 4,
-        "corners": 290,
-        "faltas": 365,
-        "fuerasDeJuego": 78,
-        "posesionMedia": 61.3,
-        "tirosAPuerta": 385,
-        "tirosAFuera": 295
+        "penaltisAFavor": 12,
+        "penaltisEnContra": 7,
+        "tarjetasAmarillas": 95,
+        "tarjetasRojas": 5,
+        "corners": 220,
+        "faltas": 361,
+        "fuerasDeJuego": 80,
+        "posesionMedia": 55,
+        "tirosAPuerta": 274,
+        "tirosAFuera": 239
       }
     },
     "topJugadores": {
       "goleadores": {
         "realMadrid": [
-          { "nombre": "Kylian Mbappé", "goles": 36, "partidos": 30, "periodo": "2025-26" },
-          { "nombre": "Vinícius Jr", "goles": 14, "partidos": 30, "periodo": "2025-26" },
-          { "nombre": "Federico Valverde", "goles": 9, "partidos": 35, "periodo": "2025-26" },
-          { "nombre": "Jude Bellingham", "goles": 7, "partidos": 25, "periodo": "2025-26" },
-          { "nombre": "Arda Güler", "goles": 6, "partidos": 30, "periodo": "2025-26" }
+          {
+            "nombre": "Kylian Mbappé",
+            "goles": 36,
+            "partidos": 33,
+            "periodo": "2025-26"
+          },
+          {
+            "nombre": "Vinicius Junior",
+            "goles": 14,
+            "partidos": 38,
+            "periodo": "2025-26"
+          }
         ],
         "barcelona": [
-          { "nombre": "Robert Lewandowski", "goles": 22, "partidos": 42, "periodo": "2025-26" },
-          { "nombre": "Raphinha", "goles": 21, "partidos": 35, "periodo": "2025-26" },
-          { "nombre": "Lamine Yamal", "goles": 19, "partidos": 38, "periodo": "2025-26" },
-          { "nombre": "Fermín López", "goles": 12, "partidos": 38, "periodo": "2025-26" },
-          { "nombre": "Dani Olmo", "goles": 8, "partidos": 28, "periodo": "2025-26" }
+          {
+            "nombre": "Lamine Yamal",
+            "goles": 19,
+            "partidos": 32,
+            "periodo": "2025-26"
+          },
+          {
+            "nombre": "Robert Lewandowski",
+            "goles": 15,
+            "partidos": 34,
+            "periodo": "2025-26"
+          },
+          {
+            "nombre": "Ferrán Torres",
+            "goles": 12,
+            "partidos": 26,
+            "periodo": "2025-26"
+          },
+          {
+            "nombre": "Raphinha",
+            "goles": 11,
+            "partidos": 20,
+            "periodo": "2025-26"
+          },
+          {
+            "nombre": "Fermín López",
+            "goles": 11,
+            "partidos": 32,
+            "periodo": "2025-26"
+          }
         ]
       },
       "asistentes": {
-        "realMadrid": [
-          { "nombre": "Arda Güler", "asistencias": 10, "partidos": 30, "periodo": "2025-26" },
-          { "nombre": "Federico Valverde", "asistencias": 9, "partidos": 35, "periodo": "2025-26" },
-          { "nombre": "Vinícius Jr", "asistencias": 7, "partidos": 30, "periodo": "2025-26" },
-          { "nombre": "Kylian Mbappé", "asistencias": 5, "partidos": 30, "periodo": "2025-26" },
-          { "nombre": "Jude Bellingham", "asistencias": 5, "partidos": 25, "periodo": "2025-26" }
-        ],
-        "barcelona": [
-          { "nombre": "Lamine Yamal", "asistencias": 13, "partidos": 38, "periodo": "2025-26" },
-          { "nombre": "Raphinha", "asistencias": 9, "partidos": 35, "periodo": "2025-26" },
-          { "nombre": "Pedri", "asistencias": 8, "partidos": 32, "periodo": "2025-26" },
-          { "nombre": "Robert Lewandowski", "asistencias": 7, "partidos": 42, "periodo": "2025-26" },
-          { "nombre": "Fermín López", "asistencias": 5, "partidos": 38, "periodo": "2025-26" }
-        ]
+        "realMadrid": [],
+        "barcelona": []
       }
     }
   }

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-19",
+    "lastUpdated": "2026-03-21",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -362,7 +362,7 @@
   },
   "ultimoPartido": {
     "realMadrid": {
-      "rival": "Manchester City",
+      "rival": "Man City",
       "golesLocal": 1,
       "golesVisitante": 2,
       "esLocal": false,
@@ -371,13 +371,187 @@
       "resultado": "victoria"
     },
     "barcelona": {
-      "rival": "Newcastle United",
+      "rival": "Newcastle",
       "golesLocal": 7,
       "golesVisitante": 2,
       "esLocal": true,
       "competicion": "Champions League",
       "fecha": "2026-03-18",
       "resultado": "victoria"
+    }
+  },
+  "temporadaActual": {
+    "meta": {
+      "temporada": "2025-26",
+      "nota": "Datos de la temporada 2025-26 en todas las competiciones. Actualizado automaticamente."
+    },
+    "heroStats": {
+      "clasicosDisputados": 1,
+      "golesEnClasicos": 3,
+      "subtitulo": "Temporada 2025-26"
+    },
+    "titulos": {
+      "realMadrid": {
+        "liga": 0,
+        "championsLeague": 0,
+        "copaDelRey": 0,
+        "supercopaEspana": 0,
+        "supercopaEuropa": 0,
+        "mundialClubes": 0,
+        "copaLiga": 0,
+        "recopa": 0
+      },
+      "barcelona": {
+        "liga": 0,
+        "championsLeague": 0,
+        "copaDelRey": 0,
+        "supercopaEspana": 0,
+        "supercopaEuropa": 0,
+        "mundialClubes": 0,
+        "copaLiga": 0,
+        "recopa": 0
+      }
+    },
+    "historialGeneral": {
+      "realMadrid": {
+        "partidosJugados": 40,
+        "ganados": 30,
+        "empatados": 3,
+        "perdidos": 7,
+        "golesAFavor": 89,
+        "golesEnContra": 38
+      },
+      "barcelona": {
+        "partidosJugados": 38,
+        "ganados": 29,
+        "empatados": 3,
+        "perdidos": 6,
+        "golesAFavor": 107,
+        "golesEnContra": 45
+      }
+    },
+    "elClasico": {
+      "totalPartidos": 1,
+      "victoriasRealMadrid": 1,
+      "victoriasBarcelona": 0,
+      "empates": 0,
+      "golesRealMadrid": 2,
+      "golesBarcelona": 1,
+      "partidos": [
+        {
+          "fecha": "26 de octubre de 2025",
+          "competicion": "La Liga",
+          "resultado": "Real Madrid 2-1 FC Barcelona",
+          "goleadores": ""
+        }
+      ],
+      "porCompeticion": {
+        "liga": {
+          "partidos": 1,
+          "rmVictorias": 1,
+          "fcbVictorias": 0,
+          "empates": 0
+        },
+        "copaDelRey": {
+          "partidos": 0,
+          "rmVictorias": 0,
+          "fcbVictorias": 0,
+          "empates": 0
+        },
+        "championsLeague": {
+          "partidos": 0,
+          "rmVictorias": 0,
+          "fcbVictorias": 0,
+          "empates": 0
+        },
+        "supercopa": {
+          "partidos": 0,
+          "rmVictorias": 0,
+          "fcbVictorias": 0,
+          "empates": 0
+        }
+      },
+      "evolucionHistorica": []
+    },
+    "estadisticasDetalladas": {
+      "realMadrid": {
+        "penaltisAFavor": 13,
+        "penaltisEnContra": 7,
+        "tarjetasAmarillas": 100,
+        "tarjetasRojas": 5,
+        "corners": 232,
+        "faltas": 380,
+        "fuerasDeJuego": 84,
+        "posesionMedia": 55,
+        "tirosAPuerta": 288,
+        "tirosAFuera": 252
+      },
+      "barcelona": {
+        "penaltisAFavor": 12,
+        "penaltisEnContra": 7,
+        "tarjetasAmarillas": 95,
+        "tarjetasRojas": 5,
+        "corners": 220,
+        "faltas": 361,
+        "fuerasDeJuego": 80,
+        "posesionMedia": 55,
+        "tirosAPuerta": 274,
+        "tirosAFuera": 239
+      }
+    },
+    "topJugadores": {
+      "goleadores": {
+        "realMadrid": [
+          {
+            "nombre": "Kylian Mbappé",
+            "goles": 36,
+            "partidos": 33,
+            "periodo": "2025-26"
+          },
+          {
+            "nombre": "Vinicius Junior",
+            "goles": 14,
+            "partidos": 38,
+            "periodo": "2025-26"
+          }
+        ],
+        "barcelona": [
+          {
+            "nombre": "Lamine Yamal",
+            "goles": 19,
+            "partidos": 32,
+            "periodo": "2025-26"
+          },
+          {
+            "nombre": "Robert Lewandowski",
+            "goles": 15,
+            "partidos": 34,
+            "periodo": "2025-26"
+          },
+          {
+            "nombre": "Ferrán Torres",
+            "goles": 12,
+            "partidos": 26,
+            "periodo": "2025-26"
+          },
+          {
+            "nombre": "Raphinha",
+            "goles": 11,
+            "partidos": 20,
+            "periodo": "2025-26"
+          },
+          {
+            "nombre": "Fermín López",
+            "goles": 11,
+            "partidos": 32,
+            "periodo": "2025-26"
+          }
+        ]
+      },
+      "asistentes": {
+        "realMadrid": [],
+        "barcelona": []
+      }
     }
   }
 }
