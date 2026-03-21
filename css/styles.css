@@ -1777,6 +1777,22 @@ body::before {
     text-align: left;
 }
 
+.comparador-bar-value.val-nd {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    opacity: 0.6;
+}
+
+.comparador-bar-nd {
+    width: 100%;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.65rem;
+    line-height: 28px;
+    opacity: 0.5;
+    font-style: italic;
+}
+
 .comparador-bar-track {
     display: flex;
     height: 28px;

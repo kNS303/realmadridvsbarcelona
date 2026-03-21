@@ -490,28 +490,28 @@ DataService.STATS_DATA = {
         {
           "nombre": "Alfredo Di Stéfano",
           "goles": 308,
-          "asistencias": 0,
+          "asistencias": null,
           "partidos": 396,
           "periodo": "1953-1964"
         },
         {
           "nombre": "Santillana",
           "goles": 290,
-          "asistencias": 0,
+          "asistencias": null,
           "partidos": 645,
           "periodo": "1971-1988"
         },
         {
           "nombre": "Ferenc Puskás",
           "goles": 242,
-          "asistencias": 0,
+          "asistencias": null,
           "partidos": 262,
           "periodo": "1958-1967"
         },
         {
           "nombre": "Hugo Sánchez",
           "goles": 208,
-          "asistencias": 0,
+          "asistencias": null,
           "partidos": 282,
           "periodo": "1985-1992"
         }
@@ -527,7 +527,7 @@ DataService.STATS_DATA = {
         {
           "nombre": "César Rodríguez",
           "goles": 232,
-          "asistencias": 0,
+          "asistencias": null,
           "partidos": 351,
           "periodo": "1942-1955"
         },
@@ -541,7 +541,7 @@ DataService.STATS_DATA = {
         {
           "nombre": "Ladislao Kubala",
           "goles": 194,
-          "asistencias": 0,
+          "asistencias": null,
           "partidos": 345,
           "periodo": "1951-1961"
         },
@@ -592,10 +592,10 @@ DataService.STATS_DATA = {
           "periodo": "2010-2013"
         },
         {
-          "nombre": "Michel",
-          "goles": 96,
+          "nombre": "Míchel",
+          "goles": 130,
           "asistencias": 78,
-          "partidos": 559,
+          "partidos": 561,
           "periodo": "1984-1996"
         }
       ],

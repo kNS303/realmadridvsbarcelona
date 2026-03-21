@@ -620,12 +620,12 @@ function initComparador(dataService, mode) {
 
 function buildPlayerList(jugadores, team) {
     const map = {};
-    // Add goleadores
+    // Add goleadores (preserve null for unknown assists)
     (jugadores.goleadores[team] || []).forEach(p => {
         map[p.nombre] = {
             nombre: p.nombre,
             goles: p.goles || 0,
-            asistencias: p.asistencias || 0,
+            asistencias: p.asistencias === null ? null : (p.asistencias || 0),
             partidos: p.partidos || 0,
             periodo: p.periodo || ''
         };
@@ -633,23 +633,21 @@ function buildPlayerList(jugadores, team) {
     // Merge asistentes
     (jugadores.asistentes[team] || []).forEach(p => {
         if (map[p.nombre]) {
-            map[p.nombre].asistencias = p.asistencias || 0;
-            // Keep higher partidos count
-            if (p.partidos > map[p.nombre].partidos) {
-                map[p.nombre].partidos = p.partidos;
-            }
+            if (p.asistencias != null) map[p.nombre].asistencias = p.asistencias;
+            if (p.goles && p.goles > map[p.nombre].goles) map[p.nombre].goles = p.goles;
+            if (p.partidos > map[p.nombre].partidos) map[p.nombre].partidos = p.partidos;
         } else {
             map[p.nombre] = {
                 nombre: p.nombre,
                 goles: p.goles || 0,
-                asistencias: p.asistencias || 0,
+                asistencias: p.asistencias === null ? null : (p.asistencias || 0),
                 partidos: p.partidos || 0,
                 periodo: p.periodo || ''
             };
         }
     });
-    // Sort by goals desc, then assists desc
-    return Object.values(map).sort((a, b) => (b.goles + b.asistencias) - (a.goles + a.asistencias));
+    // Sort by goals desc, then assists desc (null assists treated as 0 for sorting)
+    return Object.values(map).sort((a, b) => (b.goles + (b.asistencias || 0)) - (a.goles + (a.asistencias || 0)));
 }
 
 function populateComparadorSelect(select, players) {
@@ -707,19 +705,27 @@ function renderComparadorMatch(rmPlayers, fcbPlayers) {
     ];
 
     barsContainer.innerHTML = stats.map(s => {
-        const total = s.rmVal + s.fcbVal;
-        const rmPct = total > 0 ? (s.rmVal / total) * 100 : 50;
-        const fcbPct = total > 0 ? (s.fcbVal / total) * 100 : 50;
+        const rmNull = s.rmVal === null;
+        const fcbNull = s.fcbVal === null;
+        const rmNum = rmNull ? 0 : s.rmVal;
+        const fcbNum = fcbNull ? 0 : s.fcbVal;
+        const total = rmNum + fcbNum;
+        const rmPct = total > 0 ? (rmNum / total) * 100 : 50;
+        const fcbPct = total > 0 ? (fcbNum / total) * 100 : 50;
+        const rmDisplay = rmNull ? 'N/D' : rmNum.toLocaleString('es-ES');
+        const fcbDisplay = fcbNull ? 'N/D' : fcbNum.toLocaleString('es-ES');
+        const noData = rmNull && fcbNull;
         return `
             <div class="comparador-bar-item">
                 <div class="comparador-bar-label">${s.label}</div>
                 <div class="comparador-bar-row">
-                    <span class="comparador-bar-value rm-val">${s.rmVal.toLocaleString('es-ES')}</span>
+                    <span class="comparador-bar-value rm-val ${rmNull ? 'val-nd' : ''}">${rmDisplay}</span>
                     <div class="comparador-bar-track">
+                        ${noData ? '<div class="comparador-bar-nd">Sin registros historicos</div>' : `
                         <div class="comparador-bar-fill-rm" style="width: ${rmPct.toFixed(1)}%"></div>
-                        <div class="comparador-bar-fill-fcb" style="width: ${fcbPct.toFixed(1)}%"></div>
+                        <div class="comparador-bar-fill-fcb" style="width: ${fcbPct.toFixed(1)}%"></div>`}
                     </div>
-                    <span class="comparador-bar-value fcb-val">${s.fcbVal.toLocaleString('es-ES')}</span>
+                    <span class="comparador-bar-value fcb-val ${fcbNull ? 'val-nd' : ''}">${fcbDisplay}</span>
                 </div>
             </div>
         `;
