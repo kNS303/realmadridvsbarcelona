@@ -922,12 +922,16 @@ body::before {
 }
 
 @media (max-width: 960px) {
-    /* Navigation mobile */
+    /* Navigation mobile - distribuir escudos, badge y hamburguesa */
+    .nav-container {
+        justify-content: space-between;
+    }
+
     .nav-updated {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        margin-left: 0;
+        position: static;
+        transform: none;
+        margin-left: auto;
+        margin-right: auto;
         font-size: 0.58rem;
     }
 
