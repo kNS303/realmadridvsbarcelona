@@ -140,36 +140,46 @@ async function fetchHistoricalFromWikipedia() {
     const results = { titulos: { realMadrid: {}, barcelona: {} }, clasico: {} };
 
     try {
-        // Titulos desde infobox
-        const rmInfobox = await fetchJSON(
-            'https://en.wikipedia.org/w/api.php?action=parse&page=Real_Madrid_CF&prop=wikitext&section=0&format=json'
+        // Titulos desde secciones de Honours (wikitable format)
+        // Real Madrid: section 32 = Honours | FC Barcelona: section 24 = Honours
+        const rmHonours = await fetchJSON(
+            'https://en.wikipedia.org/w/api.php?action=parse&page=Real_Madrid_CF&prop=wikitext&section=32&format=json'
         );
-        const fcbInfobox = await fetchJSON(
-            'https://en.wikipedia.org/w/api.php?action=parse&page=FC_Barcelona&prop=wikitext&section=0&format=json'
+        const fcbHonours = await fetchJSON(
+            'https://en.wikipedia.org/w/api.php?action=parse&page=FC_Barcelona&prop=wikitext&section=24&format=json'
         );
 
-        const rmText = rmInfobox?.parse?.wikitext?.['*'] || '';
-        const fcbText = fcbInfobox?.parse?.wikitext?.['*'] || '';
+        const rmText = rmHonours?.parse?.wikitext?.['*'] || '';
+        const fcbText = fcbHonours?.parse?.wikitext?.['*'] || '';
 
-        results.titulos.realMadrid = extractInfoboxTitles(rmText, 'Real Madrid');
-        results.titulos.barcelona = extractInfoboxTitles(fcbText, 'Barcelona');
+        results.titulos.realMadrid = extractHonoursTitles(rmText, 'Real Madrid');
+        results.titulos.barcelona = extractHonoursTitles(fcbText, 'Barcelona');
 
-        // El Clasico head-to-head
-        const clasicoData = await fetchJSON(
+        // El Clasico: infobox (section=0) para total, section=12 para wins/draws
+        const clasicoInfData = await fetchJSON(
             'https://en.wikipedia.org/w/api.php?action=parse&page=El_Cl%C3%A1sico&prop=wikitext&section=0&format=json'
         );
-        const clasicoText = clasicoData?.parse?.wikitext?.['*'] || '';
+        const clasicoStatsData = await fetchJSON(
+            'https://en.wikipedia.org/w/api.php?action=parse&page=El_Cl%C3%A1sico&prop=wikitext&section=12&format=json'
+        );
 
-        const totalMatch = clasicoText.match(/total[_\s]*meetings\s*=\s*(\d+)/i)
-                        || clasicoText.match(/(\d+)\s*(?:total\s*)?(?:competitive\s*)?matches/i);
-        const team1Wins = clasicoText.match(/team1wins\s*=\s*(\d+)/i);
-        const team2Wins = clasicoText.match(/team2wins\s*=\s*(\d+)/i);
-        const drawsMatch = clasicoText.match(/draws\s*=\s*(\d+)/i);
+        const clasicoInfText = clasicoInfData?.parse?.wikitext?.['*'] || '';
+        const clasicoStatsText = clasicoStatsData?.parse?.wikitext?.['*'] || '';
 
+        // Total desde infobox: "| total = 263 (official matches)"
+        const totalMatch = clasicoInfText.match(/\|\s*total\s*=\s*(\d+)/i);
         if (totalMatch) results.clasico.totalPartidos = parseInt(totalMatch[1]);
-        if (team1Wins) results.clasico.victoriasRealMadrid = parseInt(team1Wins[1]);
-        if (team2Wins) results.clasico.victoriasBarcelona = parseInt(team2Wins[1]);
-        if (drawsMatch) results.clasico.empates = parseInt(drawsMatch[1]);
+
+        // Wins/draws desde tabla de Matches summary (section 12):
+        // "! scope="row" | All competitions\n! 263|| 106|| 105||52||..."
+        const summaryMatch = clasicoStatsText.match(
+            /All competitions[\s\S]*?!\s*(\d+)\s*\|\|\s*(\d+)\s*\|\|\s*(\d+)\s*\|\|\s*(\d+)/i
+        );
+        if (summaryMatch) {
+            results.clasico.victoriasRealMadrid = parseInt(summaryMatch[2]);
+            results.clasico.victoriasBarcelona  = parseInt(summaryMatch[3]);
+            results.clasico.empates             = parseInt(summaryMatch[4]);
+        }
 
         console.log('  Clasico extraido:', JSON.stringify(results.clasico));
     } catch (err) {
@@ -179,21 +189,53 @@ async function fetchHistoricalFromWikipedia() {
     return results;
 }
 
-function extractInfoboxTitles(wikitext, teamLabel) {
+/**
+ * Extrae titulos de la seccion Honours (wikitable) de Wikipedia.
+ * Formato de la tabla (linea de competicion seguida de linea con el numero):
+ *   ! scope="col" | [[La Liga]]<ref...>
+ *   | style="background-color:gold" | '''36'''
+ * o bien (FCB):
+ *   ! scope=col|[[La Liga]]<ref...>
+ *   |align="center"|28
+ */
+function extractHonoursTitles(wikitext, teamLabel) {
     const titles = {};
+    const lines = wikitext.split('\n');
 
-    const leagueMatch = wikitext.match(/\[\[La Liga\]\][^\n]*?\((\d+)\)/i)
-                     || wikitext.match(/league\s*=.*?(\d+)/i);
-    if (leagueMatch) titles.liga = parseInt(leagueMatch[1]);
+    function extractCount(substring) {
+        for (let i = 0; i < lines.length - 1; i++) {
+            if (lines[i].indexOf(substring) === -1) continue;
+            // Find the next line that starts with '|' (data row)
+            for (let j = i + 1; j < Math.min(i + 4, lines.length); j++) {
+                const dataLine = lines[j].trim();
+                if (!dataLine.startsWith('|')) continue;
+                // Prefer bold number: '''N'''
+                const boldMatch = dataLine.match(/'''(\d+)'''/);
+                if (boldMatch) return parseInt(boldMatch[1]);
+                // Fallback: last |N on the line
+                const pipeNums = [...dataLine.matchAll(/\|(\d+)/g)];
+                if (pipeNums.length) return parseInt(pipeNums[pipeNums.length - 1][1]);
+                // Last resort: first standalone number
+                const numMatch = dataLine.match(/\b(\d+)\b/);
+                return numMatch ? parseInt(numMatch[1]) : null;
+            }
+        }
+        return null;
+    }
 
-    const clMatch = wikitext.match(/\[\[UEFA Champions League\|Champions League\]\][^\n]*?\((\d+)\)/i)
-                  || wikitext.match(/Champions[^\n]*?\((\d+)\)/i);
-    if (clMatch) titles.championsLeague = parseInt(clMatch[1]);
+    const liga = extractCount('[[La Liga');
+    if (liga !== null) titles.liga = liga;
 
-    const copaMatch = wikitext.match(/\[\[Copa del Rey\]\][^\n]*?\((\d+)\)/i);
-    if (copaMatch) titles.copaDelRey = parseInt(copaMatch[1]);
+    const cl = extractCount('[[UEFA Champions League');
+    if (cl !== null) titles.championsLeague = cl;
 
-    console.log(`  ${teamLabel} infobox:`, JSON.stringify(titles));
+    const copa = extractCount('[[Copa del Rey');
+    if (copa !== null) titles.copaDelRey = copa;
+
+    const supercopa = extractCount('[[Supercopa de Espa');
+    if (supercopa !== null) titles.supercopaEspana = supercopa;
+
+    console.log(`  ${teamLabel} honours:`, JSON.stringify(titles));
     return titles;
 }
 

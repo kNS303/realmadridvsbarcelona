@@ -151,10 +151,10 @@ DataService.STATS_DATA = {
       "recopa": 0
     },
     "barcelona": {
-      "liga": 27,
+      "liga": 28,
       "championsLeague": 5,
-      "copaDelRey": 31,
-      "supercopaEspana": 14,
+      "copaDelRey": 32,
+      "supercopaEspana": 16,
       "supercopaEuropa": 5,
       "mundialClubes": 3,
       "copaLiga": 2,
@@ -190,9 +190,9 @@ DataService.STATS_DATA = {
     }
   },
   "elClasico": {
-    "totalPartidos": 257,
-    "victoriasRealMadrid": 105,
-    "victoriasBarcelona": 100,
+    "totalPartidos": 263,
+    "victoriasRealMadrid": 106,
+    "victoriasBarcelona": 105,
     "empates": 52,
     "golesRealMadrid": 420,
     "golesBarcelona": 403,
@@ -788,9 +788,9 @@ DataService.STATS_DATA = {
       }
     },
     "elClasico": {
-      "totalPartidos": 256,
-      "victoriasRealMadrid": 104,
-      "victoriasBarcelona": 100,
+      "totalPartidos": 262,
+      "victoriasRealMadrid": 105,
+      "victoriasBarcelona": 105,
       "empates": 52,
       "golesRealMadrid": 418,
       "golesBarcelona": 402,
