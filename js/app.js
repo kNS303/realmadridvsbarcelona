@@ -15,11 +15,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // 2. Mostrar fecha de última actualización en el nav
         if (data.meta?.lastUpdated) {
-            const navUpdated = document.getElementById('nav-updated');
-            if (navUpdated) {
+            const navUpdatedText = document.getElementById('nav-updated-text');
+            if (navUpdatedText) {
                 const fecha = new Date(data.meta.lastUpdated + 'T00:00:00');
                 const opciones = { day: 'numeric', month: 'short', year: 'numeric' };
-                navUpdated.textContent = fecha.toLocaleDateString('es-ES', opciones);
+                navUpdatedText.textContent = fecha.toLocaleDateString('es-ES', opciones);
             }
         }
 

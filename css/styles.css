@@ -156,13 +156,31 @@ body::before {
 .nav-logo-vs { color: var(--text-muted); font-size: 0.85rem; }
 
 .nav-updated {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
     font-family: var(--font-mono);
-    font-size: 0.65rem;
-    color: var(--text-muted);
+    font-size: 0.62rem;
+    color: #34d399;
     letter-spacing: 0.02em;
     white-space: nowrap;
-    opacity: 0.7;
-    margin-left: 0.25rem;
+    background: rgba(34, 197, 94, 0.08);
+    border: 1px solid rgba(34, 197, 94, 0.18);
+    border-radius: 20px;
+    padding: 0.2rem 0.6rem;
+    margin-left: 0.5rem;
+}
+
+.nav-updated svg {
+    width: 11px;
+    height: 11px;
+    flex-shrink: 0;
+    animation: spin-slow 8s linear infinite;
+}
+
+@keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 .nav-links {
@@ -904,7 +922,11 @@ body::before {
 @media (max-width: 768px) {
     /* Navigation mobile */
     .nav-updated {
-        display: none;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-left: 0;
+        font-size: 0.58rem;
     }
 
     .hamburger {
