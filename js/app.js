@@ -390,22 +390,28 @@ function initNavigation() {
         });
     });
 
-    const sections = document.querySelectorAll('.dashboard-section');
-    const sectionObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const id = entry.target.id;
-                links.forEach(link => {
-                    link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
-                });
-            }
-        });
-    }, {
-        threshold: 0.3,
-        rootMargin: '-60px 0px -40% 0px'
-    });
+    // Highlight nav based on scroll position using getBoundingClientRect
+    const sections = Array.from(document.querySelectorAll('.dashboard-section'));
 
-    sections.forEach(section => sectionObserver.observe(section));
+    function updateActiveNav() {
+        const trigger = 150; // pixels from top of viewport
+
+        // Find the last section whose top has passed the trigger point
+        let activeId = null;
+        for (const section of sections) {
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= trigger) {
+                activeId = section.id;
+            }
+        }
+
+        links.forEach(link => {
+            link.classList.toggle('active', activeId !== null && link.getAttribute('href') === `#${activeId}`);
+        });
+    }
+
+    window.addEventListener('scroll', updateActiveNav, { passive: true });
+    updateActiveNav();
 
     window.addEventListener('scroll', () => {
         hamburger.classList.remove('active');
