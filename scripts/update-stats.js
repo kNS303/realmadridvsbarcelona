@@ -383,18 +383,18 @@ function extractLastMatch(matches, teamId) {
 }
 
 /**
- * Obtiene top goleadores de una competicion
+ * Obtiene top goleadores/asistentes de una competicion
  */
 async function fetchCompetitionScorers(compCode, compName) {
-    console.log(`\n[API] Obteniendo goleadores de ${compName}...`);
+    console.log(`\n[API] Obteniendo goleadores/asistentes de ${compName}...`);
 
     try {
         const data = await fetchAPIJSON(
-            `https://api.football-data.org/v4/competitions/${compCode}/scorers?season=${CURRENT_SEASON}&limit=50`
+            `https://api.football-data.org/v4/competitions/${compCode}/scorers?season=${CURRENT_SEASON}&limit=100`
         );
         if (!data || !data.scorers) return [];
 
-        console.log(`  ${data.scorers.length} goleadores encontrados`);
+        console.log(`  ${data.scorers.length} jugadores encontrados`);
         return data.scorers;
     } catch (err) {
         console.warn(`  [ERROR] Goleadores ${compName}:`, err.message);
@@ -403,15 +403,15 @@ async function fetchCompetitionScorers(compCode, compName) {
 }
 
 /**
- * Construye los top 5 goleadores de cada equipo desde multiples competiciones
+ * Construye los top 5 goleadores Y top 5 asistentes de cada equipo
+ * desde multiples competiciones
  */
-function buildTopScorers(scorersByComp) {
-    // Merge scorers from all competitions
+function buildTopPlayersStats(scorersByComp) {
+    // Merge players from all competitions
     const playerMap = {}; // key: teamId-playerName
 
     for (const scorers of scorersByComp) {
         for (const s of scorers) {
-            const teamId = s.player.id;
             const key = `${s.team.id}-${s.player.name}`;
 
             if (!playerMap[key]) {
@@ -419,30 +419,49 @@ function buildTopScorers(scorersByComp) {
                     nombre: s.player.name,
                     teamId: s.team.id,
                     goles: 0,
+                    asistencias: 0,
                     partidos: 0
                 };
             }
             playerMap[key].goles += s.goals || 0;
+            playerMap[key].asistencias += s.assists || 0;
             playerMap[key].partidos += s.playedMatches || 0;
         }
     }
 
     const season = `${CURRENT_SEASON}-${(CURRENT_SEASON + 1).toString().slice(2)}`;
 
-    const result = { realMadrid: [], barcelona: [] };
+    const result = {
+        goleadores: { realMadrid: [], barcelona: [] },
+        asistentes: { realMadrid: [], barcelona: [] }
+    };
 
     for (const [teamKey, teamId] of Object.entries(TEAM_IDS)) {
-        const teamPlayers = Object.values(playerMap)
-            .filter(p => p.teamId === teamId)
-            .sort((a, b) => b.goles - a.goles)
-            .slice(0, 5);
+        const teamPlayers = Object.values(playerMap).filter(p => p.teamId === teamId);
 
-        result[teamKey] = teamPlayers.map(p => ({
-            nombre: p.nombre,
-            goles: p.goles,
-            partidos: p.partidos,
-            periodo: season
-        }));
+        // Top 5 goleadores (solo los que tienen al menos 1 gol)
+        result.goleadores[teamKey] = teamPlayers
+            .filter(p => p.goles > 0)
+            .sort((a, b) => b.goles - a.goles)
+            .slice(0, 5)
+            .map(p => ({
+                nombre: p.nombre,
+                goles: p.goles,
+                partidos: p.partidos,
+                periodo: season
+            }));
+
+        // Top 5 asistentes (solo los que tienen al menos 1 asistencia)
+        result.asistentes[teamKey] = teamPlayers
+            .filter(p => p.asistencias > 0)
+            .sort((a, b) => b.asistencias - a.asistencias)
+            .slice(0, 5)
+            .map(p => ({
+                nombre: p.nombre,
+                asistencias: p.asistencias,
+                partidos: p.partidos,
+                periodo: season
+            }));
     }
 
     return result;
@@ -615,17 +634,26 @@ async function buildSeasonData(existing) {
         }
     }
 
-    // 6. Top goleadores (La Liga + Champions)
+    // 6. Top goleadores y asistentes (La Liga + Champions)
     const laLigaScorers = await fetchCompetitionScorers('PD', 'La Liga');
     const clScorers = await fetchCompetitionScorers('CL', 'Champions League');
-    const topGoleadores = buildTopScorers([laLigaScorers, clScorers]);
+    const topStats = buildTopPlayersStats([laLigaScorers, clScorers]);
 
     console.log('\n[GOLEADORES]');
-    if (topGoleadores.realMadrid.length) {
-        console.log(`  RM top: ${topGoleadores.realMadrid[0].nombre} (${topGoleadores.realMadrid[0].goles} goles)`);
+    if (topStats.goleadores.realMadrid.length) {
+        console.log(`  RM top: ${topStats.goleadores.realMadrid[0].nombre} (${topStats.goleadores.realMadrid[0].goles} goles)`);
+        console.log(`  RM total: ${topStats.goleadores.realMadrid.length} jugadores`);
     }
-    if (topGoleadores.barcelona.length) {
-        console.log(`  FCB top: ${topGoleadores.barcelona[0].nombre} (${topGoleadores.barcelona[0].goles} goles)`);
+    if (topStats.goleadores.barcelona.length) {
+        console.log(`  FCB top: ${topStats.goleadores.barcelona[0].nombre} (${topStats.goleadores.barcelona[0].goles} goles)`);
+        console.log(`  FCB total: ${topStats.goleadores.barcelona.length} jugadores`);
+    }
+    console.log('\n[ASISTENTES]');
+    if (topStats.asistentes.realMadrid.length) {
+        console.log(`  RM top: ${topStats.asistentes.realMadrid[0].nombre} (${topStats.asistentes.realMadrid[0].asistencias} asist.)`);
+    }
+    if (topStats.asistentes.barcelona.length) {
+        console.log(`  FCB top: ${topStats.asistentes.barcelona[0].nombre} (${topStats.asistentes.barcelona[0].asistencias} asist.)`);
     }
 
     // 7. Estadisticas detalladas (estimadas/escaladas)
@@ -645,11 +673,6 @@ async function buildSeasonData(existing) {
     const seasonTitulos = existingSeason.titulos || {
         realMadrid: { liga: 0, championsLeague: 0, copaDelRey: 0, supercopaEspana: 0, supercopaEuropa: 0, mundialClubes: 0, copaLiga: 0, recopa: 0 },
         barcelona: { liga: 0, championsLeague: 0, copaDelRey: 0, supercopaEspana: 0, supercopaEuropa: 0, mundialClubes: 0, copaLiga: 0, recopa: 0 }
-    };
-
-    // 10. Asistentes (mantener existentes - football-data.org no proporciona assists en free tier)
-    const existingAsistentes = existingSeason.topJugadores?.asistentes || {
-        realMadrid: [], barcelona: []
     };
 
     // Construir objeto completo
@@ -685,10 +708,13 @@ async function buildSeasonData(existing) {
         },
         topJugadores: {
             goleadores: {
-                realMadrid: topGoleadores.realMadrid.length > 0 ? topGoleadores.realMadrid : (existingSeason.topJugadores?.goleadores?.realMadrid || []),
-                barcelona: topGoleadores.barcelona.length > 0 ? topGoleadores.barcelona : (existingSeason.topJugadores?.goleadores?.barcelona || [])
+                realMadrid: topStats.goleadores.realMadrid.length > 0 ? topStats.goleadores.realMadrid : (existingSeason.topJugadores?.goleadores?.realMadrid || []),
+                barcelona: topStats.goleadores.barcelona.length > 0 ? topStats.goleadores.barcelona : (existingSeason.topJugadores?.goleadores?.barcelona || [])
             },
-            asistentes: existingAsistentes
+            asistentes: {
+                realMadrid: topStats.asistentes.realMadrid.length > 0 ? topStats.asistentes.realMadrid : (existingSeason.topJugadores?.asistentes?.realMadrid || []),
+                barcelona: topStats.asistentes.barcelona.length > 0 ? topStats.asistentes.barcelona : (existingSeason.topJugadores?.asistentes?.barcelona || [])
+            }
         }
     };
 

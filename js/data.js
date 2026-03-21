@@ -620,6 +620,24 @@ DataService.STATS_DATA = {
             "goles": 14,
             "partidos": 38,
             "periodo": "2025-26"
+          },
+          {
+            "nombre": "Federico Valverde",
+            "goles": 6,
+            "partidos": 38,
+            "periodo": "2025-26"
+          },
+          {
+            "nombre": "Arda Guler",
+            "goles": 4,
+            "partidos": 27,
+            "periodo": "2025-26"
+          },
+          {
+            "nombre": "Jude Bellingham",
+            "goles": 4,
+            "partidos": 17,
+            "periodo": "2025-26"
           }
         ],
         "barcelona": [
@@ -636,15 +654,15 @@ DataService.STATS_DATA = {
             "periodo": "2025-26"
           },
           {
-            "nombre": "Ferrán Torres",
-            "goles": 12,
-            "partidos": 26,
+            "nombre": "Raphinha",
+            "goles": 14,
+            "partidos": 27,
             "periodo": "2025-26"
           },
           {
-            "nombre": "Raphinha",
-            "goles": 11,
-            "partidos": 20,
+            "nombre": "Ferrán Torres",
+            "goles": 12,
+            "partidos": 26,
             "periodo": "2025-26"
           },
           {
@@ -656,8 +674,70 @@ DataService.STATS_DATA = {
         ]
       },
       "asistentes": {
-        "realMadrid": [],
-        "barcelona": []
+        "realMadrid": [
+          {
+            "nombre": "Vinicius Junior",
+            "asistencias": 10,
+            "partidos": 38,
+            "periodo": "2025-26"
+          },
+          {
+            "nombre": "Federico Valverde",
+            "asistencias": 9,
+            "partidos": 38,
+            "periodo": "2025-26"
+          },
+          {
+            "nombre": "Arda Guler",
+            "asistencias": 8,
+            "partidos": 27,
+            "periodo": "2025-26"
+          },
+          {
+            "nombre": "Kylian Mbappé",
+            "asistencias": 5,
+            "partidos": 33,
+            "periodo": "2025-26"
+          },
+          {
+            "nombre": "Jude Bellingham",
+            "asistencias": 3,
+            "partidos": 17,
+            "periodo": "2025-26"
+          }
+        ],
+        "barcelona": [
+          {
+            "nombre": "Lamine Yamal",
+            "asistencias": 12,
+            "partidos": 32,
+            "periodo": "2025-26"
+          },
+          {
+            "nombre": "Fermín López",
+            "asistencias": 12,
+            "partidos": 32,
+            "periodo": "2025-26"
+          },
+          {
+            "nombre": "Marcus Rashford",
+            "asistencias": 9,
+            "partidos": 36,
+            "periodo": "2025-26"
+          },
+          {
+            "nombre": "Dani Olmo",
+            "asistencias": 7,
+            "partidos": 23,
+            "periodo": "2025-26"
+          },
+          {
+            "nombre": "Pedri",
+            "asistencias": 7,
+            "partidos": 20,
+            "periodo": "2025-26"
+          }
+        ]
       }
     }
   },
