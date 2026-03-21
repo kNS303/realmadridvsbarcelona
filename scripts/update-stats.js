@@ -636,6 +636,136 @@ function estimateDetailedStats(record, existingStats) {
 }
 
 /**
+ * Detecta titulos ganados por RM o FCB en la temporada actual.
+ *
+ * Competiciones comprobadas:
+ *   - La Liga (PD): si la temporada terminó (38 jornadas) y el equipo es 1o
+ *   - Champions League (CL): ganador de la final via API
+ *   - Copa del Rey (CDR): ganador de la final via API
+ *   - Supercopa de Espana (SASP): no disponible en football-data.org free tier
+ *   - Supercopa de Europa (SEUP): no disponible en football-data.org free tier
+ *   - Mundial de Clubes (MCCL): no disponible en football-data.org free tier
+ *
+ * Sanity checks:
+ *   - No asigna titulo de Liga si no se han jugado las 38 jornadas
+ *   - No asigna titulo de CL/CDR si la final no tiene status FINISHED
+ *   - Solo asigna 0 o 1 titulo por competicion (nunca mas)
+ */
+async function detectSeasonTitles(standings) {
+    console.log('\n[TITULOS] Detectando titulos de la temporada actual...');
+
+    const titles = {
+        realMadrid: { liga: 0, championsLeague: 0, copaDelRey: 0, supercopaEspana: 0, supercopaEuropa: 0, mundialClubes: 0, copaLiga: 0, recopa: 0 },
+        barcelona: { liga: 0, championsLeague: 0, copaDelRey: 0, supercopaEspana: 0, supercopaEuropa: 0, mundialClubes: 0, copaLiga: 0, recopa: 0 }
+    };
+
+    // --- La Liga ---
+    // Usa los standings ya obtenidos (no hace llamada API extra)
+    if (standings) {
+        const rm = standings.realMadrid;
+        const fcb = standings.barcelona;
+
+        // Solo asignar si la temporada ha terminado (38 jornadas jugadas)
+        const LA_LIGA_TOTAL_MATCHDAYS = 38;
+        if (rm && rm.playedGames >= LA_LIGA_TOTAL_MATCHDAYS && rm.position === 1) {
+            titles.realMadrid.liga = 1;
+            console.log(`  [TITULO] La Liga -> Real Madrid (1o con ${rm.points} pts, ${rm.playedGames} PJ)`);
+        } else if (fcb && fcb.playedGames >= LA_LIGA_TOTAL_MATCHDAYS && fcb.position === 1) {
+            titles.barcelona.liga = 1;
+            console.log(`  [TITULO] La Liga -> FC Barcelona (1o con ${fcb.points} pts, ${fcb.playedGames} PJ)`);
+        } else {
+            const maxPlayed = Math.max(rm?.playedGames || 0, fcb?.playedGames || 0);
+            console.log(`  La Liga: temporada en curso (${maxPlayed}/${LA_LIGA_TOTAL_MATCHDAYS} jornadas), sin titulo asignado`);
+        }
+    } else {
+        console.log('  La Liga: standings no disponibles, sin titulo asignado');
+    }
+
+    // --- Champions League ---
+    try {
+        const clData = await fetchAPIJSON(
+            `https://api.football-data.org/v4/competitions/CL/matches?season=${CURRENT_SEASON}&stage=FINAL`
+        );
+        if (clData && clData.matches && clData.matches.length > 0) {
+            const final = clData.matches[0];
+            if (final.status === 'FINISHED') {
+                const winnerId = final.score.fullTime.home > final.score.fullTime.away
+                    ? final.homeTeam.id
+                    : (final.score.fullTime.away > final.score.fullTime.home
+                        ? final.awayTeam.id
+                        : (final.score.penalties?.home > final.score.penalties?.away
+                            ? final.homeTeam.id
+                            : final.awayTeam.id));
+
+                if (winnerId === TEAM_IDS.realMadrid) {
+                    titles.realMadrid.championsLeague = 1;
+                    console.log(`  [TITULO] Champions League -> Real Madrid`);
+                } else if (winnerId === TEAM_IDS.barcelona) {
+                    titles.barcelona.championsLeague = 1;
+                    console.log(`  [TITULO] Champions League -> FC Barcelona`);
+                } else {
+                    console.log(`  Champions League: ganador es otro equipo (id ${winnerId})`);
+                }
+            } else {
+                console.log(`  Champions League: final aun no disputada (status: ${final.status})`);
+            }
+        } else {
+            console.log('  Champions League: final no programada o no disponible');
+        }
+    } catch (err) {
+        console.warn(`  [ERROR] Champions League final: ${err.message}`);
+    }
+
+    // --- Copa del Rey ---
+    try {
+        const cdrData = await fetchAPIJSON(
+            `https://api.football-data.org/v4/competitions/CDR/matches?season=${CURRENT_SEASON}&stage=FINAL`
+        );
+        if (cdrData && cdrData.matches && cdrData.matches.length > 0) {
+            const final = cdrData.matches[0];
+            if (final.status === 'FINISHED') {
+                const winnerId = final.score.fullTime.home > final.score.fullTime.away
+                    ? final.homeTeam.id
+                    : (final.score.fullTime.away > final.score.fullTime.home
+                        ? final.awayTeam.id
+                        : (final.score.penalties?.home > final.score.penalties?.away
+                            ? final.homeTeam.id
+                            : final.awayTeam.id));
+
+                if (winnerId === TEAM_IDS.realMadrid) {
+                    titles.realMadrid.copaDelRey = 1;
+                    console.log(`  [TITULO] Copa del Rey -> Real Madrid`);
+                } else if (winnerId === TEAM_IDS.barcelona) {
+                    titles.barcelona.copaDelRey = 1;
+                    console.log(`  [TITULO] Copa del Rey -> FC Barcelona`);
+                } else {
+                    console.log(`  Copa del Rey: ganador es otro equipo (id ${winnerId})`);
+                }
+            } else {
+                console.log(`  Copa del Rey: final aun no disputada (status: ${final.status})`);
+            }
+        } else {
+            console.log('  Copa del Rey: final no programada o no disponible');
+        }
+    } catch (err) {
+        // CDR puede no estar disponible en free tier
+        console.warn(`  [ERROR] Copa del Rey final: ${err.message} (puede no estar en free tier)`);
+    }
+
+    // Supercopa de Espana, Supercopa de Europa, Mundial de Clubes:
+    // No disponibles en football-data.org free tier.
+    // Se pueden anadir manualmente o cuando se actualice el tier de la API.
+    console.log('  Supercopa Espana / Supercopa Europa / Mundial Clubes: no disponibles en API free tier');
+
+    // Resumen
+    const rmTotal = Object.values(titles.realMadrid).reduce((s, v) => s + v, 0);
+    const fcbTotal = Object.values(titles.barcelona).reduce((s, v) => s + v, 0);
+    console.log(`  Total titulos detectados: RM=${rmTotal}, FCB=${fcbTotal}`);
+
+    return titles;
+}
+
+/**
  * Obtiene la clasificacion de La Liga
  */
 async function fetchStandings() {
@@ -800,11 +930,24 @@ async function buildSeasonData(existing) {
         ? seasonClasicos.golesRealMadrid + seasonClasicos.golesBarcelona
         : (existingSeason.heroStats?.golesEnClasicos || 0);
 
-    // 9. Titulos de la temporada (mantener existentes, dificil de detectar automaticamente)
-    const seasonTitulos = existingSeason.titulos || {
+    // 9. Titulos de la temporada (deteccion automatica via API)
+    const detectedTitles = await detectSeasonTitles(standings);
+    // Merge: mantener titulos previamente detectados que no se sobreescriban
+    // (ej: supercopa detectada manualmente no se pierde)
+    const existingTitulos = existingSeason.titulos || {
         realMadrid: { liga: 0, championsLeague: 0, copaDelRey: 0, supercopaEspana: 0, supercopaEuropa: 0, mundialClubes: 0, copaLiga: 0, recopa: 0 },
         barcelona: { liga: 0, championsLeague: 0, copaDelRey: 0, supercopaEspana: 0, supercopaEuropa: 0, mundialClubes: 0, copaLiga: 0, recopa: 0 }
     };
+    const seasonTitulos = {
+        realMadrid: { ...existingTitulos.realMadrid },
+        barcelona: { ...existingTitulos.barcelona }
+    };
+    // Sobreescribir solo las competiciones que detectamos activamente (liga, CL, CDR)
+    for (const team of ['realMadrid', 'barcelona']) {
+        for (const comp of ['liga', 'championsLeague', 'copaDelRey']) {
+            seasonTitulos[team][comp] = detectedTitles[team][comp];
+        }
+    }
 
     // Construir objeto completo
     const temporadaActual = {
