@@ -625,7 +625,7 @@ function buildPlayerList(jugadores, team) {
         map[p.nombre] = {
             nombre: p.nombre,
             goles: p.goles || 0,
-            asistencias: 0,
+            asistencias: p.asistencias || 0,
             partidos: p.partidos || 0,
             periodo: p.periodo || ''
         };
@@ -641,7 +641,7 @@ function buildPlayerList(jugadores, team) {
         } else {
             map[p.nombre] = {
                 nombre: p.nombre,
-                goles: 0,
+                goles: p.goles || 0,
                 asistencias: p.asistencias || 0,
                 partidos: p.partidos || 0,
                 periodo: p.periodo || ''
