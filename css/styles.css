@@ -1636,10 +1636,10 @@ body::before {
 }
 
 .comparador-avatar {
-    width: 120px;
-    height: 140px;
+    width: 150px;
+    height: 150px;
     overflow: visible;
-    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+    filter: drop-shadow(0 4px 16px rgba(0,0,0,0.5));
     transition: transform 0.3s ease;
 }
 
