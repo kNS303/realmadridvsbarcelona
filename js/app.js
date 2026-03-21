@@ -36,6 +36,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         renderLastMatch('last-match-rm', dataService.getUltimoPartido('realMadrid'));
         renderLastMatch('last-match-fcb', dataService.getUltimoPartido('barcelona'));
 
+        // 6b. Renderizar próximo partido y próximo Clásico
+        renderNextMatch('next-match-rm', dataService.getProximoPartido('realMadrid'));
+        renderNextMatch('next-match-fcb', dataService.getProximoPartido('barcelona'));
+        renderProximoClasico(dataService.getProximoClasico());
+
         // 7. Crear barras comparativas CSS
         initComparativeBars(dataService.getEstadisticasByMode(currentMode));
 
@@ -474,4 +479,32 @@ function renderLastMatch(containerId, matchData) {
         <span class="match-score">${score}</span>
         <span class="match-result ${cssClass}">${label}</span>
     `;
+}
+
+function renderNextMatch(containerId, matchData) {
+    const container = document.getElementById(containerId);
+    if (!container || !matchData) return;
+
+    const { rival, fecha, competicion } = matchData;
+
+    container.innerHTML = `
+        <span class="next-match-label">Proximo partido</span>
+        <span class="next-match-opponent">vs ${rival}</span>
+        <span class="next-match-info">${fecha} · ${competicion}</span>
+    `;
+}
+
+function renderProximoClasico(clasicoData) {
+    const container = document.getElementById('proximo-clasico');
+    if (!container) return;
+
+    if (!clasicoData) {
+        container.classList.add('hidden');
+        return;
+    }
+
+    document.getElementById('proximo-clasico-fecha').textContent = clasicoData.fecha;
+    document.getElementById('proximo-clasico-comp').textContent = clasicoData.competicion;
+    document.getElementById('proximo-clasico-sede').textContent = clasicoData.sede;
+    container.classList.remove('hidden');
 }

@@ -714,5 +714,20 @@
         }
       }
     }
-  }
+  },
+  "proximoPartido": {
+    "realMadrid": {
+      "rival": "Atleti",
+      "fecha": "22 de marzo de 2026",
+      "competicion": "La Liga",
+      "esLocal": true
+    },
+    "barcelona": {
+      "rival": "Rayo Vallecano",
+      "fecha": "22 de marzo de 2026",
+      "competicion": "La Liga",
+      "esLocal": true
+    }
+  },
+  "proximoClasico": null
 }

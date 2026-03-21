@@ -53,6 +53,14 @@ class DataService {
         return this.data?.ultimoPartido?.[team] || null;
     }
 
+    getProximoPartido(team) {
+        return this.data?.proximoPartido?.[team] || null;
+    }
+
+    getProximoClasico() {
+        return this.data?.proximoClasico || null;
+    }
+
     // Mode-aware getters for toggle
     getTitulosByMode(mode) {
         const src = mode === 'season' ? this.data.temporadaActual : this.data;
@@ -821,5 +829,20 @@ DataService.STATS_DATA = {
         }
       }
     }
-  }
+  },
+  "proximoPartido": {
+    "realMadrid": {
+      "rival": "Atleti",
+      "fecha": "22 de marzo de 2026",
+      "competicion": "La Liga",
+      "esLocal": true
+    },
+    "barcelona": {
+      "rival": "Rayo Vallecano",
+      "fecha": "22 de marzo de 2026",
+      "competicion": "La Liga",
+      "esLocal": true
+    }
+  },
+  "proximoClasico": null
 };

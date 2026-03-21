@@ -425,6 +425,84 @@ function extractLastMatch(matches, teamId) {
 }
 
 /**
+ * Obtiene los proximos partidos programados de un equipo
+ */
+async function fetchNextMatches(teamId, teamName) {
+    console.log(`\n[API] Obteniendo proximos partidos de ${teamName}...`);
+
+    try {
+        const data = await fetchAPIJSON(
+            `https://api.football-data.org/v4/teams/${teamId}/matches?status=SCHEDULED&limit=5`
+        );
+        if (!data || !data.matches) return null;
+
+        console.log(`  ${data.matches.length} partidos programados encontrados`);
+        return data.matches;
+    } catch (err) {
+        console.warn(`  [ERROR] Proximos ${teamName}:`, err.message);
+        return null;
+    }
+}
+
+/**
+ * Extrae el proximo partido de un equipo de la lista de partidos programados
+ */
+function extractNextMatch(nextMatches, teamId) {
+    if (!nextMatches || nextMatches.length === 0) return null;
+
+    const sorted = [...nextMatches].sort((a, b) => new Date(a.utcDate) - new Date(b.utcDate));
+    const match = sorted[0];
+
+    const esLocal = match.homeTeam.id === teamId;
+    const rival = esLocal
+        ? (match.awayTeam.shortName || match.awayTeam.name)
+        : (match.homeTeam.shortName || match.homeTeam.name);
+
+    const compMap = {
+        'PD': 'La Liga', 'CL': 'Champions League',
+        'CDR': 'Copa del Rey', 'SA': 'Supercopa'
+    };
+
+    const fechaObj = new Date(match.utcDate);
+    const fecha = fechaObj.toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
+
+    return {
+        rival,
+        fecha,
+        competicion: compMap[match.competition.code] || match.competition.name,
+        esLocal
+    };
+}
+
+/**
+ * Busca si hay un proximo Clasico (RM vs FCB) en los partidos programados
+ */
+function findNextClasico(rmNextMatches) {
+    if (!rmNextMatches) return null;
+
+    const clasico = rmNextMatches
+        .filter(m => m.homeTeam.id === TEAM_IDS.barcelona || m.awayTeam.id === TEAM_IDS.barcelona)
+        .sort((a, b) => new Date(a.utcDate) - new Date(b.utcDate))[0];
+
+    if (!clasico) return null;
+
+    const rmEsLocal = clasico.homeTeam.id === TEAM_IDS.realMadrid;
+    const compMap = {
+        'PD': 'La Liga', 'CL': 'Champions League',
+        'CDR': 'Copa del Rey', 'SA': 'Supercopa'
+    };
+    const competicion = compMap[clasico.competition.code] || clasico.competition.name;
+    const fechaObj = new Date(clasico.utcDate);
+    const fecha = fechaObj.toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
+
+    return {
+        fecha,
+        competicion,
+        sede: rmEsLocal ? 'Santiago Bernabeu' : 'Camp Nou'
+    };
+}
+
+/**
  * Obtiene top goleadores/asistentes de una competicion
  */
 async function fetchCompetitionScorers(compCode, compName) {
@@ -698,7 +776,18 @@ async function buildSeasonData(existing) {
         console.log(`  FCB top: ${topStats.asistentes.barcelona[0].nombre} (${topStats.asistentes.barcelona[0].asistencias} asist.)`);
     }
 
-    // 7. Estadisticas detalladas (estimadas/escaladas)
+    // 7. Proximos partidos
+    const rmNextMatches = await fetchNextMatches(TEAM_IDS.realMadrid, 'Real Madrid');
+    const fcbNextMatches = await fetchNextMatches(TEAM_IDS.barcelona, 'FC Barcelona');
+    const proximoRM = extractNextMatch(rmNextMatches, TEAM_IDS.realMadrid);
+    const proximoFCB = extractNextMatch(fcbNextMatches, TEAM_IDS.barcelona);
+    const proximoClasico = findNextClasico(rmNextMatches);
+
+    if (proximoRM) console.log(`\n[PROXIMO] RM: vs ${proximoRM.rival} (${proximoRM.fecha}) ${proximoRM.competicion}`);
+    if (proximoFCB) console.log(`[PROXIMO] FCB: vs ${proximoFCB.rival} (${proximoFCB.fecha}) ${proximoFCB.competicion}`);
+    if (proximoClasico) console.log(`[PROXIMO CLASICO] ${proximoClasico.fecha} - ${proximoClasico.competicion} en ${proximoClasico.sede}`);
+
+    // 8. Estadisticas detalladas (estimadas/escaladas)
     const existingDetailedRM = existingSeason.estadisticasDetalladas?.realMadrid;
     const existingDetailedFCB = existingSeason.estadisticasDetalladas?.barcelona;
 
@@ -760,7 +849,12 @@ async function buildSeasonData(existing) {
         }
     };
 
-    return { temporadaActual, ultimoPartido: { realMadrid: ultimoRM, barcelona: ultimoFCB } };
+    return {
+        temporadaActual,
+        ultimoPartido: { realMadrid: ultimoRM, barcelona: ultimoFCB },
+        proximoPartido: { realMadrid: proximoRM, barcelona: proximoFCB },
+        proximoClasico
+    };
 }
 
 // ============================================================
@@ -1124,6 +1218,23 @@ async function main() {
             }
             console.log('  Ultimo partido: ACTUALIZADO');
             totalChanges++;
+        }
+
+        // Proximo partido
+        if (seasonResult.proximoPartido) {
+            withHistorical.proximoPartido = {
+                realMadrid: seasonResult.proximoPartido.realMadrid || withHistorical.proximoPartido?.realMadrid || null,
+                barcelona: seasonResult.proximoPartido.barcelona || withHistorical.proximoPartido?.barcelona || null
+            };
+            console.log('  Proximo partido: ACTUALIZADO');
+        }
+
+        // Proximo Clasico (puede ser null si no hay clasico programado)
+        withHistorical.proximoClasico = seasonResult.proximoClasico !== undefined
+            ? seasonResult.proximoClasico
+            : (withHistorical.proximoClasico || null);
+        if (seasonResult.proximoClasico) {
+            console.log(`  Proximo Clasico: ${seasonResult.proximoClasico.fecha}`);
         }
     }
 
