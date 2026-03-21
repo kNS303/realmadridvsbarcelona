@@ -833,13 +833,13 @@ function renderClasicosCards(dataService, mode) {
             <div class="clasico-card ${winnerClass}">
                 <div class="clasico-card-date">${p.fecha}</div>
                 <div class="clasico-card-score">
-                    <span class="clasico-card-team team-rm${rmWinner}">Real Madrid</span>
+                    <span class="clasico-card-team team-rm${rmWinner}"><img src="https://crests.football-data.org/86.png" alt="RM" class="clasico-score-crest"/></span>
                     <span class="clasico-card-goals">
                         <span class="goal-rm">${p.golesRM}</span>
                         <span class="goal-separator">-</span>
                         <span class="goal-fcb">${p.golesFCB}</span>
                     </span>
-                    <span class="clasico-card-team team-fcb${fcbWinner}">FC Barcelona</span>
+                    <span class="clasico-card-team team-fcb${fcbWinner}"><img src="https://crests.football-data.org/81.png" alt="FCB" class="clasico-score-crest"/></span>
                 </div>
                 <div class="clasico-card-footer">
                     <span class="clasico-card-comp">${p.competicion}</span>
