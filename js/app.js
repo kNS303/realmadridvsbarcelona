@@ -13,26 +13,36 @@ document.addEventListener('DOMContentLoaded', async () => {
         const chartInstances = {};
         const loadedSections = new Set();
 
-        // 2. Inicializar navegación
+        // 2. Mostrar fecha de última actualización en el nav
+        if (data.meta?.lastUpdated) {
+            const navUpdated = document.getElementById('nav-updated');
+            if (navUpdated) {
+                const fecha = new Date(data.meta.lastUpdated + 'T00:00:00');
+                const opciones = { day: 'numeric', month: 'short', year: 'numeric' };
+                navUpdated.textContent = fecha.toLocaleDateString('es-ES', opciones);
+            }
+        }
+
+        // 3. Inicializar navegación
         initNavigation();
 
-        // 3. Crear gráficos con lazy loading (solo cuando son visibles)
+        // 4. Crear gráficos con lazy loading (solo cuando son visibles)
         initLazyCharts(dataService, chartInstances, loadedSections, () => currentMode);
 
-        // 4. Crear tablas de jugadores
+        // 5. Crear tablas de jugadores
         buildPlayerTables(dataService, currentMode);
 
-        // 5. Renderizar último partido en el Hero
+        // 6. Renderizar último partido en el Hero
         renderLastMatch('last-match-rm', dataService.getUltimoPartido('realMadrid'));
         renderLastMatch('last-match-fcb', dataService.getUltimoPartido('barcelona'));
 
-        // 6. Crear barras comparativas CSS
+        // 7. Crear barras comparativas CSS
         initComparativeBars(dataService.getEstadisticasByMode(currentMode));
 
-        // 7. Inicializar animaciones de scroll (después de crear todo el DOM)
+        // 8. Inicializar animaciones de scroll (después de crear todo el DOM)
         initScrollAnimations();
 
-        // 8. Inicializar toggle de modo
+        // 9. Inicializar toggle de modo
         initModeToggle(dataService, chartInstances, loadedSections, {
             getMode: () => currentMode,
             setMode: (m) => { currentMode = m; }
