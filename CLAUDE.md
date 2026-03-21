@@ -40,7 +40,7 @@ scripts/update-stats.js - Script de actualizacion v3.0 (API + Wikipedia + acumul
 - Validacion cruzada con clasificacion de La Liga (standings API)
 - Wikipedia: actualiza titulos y baseline del Clasico (con sanity checks)
 - Indicador verde en nav con fecha de ultima actualizacion
-- Limitaciones: assists y stats detallados por partido no disponibles en tier gratuito
+- Limitaciones: stats detallados por partido (corners, tarjetas, posesion) no disponibles en tier gratuito
 
 ## Convenciones
 - Comunicacion siempre en espanol
