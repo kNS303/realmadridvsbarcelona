@@ -1443,7 +1443,9 @@ async function main() {
     }
 
     // 4. Actualizar metadatos
-    withHistorical.meta.lastUpdated = new Date().toISOString().split('T')[0];
+    const now = new Date();
+    withHistorical.meta.lastUpdated = now.toISOString().split('T')[0];
+    withHistorical.meta.lastUpdatedTime = now.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Madrid' });
 
     // 5. Guardar
     if (DRY_RUN) {

@@ -19,7 +19,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (navUpdatedText) {
                 const fecha = new Date(data.meta.lastUpdated + 'T00:00:00');
                 const opciones = { day: 'numeric', month: 'short', year: 'numeric' };
-                navUpdatedText.textContent = fecha.toLocaleDateString('es-ES', opciones);
+                let texto = fecha.toLocaleDateString('es-ES', opciones);
+                if (data.meta.lastUpdatedTime) {
+                    texto += ` · ${data.meta.lastUpdatedTime}h`;
+                }
+                navUpdatedText.textContent = texto;
             }
         }
 
@@ -650,11 +654,7 @@ function buildPlayerList(jugadores, team) {
 
 function populateComparadorSelect(select, players) {
     select.innerHTML = players.map((p, i) => {
-        const stats = [];
-        if (p.goles > 0) stats.push(`${p.goles}G`);
-        if (p.asistencias > 0) stats.push(`${p.asistencias}A`);
-        const statsStr = stats.length > 0 ? ` (${stats.join(', ')})` : '';
-        return `<option value="${i}">${p.nombre}${statsStr}</option>`;
+        return `<option value="${i}">${p.nombre}</option>`;
     }).join('');
 }
 
@@ -740,7 +740,8 @@ function renderClasicosCards(dataService, mode) {
     container.innerHTML = partidos.map(p => {
         const winnerClass = p.ganador === 'rm' ? 'winner-rm' : p.ganador === 'fcb' ? 'winner-fcb' : 'winner-empate';
         const resultClass = p.ganador === 'rm' ? 'result-rm' : p.ganador === 'fcb' ? 'result-fcb' : 'result-empate';
-        const resultLabel = p.ganador === 'rm' ? 'Victoria RM' : p.ganador === 'fcb' ? 'Victoria FCB' : 'Empate';
+        const crestWinner = p.ganador === 'rm' ? '<img src="https://crests.football-data.org/86.png" alt="RM" class="clasico-card-crest">' : p.ganador === 'fcb' ? '<img src="https://crests.football-data.org/81.png" alt="FCB" class="clasico-card-crest">' : '';
+        const resultLabel = p.ganador === 'rm' ? `Victoria ${crestWinner}` : p.ganador === 'fcb' ? `Victoria ${crestWinner}` : 'Empate';
         const rmWinner = p.ganador === 'rm' ? ' team-winner' : '';
         const fcbWinner = p.ganador === 'fcb' ? ' team-winner' : '';
 
@@ -756,8 +757,8 @@ function renderClasicosCards(dataService, mode) {
                     </span>
                     <span class="clasico-card-team team-fcb${fcbWinner}">FC Barcelona</span>
                 </div>
-                <div class="clasico-card-comp">
-                    ${p.competicion}
+                <div class="clasico-card-footer">
+                    <span class="clasico-card-comp">${p.competicion}</span>
                     <span class="clasico-card-result ${resultClass}">${resultLabel}</span>
                 </div>
             </div>
