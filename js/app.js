@@ -47,6 +47,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         // 6d. Renderizar tarjetas de últimos Clásicos
         renderClasicosCards(dataService, currentMode);
 
+        // 6f. Inicializar comparador de jugadores
+        initComparador(dataService, currentMode);
+
         // 6e. Aplicar visibilidad inicial segun modo
         document.querySelectorAll('[data-mode-hide]').forEach(el => {
             el.style.display = el.dataset.modeHide === currentMode ? 'none' : '';
@@ -238,6 +241,9 @@ function switchMode(newMode, dataService, chartInstances, loadedSections, modeRe
 
         // Rebuild Clasicos cards
         renderClasicosCards(dataService, newMode);
+
+        // Rebuild comparador
+        initComparador(dataService, newMode);
 
         // Update section texts
         updateSectionTexts(newMode);
@@ -575,6 +581,150 @@ function renderStandings(dataService) {
 // ================================================
 // Ultimos Clasicos Cards
 // ================================================
+
+// ================================================
+// Comparador de Jugadores
+// ================================================
+
+function initComparador(dataService, mode) {
+    const selectRM = document.getElementById('comparador-select-rm');
+    const selectFCB = document.getElementById('comparador-select-fcb');
+    if (!selectRM || !selectFCB) return;
+
+    const jugadores = dataService.getJugadoresByMode(mode);
+
+    // Build unified player lists per team (merge goleadores + asistentes, no duplicates)
+    const rmPlayers = buildPlayerList(jugadores, 'realMadrid');
+    const fcbPlayers = buildPlayerList(jugadores, 'barcelona');
+
+    // Populate selects
+    populateComparadorSelect(selectRM, rmPlayers);
+    populateComparadorSelect(selectFCB, fcbPlayers);
+
+    // Render default (first of each)
+    renderComparadorMatch(rmPlayers, fcbPlayers);
+
+    // Remove old listeners by cloning
+    const newSelectRM = selectRM.cloneNode(true);
+    const newSelectFCB = selectFCB.cloneNode(true);
+    selectRM.parentNode.replaceChild(newSelectRM, selectRM);
+    selectFCB.parentNode.replaceChild(newSelectFCB, selectFCB);
+
+    newSelectRM.addEventListener('change', () => renderComparadorMatch(rmPlayers, fcbPlayers));
+    newSelectFCB.addEventListener('change', () => renderComparadorMatch(rmPlayers, fcbPlayers));
+}
+
+function buildPlayerList(jugadores, team) {
+    const map = {};
+    // Add goleadores
+    (jugadores.goleadores[team] || []).forEach(p => {
+        map[p.nombre] = {
+            nombre: p.nombre,
+            goles: p.goles || 0,
+            asistencias: 0,
+            partidos: p.partidos || 0,
+            periodo: p.periodo || ''
+        };
+    });
+    // Merge asistentes
+    (jugadores.asistentes[team] || []).forEach(p => {
+        if (map[p.nombre]) {
+            map[p.nombre].asistencias = p.asistencias || 0;
+            // Keep higher partidos count
+            if (p.partidos > map[p.nombre].partidos) {
+                map[p.nombre].partidos = p.partidos;
+            }
+        } else {
+            map[p.nombre] = {
+                nombre: p.nombre,
+                goles: 0,
+                asistencias: p.asistencias || 0,
+                partidos: p.partidos || 0,
+                periodo: p.periodo || ''
+            };
+        }
+    });
+    // Sort by goals desc, then assists desc
+    return Object.values(map).sort((a, b) => (b.goles + b.asistencias) - (a.goles + a.asistencias));
+}
+
+function populateComparadorSelect(select, players) {
+    select.innerHTML = players.map((p, i) => {
+        const stats = [];
+        if (p.goles > 0) stats.push(`${p.goles}G`);
+        if (p.asistencias > 0) stats.push(`${p.asistencias}A`);
+        const statsStr = stats.length > 0 ? ` (${stats.join(', ')})` : '';
+        return `<option value="${i}">${p.nombre}${statsStr}</option>`;
+    }).join('');
+}
+
+function renderComparadorMatch(rmPlayers, fcbPlayers) {
+    const selectRM = document.getElementById('comparador-select-rm');
+    const selectFCB = document.getElementById('comparador-select-fcb');
+    if (!selectRM || !selectFCB) return;
+
+    const rmIdx = parseInt(selectRM.value) || 0;
+    const fcbIdx = parseInt(selectFCB.value) || 0;
+    const rmPlayer = rmPlayers[rmIdx];
+    const fcbPlayer = fcbPlayers[fcbIdx];
+
+    if (!rmPlayer || !fcbPlayer) return;
+
+    // Render avatars
+    const avatarRM = document.getElementById('comparador-avatar-rm');
+    const avatarFCB = document.getElementById('comparador-avatar-fcb');
+    if (avatarRM) {
+        avatarRM.innerHTML = `<img src="https://ui-avatars.com/api/?name=${encodeURIComponent(rmPlayer.nombre)}&background=D4A012&color=0c0c0e&size=120&bold=true" alt="${rmPlayer.nombre}">`;
+    }
+    if (avatarFCB) {
+        avatarFCB.innerHTML = `<img src="https://ui-avatars.com/api/?name=${encodeURIComponent(fcbPlayer.nombre)}&background=9B1B4D&color=0c0c0e&size=120&bold=true" alt="${fcbPlayer.nombre}">`;
+    }
+
+    // Render info
+    const infoRM = document.getElementById('comparador-info-rm');
+    const infoFCB = document.getElementById('comparador-info-fcb');
+    if (infoRM) {
+        infoRM.innerHTML = `
+            <div class="comparador-player-name">${rmPlayer.nombre}</div>
+            <div class="comparador-player-period">${rmPlayer.periodo}</div>
+        `;
+    }
+    if (infoFCB) {
+        infoFCB.innerHTML = `
+            <div class="comparador-player-name">${fcbPlayer.nombre}</div>
+            <div class="comparador-player-period">${fcbPlayer.periodo}</div>
+        `;
+    }
+
+    // Render comparison bars
+    const barsContainer = document.getElementById('comparador-bars');
+    if (!barsContainer) return;
+
+    const stats = [
+        { label: 'Goles', rmVal: rmPlayer.goles, fcbVal: fcbPlayer.goles },
+        { label: 'Asistencias', rmVal: rmPlayer.asistencias, fcbVal: fcbPlayer.asistencias },
+        { label: 'Partidos', rmVal: rmPlayer.partidos, fcbVal: fcbPlayer.partidos }
+    ];
+
+    barsContainer.innerHTML = stats.map(s => {
+        const total = s.rmVal + s.fcbVal;
+        const rmPct = total > 0 ? (s.rmVal / total) * 100 : 50;
+        const fcbPct = total > 0 ? (s.fcbVal / total) * 100 : 50;
+        return `
+            <div class="comparador-bar-item">
+                <div class="comparador-bar-label">${s.label}</div>
+                <div class="comparador-bar-row">
+                    <span class="comparador-bar-value rm-val">${s.rmVal.toLocaleString('es-ES')}</span>
+                    <div class="comparador-bar-track">
+                        <div class="comparador-bar-fill-rm" style="width: ${rmPct.toFixed(1)}%"></div>
+                        <div class="comparador-bar-fill-fcb" style="width: ${fcbPct.toFixed(1)}%"></div>
+                    </div>
+                    <span class="comparador-bar-value fcb-val">${s.fcbVal.toLocaleString('es-ES')}</span>
+                </div>
+            </div>
+        `;
+    }).join('');
+}
 
 function renderClasicosCards(dataService, mode) {
     const container = document.getElementById('clasicos-cards');
