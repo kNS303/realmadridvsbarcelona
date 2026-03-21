@@ -989,7 +989,31 @@ async function buildSeasonData(existing) {
                 realMadrid: topStats.asistentes.realMadrid.length > 0 ? topStats.asistentes.realMadrid : (existingSeason.topJugadores?.asistentes?.realMadrid || []),
                 barcelona: topStats.asistentes.barcelona.length > 0 ? topStats.asistentes.barcelona : (existingSeason.topJugadores?.asistentes?.barcelona || [])
             }
-        }
+        },
+        standings: standings ? {
+            realMadrid: standings.realMadrid ? {
+                position: standings.realMadrid.position,
+                playedGames: standings.realMadrid.playedGames,
+                won: standings.realMadrid.won,
+                draw: standings.realMadrid.draw,
+                lost: standings.realMadrid.lost,
+                points: standings.realMadrid.points,
+                goalsFor: standings.realMadrid.goalsFor,
+                goalsAgainst: standings.realMadrid.goalsAgainst,
+                goalDifference: standings.realMadrid.goalDifference
+            } : null,
+            barcelona: standings.barcelona ? {
+                position: standings.barcelona.position,
+                playedGames: standings.barcelona.playedGames,
+                won: standings.barcelona.won,
+                draw: standings.barcelona.draw,
+                lost: standings.barcelona.lost,
+                points: standings.barcelona.points,
+                goalsFor: standings.barcelona.goalsFor,
+                goalsAgainst: standings.barcelona.goalsAgainst,
+                goalDifference: standings.barcelona.goalDifference
+            } : null
+        } : (existingSeason.standings || null)
     };
 
     return {
@@ -1225,6 +1249,36 @@ function accumulateHistorical(stats) {
     }
 
     // evolucionHistorica y mayorGoleada se mantienen del baseline (son datos estaticos)
+
+    // 5. ultimosPartidos: season clasicos + existing ultimosPartidos, max 10, sorted by date
+    const seasonPartidos = (seaClasico.partidos || []).map(p => {
+        const scoreMatch = p.resultado.match(/(\d+)\s*-\s*(\d+)/);
+        let golesRM = 0, golesFCB = 0, ganador = 'empate';
+        if (scoreMatch) {
+            if (p.resultado.startsWith('Real Madrid')) {
+                golesRM = parseInt(scoreMatch[1]);
+                golesFCB = parseInt(scoreMatch[2]);
+            } else {
+                golesFCB = parseInt(scoreMatch[1]);
+                golesRM = parseInt(scoreMatch[2]);
+            }
+            if (golesRM > golesFCB) ganador = 'rm';
+            else if (golesFCB > golesRM) ganador = 'fcb';
+        }
+        return { fecha: p.fecha, competicion: p.competicion, resultado: p.resultado, golesRM, golesFCB, ganador };
+    });
+    const existingUltimos = stats.elClasico.ultimosPartidos || [];
+    // Merge: season first (newer), then existing, remove duplicates by resultado+fecha
+    const allPartidos = [...seasonPartidos, ...existingUltimos];
+    const seen = new Set();
+    stats.elClasico.ultimosPartidos = allPartidos.filter(p => {
+        const key = `${p.fecha}|${p.resultado}`;
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+    }).slice(0, 10);
+
+    console.log(`  ultimosPartidos: ${stats.elClasico.ultimosPartidos.length} registros`);
 }
 
 /**

@@ -1286,6 +1286,322 @@ body::before {
 }
 
 /* ========================================
+   Mini Clasificacion La Liga
+   ======================================== */
+.standings-card {
+    background: var(--bg-card);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.standings-title {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+    padding: 1rem 1.2rem 0.6rem;
+}
+
+.standings-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.standings-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 480px;
+}
+
+.standings-table thead {
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.standings-table th {
+    padding: 0.5rem 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.standings-table th.st-team {
+    text-align: left;
+    padding-left: 0.4rem;
+}
+
+.standings-table th.st-pos {
+    width: 36px;
+}
+
+.standings-table td {
+    padding: 0.65rem 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+    text-align: center;
+    border-bottom: 1px solid rgba(200, 200, 200, 0.03);
+}
+
+.standings-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.standings-table td.st-team-cell {
+    text-align: left;
+    font-family: var(--font-body);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-left: 0.4rem;
+}
+
+.standings-table td.st-team-cell img {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.standings-table td.st-pts-cell {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.standings-table td.st-gd-cell {
+    font-weight: 500;
+}
+
+.standings-table .st-gd-positive {
+    color: #34d399;
+}
+
+/* Row highlight per team */
+.standings-row-rm {
+    background: var(--rm-gold-dim);
+}
+
+.standings-row-rm td.st-pos-cell {
+    color: var(--rm-gold);
+    font-weight: 600;
+}
+
+.standings-row-rm td.st-team-cell {
+    color: var(--rm-gold);
+}
+
+.standings-row-rm td.st-pts-cell {
+    color: var(--rm-gold);
+}
+
+.standings-row-fcb {
+    background: var(--fcb-garnet-dim);
+}
+
+.standings-row-fcb td.st-pos-cell {
+    color: var(--fcb-garnet);
+    font-weight: 600;
+}
+
+.standings-row-fcb td.st-team-cell {
+    color: var(--fcb-garnet);
+}
+
+.standings-row-fcb td.st-pts-cell {
+    color: var(--fcb-garnet);
+}
+
+@media (max-width: 768px) {
+    .standings-table {
+        min-width: 420px;
+    }
+
+    .standings-table th,
+    .standings-table td {
+        padding: 0.45rem 0.4rem;
+        font-size: 0.72rem;
+    }
+
+    .standings-table td.st-pts-cell {
+        font-size: 0.8rem;
+    }
+
+    .standings-title {
+        font-size: 0.78rem;
+    }
+}
+
+/* ========================================
+   Ultimos Clasicos Cards
+   ======================================== */
+.clasicos-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.clasico-card {
+    background: var(--bg-card);
+    border-radius: var(--border-radius);
+    padding: 1.2rem 1.4rem;
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-card);
+    transition: transform var(--transition), box-shadow var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.clasico-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+}
+
+.clasico-card.winner-rm::before {
+    background: linear-gradient(90deg, var(--rm-gold), rgba(212, 160, 18, 0.3));
+}
+
+.clasico-card.winner-fcb::before {
+    background: linear-gradient(90deg, var(--fcb-garnet), rgba(155, 27, 77, 0.3));
+}
+
+.clasico-card.winner-empate::before {
+    background: linear-gradient(90deg, var(--neutral), rgba(58, 58, 60, 0.3));
+}
+
+.clasico-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-card-hover);
+}
+
+.clasico-card-date {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.03em;
+}
+
+.clasico-card-score {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-bottom: 0.6rem;
+}
+
+.clasico-card-team {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    min-width: 90px;
+}
+
+.clasico-card-team.team-rm {
+    text-align: right;
+}
+
+.clasico-card-team.team-fcb {
+    text-align: left;
+}
+
+.clasico-card-team.team-winner {
+    color: var(--text-primary);
+}
+
+.clasico-card-goals {
+    font-family: var(--font-mono);
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-variant-numeric: tabular-nums;
+}
+
+.clasico-card-goals .goal-separator {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.clasico-card-goals .goal-rm {
+    color: var(--rm-gold);
+}
+
+.clasico-card-goals .goal-fcb {
+    color: var(--fcb-garnet);
+}
+
+.clasico-card-comp {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.clasico-card-result {
+    display: inline-block;
+    font-size: 0.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.15rem 0.5rem;
+    border-radius: 6px;
+    margin-top: 0.4rem;
+}
+
+.clasico-card-result.result-rm {
+    background: rgba(212, 160, 18, 0.12);
+    color: var(--rm-gold);
+    border: 1px solid rgba(212, 160, 18, 0.25);
+}
+
+.clasico-card-result.result-fcb {
+    background: rgba(155, 27, 77, 0.12);
+    color: var(--fcb-garnet);
+    border: 1px solid rgba(155, 27, 77, 0.25);
+}
+
+.clasico-card-result.result-empate {
+    background: rgba(161, 161, 166, 0.12);
+    color: #a1a1a6;
+    border: 1px solid rgba(161, 161, 166, 0.25);
+}
+
+@media (max-width: 480px) {
+    .clasicos-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+
+    .clasico-card {
+        padding: 1rem 1.1rem;
+    }
+
+    .clasico-card-team {
+        font-size: 0.75rem;
+        min-width: 70px;
+    }
+
+    .clasico-card-goals {
+        font-size: 1.1rem;
+    }
+}
+
+/* ========================================
    Scrollbar
    ======================================== */
 ::-webkit-scrollbar {

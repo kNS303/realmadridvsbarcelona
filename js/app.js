@@ -41,6 +41,17 @@ document.addEventListener('DOMContentLoaded', async () => {
         renderNextMatch('next-match-fcb', dataService.getProximoPartido('barcelona'));
         renderProximoClasico(dataService.getProximoClasico());
 
+        // 6c. Renderizar clasificación La Liga (oculta inicialmente en modo history)
+        renderStandings(dataService);
+
+        // 6d. Renderizar tarjetas de últimos Clásicos
+        renderClasicosCards(dataService, currentMode);
+
+        // 6e. Aplicar visibilidad inicial segun modo
+        document.querySelectorAll('[data-mode-hide]').forEach(el => {
+            el.style.display = el.dataset.modeHide === currentMode ? 'none' : '';
+        });
+
         // 7. Crear barras comparativas CSS
         initComparativeBars(dataService.getEstadisticasByMode(currentMode));
 
@@ -225,6 +236,9 @@ function switchMode(newMode, dataService, chartInstances, loadedSections, modeRe
         // Rebuild player tables
         buildPlayerTables(dataService, newMode);
 
+        // Rebuild Clasicos cards
+        renderClasicosCards(dataService, newMode);
+
         // Update section texts
         updateSectionTexts(newMode);
 
@@ -375,7 +389,10 @@ function updateSectionTexts(mode) {
             : 'Máximos Goleadores',
         'asistentes-subtitle': mode === 'season'
             ? 'Máximos Asistentes de la Temporada'
-            : 'Máximos Asistentes'
+            : 'Máximos Asistentes',
+        'ultimos-clasicos-title': mode === 'season'
+            ? 'Clasicos de la Temporada'
+            : 'Ultimos Clasicos'
     };
 
     Object.entries(texts).forEach(([id, text]) => {
@@ -507,4 +524,93 @@ function renderProximoClasico(clasicoData) {
     document.getElementById('proximo-clasico-comp').textContent = clasicoData.competicion;
     document.getElementById('proximo-clasico-sede').textContent = clasicoData.sede;
     container.classList.remove('hidden');
+}
+
+// ================================================
+// Clasificacion La Liga
+// ================================================
+
+function renderStandings(dataService) {
+    const tbody = document.getElementById('standings-tbody');
+    if (!tbody) return;
+
+    const standings = dataService.getStandings();
+    if (!standings) {
+        tbody.innerHTML = '<tr><td colspan="10" style="text-align:center;color:var(--text-muted);padding:1rem;">Sin datos de clasificacion</td></tr>';
+        return;
+    }
+
+    const teams = [
+        { key: 'realMadrid', data: standings.realMadrid, name: 'Real Madrid', logo: 'assets/madrid-logo.svg', rowClass: 'standings-row-rm' },
+        { key: 'barcelona', data: standings.barcelona, name: 'FC Barcelona', logo: 'assets/barca-logo.svg', rowClass: 'standings-row-fcb' }
+    ];
+
+    // Sort by position
+    teams.sort((a, b) => a.data.position - b.data.position);
+
+    tbody.innerHTML = teams.map(team => {
+        const d = team.data;
+        const gdSign = d.goalDifference > 0 ? '+' : '';
+        const gdClass = d.goalDifference > 0 ? 'st-gd-positive' : '';
+        return `
+            <tr class="${team.rowClass}">
+                <td class="st-pos-cell">${d.position}</td>
+                <td class="st-team-cell">
+                    <img src="${team.logo}" alt="">
+                    ${team.name}
+                </td>
+                <td class="st-pts-cell">${d.points}</td>
+                <td>${d.playedGames}</td>
+                <td>${d.won}</td>
+                <td>${d.draw}</td>
+                <td>${d.lost}</td>
+                <td>${d.goalsFor}</td>
+                <td>${d.goalsAgainst}</td>
+                <td class="st-gd-cell ${gdClass}">${gdSign}${d.goalDifference}</td>
+            </tr>
+        `;
+    }).join('');
+}
+
+// ================================================
+// Ultimos Clasicos Cards
+// ================================================
+
+function renderClasicosCards(dataService, mode) {
+    const container = document.getElementById('clasicos-cards');
+    if (!container) return;
+
+    const partidos = dataService.getUltimosClasicos(mode);
+
+    if (!partidos || partidos.length === 0) {
+        container.innerHTML = '<p style="text-align:center;color:var(--text-muted);font-size:0.85rem;">No hay clasicos disputados en este periodo</p>';
+        return;
+    }
+
+    container.innerHTML = partidos.map(p => {
+        const winnerClass = p.ganador === 'rm' ? 'winner-rm' : p.ganador === 'fcb' ? 'winner-fcb' : 'winner-empate';
+        const resultClass = p.ganador === 'rm' ? 'result-rm' : p.ganador === 'fcb' ? 'result-fcb' : 'result-empate';
+        const resultLabel = p.ganador === 'rm' ? 'Victoria RM' : p.ganador === 'fcb' ? 'Victoria FCB' : 'Empate';
+        const rmWinner = p.ganador === 'rm' ? ' team-winner' : '';
+        const fcbWinner = p.ganador === 'fcb' ? ' team-winner' : '';
+
+        return `
+            <div class="clasico-card ${winnerClass}">
+                <div class="clasico-card-date">${p.fecha}</div>
+                <div class="clasico-card-score">
+                    <span class="clasico-card-team team-rm${rmWinner}">Real Madrid</span>
+                    <span class="clasico-card-goals">
+                        <span class="goal-rm">${p.golesRM}</span>
+                        <span class="goal-separator">-</span>
+                        <span class="goal-fcb">${p.golesFCB}</span>
+                    </span>
+                    <span class="clasico-card-team team-fcb${fcbWinner}">FC Barcelona</span>
+                </div>
+                <div class="clasico-card-comp">
+                    ${p.competicion}
+                    <span class="clasico-card-result ${resultClass}">${resultLabel}</span>
+                </div>
+            </div>
+        `;
+    }).join('');
 }

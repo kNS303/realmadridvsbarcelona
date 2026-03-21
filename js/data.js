@@ -86,6 +86,41 @@ class DataService {
         return src.elClasico;
     }
 
+    getUltimosClasicos(mode) {
+        if (mode === 'season') {
+            // Season: use partidos array from temporadaActual.elClasico
+            const partidos = this.data.temporadaActual?.elClasico?.partidos || [];
+            return partidos.map(p => {
+                // Parse resultado string "Real Madrid 2-1 FC Barcelona"
+                const scoreMatch = p.resultado.match(/(\d+)\s*-\s*(\d+)/);
+                let golesRM = 0, golesFCB = 0, ganador = 'empate';
+                if (scoreMatch) {
+                    // Determine which side is RM
+                    if (p.resultado.startsWith('Real Madrid')) {
+                        golesRM = parseInt(scoreMatch[1]);
+                        golesFCB = parseInt(scoreMatch[2]);
+                    } else {
+                        golesFCB = parseInt(scoreMatch[1]);
+                        golesRM = parseInt(scoreMatch[2]);
+                    }
+                    if (golesRM > golesFCB) ganador = 'rm';
+                    else if (golesFCB > golesRM) ganador = 'fcb';
+                    else ganador = 'empate';
+                }
+                return {
+                    fecha: p.fecha,
+                    competicion: p.competicion,
+                    resultado: p.resultado,
+                    golesRM,
+                    golesFCB,
+                    ganador
+                };
+            });
+        }
+        // History: use ultimosPartidos from elClasico
+        return this.data.elClasico?.ultimosPartidos || [];
+    }
+
     getEstadisticasByMode(mode) {
         const src = mode === 'season' ? this.data.temporadaActual : this.data;
         return {
@@ -98,6 +133,10 @@ class DataService {
     getJugadoresByMode(mode) {
         const src = mode === 'season' ? this.data.temporadaActual : this.data;
         return src.topJugadores;
+    }
+
+    getStandings() {
+        return this.data?.temporadaActual?.standings || null;
     }
 
     getHeroStatsByMode(mode) {
@@ -214,6 +253,88 @@ DataService.STATS_DATA = {
       "fecha": "29 noviembre 2010",
       "competicion": "La Liga"
     },
+    "ultimosPartidos": [
+      {
+        "fecha": "26 de octubre de 2025",
+        "competicion": "La Liga",
+        "resultado": "Real Madrid 2-1 FC Barcelona",
+        "golesRM": 2,
+        "golesFCB": 1,
+        "ganador": "rm"
+      },
+      {
+        "fecha": "21 de abril de 2025",
+        "competicion": "La Liga",
+        "resultado": "FC Barcelona 1-2 Real Madrid",
+        "golesRM": 2,
+        "golesFCB": 1,
+        "ganador": "rm"
+      },
+      {
+        "fecha": "12 de enero de 2025",
+        "competicion": "Supercopa de Espana",
+        "resultado": "Real Madrid 2-5 FC Barcelona",
+        "golesRM": 2,
+        "golesFCB": 5,
+        "ganador": "fcb"
+      },
+      {
+        "fecha": "26 de octubre de 2024",
+        "competicion": "La Liga",
+        "resultado": "Real Madrid 0-4 FC Barcelona",
+        "golesRM": 0,
+        "golesFCB": 4,
+        "ganador": "fcb"
+      },
+      {
+        "fecha": "21 de abril de 2024",
+        "competicion": "La Liga",
+        "resultado": "FC Barcelona 1-2 Real Madrid",
+        "golesRM": 2,
+        "golesFCB": 1,
+        "ganador": "rm"
+      },
+      {
+        "fecha": "14 de enero de 2024",
+        "competicion": "Supercopa de Espana",
+        "resultado": "Real Madrid 4-1 FC Barcelona",
+        "golesRM": 4,
+        "golesFCB": 1,
+        "ganador": "rm"
+      },
+      {
+        "fecha": "28 de octubre de 2023",
+        "competicion": "La Liga",
+        "resultado": "FC Barcelona 1-2 Real Madrid",
+        "golesRM": 2,
+        "golesFCB": 1,
+        "ganador": "rm"
+      },
+      {
+        "fecha": "2 de abril de 2023",
+        "competicion": "La Liga",
+        "resultado": "Real Madrid 3-1 FC Barcelona",
+        "golesRM": 3,
+        "golesFCB": 1,
+        "ganador": "rm"
+      },
+      {
+        "fecha": "15 de enero de 2023",
+        "competicion": "Supercopa de Espana",
+        "resultado": "Real Madrid 1-3 FC Barcelona",
+        "golesRM": 1,
+        "golesFCB": 3,
+        "ganador": "fcb"
+      },
+      {
+        "fecha": "16 de octubre de 2022",
+        "competicion": "La Liga",
+        "resultado": "Real Madrid 3-1 FC Barcelona",
+        "golesRM": 3,
+        "golesFCB": 1,
+        "ganador": "rm"
+      }
+    ],
     "porCompeticion": {
       "liga": {
         "partidos": 186,
@@ -746,6 +867,30 @@ DataService.STATS_DATA = {
             "periodo": "2025-26"
           }
         ]
+      }
+    },
+    "standings": {
+      "realMadrid": {
+        "position": 2,
+        "playedGames": 28,
+        "won": 19,
+        "draw": 3,
+        "lost": 6,
+        "points": 60,
+        "goalsFor": 58,
+        "goalsAgainst": 27,
+        "goalDifference": 31
+      },
+      "barcelona": {
+        "position": 1,
+        "playedGames": 28,
+        "won": 21,
+        "draw": 3,
+        "lost": 4,
+        "points": 66,
+        "goalsFor": 73,
+        "goalsAgainst": 30,
+        "goalDifference": 43
       }
     }
   },
