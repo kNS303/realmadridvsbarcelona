@@ -192,26 +192,26 @@
     "realMadrid": {
       "penaltisAFavor": 1847,
       "penaltisEnContra": 1093,
-      "tarjetasAmarillas": 7183,
+      "tarjetasAmarillas": 7186,
       "tarjetasRojas": 417,
-      "corners": 27946,
-      "faltas": 34817,
-      "fuerasDeJuego": 11847,
+      "corners": 27952,
+      "faltas": 34827,
+      "fuerasDeJuego": 11849,
       "posesionMedia": 53.4,
-      "tirosAPuerta": 44712,
-      "tirosAFuera": 37856
+      "tirosAPuerta": 44719,
+      "tirosAFuera": 37862
     },
     "barcelona": {
       "penaltisAFavor": 1793,
       "penaltisEnContra": 1042,
-      "tarjetasAmarillas": 6871,
+      "tarjetasAmarillas": 6874,
       "tarjetasRojas": 384,
-      "corners": 29412,
-      "faltas": 32754,
-      "fuerasDeJuego": 11293,
+      "corners": 29418,
+      "faltas": 32764,
+      "fuerasDeJuego": 11295,
       "posesionMedia": 57.8,
-      "tirosAPuerta": 43891,
-      "tirosAFuera": 36724
+      "tirosAPuerta": 43898,
+      "tirosAFuera": 36730
     }
   },
   "estadisticasLabels": {
@@ -477,26 +477,26 @@
       "realMadrid": {
         "penaltisAFavor": 13,
         "penaltisEnContra": 7,
-        "tarjetasAmarillas": 100,
+        "tarjetasAmarillas": 103,
         "tarjetasRojas": 5,
-        "corners": 232,
-        "faltas": 380,
-        "fuerasDeJuego": 84,
+        "corners": 238,
+        "faltas": 390,
+        "fuerasDeJuego": 86,
         "posesionMedia": 55,
-        "tirosAPuerta": 288,
-        "tirosAFuera": 252
+        "tirosAPuerta": 295,
+        "tirosAFuera": 258
       },
       "barcelona": {
         "penaltisAFavor": 12,
         "penaltisEnContra": 7,
-        "tarjetasAmarillas": 95,
+        "tarjetasAmarillas": 98,
         "tarjetasRojas": 5,
-        "corners": 220,
-        "faltas": 361,
-        "fuerasDeJuego": 80,
+        "corners": 226,
+        "faltas": 371,
+        "fuerasDeJuego": 82,
         "posesionMedia": 55,
-        "tirosAPuerta": 274,
-        "tirosAFuera": 239
+        "tirosAPuerta": 281,
+        "tirosAFuera": 245
       }
     },
     "topJugadores": {
@@ -551,6 +551,87 @@
       "asistentes": {
         "realMadrid": [],
         "barcelona": []
+      }
+    }
+  },
+  "historicalBaseline": {
+    "temporada": "2025-26",
+    "historialGeneral": {
+      "realMadrid": {
+        "partidosJugados": 4810,
+        "ganados": 2680,
+        "empatados": 907,
+        "perdidos": 1223,
+        "golesAFavor": 9161,
+        "golesEnContra": 5482
+      },
+      "barcelona": {
+        "partidosJugados": 4742,
+        "ganados": 2651,
+        "empatados": 887,
+        "perdidos": 1204,
+        "golesAFavor": 9043,
+        "golesEnContra": 5335
+      }
+    },
+    "estadisticasDetalladas": {
+      "realMadrid": {
+        "penaltisAFavor": 1834,
+        "penaltisEnContra": 1086,
+        "tarjetasAmarillas": 7083,
+        "tarjetasRojas": 412,
+        "corners": 27714,
+        "faltas": 34437,
+        "fuerasDeJuego": 11763,
+        "posesionMedia": 53.4,
+        "tirosAPuerta": 44424,
+        "tirosAFuera": 37604
+      },
+      "barcelona": {
+        "penaltisAFavor": 1781,
+        "penaltisEnContra": 1035,
+        "tarjetasAmarillas": 6776,
+        "tarjetasRojas": 379,
+        "corners": 29192,
+        "faltas": 32393,
+        "fuerasDeJuego": 11213,
+        "posesionMedia": 57.8,
+        "tirosAPuerta": 43617,
+        "tirosAFuera": 36485
+      }
+    },
+    "elClasico": {
+      "totalPartidos": 256,
+      "victoriasRealMadrid": 104,
+      "victoriasBarcelona": 100,
+      "empates": 52,
+      "golesRealMadrid": 418,
+      "golesBarcelona": 402,
+      "porCompeticion": {
+        "liga": {
+          "partidos": 185,
+          "rmVictorias": 75,
+          "fcbVictorias": 73,
+          "empates": 37
+        },
+        "copaDelRey": {
+          "partidos": 37,
+          "rmVictorias": 15,
+          "fcbVictorias": 14,
+          "empates": 8
+        },
+        "championsLeague": {
+          "partidos": 10,
+          "rmVictorias": 5,
+          "fcbVictorias": 3,
+          "empates": 2
+        },
+        "supercopa": {
+          "partidos": 24,
+          "rmVictorias": 9,
+          "fcbVictorias": 10,
+          "empates": 5
+        }
       }
     }
   }

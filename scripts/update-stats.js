@@ -1,13 +1,22 @@
 /**
- * Script de actualizacion automatica de estadisticas
+ * Script de actualizacion automatica de estadisticas v3.0
  *
  * Fuentes:
  *   - football-data.org (API_KEY requerida): temporada actual completa
  *   - Wikipedia API: datos historicos (titulos, El Clasico)
  *
  * Actualiza AMBAS vistas del dashboard:
- *   - Datos historicos (titulos, El Clasico head-to-head)
  *   - Temporada actual (record, goleadores, clasicos, estadisticas)
+ *   - Datos historicos = baseline pre-temporada + acumulado de temporada actual
+ *   - Titulos historicos (Wikipedia, absolutos)
+ *
+ * Sistema de acumulacion:
+ *   historicalBaseline: snapshot de datos al inicio de la temporada
+ *   Cada update: historialGeneral = baseline + temporadaActual
+ *   Rollover automatico al detectar nueva temporada
+ *
+ * Validacion cruzada:
+ *   Contrasta datos de partidos con clasificacion de La Liga (standings)
  *
  * Uso:
  *   API_KEY=tu_key node scripts/update-stats.js
@@ -78,7 +87,7 @@ async function rateLimitedFetch(url, headers = {}) {
 
 function fetchURL(url, headers = {}) {
     return new Promise((resolve, reject) => {
-        const options = { headers: { 'User-Agent': 'ElClasicoStats/2.0 (bot; educational)', ...headers } };
+        const options = { headers: { 'User-Agent': 'ElClasicoStats/3.0 (bot; educational)', ...headers } };
         https.get(url, options, (res) => {
             if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
                 return fetchURL(res.headers.location, headers).then(resolve).catch(reject);
@@ -563,7 +572,50 @@ async function buildSeasonData(existing) {
     if (ultimoRM) console.log(`\n[ULTIMO] RM: vs ${ultimoRM.rival} (${ultimoRM.golesLocal}-${ultimoRM.golesVisitante}) ${ultimoRM.competicion}`);
     if (ultimoFCB) console.log(`[ULTIMO] FCB: vs ${ultimoFCB.rival} (${ultimoFCB.golesLocal}-${ultimoFCB.golesVisitante}) ${ultimoFCB.competicion}`);
 
-    // 5. Top goleadores (La Liga + Champions)
+    // 5. Validacion cruzada con clasificacion de La Liga
+    const standings = await fetchStandings();
+    if (standings && rmMatches) {
+        console.log('\n[VALIDACION] Contrastando datos con clasificacion de La Liga...');
+
+        const rmLaLiga = rmMatches.filter(m => m.competition.code === 'PD');
+        const fcbLaLiga = fcbMatches ? fcbMatches.filter(m => m.competition.code === 'PD') : [];
+
+        if (standings.realMadrid && rmLaLiga.length > 0) {
+            const rmLigaRecord = computeSeasonRecord(rmLaLiga, TEAM_IDS.realMadrid);
+            const s = standings.realMadrid;
+            const ptsCalc = rmLigaRecord.ganados * 3 + rmLigaRecord.empatados;
+            console.log(`  RM Liga: ${rmLigaRecord.partidosJugados}PJ ${rmLigaRecord.ganados}G ${rmLigaRecord.empatados}E ${rmLigaRecord.perdidos}P | Pts: ${ptsCalc}`);
+            console.log(`  RM Standings: ${s.playedGames}PJ ${s.won}G ${s.draw}E ${s.lost}P | Pts: ${s.points}`);
+            if (rmLigaRecord.partidosJugados !== s.playedGames) {
+                console.warn(`  [DISCREPANCIA] RM partidos: API=${rmLigaRecord.partidosJugados} vs standings=${s.playedGames}`);
+            }
+            if (ptsCalc !== s.points) {
+                console.warn(`  [DISCREPANCIA] RM puntos: calculado=${ptsCalc} vs standings=${s.points}`);
+            }
+            if (rmLigaRecord.golesAFavor !== s.goalsFor) {
+                console.warn(`  [DISCREPANCIA] RM goles a favor: API=${rmLigaRecord.golesAFavor} vs standings=${s.goalsFor}`);
+            }
+        }
+
+        if (standings.barcelona && fcbLaLiga.length > 0) {
+            const fcbLigaRecord = computeSeasonRecord(fcbLaLiga, TEAM_IDS.barcelona);
+            const s = standings.barcelona;
+            const ptsCalc = fcbLigaRecord.ganados * 3 + fcbLigaRecord.empatados;
+            console.log(`  FCB Liga: ${fcbLigaRecord.partidosJugados}PJ ${fcbLigaRecord.ganados}G ${fcbLigaRecord.empatados}E ${fcbLigaRecord.perdidos}P | Pts: ${ptsCalc}`);
+            console.log(`  FCB Standings: ${s.playedGames}PJ ${s.won}G ${s.draw}E ${s.lost}P | Pts: ${s.points}`);
+            if (fcbLigaRecord.partidosJugados !== s.playedGames) {
+                console.warn(`  [DISCREPANCIA] FCB partidos: API=${fcbLigaRecord.partidosJugados} vs standings=${s.playedGames}`);
+            }
+            if (ptsCalc !== s.points) {
+                console.warn(`  [DISCREPANCIA] FCB puntos: calculado=${ptsCalc} vs standings=${s.points}`);
+            }
+            if (fcbLigaRecord.golesAFavor !== s.goalsFor) {
+                console.warn(`  [DISCREPANCIA] FCB goles a favor: API=${fcbLigaRecord.golesAFavor} vs standings=${s.goalsFor}`);
+            }
+        }
+    }
+
+    // 6. Top goleadores (La Liga + Champions)
     const laLigaScorers = await fetchCompetitionScorers('PD', 'La Liga');
     const clScorers = await fetchCompetitionScorers('CL', 'Champions League');
     const topGoleadores = buildTopScorers([laLigaScorers, clScorers]);
@@ -576,26 +628,26 @@ async function buildSeasonData(existing) {
         console.log(`  FCB top: ${topGoleadores.barcelona[0].nombre} (${topGoleadores.barcelona[0].goles} goles)`);
     }
 
-    // 6. Estadisticas detalladas (estimadas/escaladas)
+    // 7. Estadisticas detalladas (estimadas/escaladas)
     const existingDetailedRM = existingSeason.estadisticasDetalladas?.realMadrid;
     const existingDetailedFCB = existingSeason.estadisticasDetalladas?.barcelona;
 
     const statsRM = rmRecord ? estimateDetailedStats(rmRecord, existingDetailedRM) : existingDetailedRM;
     const statsFCB = fcbRecord ? estimateDetailedStats(fcbRecord, existingDetailedFCB) : existingDetailedFCB;
 
-    // 7. Hero stats
+    // 8. Hero stats
     const clasicosDisputados = seasonClasicos ? seasonClasicos.totalPartidos : (existingSeason.heroStats?.clasicosDisputados || 0);
     const golesEnClasicos = seasonClasicos
         ? seasonClasicos.golesRealMadrid + seasonClasicos.golesBarcelona
         : (existingSeason.heroStats?.golesEnClasicos || 0);
 
-    // 8. Titulos de la temporada (mantener existentes, dificil de detectar automaticamente)
+    // 9. Titulos de la temporada (mantener existentes, dificil de detectar automaticamente)
     const seasonTitulos = existingSeason.titulos || {
         realMadrid: { liga: 0, championsLeague: 0, copaDelRey: 0, supercopaEspana: 0, supercopaEuropa: 0, mundialClubes: 0, copaLiga: 0, recopa: 0 },
         barcelona: { liga: 0, championsLeague: 0, copaDelRey: 0, supercopaEspana: 0, supercopaEuropa: 0, mundialClubes: 0, copaLiga: 0, recopa: 0 }
     };
 
-    // 9. Asistentes (mantener existentes - football-data.org no proporciona assists en free tier)
+    // 10. Asistentes (mantener existentes - football-data.org no proporciona assists en free tier)
     const existingAsistentes = existingSeason.topJugadores?.asistentes || {
         realMadrid: [], barcelona: []
     };
@@ -653,7 +705,7 @@ function mergeHistorical(existing, wikipedia) {
 
     console.log('\n[MERGE] Validando datos historicos...\n');
 
-    // Titulos
+    // Titulos - estos se actualizan directamente (son absolutos, no acumulativos)
     if (wikipedia.titulos) {
         for (const team of ['realMadrid', 'barcelona']) {
             for (const [key, value] of Object.entries(wikipedia.titulos[team] || {})) {
@@ -671,8 +723,31 @@ function mergeHistorical(existing, wikipedia) {
         }
     }
 
-    // El Clasico
-    if (wikipedia.clasico) {
+    // El Clasico - actualizar el BASELINE, no los valores de display
+    // Los valores de display se calculan como baseline + temporada
+    if (wikipedia.clasico && updated.historicalBaseline) {
+        const baseline = updated.historicalBaseline.elClasico;
+        const seasonClasico = updated.temporadaActual?.elClasico || {};
+
+        for (const [key, value] of Object.entries(wikipedia.clasico)) {
+            const range = SANITY_RANGES.clasico[key];
+            if (!range) continue;
+
+            if (sanityCheck(value, range, `clasico.${key}`)) {
+                // Wikipedia da el total historico real.
+                // El baseline deberia ser: total_wikipedia - clasicos_esta_temporada
+                const seasonVal = seasonClasico[key] || 0;
+                const newBaseline = value - seasonVal;
+
+                if (newBaseline !== baseline[key]) {
+                    console.log(`      Baseline actualizado: ${baseline[key]} -> ${newBaseline} (wikipedia=${value} - temporada=${seasonVal})`);
+                    baseline[key] = newBaseline;
+                    changes++;
+                }
+            }
+        }
+    } else if (wikipedia.clasico) {
+        // Sin baseline aun, actualizar directamente (legacy)
         for (const [key, value] of Object.entries(wikipedia.clasico)) {
             const range = SANITY_RANGES.clasico[key];
             if (!range) continue;
@@ -688,6 +763,196 @@ function mergeHistorical(existing, wikipedia) {
     }
 
     return { updated, changes };
+}
+
+// ============================================================
+// Acumulacion: baseline historico + temporada actual
+// ============================================================
+
+/**
+ * Crea el baseline inicial restando los datos de temporada actual
+ * de los datos historicos actuales (para evitar doble conteo)
+ */
+function bootstrapBaseline(stats) {
+    const season = stats.temporadaActual;
+    if (!season) return null;
+
+    console.log('\n[BOOTSTRAP] Creando historicalBaseline inicial...');
+    console.log('  Formula: baseline = historico_actual - temporada_actual');
+
+    const seasonStr = season.meta?.temporada ||
+        `${CURRENT_SEASON}-${(CURRENT_SEASON + 1).toString().slice(2)}`;
+
+    const baseline = {
+        temporada: seasonStr,
+        historialGeneral: {},
+        estadisticasDetalladas: {},
+        elClasico: {}
+    };
+
+    // historialGeneral: restar temporada del historico
+    for (const team of ['realMadrid', 'barcelona']) {
+        const hist = stats.historialGeneral[team];
+        const sea = season.historialGeneral?.[team] || {};
+        baseline.historialGeneral[team] = {
+            partidosJugados: hist.partidosJugados - (sea.partidosJugados || 0),
+            ganados: hist.ganados - (sea.ganados || 0),
+            empatados: hist.empatados - (sea.empatados || 0),
+            perdidos: hist.perdidos - (sea.perdidos || 0),
+            golesAFavor: hist.golesAFavor - (sea.golesAFavor || 0),
+            golesEnContra: hist.golesEnContra - (sea.golesEnContra || 0)
+        };
+        console.log(`  ${team}: ${hist.partidosJugados} - ${sea.partidosJugados || 0} = ${baseline.historialGeneral[team].partidosJugados} PJ base`);
+    }
+
+    // estadisticasDetalladas: restar temporada
+    for (const team of ['realMadrid', 'barcelona']) {
+        const hist = stats.estadisticasDetalladas[team];
+        const sea = season.estadisticasDetalladas?.[team] || {};
+        baseline.estadisticasDetalladas[team] = {};
+
+        for (const key of Object.keys(hist)) {
+            if (key === 'posesionMedia') {
+                // La posesion es un promedio, guardar el valor historico como base
+                baseline.estadisticasDetalladas[team][key] = hist[key];
+            } else {
+                baseline.estadisticasDetalladas[team][key] = hist[key] - (sea[key] || 0);
+            }
+        }
+    }
+
+    // elClasico: restar clasicos de esta temporada
+    const histClasico = stats.elClasico;
+    const seaClasico = season.elClasico || {};
+    baseline.elClasico = {
+        totalPartidos: histClasico.totalPartidos - (seaClasico.totalPartidos || 0),
+        victoriasRealMadrid: histClasico.victoriasRealMadrid - (seaClasico.victoriasRealMadrid || 0),
+        victoriasBarcelona: histClasico.victoriasBarcelona - (seaClasico.victoriasBarcelona || 0),
+        empates: histClasico.empates - (seaClasico.empates || 0),
+        golesRealMadrid: histClasico.golesRealMadrid - (seaClasico.golesRealMadrid || 0),
+        golesBarcelona: histClasico.golesBarcelona - (seaClasico.golesBarcelona || 0),
+        porCompeticion: {}
+    };
+
+    // porCompeticion
+    for (const comp of ['liga', 'copaDelRey', 'championsLeague', 'supercopa']) {
+        const histComp = histClasico.porCompeticion?.[comp] || {};
+        const seaComp = seaClasico.porCompeticion?.[comp] || {};
+        baseline.elClasico.porCompeticion[comp] = {
+            partidos: (histComp.partidos || 0) - (seaComp.partidos || 0),
+            rmVictorias: (histComp.rmVictorias || 0) - (seaComp.rmVictorias || 0),
+            fcbVictorias: (histComp.fcbVictorias || 0) - (seaComp.fcbVictorias || 0),
+            empates: (histComp.empates || 0) - (seaComp.empates || 0)
+        };
+    }
+
+    console.log(`  Clasico base: ${baseline.elClasico.totalPartidos} partidos (hist ${histClasico.totalPartidos} - temp ${seaClasico.totalPartidos || 0})`);
+
+    return baseline;
+}
+
+/**
+ * Acumula los datos historicos: baseline + temporada actual
+ * Escribe el resultado en stats.historialGeneral, stats.estadisticasDetalladas, stats.elClasico
+ */
+function accumulateHistorical(stats) {
+    const baseline = stats.historicalBaseline;
+    const season = stats.temporadaActual;
+
+    if (!baseline || !season) return;
+
+    console.log('\n[ACUMULACION] Calculando historico = baseline + temporada actual...');
+
+    // 1. historialGeneral
+    for (const team of ['realMadrid', 'barcelona']) {
+        const base = baseline.historialGeneral[team];
+        const sea = season.historialGeneral?.[team] || {};
+
+        for (const field of ['partidosJugados', 'ganados', 'empatados', 'perdidos', 'golesAFavor', 'golesEnContra']) {
+            stats.historialGeneral[team][field] = (base[field] || 0) + (sea[field] || 0);
+        }
+
+        console.log(`  ${team}: ${stats.historialGeneral[team].partidosJugados} PJ (${base.partidosJugados}+${sea.partidosJugados || 0}), ${stats.historialGeneral[team].golesAFavor} GF (${base.golesAFavor}+${sea.golesAFavor || 0})`);
+    }
+
+    // 2. estadisticasDetalladas
+    for (const team of ['realMadrid', 'barcelona']) {
+        const base = baseline.estadisticasDetalladas[team];
+        const sea = season.estadisticasDetalladas?.[team] || {};
+
+        for (const key of Object.keys(base)) {
+            if (key === 'posesionMedia') {
+                // Media ponderada por partidos jugados
+                const baseGames = baseline.historialGeneral[team].partidosJugados || 1;
+                const seaGames = season.historialGeneral?.[team]?.partidosJugados || 0;
+                const totalGames = baseGames + seaGames;
+                stats.estadisticasDetalladas[team][key] = totalGames > 0
+                    ? Math.round(((base[key] * baseGames + (sea[key] || 50) * seaGames) / totalGames) * 10) / 10
+                    : base[key];
+            } else {
+                stats.estadisticasDetalladas[team][key] = (base[key] || 0) + (sea[key] || 0);
+            }
+        }
+    }
+
+    // 3. elClasico (totales)
+    const baseClasico = baseline.elClasico;
+    const seaClasico = season.elClasico || {};
+
+    for (const field of ['totalPartidos', 'victoriasRealMadrid', 'victoriasBarcelona', 'empates', 'golesRealMadrid', 'golesBarcelona']) {
+        stats.elClasico[field] = (baseClasico[field] || 0) + (seaClasico[field] || 0);
+    }
+
+    console.log(`  Clasico: ${stats.elClasico.totalPartidos} totales (${baseClasico.totalPartidos}+${seaClasico.totalPartidos || 0})`);
+
+    // 4. elClasico.porCompeticion
+    for (const comp of ['liga', 'copaDelRey', 'championsLeague', 'supercopa']) {
+        const baseComp = baseClasico.porCompeticion?.[comp] || {};
+        const seaComp = seaClasico.porCompeticion?.[comp] || {};
+
+        if (!stats.elClasico.porCompeticion[comp]) {
+            stats.elClasico.porCompeticion[comp] = {};
+        }
+
+        for (const field of ['partidos', 'rmVictorias', 'fcbVictorias', 'empates']) {
+            stats.elClasico.porCompeticion[comp][field] = (baseComp[field] || 0) + (seaComp[field] || 0);
+        }
+    }
+
+    // evolucionHistorica y mayorGoleada se mantienen del baseline (son datos estaticos)
+}
+
+/**
+ * Detecta cambio de temporada y hace rollover del baseline
+ */
+function checkSeasonRollover(stats) {
+    const currentSeasonStr = `${CURRENT_SEASON}-${(CURRENT_SEASON + 1).toString().slice(2)}`;
+    const baselineSeason = stats.historicalBaseline?.temporada;
+
+    if (baselineSeason && baselineSeason !== currentSeasonStr) {
+        console.log(`\n[ROLLOVER] Nueva temporada detectada: ${baselineSeason} -> ${currentSeasonStr}`);
+        console.log('  Los datos acumulados de la temporada anterior se convierten en el nuevo baseline');
+
+        // El historialGeneral actual (baseline+temporada_anterior) se convierte en el nuevo baseline
+        stats.historicalBaseline = {
+            temporada: currentSeasonStr,
+            historialGeneral: JSON.parse(JSON.stringify(stats.historialGeneral)),
+            estadisticasDetalladas: JSON.parse(JSON.stringify(stats.estadisticasDetalladas)),
+            elClasico: {
+                totalPartidos: stats.elClasico.totalPartidos,
+                victoriasRealMadrid: stats.elClasico.victoriasRealMadrid,
+                victoriasBarcelona: stats.elClasico.victoriasBarcelona,
+                empates: stats.elClasico.empates,
+                golesRealMadrid: stats.elClasico.golesRealMadrid,
+                golesBarcelona: stats.elClasico.golesBarcelona,
+                porCompeticion: JSON.parse(JSON.stringify(stats.elClasico.porCompeticion))
+            }
+        };
+
+        return true;
+    }
+
+    return false;
 }
 
 // ============================================================
@@ -731,7 +996,7 @@ function updateDataJS(stats) {
 
 async function main() {
     console.log('==============================================');
-    console.log('  ACTUALIZACION DE ESTADISTICAS v2.0');
+    console.log('  ACTUALIZACION DE ESTADISTICAS v3.0');
     console.log(`  ${new Date().toLocaleString('es-ES')}`);
     console.log(`  Temporada: ${CURRENT_SEASON}-${CURRENT_SEASON + 1}`);
     if (DRY_RUN) console.log('  MODO DRY-RUN (no se guardan cambios)');
@@ -750,13 +1015,28 @@ async function main() {
 
     let totalChanges = 0;
 
-    // 2. Datos historicos (Wikipedia)
+    // 2. Bootstrap del baseline historico (primera vez)
+    if (!existing.historicalBaseline) {
+        existing.historicalBaseline = bootstrapBaseline(existing);
+        if (existing.historicalBaseline) {
+            totalChanges++;
+        }
+    } else {
+        console.log(`\n[BASELINE] Existente para temporada ${existing.historicalBaseline.temporada}`);
+    }
+
+    // 3. Detectar cambio de temporada (rollover)
+    if (existing.historicalBaseline && checkSeasonRollover(existing)) {
+        totalChanges++;
+    }
+
+    // 4. Datos historicos (Wikipedia) - actualiza titulos y baseline del Clasico
     const wikipedia = await fetchHistoricalFromWikipedia();
     const { updated: withHistorical, changes: histChanges } = mergeHistorical(existing, wikipedia);
     totalChanges += histChanges;
     console.log(`\n  Cambios historicos: ${histChanges}`);
 
-    // 3. Datos de temporada actual (football-data.org)
+    // 5. Datos de temporada actual (football-data.org)
     const seasonResult = await buildSeasonData(withHistorical);
 
     if (seasonResult) {
@@ -777,6 +1057,13 @@ async function main() {
             console.log('  Ultimo partido: ACTUALIZADO');
             totalChanges++;
         }
+    }
+
+    // 6. Acumular historicos: baseline + temporada actual
+    if (withHistorical.historicalBaseline && withHistorical.temporadaActual) {
+        accumulateHistorical(withHistorical);
+        console.log('  Historico acumulado: baseline + temporada actual');
+        totalChanges++;
     }
 
     // 4. Actualizar metadatos
@@ -807,7 +1094,7 @@ async function main() {
     console.log('==============================================\n');
 
     const logPath = path.join(__dirname, 'update-log.txt');
-    const logEntry = `[${new Date().toISOString()}] v2.0 - ${totalChanges} cambio(s) aplicados\n`;
+    const logEntry = `[${new Date().toISOString()}] v3.0 - ${totalChanges} cambio(s) aplicados\n`;
     fs.appendFileSync(logPath, logEntry, 'utf8');
 }
 
