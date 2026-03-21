@@ -4,6 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>El Clásico en Números | Real Madrid vs FC Barcelona</title>
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0c0c0e">
+    <link rel="icon" type="image/svg+xml" href="assets/icon.svg">
+    <link rel="apple-touch-icon" href="assets/icon-192.png">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Real Madrid vs FC Barcelona - Dashboard Estadistico">
+    <meta property="og:description" content="Comparativa historica y de temporada entre los dos grandes del futbol espanol">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kns303.github.io/realmadridvsbarcelona/">
+    <meta property="og:image" content="https://kns303.github.io/realmadridvsbarcelona/assets/icon-512.png">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:site_name" content="El Clasico en Numeros">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Real Madrid vs FC Barcelona - Dashboard Estadistico">
+    <meta name="twitter:description" content="Comparativa historica y de temporada entre los dos grandes del futbol espanol">
+    <meta name="twitter:image" content="https://kns303.github.io/realmadridvsbarcelona/assets/icon-512.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -420,5 +442,12 @@
     <script src="js/animations.js"></script>
     <script src="js/tables.js"></script>
     <script src="js/app.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js').catch(() => {});
+            });
+        }
+    </script>
 </body>
 </html>

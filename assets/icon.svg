@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="64" fill="#0c0c0e"/>
+  <text x="256" y="200" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="120" fill="#D4A012">RM</text>
+  <text x="256" y="300" text-anchor="middle" font-family="sans-serif" font-weight="600" font-size="60" fill="#8e8e93">vs</text>
+  <text x="256" y="400" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="120" fill="#9B1B4D">FCB</text>
+</svg>
