@@ -671,97 +671,89 @@ function renderComparadorMatch(rmPlayers, fcbPlayers) {
     // Render avatars
     const avatarRM = document.getElementById('comparador-avatar-rm');
     const avatarFCB = document.getElementById('comparador-avatar-fcb');
-    // Jugador chutando estilo icon lineal (inspirado en flaticon)
-    // RM: blanco total + botas negras + rayas negras (equipacion real 25-26)
-    // FCB: blaugrana rayas + pantalon azul + medias azules (equipacion real 25-26)
-    const playerKickSvg = (shirt, shirt2, shorts, socks, boot, skin, hair, stripes, facing) => {
+    // Jugador chutando - replica exacta del icono flaticon lineal color
+    const playerKickSvg = (shirt, shirt2, shorts, socks, sockStripe, boot, skin, hair, stripes, facing) => {
         const fl = facing === 'left';
-        const o = '#1a1a1a'; // outline
-        const sw = 3; // stroke width
-        // Rayas blaugrana opcionales en camiseta
-        const shirtStripes = stripes ? `
-            <line x1="74" y1="55" x2="70" y2="100" stroke="${shirt2}" stroke-width="5" opacity="0.85"/>
-            <line x1="82" y1="52" x2="80" y2="100" stroke="${shirt2}" stroke-width="5" opacity="0.85"/>
-            <line x1="90" y1="55" x2="92" y2="100" stroke="${shirt2}" stroke-width="5" opacity="0.85"/>
-            <line x1="100" y1="60" x2="102" y2="95" stroke="${shirt2}" stroke-width="4" opacity="0.85"/>` : '';
-        return `<svg viewBox="0 0 210 210" xmlns="http://www.w3.org/2000/svg" style="${fl ? 'transform:scaleX(-1)' : ''}">
-          <!-- Pierna trasera (apoyo, estirada atras) -->
-          <path d="M78,118 L62,145 L48,175" stroke="${skin}" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-          <path d="M78,118 L62,145 L48,175" stroke="${o}" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.12"/>
+        const o = '#1a1a1a';
+        const sw = 4;
+        const stripesMarkup = stripes ? `
+            <line x1="80" y1="48" x2="76" y2="98" stroke="${shirt2}" stroke-width="6"/>
+            <line x1="92" y1="45" x2="90" y2="98" stroke="${shirt2}" stroke-width="6"/>
+            <line x1="104" y1="48" x2="104" y2="95" stroke="${shirt2}" stroke-width="5"/>` : '';
+        return `<svg viewBox="5 0 200 205" xmlns="http://www.w3.org/2000/svg" style="${fl ? 'transform:scaleX(-1)' : ''}">
+          <!-- === CAPA TRASERA === -->
+          <!-- Pierna trasera (apoyo, extendida atras-abajo) -->
+          <polygon points="82,112 74,118 56,148 44,172 52,176 60,174 64,152 76,124 88,116" fill="${skin}" stroke="${o}" stroke-width="${sw}" stroke-linejoin="round"/>
           <!-- Media trasera -->
-          <path d="M58,150 L48,175" stroke="${socks}" stroke-width="12" stroke-linecap="round" fill="none"/>
-          <line x1="56" y1="156" x2="52" y2="163" stroke="${o}" stroke-width="1.5" opacity="0.5"/>
-          <line x1="55" y1="160" x2="51" y2="167" stroke="${o}" stroke-width="1.5" opacity="0.5"/>
-          <line x1="54" y1="164" x2="50" y2="171" stroke="${o}" stroke-width="1.5" opacity="0.5"/>
+          <polygon points="56,148 44,172 52,176 60,174 64,152" fill="${socks}" stroke="${o}" stroke-width="${sw}" stroke-linejoin="round"/>
+          <!-- Rayas media trasera -->
+          <line x1="54" y1="156" x2="62" y2="154" stroke="${sockStripe}" stroke-width="2.5"/>
+          <line x1="52" y1="162" x2="60" y2="160" stroke="${sockStripe}" stroke-width="2.5"/>
+          <line x1="50" y1="168" x2="58" y2="166" stroke="${sockStripe}" stroke-width="2.5"/>
           <!-- Bota trasera -->
-          <path d="M48,175 L38,180 L36,185 L52,187 L54,180 Z" fill="${boot}" stroke="${o}" stroke-width="${sw}" stroke-linejoin="round"/>
-
-          <!-- Pierna delantera (chutando) -->
-          <path d="M95,112 L120,132 L150,125" stroke="${skin}" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-          <path d="M95,112 L120,132 L150,125" stroke="${o}" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.12"/>
-          <!-- Media delantera -->
-          <path d="M128,130 L150,125" stroke="${socks}" stroke-width="12" stroke-linecap="round" fill="none"/>
-          <line x1="134" y1="129" x2="140" y2="127" stroke="${o}" stroke-width="1.5" opacity="0.5"/>
-          <line x1="137" y1="130" x2="143" y2="128" stroke="${o}" stroke-width="1.5" opacity="0.5"/>
-          <line x1="140" y1="130" x2="146" y2="128" stroke="${o}" stroke-width="1.5" opacity="0.5"/>
-          <!-- Bota delantera -->
-          <path d="M150,125 L162,120 L166,126 L156,132 L150,130 Z" fill="${boot}" stroke="${o}" stroke-width="${sw}" stroke-linejoin="round"/>
-
-          <!-- Balon -->
-          <circle cx="174" cy="124" r="13" fill="#e8e8e8" stroke="${o}" stroke-width="${sw}"/>
-          <polygon points="174,117 179,121 177,127 171,127 169,121" fill="none" stroke="${o}" stroke-width="2" stroke-linejoin="round"/>
-          <line x1="174" y1="117" x2="174" y2="111" stroke="${o}" stroke-width="1.8"/>
-          <line x1="179" y1="121" x2="185" y2="118" stroke="${o}" stroke-width="1.8"/>
-          <line x1="177" y1="127" x2="183" y2="132" stroke="${o}" stroke-width="1.8"/>
-          <line x1="171" y1="127" x2="165" y2="132" stroke="${o}" stroke-width="1.8"/>
-          <line x1="169" y1="121" x2="163" y2="118" stroke="${o}" stroke-width="1.8"/>
-
-          <!-- Pantalon -->
-          <path d="M68,96 L66,105 L72,122 L98,122 L106,105 L104,96 Z" fill="${shorts}" stroke="${o}" stroke-width="${sw}" stroke-linejoin="round"/>
-
-          <!-- Camiseta -->
-          <path d="M62,52 L48,56 L38,60 L46,82 L62,76 L64,100 L108,100 L110,76 L126,82 L134,60 L124,56 L110,52 Z" fill="${shirt}" stroke="${o}" stroke-width="${sw}" stroke-linejoin="round"/>
-          ${shirtStripes}
-          <!-- Cuello V -->
-          <path d="M70,52 L86,66 L102,52" fill="none" stroke="${o}" stroke-width="${sw}" stroke-linejoin="round"/>
+          <polygon points="44,172 36,178 32,184 54,186 60,174 52,176" fill="${boot}" stroke="${o}" stroke-width="${sw}" stroke-linejoin="round"/>
 
           <!-- Brazo trasero (puno arriba-atras) -->
-          <path d="M62,66 L42,46" stroke="${skin}" stroke-width="10" stroke-linecap="round" fill="none"/>
-          <path d="M62,66 L42,46" stroke="${o}" stroke-width="12" stroke-linecap="round" fill="none" opacity="0.12"/>
-          <path d="M42,46 L32,34" stroke="${skin}" stroke-width="9" stroke-linecap="round" fill="none"/>
-          <path d="M42,46 L32,34" stroke="${o}" stroke-width="11" stroke-linecap="round" fill="none" opacity="0.12"/>
-          <!-- Puno -->
-          <rect x="26" y="28" width="12" height="10" rx="4" fill="${skin}" stroke="${o}" stroke-width="2.5" transform="rotate(-30 32 33)"/>
+          <polygon points="66,62 60,56 44,40 36,30 30,34 38,44 52,58 62,68" fill="${skin}" stroke="${o}" stroke-width="${sw}" stroke-linejoin="round"/>
+          <!-- Puno trasero -->
+          <rect x="24" y="24" width="16" height="14" rx="5" fill="${skin}" stroke="${o}" stroke-width="${sw}" transform="rotate(-40 32 31)"/>
 
-          <!-- Brazo delantero (extendido al frente) -->
-          <path d="M110,66 L134,50" stroke="${skin}" stroke-width="10" stroke-linecap="round" fill="none"/>
-          <path d="M110,66 L134,50" stroke="${o}" stroke-width="12" stroke-linecap="round" fill="none" opacity="0.12"/>
-          <path d="M134,50 L152,42" stroke="${skin}" stroke-width="9" stroke-linecap="round" fill="none"/>
-          <path d="M134,50 L152,42" stroke="${o}" stroke-width="11" stroke-linecap="round" fill="none" opacity="0.12"/>
-          <!-- Mano abierta -->
-          <path d="M150,38 L156,34 M151,40 L158,38 M152,42 L158,42" stroke="${skin}" stroke-width="3" stroke-linecap="round"/>
+          <!-- === CUERPO === -->
+          <!-- Pantalon -->
+          <polygon points="70,96 68,104 72,120 88,124 102,124 108,120 112,104 110,96" fill="${shorts}" stroke="${o}" stroke-width="${sw}" stroke-linejoin="round"/>
+
+          <!-- Camiseta torso -->
+          <polygon points="68,44 54,48 40,54 48,78 66,72 68,98 112,98 114,72 132,78 140,54 126,48 112,44" fill="${shirt}" stroke="${o}" stroke-width="${sw}" stroke-linejoin="round"/>
+          ${stripesMarkup}
+          <!-- Cuello redondo -->
+          <path d="M76,44 Q90,56 104,44" fill="none" stroke="${o}" stroke-width="${sw}" stroke-linecap="round"/>
+
+          <!-- === CAPA DELANTERA === -->
+          <!-- Pierna delantera (chutando hacia delante) -->
+          <polygon points="96,112 104,118 124,132 144,136 152,124 148,120 132,126 112,114 100,108" fill="${skin}" stroke="${o}" stroke-width="${sw}" stroke-linejoin="round"/>
+          <!-- Media delantera -->
+          <polygon points="132,126 144,136 152,124 148,120 140,122" fill="${socks}" stroke="${o}" stroke-width="${sw}" stroke-linejoin="round"/>
+          <!-- Rayas media delantera -->
+          <line x1="136" y1="126" x2="146" y2="124" stroke="${sockStripe}" stroke-width="2.5"/>
+          <line x1="138" y1="130" x2="148" y2="128" stroke="${sockStripe}" stroke-width="2.5"/>
+          <!-- Bota delantera -->
+          <polygon points="148,120 160,114 168,118 166,128 152,132 144,136 152,124" fill="${boot}" stroke="${o}" stroke-width="${sw}" stroke-linejoin="round"/>
+
+          <!-- Balon -->
+          <circle cx="176" cy="122" r="15" fill="#e8e8e8" stroke="${o}" stroke-width="${sw}"/>
+          <!-- Pentagono del balon -->
+          <polygon points="176,113 183,118 180,126 172,126 169,118" fill="none" stroke="${o}" stroke-width="2.5" stroke-linejoin="round"/>
+          <!-- Costuras del balon -->
+          <line x1="176" y1="113" x2="176" y2="107" stroke="${o}" stroke-width="2"/>
+          <line x1="183" y1="118" x2="189" y2="114" stroke="${o}" stroke-width="2"/>
+          <line x1="180" y1="126" x2="186" y2="131" stroke="${o}" stroke-width="2"/>
+          <line x1="172" y1="126" x2="166" y2="131" stroke="${o}" stroke-width="2"/>
+          <line x1="169" y1="118" x2="163" y2="114" stroke="${o}" stroke-width="2"/>
+
+          <!-- Brazo delantero (extendido al frente horizontal) -->
+          <polygon points="114,62 120,56 140,46 156,38 158,44 142,52 124,62 116,68" fill="${skin}" stroke="${o}" stroke-width="${sw}" stroke-linejoin="round"/>
+          <!-- Mano delantera abierta -->
+          <polygon points="156,38 158,44 164,42 166,36 160,34" fill="${skin}" stroke="${o}" stroke-width="3" stroke-linejoin="round"/>
 
           <!-- Cabeza -->
-          <ellipse cx="86" cy="32" rx="17" ry="20" fill="${skin}" stroke="${o}" stroke-width="${sw}"/>
+          <ellipse cx="90" cy="26" rx="18" ry="20" fill="${skin}" stroke="${o}" stroke-width="${sw}"/>
           <!-- Pelo -->
-          <path d="M69,28 Q72,10 86,8 Q100,10 103,28 Q100,16 86,14 Q72,16 69,28 Z" fill="${hair}" stroke="${o}" stroke-width="2.5" stroke-linejoin="round"/>
+          <path d="M72,22 Q74,4 90,2 Q106,4 108,22 Q104,12 90,10 Q76,12 72,22 Z" fill="${hair}" stroke="${o}" stroke-width="${sw}" stroke-linejoin="round"/>
           <!-- Oreja -->
-          <ellipse cx="70" cy="34" rx="4" ry="5" fill="${skin}" stroke="${o}" stroke-width="2"/>
+          <ellipse cx="73" cy="28" rx="4" ry="6" fill="${skin}" stroke="${o}" stroke-width="2.5"/>
           <!-- Ojo -->
-          <rect x="92" y="28" width="5" height="5" rx="2.5" fill="${o}"/>
-          <!-- Ceja -->
-          <line x1="91" y1="25" x2="98" y2="24" stroke="${o}" stroke-width="2" stroke-linecap="round"/>
+          <ellipse cx="98" cy="23" rx="3" ry="3" fill="${o}"/>
           <!-- Boca -->
-          <line x1="90" y1="40" x2="96" y2="39" stroke="${o}" stroke-width="2" stroke-linecap="round"/>
+          <path d="M96,34 Q99,37 103,34" fill="none" stroke="${o}" stroke-width="2.5" stroke-linecap="round"/>
         </svg>`;
     };
     if (avatarRM) {
-        // RM 25-26: blanco total, botas negras, detalles negros
-        avatarRM.innerHTML = playerKickSvg('#e8e8ec', null, '#e8e8ec', '#e8e8ec', '#1a1a1a', '#c8956c', '#2a1a0a', false, 'right');
+        // RM 25-26: camiseta blanca, pantalon blanco, medias blancas, botas negras, rayas negras en hombros
+        avatarRM.innerHTML = playerKickSvg('#e8e8ec', null, '#e8e8ec', '#e8e8ec', '#1a1a1a', '#2a2a2a', '#c8956c', '#2a1a0a', false, 'right');
     }
     if (avatarFCB) {
-        // FCB 25-26: blaugrana (azul base + rayas granate), pantalon azul, medias azul
-        avatarFCB.innerHTML = playerKickSvg('#1a3a6b', '#9B1B4D', '#1a3a6b', '#1a3a6b', '#1a1a1a', '#c8956c', '#2a1a0a', true, 'left');
+        // FCB 25-26: camiseta blaugrana (azul+granate), pantalon azul oscuro, medias azules, botas oscuras
+        avatarFCB.innerHTML = playerKickSvg('#1a3a6b', '#A1224A', '#1a3a6b', '#1a3a6b', '#A1224A', '#1a1a1a', '#c8956c', '#2a1a0a', true, 'left');
     }
 
     // Render info
