@@ -13,7 +13,7 @@ function createPlayerTable(containerId, players, statKey, team) {
     const container = document.getElementById(containerId);
     if (!container || !players) return;
 
-    const statLabel = statKey === 'goles' ? 'Goles' : 'Asist.';
+    const statLabel = statKey === 'goles' ? i18n.t('jugadores.goles') : i18n.t('jugadores.asist');
     const maxStat = Math.max(...players.map(p => p[statKey]));
     const colorClass = team === 'rm' ? 'rm' : 'fcb';
 
@@ -22,10 +22,10 @@ function createPlayerTable(containerId, players, statKey, team) {
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Jugador</th>
+                    <th>${i18n.t('jugadores.jugador')}</th>
                     <th>${statLabel}</th>
-                    <th>PJ</th>
-                    <th class="player-period-header">Periodo</th>
+                    <th>${i18n.t('jugadores.pj')}</th>
+                    <th class="player-period-header">${i18n.t('jugadores.periodo')}</th>
                     <th class="player-bar-cell"></th>
                 </tr>
             </thead>

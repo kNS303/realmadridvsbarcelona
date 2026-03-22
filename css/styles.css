@@ -2641,3 +2641,39 @@ body::before {
         height: 15px;
     }
 }
+
+/* ========================================
+   Language Toggle Button (ES | EN)
+   ======================================== */
+.lang-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.15rem;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 4px 6px;
+    border-radius: 6px;
+    color: var(--text-secondary);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.03em;
+    flex-shrink: 0;
+    transition: background var(--transition);
+    margin-right: 0.1rem;
+}
+.lang-btn:hover {
+    background: var(--border-subtle);
+}
+.lang-btn .lang-sep {
+    color: var(--text-muted);
+    margin: 0 1px;
+}
+.lang-btn .lang-active {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+.lang-btn .lang-inactive {
+    color: var(--text-muted);
+    font-weight: 400;
+}

@@ -139,10 +139,11 @@ function initComparativeBars(statsData) {
         const rmPct = total > 0 ? (rmVal / total) * 100 : 50;
         const fcbPct = total > 0 ? (fcbVal / total) * 100 : 50;
 
+        const displayLabel = (typeof i18n !== 'undefined') ? i18n.t('stats.' + key) : labels[key];
         const item = document.createElement('div');
         item.className = 'comp-bar-item';
         item.innerHTML = `
-            <div class="comp-bar-label">${labels[key]}</div>
+            <div class="comp-bar-label">${displayLabel}</div>
             <div class="comp-bar-row">
                 <span class="comp-bar-value rm-val">${rmVal.toLocaleString('es-ES')}</span>
                 <div class="comp-bar-track">

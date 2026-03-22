@@ -107,10 +107,19 @@ server.js               - Servidor local para desarrollo
 5. 04:25 - Timeline visual de palmares por decada con trofeos SVG
 6. 05:10 - Modo claro/oscuro (toggle en nav, dark default, Apple light theme)
 7. 06:00 - Compartir comparacion como PNG (html2canvas + Web Share API)
-8. 06:40 - Internacionalizacion ES/EN (i18n.js + toggle idioma)
+8. 06:40 - Internacionalizacion ES/EN (i18n.js + toggle idioma) [COMPLETADO]
 9. 07:40 - Notificaciones proximo Clasico (Notification API + banner cuenta atras)
 
 Cada tarea hace git pull antes y commit+push al terminar. Deben actualizar este CLAUDE.md al completarse.
+
+## Internacionalizacion (i18n)
+- js/i18n.js: objeto I18N con traducciones ES/EN + helper i18n.t('clave.subclave')
+- Default: espanol. Detecta navegador ingles automaticamente. Guarda en localStorage('lang')
+- Toggle "ES | EN" en nav (btn#lang-btn), junto al toggle de tema
+- data-i18n="clave" en elementos HTML estaticos; i18n.applyToDOM() los traduce
+- Textos dinamicos JS usan i18n.t() directamente (charts, tables, comparador, etc.)
+- setLanguage(lang, ...) en app.js reconstruye todos los componentes dinamicos
+- NO se traducen nombres propios: Real Madrid, FC Barcelona, jugadores, competiciones oficiales
 
 ## Tareas pendientes
 Si hay tareas pendientes de una sesion anterior, estaran en `PENDING_TASKS.md` en la raiz del proyecto.

@@ -2,6 +2,10 @@
  * App - Orquestador principal
  * Inicializa datos, gráficos, tablas, animaciones y toggle de modo
  */
+
+// Inicializar i18n antes de todo
+i18n.init();
+
 document.addEventListener('DOMContentLoaded', async () => {
     try {
         // 1. Cargar datos
@@ -80,6 +84,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         initThemeToggle(dataService, chartInstances, loadedSections, {
             getMode: () => currentMode
         });
+
+        // 9c. Inicializar toggle de idioma ES/EN
+        initLangToggle(dataService, chartInstances, loadedSections, {
+            getMode: () => currentMode
+        });
+
+        // 9d. Aplicar traducciones iniciales al DOM
+        i18n.applyToDOM();
+        updateLangBtn();
 
         // 10. Banner campeon (solo en modo temporada actual)
         renderTitulosBanner(dataService, currentMode);
@@ -310,11 +323,11 @@ function updateHero(dataService, mode) {
 
     const label0 = document.getElementById('hero-stat-label-0');
     const label1 = document.getElementById('hero-stat-label-1');
-    if (label0) label0.textContent = mode === 'season' ? 'Clásicos esta temporada' : 'Clásicos disputados';
-    if (label1) label1.textContent = mode === 'season' ? 'Goles en clásicos esta temporada' : 'Goles en clásicos';
+    if (label0) label0.textContent = mode === 'season' ? i18n.t('hero.clasicosTemporada') : i18n.t('hero.clasicosDisputados');
+    if (label1) label1.textContent = mode === 'season' ? i18n.t('hero.golesTemporada') : i18n.t('hero.golesEnClasicos');
 
     const subtitle = document.getElementById('hero-subtitle');
-    if (subtitle) subtitle.textContent = heroStats.subtitulo;
+    if (subtitle) subtitle.textContent = mode === 'season' ? (heroStats.subtitulo || '') : i18n.t('hero.subtitle');
 }
 
 function updateTituloCounters(dataService, mode) {
@@ -402,26 +415,26 @@ function recreateCharts(dataService, chartInstances, loadedSections, mode) {
 function updateSectionTexts(mode) {
     const texts = {
         'historial-subtitle': mode === 'season'
-            ? 'Rendimiento en todas las competiciones de la temporada 2025-26'
-            : 'Rendimiento histórico en todas las competiciones',
+            ? i18n.t('historial.sectionSubtitleSeason')
+            : i18n.t('historial.sectionSubtitle'),
         'clasico-subtitle': mode === 'season'
-            ? 'Enfrentamientos directos en la temporada 2025-26'
-            : 'Enfrentamientos directos a lo largo de la historia',
+            ? i18n.t('clasico.sectionSubtitleSeason')
+            : i18n.t('clasico.sectionSubtitle'),
         'jugadores-title': mode === 'season'
-            ? 'Jugadores Destacados'
-            : 'Leyendas del Club',
+            ? i18n.t('jugadores.sectionTitleSeason')
+            : i18n.t('jugadores.sectionTitleHistory'),
         'jugadores-subtitle': mode === 'season'
-            ? 'Máximos goleadores y asistentes de la temporada 2025-26'
-            : 'Máximos goleadores y asistentes de la historia',
+            ? i18n.t('jugadores.sectionSubtitleSeason')
+            : i18n.t('jugadores.sectionSubtitleHistory'),
         'goleadores-subtitle': mode === 'season'
-            ? 'Máximos Goleadores de la Temporada'
-            : 'Máximos Goleadores',
+            ? i18n.t('jugadores.maximosGoleadoresSeason')
+            : i18n.t('jugadores.maximosGoleadores'),
         'asistentes-subtitle': mode === 'season'
-            ? 'Máximos Asistentes de la Temporada'
-            : 'Máximos Asistentes',
+            ? i18n.t('jugadores.maximosAsistentesSeason')
+            : i18n.t('jugadores.maximosAsistentes'),
         'ultimos-clasicos-title': mode === 'season'
-            ? 'Clasicos de la Temporada'
-            : 'Ultimos Clasicos'
+            ? i18n.t('clasico.clasicosTemporada')
+            : i18n.t('clasico.ultimosClasicos')
     };
 
     Object.entries(texts).forEach(([id, text]) => {
@@ -475,7 +488,7 @@ function renderTitulosBanner(dataService, mode) {
         const div = document.createElement('div');
         div.className = `campeon-banner ${equipo.cssClass}`;
         div.style.animationDelay = `${i * 0.15}s`;
-        div.textContent = `Campeon de ${label} 2025-26 \u00b7 ${equipo.nombre}`;
+        div.textContent = `${i18n.t('titulos.campeonDe')} ${label} 2025-26 \u00b7 ${equipo.nombre}`;
         container.appendChild(div);
     });
 
@@ -605,9 +618,9 @@ function renderLastMatch(containerId, matchData) {
     };
 
     const resultLabels = {
-        'victoria': 'Victoria',
-        'empate': 'Empate',
-        'derrota': 'Derrota'
+        'victoria': i18n.t('match.victoria'),
+        'empate':   i18n.t('match.empate'),
+        'derrota':  i18n.t('match.derrota')
     };
 
     const score = esLocal
@@ -633,7 +646,7 @@ function renderNextMatch(containerId, matchData) {
     const { rival, fecha, competicion } = matchData;
 
     container.innerHTML = `
-        <span class="next-match-label">Proximo partido</span>
+        <span class="next-match-label">${i18n.t('match.proximoPartido')}</span>
         <span class="next-match-opponent">vs ${rival}</span>
         <span class="next-match-info">${fecha} · ${competicion}</span>
     `;
@@ -680,7 +693,7 @@ function renderStandings(dataService) {
 
     const standings = dataService.getStandings();
     if (!standings) {
-        tbody.innerHTML = '<tr><td colspan="10" style="text-align:center;color:var(--text-muted);padding:1rem;">Sin datos de clasificacion</td></tr>';
+        tbody.innerHTML = `<tr><td colspan="10" style="text-align:center;color:var(--text-muted);padding:1rem;">${i18n.t('historial.sinDatos')}</td></tr>`;
         return;
     }
 
@@ -919,9 +932,9 @@ function renderComparadorMatch(rmPlayers, fcbPlayers) {
     if (!barsContainer) return;
 
     const stats = [
-        { label: 'Goles', rmVal: rmPlayer.goles, fcbVal: fcbPlayer.goles },
-        { label: 'Asistencias', rmVal: rmPlayer.asistencias, fcbVal: fcbPlayer.asistencias },
-        { label: 'Partidos', rmVal: rmPlayer.partidos, fcbVal: fcbPlayer.partidos }
+        { label: i18n.t('comparador.barras.goles'),       rmVal: rmPlayer.goles,       fcbVal: fcbPlayer.goles },
+        { label: i18n.t('comparador.barras.asistencias'), rmVal: rmPlayer.asistencias, fcbVal: fcbPlayer.asistencias },
+        { label: i18n.t('comparador.barras.partidos'),    rmVal: rmPlayer.partidos,    fcbVal: fcbPlayer.partidos }
     ];
 
     barsContainer.innerHTML = stats.map((s, index) => {
@@ -942,7 +955,7 @@ function renderComparadorMatch(rmPlayers, fcbPlayers) {
                 <div class="comparador-bar-row">
                     <span class="comparador-bar-value rm-val ${rmNull ? 'val-nd' : ''}">${rmDisplay}</span>
                     <div class="comparador-bar-track">
-                        ${noData ? '<div class="comparador-bar-nd">Sin registros historicos</div>' : `
+                        ${noData ? `<div class="comparador-bar-nd">${i18n.t('comparador.sinRegistros')}</div>` : `
                         <div class="comparador-bar-fill-rm" data-width="${rmPct.toFixed(1)}"></div>
                         <div class="comparador-bar-fill-fcb" data-width="${fcbPct.toFixed(1)}"></div>`}
                     </div>
@@ -965,7 +978,7 @@ function renderClasicosCards(dataService, mode) {
     const partidos = dataService.getUltimosClasicos(mode);
 
     if (!partidos || partidos.length === 0) {
-        container.innerHTML = '<p style="text-align:center;color:var(--text-muted);font-size:0.85rem;">No hay clasicos disputados en este periodo</p>';
+        container.innerHTML = `<p style="text-align:center;color:var(--text-muted);font-size:0.85rem;">${i18n.t('clasico.sinClasicos')}</p>`;
         return;
     }
 
@@ -1012,7 +1025,7 @@ function renderH2HStats(dataService) {
             rachaEl.innerHTML = `
                 <span class="h2h-racha-equipo ${colorClass}">${equipoNombre}</span>
                 <span class="h2h-racha-num ${colorClass}">${racha.partidos}</span>
-                <span class="h2h-racha-label">victorias consecutivas</span>
+                <span class="h2h-racha-label">${i18n.t('clasico.victoriasConsecutivas')}</span>
             `;
         }
     }
@@ -1040,7 +1053,7 @@ function renderH2HStats(dataService) {
                         <span class="h2h-scorer-rank">${g.rank}</span>
                         <span class="h2h-scorer-name ${colorClass}">${g.nombre}</span>
                         <span class="h2h-scorer-team">${teamLabel}</span>
-                        <span class="h2h-scorer-goals">${g.goles} goles</span>
+                        <span class="h2h-scorer-goals">${g.goles} ${i18n.t('clasico.goles')}</span>
                     </div>
                 `;
             }).join('');
@@ -1087,6 +1100,90 @@ function initThemeToggle(dataService, chartInstances, loadedSections, modeRef) {
 
     // Sync chart colors with current theme on init (charts not yet loaded, will pick colors on creation)
     ChartFactory.refreshThemeColors();
+}
+
+// ================================================
+// Language Toggle ES/EN
+// ================================================
+
+function updateLangBtn() {
+    const esLabel = document.getElementById('lang-es-label');
+    const enLabel = document.getElementById('lang-en-label');
+    if (!esLabel || !enLabel) return;
+    const lang = i18n.getLanguage();
+    esLabel.className = lang === 'es' ? 'lang-active' : 'lang-inactive';
+    enLabel.className = lang === 'en' ? 'lang-active' : 'lang-inactive';
+}
+
+function initLangToggle(dataService, chartInstances, loadedSections, modeRef) {
+    const btn = document.getElementById('lang-btn');
+    if (!btn) return;
+
+    btn.addEventListener('click', () => {
+        const next = i18n.getLanguage() === 'es' ? 'en' : 'es';
+        setLanguage(next, dataService, chartInstances, loadedSections, modeRef.getMode());
+    });
+}
+
+function setLanguage(lang, dataService, chartInstances, loadedSections, mode) {
+    i18n.setLanguage(lang);
+
+    // Apply static translations
+    i18n.applyToDOM();
+
+    // Update lang button
+    updateLangBtn();
+
+    // Override mode-specific elements (must come after applyToDOM)
+    updateSectionTexts(mode);
+
+    // Rebuild hero labels (applyToDOM sets static history labels; we need mode-aware labels)
+    const label0 = document.getElementById('hero-stat-label-0');
+    const label1 = document.getElementById('hero-stat-label-1');
+    if (label0) label0.textContent = mode === 'season' ? i18n.t('hero.clasicosTemporada') : i18n.t('hero.clasicosDisputados');
+    if (label1) label1.textContent = mode === 'season' ? i18n.t('hero.golesTemporada') : i18n.t('hero.golesEnClasicos');
+
+    // Rebuild charts (only if already loaded, to pick new labels)
+    recreateCharts(dataService, chartInstances, loadedSections, mode);
+
+    // Rebuild comparative bars
+    const barsContainer = document.getElementById('comparative-bars');
+    if (barsContainer) {
+        barsContainer.innerHTML = '';
+        initComparativeBars(dataService.getEstadisticasByMode(mode));
+    }
+
+    // Rebuild player tables
+    buildPlayerTables(dataService, mode);
+
+    // Rebuild H2H
+    renderH2HStats(dataService);
+
+    // Rebuild comparador bars
+    const selectRM = document.getElementById('comparador-select-rm');
+    const selectFCB = document.getElementById('comparador-select-fcb');
+    if (selectRM && selectFCB) {
+        const jugadores = dataService.getJugadoresByMode(mode);
+        const rmPlayers = buildPlayerList(jugadores, 'realMadrid');
+        const fcbPlayers = buildPlayerList(jugadores, 'barcelona');
+        renderComparadorMatch(rmPlayers, fcbPlayers);
+    }
+
+    // Rebuild clasico cards
+    renderClasicosCards(dataService, mode);
+
+    // Rebuild last/next match texts
+    renderLastMatch('last-match-rm', dataService.getUltimoPartido('realMadrid'));
+    renderLastMatch('last-match-fcb', dataService.getUltimoPartido('barcelona'));
+    renderNextMatch('next-match-rm', dataService.getProximoPartido('realMadrid'));
+    renderNextMatch('next-match-fcb', dataService.getProximoPartido('barcelona'));
+
+    // Fix hero subtitle for season mode (applyToDOM would have set it to history label)
+    if (mode === 'season') {
+        const heroStats = dataService.getHeroStatsByMode('season');
+        const subtitle = document.getElementById('hero-subtitle');
+        if (subtitle && heroStats.subtitulo) subtitle.textContent = heroStats.subtitulo;
+    }
 }
 
 function renderPalmaresTimeline(dataService) {
@@ -1163,7 +1260,7 @@ async function compartirComparacion(rmPlayers, fcbPlayers) {
     btn.classList.add('loading');
     btn.disabled = true;
     const textEl = btn.querySelector('.btn-compartir-text');
-    if (textEl) textEl.textContent = 'Generando...';
+    if (textEl) textEl.textContent = i18n.t('comparador.generando');
 
     try {
         if (typeof html2canvas === 'undefined') {
@@ -1195,7 +1292,7 @@ async function compartirComparacion(rmPlayers, fcbPlayers) {
 
         // Title
         const titleEl = document.createElement('p');
-        titleEl.textContent = 'Comparador de Jugadores';
+        titleEl.textContent = i18n.t('comparador.tituloImagen');
         titleEl.style.cssText = 'color:#d1d1d6;font-size:14px;font-weight:600;text-align:center;margin:0 0 16px 0;letter-spacing:0.02em;';
 
         // Footer watermark
@@ -1241,14 +1338,14 @@ async function compartirComparacion(rmPlayers, fcbPlayers) {
             // Restore button
             btn.classList.remove('loading');
             btn.disabled = false;
-            if (textEl) textEl.textContent = 'Compartir';
+            if (textEl) textEl.textContent = i18n.t('comparador.compartir');
         }, 'image/png');
 
     } catch (err) {
         console.error('compartirComparacion error:', err);
         btn.classList.remove('loading');
         btn.disabled = false;
-        if (textEl) textEl.textContent = 'Compartir';
+        if (textEl) textEl.textContent = i18n.t('comparador.compartir');
     }
 }
 

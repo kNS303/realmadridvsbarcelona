@@ -225,7 +225,7 @@ const ChartFactory = {
         return new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['Ganados', 'Empatados', 'Perdidos', 'Goles a favor', 'Goles en contra'],
+                labels: [i18n.t('charts.ganados'), i18n.t('charts.empatados'), i18n.t('charts.perdidos'), i18n.t('charts.golesAFavor'), i18n.t('charts.golesEnContra')],
                 datasets: [
                     {
                         label: 'Real Madrid',
@@ -310,7 +310,7 @@ const ChartFactory = {
         return new Chart(ctx, {
             type: 'doughnut',
             data: {
-                labels: ['Goles a favor', 'Goles en contra'],
+                labels: [i18n.t('charts.golesAFavor'), i18n.t('charts.golesEnContra')],
                 datasets: [{
                     data: [teamData.golesAFavor, teamData.golesEnContra],
                     backgroundColor: [primary, secondary],
@@ -355,7 +355,7 @@ const ChartFactory = {
         return new Chart(ctx, {
             type: 'doughnut',
             data: {
-                labels: ['Victorias Real Madrid', 'Victorias FC Barcelona', 'Empates'],
+                labels: [i18n.t('charts.victoriasRM'), i18n.t('charts.victoriasFCB'), i18n.t('charts.empates')],
                 datasets: [{
                     data: [clasico.victoriasRealMadrid, clasico.victoriasBarcelona, clasico.empates],
                     backgroundColor: [this.colors.rmGold, this.colors.fcbGarnet, this.colors.neutralAlpha],
@@ -425,7 +425,7 @@ const ChartFactory = {
                         borderRadius: 3
                     },
                     {
-                        label: 'Empates',
+                        label: i18n.t('charts.empates'),
                         data: keys.map(k => porCompeticion[k].empates),
                         backgroundColor: this.colors.neutralAlpha,
                         borderColor: this.colors.neutral,
@@ -475,7 +475,7 @@ const ChartFactory = {
                 labels: evolucion.map(e => e.decada),
                 datasets: [
                     {
-                        label: 'Victorias Real Madrid',
+                        label: i18n.t('charts.victoriasRM'),
                         data: evolucion.map(e => e.rmVictorias),
                         borderColor: this.colors.rmGold,
                         backgroundColor: this.colors.rmGoldBg,
@@ -487,7 +487,7 @@ const ChartFactory = {
                         borderWidth: 2.5
                     },
                     {
-                        label: 'Victorias FC Barcelona',
+                        label: i18n.t('charts.victoriasFCB'),
                         data: evolucion.map(e => e.fcbVictorias),
                         borderColor: this.colors.fcbGarnet,
                         backgroundColor: this.colors.fcbGarnetBg,
@@ -499,7 +499,7 @@ const ChartFactory = {
                         borderWidth: 2.5
                     },
                     {
-                        label: 'Empates',
+                        label: i18n.t('charts.empates'),
                         data: evolucion.map(e => e.empates),
                         borderColor: this.colors.neutral,
                         backgroundColor: 'transparent',
@@ -552,13 +552,13 @@ const ChartFactory = {
         // Normalize stats to 0-100 scale for radar
         const radarKeys = ['penaltisAFavor', 'penaltisEnContra', 'tarjetasAmarillas', 'tarjetasRojas', 'corners', 'posesionMedia', 'tirosAPuerta'];
         const radarLabels = {
-            penaltisAFavor: 'Penaltis a favor',
-            penaltisEnContra: 'Penaltis en contra',
-            tarjetasAmarillas: 'T. Amarillas',
-            tarjetasRojas: 'T. Rojas',
-            corners: 'Corners',
-            posesionMedia: 'Posesión',
-            tirosAPuerta: 'Tiros a puerta'
+            penaltisAFavor:    i18n.t('radar.penaltisAFavor'),
+            penaltisEnContra:  i18n.t('radar.penaltisEnContra'),
+            tarjetasAmarillas: i18n.t('radar.tarjetasAmarillas'),
+            tarjetasRojas:     i18n.t('radar.tarjetasRojas'),
+            corners:           i18n.t('radar.corners'),
+            posesionMedia:     i18n.t('radar.posesionMedia'),
+            tirosAPuerta:      i18n.t('radar.tirosAPuerta')
         };
 
         // Normalize: for each key, find max between both teams and scale to 100
