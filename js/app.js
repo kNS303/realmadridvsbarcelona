@@ -750,6 +750,14 @@ function initComparador(dataService, mode) {
 
     newSelectRM.addEventListener('change', () => renderComparadorMatch(rmPlayers, fcbPlayers));
     newSelectFCB.addEventListener('change', () => renderComparadorMatch(rmPlayers, fcbPlayers));
+
+    // Wire share button (replace to remove old listeners)
+    const btn = document.getElementById('btn-compartir-comparacion');
+    if (btn) {
+        const newBtn = btn.cloneNode(true);
+        btn.parentNode.replaceChild(newBtn, btn);
+        newBtn.addEventListener('click', () => compartirComparacion(rmPlayers, fcbPlayers));
+    }
 }
 
 function buildPlayerList(jugadores, team) {
@@ -1133,4 +1141,125 @@ function renderPalmaresTimeline(dataService) {
     }, { threshold: 0.2 });
 
     container.querySelectorAll('.palmares-decada').forEach(dec => obs.observe(dec));
+}
+
+// ================================================
+// Compartir Comparacion como imagen
+// ================================================
+
+async function compartirComparacion(rmPlayers, fcbPlayers) {
+    const btn = document.getElementById('btn-compartir-comparacion');
+    if (!btn) return;
+
+    // Get player names for filename
+    const selectRM = document.getElementById('comparador-select-rm');
+    const selectFCB = document.getElementById('comparador-select-fcb');
+    const rmPlayer = rmPlayers[parseInt(selectRM ? selectRM.value : 0) || 0];
+    const fcbPlayer = fcbPlayers[parseInt(selectFCB ? selectFCB.value : 0) || 0];
+    const rmName = rmPlayer ? rmPlayer.nombre.replace(/\s+/g, '-').toLowerCase() : 'rm';
+    const fcbName = fcbPlayer ? fcbPlayer.nombre.replace(/\s+/g, '-').toLowerCase() : 'fcb';
+
+    // Show loading state
+    btn.classList.add('loading');
+    btn.disabled = true;
+    const textEl = btn.querySelector('.btn-compartir-text');
+    if (textEl) textEl.textContent = 'Generando...';
+
+    try {
+        if (typeof html2canvas === 'undefined') {
+            throw new Error('html2canvas no disponible');
+        }
+
+        // Capture comparador-container and comparador-bars together
+        const comparadorSection = document.getElementById('comparador');
+        const container = comparadorSection ? comparadorSection.querySelector('.comparador-container') : null;
+        const barsEl = document.getElementById('comparador-bars');
+        if (!container || !barsEl) throw new Error('Elementos no encontrados');
+
+        // Create a temporary wrapper to capture both elements
+        const wrapper = document.createElement('div');
+        wrapper.style.cssText = `
+            background: #1c1c1e;
+            padding: 24px;
+            border-radius: 16px;
+            font-family: 'DM Sans', sans-serif;
+            position: fixed;
+            top: -9999px;
+            left: -9999px;
+            width: ${Math.min(container.offsetWidth + 48, 760)}px;
+        `;
+
+        // Clone elements
+        const containerClone = container.cloneNode(true);
+        const barsClone = barsEl.cloneNode(true);
+
+        // Title
+        const titleEl = document.createElement('p');
+        titleEl.textContent = 'Comparador de Jugadores';
+        titleEl.style.cssText = 'color:#d1d1d6;font-size:14px;font-weight:600;text-align:center;margin:0 0 16px 0;letter-spacing:0.02em;';
+
+        // Footer watermark
+        const footerEl = document.createElement('p');
+        footerEl.textContent = 'kns303.github.io/realmadridvsbarcelona';
+        footerEl.style.cssText = 'color:#48484a;font-size:10px;text-align:center;margin:16px 0 0 0;font-family:monospace;';
+
+        wrapper.appendChild(titleEl);
+        wrapper.appendChild(containerClone);
+        wrapper.appendChild(barsClone);
+        wrapper.appendChild(footerEl);
+        document.body.appendChild(wrapper);
+
+        const canvas = await html2canvas(wrapper, {
+            backgroundColor: '#1c1c1e',
+            scale: 2,
+            useCORS: true,
+            logging: false
+        });
+
+        document.body.removeChild(wrapper);
+
+        canvas.toBlob(async (blob) => {
+            if (!blob) throw new Error('Error generando imagen');
+
+            const filename = `comparacion-${rmName}-vs-${fcbName}.png`;
+
+            if (navigator.share && navigator.canShare && navigator.canShare({ files: [new File([blob], filename, { type: 'image/png' })] })) {
+                try {
+                    await navigator.share({
+                        title: `${rmPlayer ? rmPlayer.nombre : 'RM'} vs ${fcbPlayer ? fcbPlayer.nombre : 'FCB'}`,
+                        text: 'Comparativa de jugadores - El Clasico en Numeros',
+                        files: [new File([blob], filename, { type: 'image/png' })]
+                    });
+                } catch (shareErr) {
+                    // User cancelled or share failed, fallback to download
+                    if (shareErr.name !== 'AbortError') downloadBlob(blob, filename);
+                }
+            } else {
+                downloadBlob(blob, filename);
+            }
+
+            // Restore button
+            btn.classList.remove('loading');
+            btn.disabled = false;
+            if (textEl) textEl.textContent = 'Compartir';
+        }, 'image/png');
+
+    } catch (err) {
+        console.error('compartirComparacion error:', err);
+        btn.classList.remove('loading');
+        btn.disabled = false;
+        if (textEl) textEl.textContent = 'Compartir';
+    }
+}
+
+function downloadBlob(blob, filename) {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
 }
