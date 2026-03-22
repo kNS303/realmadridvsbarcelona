@@ -45,7 +45,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         renderNextMatch('next-match-fcb', dataService.getProximoPartido('barcelona'));
         renderProximoClasico(dataService.getProximoClasico());
 
-        // 6c. Renderizar clasificación La Liga (oculta inicialmente en modo history)
+        // 6c. Renderizar forma reciente
+        renderFormaReciente('forma-reciente-rm', dataService.getFormaReciente('realMadrid'));
+        renderFormaReciente('forma-reciente-fcb', dataService.getFormaReciente('barcelona'));
+
+        // 6d. Renderizar clasificación La Liga (oculta inicialmente en modo history)
         renderStandings(dataService);
 
         // 6d. Renderizar tarjetas de últimos Clásicos
@@ -519,6 +523,22 @@ function renderNextMatch(containerId, matchData) {
         <span class="next-match-opponent">vs ${rival}</span>
         <span class="next-match-info">${fecha} · ${competicion}</span>
     `;
+}
+
+function renderFormaReciente(containerId, forma) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    if (!forma || forma.length === 0) {
+        container.innerHTML = '';
+        return;
+    }
+
+    const claseMap = { 'V': 'forma-v', 'E': 'forma-e', 'D': 'forma-d' };
+
+    container.innerHTML = forma.map(r =>
+        `<span class="forma-circulo ${claseMap[r] || 'forma-e'}">${r}</span>`
+    ).join('');
 }
 
 function renderProximoClasico(clasicoData) {

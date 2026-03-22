@@ -780,6 +780,10 @@
         "goalsAgainst": 30,
         "goalDifference": 43
       }
+    },
+    "formaReciente": {
+      "realMadrid": ["V", "V", "E", "V", "V"],
+      "barcelona": ["V", "V", "V", "D", "V"]
     }
   },
   "historicalBaseline": {

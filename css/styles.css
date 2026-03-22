@@ -1016,6 +1016,16 @@ body::before {
         font-size: 0.7rem;
     }
 
+    .hero-forma-reciente {
+        gap: 3px;
+    }
+
+    .forma-circulo {
+        width: 20px;
+        height: 20px;
+        font-size: 0.5rem;
+    }
+
     /* Sections */
     .dashboard-section {
         padding: 3rem 1rem;
@@ -1247,6 +1257,43 @@ body::before {
     font-size: 0.6rem;
     color: var(--text-muted);
     opacity: 0.8;
+}
+
+/* ========================================
+   Hero Forma Reciente
+   ======================================== */
+.hero-forma-reciente {
+    margin-top: 0.6rem;
+    display: inline-flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.forma-circulo {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.55rem;
+    font-weight: 700;
+    color: #fff;
+    font-family: 'DM Mono', monospace;
+    flex-shrink: 0;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.forma-circulo.forma-v {
+    background-color: #34d399;
+}
+
+.forma-circulo.forma-e {
+    background-color: #a1a1a6;
+}
+
+.forma-circulo.forma-d {
+    background-color: #f87171;
 }
 
 /* ========================================

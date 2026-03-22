@@ -265,6 +265,28 @@ async function fetchTeamMatches(teamId, teamName) {
 }
 
 /**
+ * Extrae los ultimos 5 resultados de un equipo como array de letras V/E/D
+ */
+function computeRecentForm(matches, teamId) {
+    if (!matches || matches.length === 0) return [];
+
+    const sorted = [...matches].sort((a, b) => new Date(b.utcDate) - new Date(a.utcDate));
+    const last5 = sorted.slice(0, 5);
+
+    const form = [];
+    for (const match of last5) {
+        const esLocal = match.homeTeam.id === teamId;
+        const gf = esLocal ? match.score.fullTime.home : match.score.fullTime.away;
+        const gc = esLocal ? match.score.fullTime.away : match.score.fullTime.home;
+        if (gf === null || gc === null) continue;
+        if (gf > gc) form.push('V');
+        else if (gf < gc) form.push('D');
+        else form.push('E');
+    }
+    return form;
+}
+
+/**
  * Computa el record de la temporada a partir de los partidos
  */
 function computeSeasonRecord(matches, teamId) {
@@ -828,6 +850,12 @@ async function buildSeasonData(existing) {
     if (rmRecord) console.log(`  RM: ${rmRecord.partidosJugados}PJ ${rmRecord.ganados}G ${rmRecord.empatados}E ${rmRecord.perdidos}P (${rmRecord.golesAFavor}-${rmRecord.golesEnContra})`);
     if (fcbRecord) console.log(`  FCB: ${fcbRecord.partidosJugados}PJ ${fcbRecord.ganados}G ${fcbRecord.empatados}E ${fcbRecord.perdidos}P (${fcbRecord.golesAFavor}-${fcbRecord.golesEnContra})`);
 
+    // Forma reciente (ultimos 5 partidos)
+    const rmForma = rmMatches ? computeRecentForm(rmMatches, TEAM_IDS.realMadrid) : (existingSeason.formaReciente?.realMadrid || []);
+    const fcbForma = fcbMatches ? computeRecentForm(fcbMatches, TEAM_IDS.barcelona) : (existingSeason.formaReciente?.barcelona || []);
+    console.log(`\n[FORMA] RM: ${rmForma.join('-') || 'N/D'}`);
+    console.log(`[FORMA] FCB: ${fcbForma.join('-') || 'N/D'}`);
+
     // 3. Extraer Clasicos de la temporada
     const seasonClasicos = extractSeasonClasicos(rmMatches, fcbMatches);
     if (seasonClasicos) {
@@ -989,6 +1017,10 @@ async function buildSeasonData(existing) {
                 realMadrid: topStats.asistentes.realMadrid.length > 0 ? topStats.asistentes.realMadrid : (existingSeason.topJugadores?.asistentes?.realMadrid || []),
                 barcelona: topStats.asistentes.barcelona.length > 0 ? topStats.asistentes.barcelona : (existingSeason.topJugadores?.asistentes?.barcelona || [])
             }
+        },
+        formaReciente: {
+            realMadrid: rmForma,
+            barcelona: fcbForma
         },
         standings: standings ? {
             realMadrid: standings.realMadrid ? {

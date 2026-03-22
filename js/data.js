@@ -61,6 +61,10 @@ class DataService {
         return this.data?.proximoClasico || null;
     }
 
+    getFormaReciente(team) {
+        return this.data?.temporadaActual?.formaReciente?.[team] || [];
+    }
+
     // Mode-aware getters for toggle
     getTitulosByMode(mode) {
         const src = mode === 'season' ? this.data.temporadaActual : this.data;
@@ -934,6 +938,10 @@ DataService.STATS_DATA = {
         "goalsAgainst": 30,
         "goalDifference": 43
       }
+    },
+    "formaReciente": {
+      "realMadrid": ["V", "V", "E", "V", "V"],
+      "barcelona": ["V", "V", "V", "D", "V"]
     }
   },
   "historicalBaseline": {
