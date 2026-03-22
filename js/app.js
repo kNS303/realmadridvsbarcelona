@@ -76,6 +76,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             setMode: (m) => { currentMode = m; }
         });
 
+        // 9b. Inicializar toggle de tema claro/oscuro
+        initThemeToggle(dataService, chartInstances, loadedSections, {
+            getMode: () => currentMode
+        });
+
         // 10. Banner campeon (solo en modo temporada actual)
         renderTitulosBanner(dataService, currentMode);
 
@@ -579,11 +584,7 @@ function initNavigation() {
 
     const nav = document.getElementById('main-nav');
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
-            nav.style.background = 'rgba(12, 12, 14, 0.95)';
-        } else {
-            nav.style.background = 'rgba(12, 12, 14, 0.85)';
-        }
+        nav.classList.toggle('nav-scrolled', window.scrollY > 100);
     }, { passive: true });
 }
 
@@ -1042,6 +1043,43 @@ function renderH2HStats(dataService) {
 // ================================================
 // Timeline Palmarés por Décadas
 // ================================================
+
+// ================================================
+// Toggle Tema Claro / Oscuro
+// ================================================
+
+function initThemeToggle(dataService, chartInstances, loadedSections, modeRef) {
+    const btn = document.getElementById('theme-btn');
+    if (!btn) return;
+
+    // Apply theme to document and charts
+    function applyTheme(theme, rebuildCharts) {
+        const html = document.documentElement;
+        if (theme === 'light') {
+            html.setAttribute('data-theme', 'light');
+        } else {
+            html.removeAttribute('data-theme');
+        }
+        localStorage.setItem('theme', theme);
+
+        // Update Chart.js colors for new theme
+        ChartFactory.refreshThemeColors();
+
+        // Re-render charts that are already loaded
+        if (rebuildCharts) {
+            recreateCharts(dataService, chartInstances, loadedSections, modeRef.getMode());
+        }
+    }
+
+    btn.addEventListener('click', () => {
+        const current = document.documentElement.getAttribute('data-theme');
+        const next = current === 'light' ? 'dark' : 'light';
+        applyTheme(next, true);
+    });
+
+    // Sync chart colors with current theme on init (charts not yet loaded, will pick colors on creation)
+    ChartFactory.refreshThemeColors();
+}
 
 function renderPalmaresTimeline(dataService) {
     const container = document.getElementById('palmares-timeline');

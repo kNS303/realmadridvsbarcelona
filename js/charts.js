@@ -4,7 +4,7 @@
  */
 const ChartFactory = {
 
-    // Colores globales
+    // Colores globales (se actualizan con refreshThemeColors)
     colors: {
         rmGold: '#D4A012',
         rmGoldAlpha: 'rgba(212, 160, 18, 0.5)',
@@ -16,10 +16,12 @@ const ChartFactory = {
         neutral: '#3a3a3c',
         neutralAlpha: 'rgba(58, 58, 60, 0.5)',
         text: '#8e8e93',
-        grid: 'rgba(200, 200, 200, 0.04)'
+        grid: 'rgba(200, 200, 200, 0.04)',
+        donutBorder: 'rgba(28, 28, 30, 0.9)',
+        radarGrid: 'rgba(200, 200, 200, 0.05)'
     },
 
-    // Configuración de tooltip global en español
+    // Configuración de tooltip global (se actualiza con refreshThemeColors)
     tooltipConfig: {
         backgroundColor: 'rgba(28, 28, 30, 0.96)',
         titleColor: '#d1d1d6',
@@ -30,6 +32,48 @@ const ChartFactory = {
         padding: 12,
         titleFont: { family: "'DM Sans', sans-serif", weight: '600' },
         bodyFont: { family: "'DM Sans', sans-serif" },
+    },
+
+    /**
+     * Actualiza colores segun el tema activo (dark/light)
+     */
+    refreshThemeColors() {
+        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        if (isLight) {
+            this.colors.rmGold = '#B8860B';
+            this.colors.rmGoldAlpha = 'rgba(184, 134, 11, 0.5)';
+            this.colors.rmGoldBg = 'rgba(184, 134, 11, 0.10)';
+            this.colors.fcbGarnet = '#8B1545';
+            this.colors.fcbGarnetAlpha = 'rgba(139, 21, 69, 0.5)';
+            this.colors.fcbGarnetBg = 'rgba(139, 21, 69, 0.10)';
+            this.colors.neutral = '#c7c7cc';
+            this.colors.neutralAlpha = 'rgba(199, 199, 204, 0.7)';
+            this.colors.text = '#6e6e73';
+            this.colors.grid = 'rgba(0, 0, 0, 0.06)';
+            this.colors.donutBorder = 'rgba(245, 245, 247, 0.9)';
+            this.colors.radarGrid = 'rgba(0, 0, 0, 0.06)';
+            this.tooltipConfig.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+            this.tooltipConfig.titleColor = '#1d1d1f';
+            this.tooltipConfig.bodyColor = '#6e6e73';
+            this.tooltipConfig.borderColor = 'rgba(0, 0, 0, 0.08)';
+        } else {
+            this.colors.rmGold = '#D4A012';
+            this.colors.rmGoldAlpha = 'rgba(212, 160, 18, 0.5)';
+            this.colors.rmGoldBg = 'rgba(212, 160, 18, 0.10)';
+            this.colors.fcbGarnet = '#9B1B4D';
+            this.colors.fcbGarnetAlpha = 'rgba(155, 27, 77, 0.5)';
+            this.colors.fcbGarnetBg = 'rgba(155, 27, 77, 0.10)';
+            this.colors.neutral = '#3a3a3c';
+            this.colors.neutralAlpha = 'rgba(58, 58, 60, 0.5)';
+            this.colors.text = '#8e8e93';
+            this.colors.grid = 'rgba(200, 200, 200, 0.04)';
+            this.colors.donutBorder = 'rgba(28, 28, 30, 0.9)';
+            this.colors.radarGrid = 'rgba(200, 200, 200, 0.05)';
+            this.tooltipConfig.backgroundColor = 'rgba(28, 28, 30, 0.96)';
+            this.tooltipConfig.titleColor = '#d1d1d6';
+            this.tooltipConfig.bodyColor = '#8e8e93';
+            this.tooltipConfig.borderColor = 'rgba(200, 200, 200, 0.08)';
+        }
     },
 
     /**
@@ -136,7 +180,7 @@ const ChartFactory = {
                 datasets: [{
                     data: values,
                     backgroundColor: bgColors,
-                    borderColor: 'rgba(28, 28, 30, 0.9)',
+                    borderColor: this.colors.donutBorder,
                     borderWidth: 2,
                     hoverOffset: 8
                 }]
@@ -270,7 +314,7 @@ const ChartFactory = {
                 datasets: [{
                     data: [teamData.golesAFavor, teamData.golesEnContra],
                     backgroundColor: [primary, secondary],
-                    borderColor: 'rgba(28, 28, 30, 0.9)',
+                    borderColor: this.colors.donutBorder,
                     borderWidth: 2,
                     hoverOffset: 8
                 }]
@@ -315,7 +359,7 @@ const ChartFactory = {
                 datasets: [{
                     data: [clasico.victoriasRealMadrid, clasico.victoriasBarcelona, clasico.empates],
                     backgroundColor: [this.colors.rmGold, this.colors.fcbGarnet, this.colors.neutralAlpha],
-                    borderColor: 'rgba(28, 28, 30, 0.9)',
+                    borderColor: this.colors.donutBorder,
                     borderWidth: 2,
                     hoverOffset: 8
                 }]
@@ -579,8 +623,8 @@ const ChartFactory = {
                 },
                 scales: {
                     r: {
-                        grid: { color: 'rgba(200, 200, 200, 0.05)' },
-                        angleLines: { color: 'rgba(200, 200, 200, 0.05)' },
+                        grid: { color: this.colors.radarGrid },
+                        angleLines: { color: this.colors.radarGrid },
                         pointLabels: {
                             color: this.colors.text,
                             font: { size: 11, family: "'DM Sans', sans-serif" }
