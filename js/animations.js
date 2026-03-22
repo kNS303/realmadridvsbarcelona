@@ -31,56 +31,93 @@ function animateCounter(element, target, duration = 2000) {
 }
 
 /**
- * Inicializa las animaciones de scroll con IntersectionObserver
+ * Observer compartido para reutilizar en renders dinamicos
  */
-function initScrollAnimations() {
-    const observer = new IntersectionObserver((entries) => {
+let _scrollObserver = null;
+
+function _animateScrollElement(el) {
+    el.classList.add('visible');
+
+    // Animar contadores dentro del elemento visible
+    const counters = el.querySelectorAll('[data-counter]');
+    counters.forEach((counter, index) => {
+        const target = parseInt(counter.dataset.counter, 10);
+        setTimeout(() => {
+            animateCounter(counter, target);
+        }, index * 200);
+    });
+
+    // Delay base para barras: respetar el stagger del propio elemento
+    const itemDelay = parseInt(el.style.transitionDelay) || 0;
+
+    // Animar barras comparativas estaticas (comp-bar) si las hay
+    const bars = el.querySelectorAll('.comp-bar-fill-rm, .comp-bar-fill-fcb');
+    bars.forEach(bar => {
+        const targetWidth = bar.dataset.width;
+        if (targetWidth) {
+            setTimeout(() => {
+                bar.style.width = targetWidth + '%';
+            }, itemDelay + 300);
+        }
+    });
+
+    // Animar barras del comparador de jugadores
+    const comparadorBars = el.querySelectorAll('.comparador-bar-fill-rm, .comparador-bar-fill-fcb');
+    comparadorBars.forEach(bar => {
+        const targetWidth = bar.dataset.width;
+        if (targetWidth) {
+            setTimeout(() => {
+                bar.style.width = targetWidth + '%';
+            }, itemDelay + 300);
+        }
+    });
+
+    // Animar barras de jugadores
+    const playerBars = el.querySelectorAll('.player-bar');
+    playerBars.forEach(bar => {
+        const targetWidth = bar.dataset.width;
+        if (targetWidth) {
+            setTimeout(() => {
+                bar.style.width = targetWidth + '%';
+            }, 500);
+        }
+    });
+}
+
+function _createObserver() {
+    return new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-
-                // Animar contadores dentro del elemento visible
-                const counters = entry.target.querySelectorAll('[data-counter]');
-                counters.forEach((counter, index) => {
-                    const target = parseInt(counter.dataset.counter, 10);
-                    // Retraso escalonado para cada contador
-                    setTimeout(() => {
-                        animateCounter(counter, target);
-                    }, index * 200);
-                });
-
-                // Animar barras comparativas si las hay
-                const bars = entry.target.querySelectorAll('.comp-bar-fill-rm, .comp-bar-fill-fcb');
-                bars.forEach(bar => {
-                    const targetWidth = bar.dataset.width;
-                    if (targetWidth) {
-                        setTimeout(() => {
-                            bar.style.width = targetWidth + '%';
-                        }, 300);
-                    }
-                });
-
-                // Animar barras de jugadores
-                const playerBars = entry.target.querySelectorAll('.player-bar');
-                playerBars.forEach(bar => {
-                    const targetWidth = bar.dataset.width;
-                    if (targetWidth) {
-                        setTimeout(() => {
-                            bar.style.width = targetWidth + '%';
-                        }, 500);
-                    }
-                });
-
-                observer.unobserve(entry.target);
+                _animateScrollElement(entry.target);
+                _scrollObserver.unobserve(entry.target);
             }
         });
     }, {
         threshold: 0.12,
         rootMargin: '0px 0px -50px 0px'
     });
+}
 
+/**
+ * Inicializa las animaciones de scroll con IntersectionObserver
+ */
+function initScrollAnimations() {
+    _scrollObserver = _createObserver();
     document.querySelectorAll('.animate-on-scroll').forEach(el => {
-        observer.observe(el);
+        _scrollObserver.observe(el);
+    });
+}
+
+/**
+ * Observa nuevos elementos animate-on-scroll en un contenedor.
+ * Llamar despues de renders dinamicos (clasico cards, comparador bars).
+ * @param {Element} container - Contenedor donde buscar .animate-on-scroll
+ */
+function observeNewElements(container) {
+    if (!_scrollObserver) _scrollObserver = _createObserver();
+    const scope = container || document;
+    scope.querySelectorAll('.animate-on-scroll:not(.visible)').forEach(el => {
+        _scrollObserver.observe(el);
     });
 }
 

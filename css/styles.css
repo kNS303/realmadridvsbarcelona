@@ -860,7 +860,7 @@ body::before {
 .animate-on-scroll {
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .animate-on-scroll.visible {
@@ -869,10 +869,16 @@ body::before {
 }
 
 /* Stagger children delays */
-.animate-on-scroll:nth-child(1) { transition-delay: 0ms; }
-.animate-on-scroll:nth-child(2) { transition-delay: 100ms; }
-.animate-on-scroll:nth-child(3) { transition-delay: 200ms; }
-.animate-on-scroll:nth-child(4) { transition-delay: 300ms; }
+.animate-on-scroll:nth-child(1)  { transition-delay: 0ms; }
+.animate-on-scroll:nth-child(2)  { transition-delay: 100ms; }
+.animate-on-scroll:nth-child(3)  { transition-delay: 200ms; }
+.animate-on-scroll:nth-child(4)  { transition-delay: 300ms; }
+.animate-on-scroll:nth-child(5)  { transition-delay: 400ms; }
+.animate-on-scroll:nth-child(6)  { transition-delay: 500ms; }
+.animate-on-scroll:nth-child(7)  { transition-delay: 600ms; }
+.animate-on-scroll:nth-child(8)  { transition-delay: 700ms; }
+.animate-on-scroll:nth-child(9)  { transition-delay: 800ms; }
+.animate-on-scroll:nth-child(10) { transition-delay: 900ms; }
 
 /* ========================================
    Footer
@@ -1768,6 +1774,7 @@ body::before {
     background: linear-gradient(90deg, var(--rm-gold-mid), var(--rm-gold));
     border-radius: 14px 0 0 14px;
     transition: width 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+    width: 0;
 }
 
 .comparador-bar-fill-fcb {
@@ -1775,6 +1782,7 @@ body::before {
     background: linear-gradient(90deg, var(--fcb-garnet), var(--fcb-garnet-mid));
     border-radius: 0 14px 14px 0;
     transition: width 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+    width: 0;
 }
 
 @media (max-width: 768px) {

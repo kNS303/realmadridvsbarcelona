@@ -782,7 +782,7 @@ function renderComparadorMatch(rmPlayers, fcbPlayers) {
         { label: 'Partidos', rmVal: rmPlayer.partidos, fcbVal: fcbPlayer.partidos }
     ];
 
-    barsContainer.innerHTML = stats.map(s => {
+    barsContainer.innerHTML = stats.map((s, index) => {
         const rmNull = s.rmVal === null;
         const fcbNull = s.fcbVal === null;
         const rmNum = rmNull ? 0 : s.rmVal;
@@ -793,21 +793,27 @@ function renderComparadorMatch(rmPlayers, fcbPlayers) {
         const rmDisplay = rmNull ? 'N/D' : rmNum.toLocaleString('es-ES');
         const fcbDisplay = fcbNull ? 'N/D' : fcbNum.toLocaleString('es-ES');
         const noData = rmNull && fcbNull;
+        const staggerDelay = index * 120;
         return `
-            <div class="comparador-bar-item">
+            <div class="comparador-bar-item animate-on-scroll" style="transition-delay:${staggerDelay}ms">
                 <div class="comparador-bar-label">${s.label}</div>
                 <div class="comparador-bar-row">
                     <span class="comparador-bar-value rm-val ${rmNull ? 'val-nd' : ''}">${rmDisplay}</span>
                     <div class="comparador-bar-track">
                         ${noData ? '<div class="comparador-bar-nd">Sin registros historicos</div>' : `
-                        <div class="comparador-bar-fill-rm" style="width: ${rmPct.toFixed(1)}%"></div>
-                        <div class="comparador-bar-fill-fcb" style="width: ${fcbPct.toFixed(1)}%"></div>`}
+                        <div class="comparador-bar-fill-rm" data-width="${rmPct.toFixed(1)}"></div>
+                        <div class="comparador-bar-fill-fcb" data-width="${fcbPct.toFixed(1)}"></div>`}
                     </div>
                     <span class="comparador-bar-value fcb-val ${fcbNull ? 'val-nd' : ''}">${fcbDisplay}</span>
                 </div>
             </div>
         `;
     }).join('');
+
+    // Observar los nuevos items para animacion de entrada (barras incluidas)
+    if (typeof observeNewElements === 'function') {
+        observeNewElements(barsContainer);
+    }
 }
 
 function renderClasicosCards(dataService, mode) {
@@ -821,11 +827,12 @@ function renderClasicosCards(dataService, mode) {
         return;
     }
 
-    container.innerHTML = partidos.map(p => {
+    container.innerHTML = partidos.map((p, index) => {
         const winnerClass = p.ganador === 'rm' ? 'winner-rm' : p.ganador === 'fcb' ? 'winner-fcb' : 'winner-empate';
+        const staggerDelay = index * 100;
 
         return `
-            <div class="clasico-card ${winnerClass}">
+            <div class="clasico-card ${winnerClass} animate-on-scroll" style="transition-delay:${staggerDelay}ms">
                 <div class="clasico-card-header">
                     <span class="clasico-card-date">${p.fecha}</span>
                     <span class="clasico-card-comp">${p.competicion}</span>
@@ -842,4 +849,9 @@ function renderClasicosCards(dataService, mode) {
             </div>
         `;
     }).join('');
+
+    // Observar las nuevas tarjetas para animacion de entrada
+    if (typeof observeNewElements === 'function') {
+        observeNewElements(container);
+    }
 }
