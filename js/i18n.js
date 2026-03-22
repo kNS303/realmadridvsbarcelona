@@ -156,6 +156,21 @@ const I18N = {
             corners:           'Corners',
             posesionMedia:     'Posesion',
             tirosAPuerta:      'Tiros a puerta'
+        },
+        notif: {
+            bannerPre:         'Proximo Clasico:',
+            bannerFaltan:      'Faltan',
+            bannerDias:        'dias',
+            bannerManana:      'Manana',
+            bannerHoy:         'Hoy',
+            activar:           'Activar recordatorio',
+            desactivar:        'Desactivar recordatorio',
+            recordatorioActivo:'Recordatorio activo',
+            permisoDenegado:   'Notificaciones bloqueadas en el navegador',
+            notifTitulo:       'Hoy es el Clasico',
+            notifCuerpo:       'Real Madrid vs FC Barcelona hoy. No te lo pierdas.',
+            notifManana:       'El Clasico es manana',
+            notifMananaCuerpo: 'Real Madrid vs FC Barcelona manana.'
         }
     },
 
@@ -311,6 +326,21 @@ const I18N = {
             corners:           'Corners',
             posesionMedia:     'Possession',
             tirosAPuerta:      'Shots on target'
+        },
+        notif: {
+            bannerPre:         'Next Clasico:',
+            bannerFaltan:      'In',
+            bannerDias:        'days',
+            bannerManana:      'Tomorrow',
+            bannerHoy:         'Today',
+            activar:           'Set reminder',
+            desactivar:        'Remove reminder',
+            recordatorioActivo:'Reminder set',
+            permisoDenegado:   'Notifications blocked in browser',
+            notifTitulo:       'El Clasico today',
+            notifCuerpo:       'Real Madrid vs FC Barcelona today. Don\'t miss it.',
+            notifManana:       'El Clasico is tomorrow',
+            notifMananaCuerpo: 'Real Madrid vs FC Barcelona tomorrow.'
         }
     }
 };

@@ -100,6 +100,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         // 11. Renderizar timeline de palmarés por décadas
         renderPalmaresTimeline(dataService);
 
+        // 12. Inicializar sistema de notificaciones (banner + recordatorio Clasico)
+        initNotifications(dataService.getProximoClasico());
+
         // 9. Ocultar loading, mostrar contenido
         setTimeout(() => {
             document.getElementById('loading').classList.add('hidden');

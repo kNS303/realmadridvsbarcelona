@@ -1069,5 +1069,10 @@ DataService.STATS_DATA = {
       "esLocal": true
     }
   },
-  "proximoClasico": null
+  "proximoClasico": {
+    "fecha": "26 de abril de 2026",
+    "isoFecha": "2026-04-26",
+    "competicion": "La Liga",
+    "sede": "Camp Nou"
+  }
 };

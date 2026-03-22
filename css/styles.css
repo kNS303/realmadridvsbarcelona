@@ -351,6 +351,141 @@ body::before {
 .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
 /* ========================================
+   Clasico Banner (cuenta atras / notificaciones)
+   ======================================== */
+.clasico-banner {
+    position: sticky;
+    top: 60px;
+    z-index: 90;
+    background: linear-gradient(135deg, rgba(212, 160, 18, 0.12) 0%, rgba(155, 27, 77, 0.12) 100%);
+    border-bottom: 1px solid rgba(212, 160, 18, 0.18);
+    padding: 0;
+    overflow: hidden;
+    transition: opacity var(--transition), transform var(--transition);
+}
+
+.clasico-banner.hidden {
+    display: none;
+}
+
+.clasico-banner-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 0.55rem 1rem;
+    flex-wrap: wrap;
+}
+
+.clasico-banner-icon {
+    display: flex;
+    align-items: center;
+    color: var(--rm-gold);
+    opacity: 0.85;
+    flex-shrink: 0;
+}
+
+.clasico-banner-icon svg {
+    width: 16px;
+    height: 16px;
+}
+
+.clasico-banner-text {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 0.82rem;
+    font-family: var(--font-body);
+    letter-spacing: 0.01em;
+}
+
+.clasico-banner-label {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.clasico-banner-fecha {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.clasico-banner-sep {
+    color: var(--text-muted);
+}
+
+.clasico-banner-dias {
+    color: var(--rm-gold);
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+.clasico-banner-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.3rem 0.75rem;
+    border-radius: 20px;
+    border: 1px solid rgba(212, 160, 18, 0.35);
+    background: rgba(212, 160, 18, 0.08);
+    color: var(--text-secondary);
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition);
+    white-space: nowrap;
+    margin-left: 0.25rem;
+    flex-shrink: 0;
+}
+
+.clasico-banner-btn svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+}
+
+.clasico-banner-btn:hover {
+    background: rgba(212, 160, 18, 0.15);
+    color: var(--text-primary);
+    border-color: rgba(212, 160, 18, 0.5);
+}
+
+.clasico-banner-btn.active {
+    background: rgba(52, 211, 153, 0.12);
+    border-color: rgba(52, 211, 153, 0.35);
+    color: #34d399;
+}
+
+.clasico-banner-btn.active:hover {
+    background: rgba(52, 211, 153, 0.2);
+    color: #34d399;
+}
+
+.clasico-banner-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+    .clasico-banner-inner {
+        gap: 0.4rem;
+        padding: 0.5rem 0.75rem;
+    }
+
+    .clasico-banner-text {
+        font-size: 0.77rem;
+    }
+
+    .clasico-banner-btn {
+        font-size: 0.72rem;
+        padding: 0.25rem 0.6rem;
+    }
+}
+
+/* ========================================
    Mode Toggle (Floating)
    ======================================== */
 .mode-toggle {
