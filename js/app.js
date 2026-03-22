@@ -75,6 +75,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             setMode: (m) => { currentMode = m; }
         });
 
+        // 10. Banner campeon (solo en modo temporada actual)
+        renderTitulosBanner(dataService, currentMode);
+
         // 9. Ocultar loading, mostrar contenido
         setTimeout(() => {
             document.getElementById('loading').classList.add('hidden');
@@ -256,6 +259,9 @@ function switchMode(newMode, dataService, chartInstances, loadedSections, modeRe
         // Update section texts
         updateSectionTexts(newMode);
 
+        // Update campeon banner
+        renderTitulosBanner(dataService, newMode);
+
         // Show/hide mode-specific elements
         document.querySelectorAll('[data-mode-hide]').forEach(el => {
             el.style.display = el.dataset.modeHide === newMode ? 'none' : '';
@@ -413,6 +419,109 @@ function updateSectionTexts(mode) {
         const el = document.getElementById(id);
         if (el) el.textContent = text;
     });
+}
+
+// ================================================
+// Campeon Banner + Confetti
+// ================================================
+
+function renderTitulosBanner(dataService, mode) {
+    const existing = document.getElementById('titulos-campeon-banners');
+    if (existing) existing.remove();
+
+    if (mode !== 'season') return;
+
+    const titulos = dataService.getTitulosByMode('season');
+    const labels = titulos.labels || {};
+
+    const equipos = [
+        { key: 'realMadrid', nombre: 'Real Madrid', cssClass: 'rm-banner' },
+        { key: 'barcelona', nombre: 'FC Barcelona', cssClass: 'fcb-banner' }
+    ];
+
+    const banners = [];
+
+    for (const equipo of equipos) {
+        const equipoTitulos = titulos[equipo.key];
+        if (!equipoTitulos) continue;
+        for (const [comp, valor] of Object.entries(equipoTitulos)) {
+            if (valor > 0) {
+                const label = labels[comp] || comp;
+                banners.push({ equipo, label });
+            }
+        }
+    }
+
+    if (banners.length === 0) return;
+
+    const titulosSection = document.getElementById('titulos');
+    if (!titulosSection) return;
+    const sectionContainer = titulosSection.querySelector('.section-container');
+    if (!sectionContainer) return;
+
+    const container = document.createElement('div');
+    container.id = 'titulos-campeon-banners';
+
+    banners.forEach(({ equipo, label }, i) => {
+        const div = document.createElement('div');
+        div.className = `campeon-banner ${equipo.cssClass}`;
+        div.style.animationDelay = `${i * 0.15}s`;
+        div.textContent = `Campeon de ${label} 2025-26 \u00b7 ${equipo.nombre}`;
+        container.appendChild(div);
+    });
+
+    const subtitle = sectionContainer.querySelector('.section-subtitle');
+    if (subtitle) {
+        subtitle.after(container);
+    } else {
+        sectionContainer.prepend(container);
+    }
+
+    if (!window._confettiLaunched) {
+        window._confettiLaunched = true;
+        launchConfetti(banners);
+    }
+}
+
+function launchConfetti(banners) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const colorsRM = ['#D4A012', '#f0c040', '#c8981a'];
+    const colorsFCB = ['#9B1B4D', '#c4326a', '#7a1540'];
+
+    const colors = banners.flatMap(b =>
+        b.equipo.key === 'realMadrid' ? colorsRM : colorsFCB
+    );
+
+    const container = document.createElement('div');
+    container.className = 'confetti-container';
+    document.body.appendChild(container);
+
+    for (let i = 0; i < 70; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'confetti-particle';
+
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        const left = Math.random() * 100;
+        const delay = (Math.random() * 1.2).toFixed(2);
+        const duration = (2 + Math.random() * 1).toFixed(2);
+        const size = 4 + Math.floor(Math.random() * 6);
+        const isSquare = Math.random() > 0.5;
+
+        particle.style.cssText = [
+            `left:${left}%`,
+            `background:${color}`,
+            `width:${size}px`,
+            `height:${size}px`,
+            `border-radius:${isSquare ? '2px' : '50%'}`,
+            `--fall-duration:${duration}s`,
+            `--fall-delay:${delay}s`
+        ].join(';');
+
+        container.appendChild(particle);
+    }
+
+    setTimeout(() => container.remove(), 3500);
 }
 
 // ================================================
