@@ -1,53 +1,55 @@
 /**
- * i18n - Sistema de internacionalizacion ES/EN
+ * i18n - Sistema de internacionalización ES/EN
  * Uso: i18n.t('clave.subclave')
  */
 
 const I18N = {
     es: {
-        loading: 'Cargando estadisticas...',
+        loading: 'Cargando estadísticas...',
         nav: {
-            titulos:      'Titulos',
+            titulos:      'Títulos',
             historial:    'Historial',
-            clasico:      'El Clasico',
-            estadisticas: 'Estadisticas',
+            clasico:      'El Clásico',
+            estadisticas: 'Estadísticas',
             jugadores:    'Jugadores',
-            comparador:   'Comparador'
+            comparador:   'Comparador',
+            tema:         'Tema',
+            idioma:       'Idioma'
         },
         toggle: {
             historia:  'Toda la Historia',
             temporada: 'Temporada Actual'
         },
         hero: {
-            clasicosDisputados:  'Clasicos disputados',
-            golesEnClasicos:     'Goles en clasicos',
-            subtitle:            'Mas de 125 anos de rivalidad',
-            proximoClasico:      'Proximo Clasico',
-            clasicosTemporada:   'Clasicos esta temporada',
-            golesTemporada:      'Goles en clasicos esta temporada'
+            clasicosDisputados:  'Clásicos disputados',
+            golesEnClasicos:     'Goles en clásicos',
+            subtitle:            'Más de 125 años de rivalidad',
+            proximoClasico:      'Próximo Clásico',
+            clasicosTemporada:   'Clásicos esta temporada',
+            golesTemporada:      'Goles en clásicos esta temporada'
         },
         titulos: {
-            sectionTitle:     'Palmares Comparativo',
-            sectionSubtitle:  'Todos los titulos oficiales de ambos clubes',
-            titulosTotales:   'Titulos totales',
-            timelineTitle:    'Palmares por Decada',
+            sectionTitle:     'Palmarés Comparativo',
+            sectionSubtitle:  'Todos los títulos oficiales de ambos clubes',
+            titulosTotales:   'Títulos totales',
+            timelineTitle:    'Palmarés por Década',
             timelineSubtitle: 'Liga, Champions y Copa del Rey \u00b7 Real Madrid arriba \u00b7 FC Barcelona abajo',
             legendLiga:       'Liga',
             legendChampions:  'Champions',
             legendCopa:       'Copa del Rey',
-            campeonDe:        'Campeon de'
+            campeonDe:        'Campeón de'
         },
         historial: {
             sectionTitle:          'Historial General',
-            sectionSubtitle:       'Rendimiento historico en todas las competiciones',
+            sectionSubtitle:       'Rendimiento histórico en todas las competiciones',
             sectionSubtitleSeason: 'Rendimiento en todas las competiciones de la temporada 2025-26',
             partidosJugados:       'Partidos jugados',
             golesAFavor:           'Goles a favor',
             golesRM:               'Goles Real Madrid',
             golesFCB:              'Goles FC Barcelona',
-            sinDatos:              'Sin datos de clasificacion',
+            sinDatos:              'Sin datos de clasificación',
             standings: {
-                title: 'Clasificacion La Liga',
+                title: 'Clasificación La Liga',
                 pos:    '#',
                 equipo: 'Equipo',
                 pts:    'Pts',
@@ -61,39 +63,39 @@ const I18N = {
             }
         },
         clasico: {
-            sectionTitle:           'El Clasico',
+            sectionTitle:           'El Clásico',
             sectionSubtitle:        'Enfrentamientos directos a lo largo de la historia',
             sectionSubtitleSeason:  'Enfrentamientos directos en la temporada 2025-26',
             victoriasRM:            'Victorias RM',
             empates:                'Empates',
             victoriasFCB:           'Victorias FCB',
             resultadosGlobales:     'Resultados globales',
-            porCompeticion:         'Por competicion',
+            porCompeticion:         'Por competición',
             mayorGoleada:           'Mayor Goleada',
             rachaActual:            'Racha Actual',
-            mejorRachaHistorica:    'Mejor Racha Historica',
-            maximosGoleadores:      'Maximos Goleadores en El Clasico',
+            mejorRachaHistorica:    'Mejor Racha Histórica',
+            maximosGoleadores:      'Máximos Goleadores en El Clásico',
             victoriasConsecutivas:  'victorias consecutivas',
             goles:                  'goles',
-            ultimosClasicos:        'Ultimos Clasicos',
-            clasicosTemporada:      'Clasicos de la Temporada',
-            evolucionDecada:        'Evolucion por decada',
-            sinClasicos:            'No hay clasicos disputados en este periodo'
+            ultimosClasicos:        'Últimos Clásicos',
+            clasicosTemporada:      'Clásicos de la Temporada',
+            evolucionDecada:        'Evolución por década',
+            sinClasicos:            'No hay clásicos disputados en este periodo'
         },
         estadisticas: {
-            sectionTitle:    'Estadisticas Detalladas',
+            sectionTitle:    'Estadísticas Detalladas',
             sectionSubtitle: 'Comparativa exhaustiva de rendimiento',
-            disclaimer:      'Los datos detallados de esta seccion son estimaciones basadas en registros disponibles desde el inicio del tracking estadistico avanzado (c. 2000). Las cifras anteriores a esa fecha son extrapolaciones a partir de fuentes historicas parciales.'
+            disclaimer:      'Los datos detallados de esta sección son estimaciones basadas en registros disponibles desde el inicio del tracking estadístico avanzado (c. 2000). Las cifras anteriores a esa fecha son extrapolaciones a partir de fuentes históricas parciales.'
         },
         jugadores: {
             sectionTitleHistory:       'Leyendas del Club',
             sectionTitleSeason:        'Jugadores Destacados',
-            sectionSubtitleHistory:    'Maximos goleadores y asistentes de la historia',
-            sectionSubtitleSeason:     'Maximos goleadores y asistentes de la temporada 2025-26',
-            maximosGoleadores:         'Maximos Goleadores',
-            maximosGoleadoresSeason:   'Maximos Goleadores de la Temporada',
-            maximosAsistentes:         'Maximos Asistentes',
-            maximosAsistentesSeason:   'Maximos Asistentes de la Temporada',
+            sectionSubtitleHistory:    'Máximos goleadores y asistentes de la historia',
+            sectionSubtitleSeason:     'Máximos goleadores y asistentes de la temporada 2025-26',
+            maximosGoleadores:         'Máximos Goleadores',
+            maximosGoleadoresSeason:   'Máximos Goleadores de la Temporada',
+            maximosAsistentes:         'Máximos Asistentes',
+            maximosAsistentesSeason:   'Máximos Asistentes de la Temporada',
             jugador:                   'Jugador',
             goles:                     'Goles',
             asist:                     'Asist.',
@@ -105,26 +107,26 @@ const I18N = {
             sectionSubtitle: 'Enfrentamiento cara a cara entre jugadores de ambos equipos',
             compartir:       'Compartir',
             generando:       'Generando...',
-            disclaimer:      'N/D (No Disponible): las asistencias no se registraban oficialmente antes de los anos 90. Para jugadores de epocas anteriores al tracking estadistico moderno, este dato no existe en ninguna fuente fiable.',
+            disclaimer:      'N/D (No Disponible): las asistencias no se registraban oficialmente antes de los años 90. Para jugadores de épocas anteriores al tracking estadístico moderno, este dato no existe en ninguna fuente fiable.',
             barras: {
                 goles:       'Goles',
                 asistencias: 'Asistencias',
                 partidos:    'Partidos'
             },
-            sinRegistros: 'Sin registros historicos',
+            sinRegistros: 'Sin registros históricos',
             tituloImagen: 'Comparador de Jugadores'
         },
         footer: {
-            title:      'El Clasico en Numeros',
+            title:      'El Clásico en Números',
             sources:    'Fuentes: Wikipedia, Transfermarkt, BDFutbol, RFEF',
-            disclaimer: 'Los datos son aproximados y corresponden a registros historicos acumulados hasta marzo 2026.',
-            copy:       '\u00a9 2026 - Dashboard informativo sin animo de lucro'
+            disclaimer: 'Los datos son aproximados y corresponden a registros históricos acumulados hasta marzo 2026.',
+            copy:       '\u00a9 2026 - Dashboard informativo sin ánimo de lucro'
         },
         match: {
             victoria:       'Victoria',
             empate:         'Empate',
             derrota:        'Derrota',
-            proximoPartido: 'Proximo partido'
+            proximoPartido: 'Próximo partido'
         },
         charts: {
             victoriasRM:       'Victorias Real Madrid',
@@ -144,7 +146,7 @@ const I18N = {
             corners:           'Corners',
             faltas:            'Faltas cometidas',
             fuerasDeJuego:     'Fueras de juego',
-            posesionMedia:     'Posesion media (%)',
+            posesionMedia:     'Posesión media (%)',
             tirosAPuerta:      'Tiros a puerta',
             tirosAFuera:       'Tiros a fuera'
         },
@@ -154,23 +156,23 @@ const I18N = {
             tarjetasAmarillas: 'T. Amarillas',
             tarjetasRojas:     'T. Rojas',
             corners:           'Corners',
-            posesionMedia:     'Posesion',
+            posesionMedia:     'Posesión',
             tirosAPuerta:      'Tiros a puerta'
         },
         notif: {
-            bannerPre:         'Proximo Clasico:',
+            bannerPre:         'Próximo Clásico:',
             bannerFaltan:      'Faltan',
-            bannerDias:        'dias',
-            bannerManana:      'Manana',
+            bannerDias:        'días',
+            bannerManana:      'Mañana',
             bannerHoy:         'Hoy',
             activar:           'Activar recordatorio',
             desactivar:        'Desactivar recordatorio',
             recordatorioActivo:'Recordatorio activo',
             permisoDenegado:   'Notificaciones bloqueadas en el navegador',
-            notifTitulo:       'Hoy es el Clasico',
+            notifTitulo:       'Hoy es el Clásico',
             notifCuerpo:       'Real Madrid vs FC Barcelona hoy. No te lo pierdas.',
-            notifManana:       'El Clasico es manana',
-            notifMananaCuerpo: 'Real Madrid vs FC Barcelona manana.'
+            notifManana:       'El Clásico es mañana',
+            notifMananaCuerpo: 'Real Madrid vs FC Barcelona mañana.'
         }
     },
 
@@ -182,7 +184,9 @@ const I18N = {
             clasico:      'El Clasico',
             estadisticas: 'Statistics',
             jugadores:    'Players',
-            comparador:   'Comparison'
+            comparador:   'Comparison',
+            tema:         'Theme',
+            idioma:       'Language'
         },
         toggle: {
             historia:  'All Time',
@@ -349,7 +353,7 @@ const i18n = {
     _lang: 'es',
 
     /**
-     * Obtiene la traduccion para una clave separada por puntos
+     * Obtiene la traducción para una clave separada por puntos
      * Ej: i18n.t('nav.titulos') -> 'Titulos' / 'Titles'
      */
     t(key) {
@@ -374,7 +378,7 @@ const i18n = {
     },
 
     /**
-     * Inicializa el idioma desde localStorage o deteccion del navegador
+     * Inicializa el idioma desde localStorage o detección del navegador
      */
     init() {
         const saved = localStorage.getItem('lang');

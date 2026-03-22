@@ -1,7 +1,7 @@
 {
   "name": "RM vs FCB Dashboard",
   "short_name": "RM vs FCB",
-  "description": "Comparativa historica y de temporada entre Real Madrid y FC Barcelona",
+  "description": "Comparativa histórica y de temporada entre Real Madrid y FC Barcelona",
   "start_url": "/realmadridvsbarcelona/",
   "scope": "/realmadridvsbarcelona/",
   "display": "standalone",

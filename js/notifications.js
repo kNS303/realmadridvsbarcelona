@@ -1,6 +1,6 @@
 /**
- * Notifications - Sistema de recordatorio para el proximo Clasico
- * Usa Notification API del navegador + localStorage. Sin push real (GitHub Pages estatico).
+ * Notifications - Sistema de recordatorio para el próximo Clásico
+ * Usa Notification API del navegador + localStorage. Sin push real (GitHub Pages estático).
  */
 
 const NOTIF_STORAGE_KEY = 'clasico_notif';

@@ -35,7 +35,7 @@ const ChartFactory = {
     },
 
     /**
-     * Actualiza colores segun el tema activo (dark/light)
+     * Actualiza colores según el tema activo (dark/light)
      */
     refreshThemeColors() {
         const isLight = document.documentElement.getAttribute('data-theme') === 'light';

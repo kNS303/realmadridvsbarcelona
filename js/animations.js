@@ -31,7 +31,7 @@ function animateCounter(element, target, duration = 2000) {
 }
 
 /**
- * Observer compartido para reutilizar en renders dinamicos
+ * Observer compartido para reutilizar en renders dinámicos
  */
 let _scrollObserver = null;
 
@@ -110,7 +110,7 @@ function initScrollAnimations() {
 
 /**
  * Observa nuevos elementos animate-on-scroll en un contenedor.
- * Llamar despues de renders dinamicos (clasico cards, comparador bars).
+ * Llamar después de renders dinámicos (clásico cards, comparador bars).
  * @param {Element} container - Contenedor donde buscar .animate-on-scroll
  */
 function observeNewElements(container) {

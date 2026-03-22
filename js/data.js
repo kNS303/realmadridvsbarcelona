@@ -168,7 +168,7 @@ DataService.STATS_DATA = {
       "nombre": "Real Madrid CF",
       "nombreCorto": "Real Madrid",
       "fundacion": 1902,
-      "estadio": "Santiago Bernabeu",
+      "estadio": "Santiago Bernabéu",
       "capacidad": 83186,
       "colores": {
         "primario": "#FFFFFF",
@@ -178,7 +178,7 @@ DataService.STATS_DATA = {
       "logo": "assets/madrid-logo.svg"
     },
     "barcelona": {
-      "nombre": "Futbol Club Barcelona",
+      "nombre": "Fútbol Club Barcelona",
       "nombreCorto": "FC Barcelona",
       "fundacion": 1899,
       "estadio": "Spotify Camp Nou",
@@ -292,7 +292,7 @@ DataService.STATS_DATA = {
       },
       {
         "fecha": "12 de enero de 2025",
-        "competicion": "Supercopa de Espana",
+        "competicion": "Supercopa de España",
         "resultado": "Real Madrid 2-5 FC Barcelona",
         "golesRM": 2,
         "golesFCB": 5,
@@ -316,7 +316,7 @@ DataService.STATS_DATA = {
       },
       {
         "fecha": "14 de enero de 2024",
-        "competicion": "Supercopa de Espana",
+        "competicion": "Supercopa de España",
         "resultado": "Real Madrid 4-1 FC Barcelona",
         "golesRM": 4,
         "golesFCB": 1,
@@ -340,7 +340,7 @@ DataService.STATS_DATA = {
       },
       {
         "fecha": "15 de enero de 2023",
-        "competicion": "Supercopa de Espana",
+        "competicion": "Supercopa de España",
         "resultado": "Real Madrid 1-3 FC Barcelona",
         "golesRM": 1,
         "golesFCB": 3,
@@ -455,8 +455,8 @@ DataService.STATS_DATA = {
       { "nombre": "Lionel Messi", "equipo": "fcb", "goles": 26 },
       { "nombre": "Alfredo Di Stefano", "equipo": "rm", "goles": 18 },
       { "nombre": "Cristiano Ronaldo", "equipo": "rm", "goles": 18 },
-      { "nombre": "Raul Gonzalez", "equipo": "rm", "goles": 15 },
-      { "nombre": "Cesar Rodriguez", "equipo": "fcb", "goles": 14 }
+      { "nombre": "Raúl González", "equipo": "rm", "goles": 15 },
+      { "nombre": "César Rodríguez", "equipo": "fcb", "goles": 14 }
     ]
   },
   "estadisticasDetalladas": {
@@ -695,7 +695,7 @@ DataService.STATS_DATA = {
   "temporadaActual": {
     "meta": {
       "temporada": "2025-26",
-      "nota": "Datos de la temporada 2025-26 en todas las competiciones. Actualizado automaticamente."
+      "nota": "Datos de la temporada 2025-26 en todas las competiciones. Actualizado automáticamente."
     },
     "heroStats": {
       "clasicosDisputados": 1,
@@ -833,7 +833,7 @@ DataService.STATS_DATA = {
             "periodo": "2025-26"
           },
           {
-            "nombre": "Arda Guler",
+            "nombre": "Arda Güler",
             "goles": 4,
             "partidos": 27,
             "periodo": "2025-26"
@@ -865,7 +865,7 @@ DataService.STATS_DATA = {
             "periodo": "2025-26"
           },
           {
-            "nombre": "Ferrán Torres",
+            "nombre": "Ferran Torres",
             "goles": 12,
             "partidos": 26,
             "periodo": "2025-26"
@@ -893,7 +893,7 @@ DataService.STATS_DATA = {
             "periodo": "2025-26"
           },
           {
-            "nombre": "Arda Guler",
+            "nombre": "Arda Güler",
             "asistencias": 8,
             "partidos": 27,
             "periodo": "2025-26"

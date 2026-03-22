@@ -12,18 +12,18 @@
     <link rel="apple-touch-icon" href="assets/icon-192.png">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Real Madrid vs FC Barcelona - Dashboard Estadistico">
-    <meta property="og:description" content="Comparativa historica y de temporada entre los dos grandes del futbol espanol">
+    <meta property="og:title" content="Real Madrid vs FC Barcelona - Dashboard Estadístico">
+    <meta property="og:description" content="Comparativa histórica y de temporada entre los dos grandes del fútbol español">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://kns303.github.io/realmadridvsbarcelona/">
     <meta property="og:image" content="https://kns303.github.io/realmadridvsbarcelona/assets/icon-512.png">
     <meta property="og:locale" content="es_ES">
-    <meta property="og:site_name" content="El Clasico en Numeros">
+    <meta property="og:site_name" content="El Clásico en Números">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Real Madrid vs FC Barcelona - Dashboard Estadistico">
-    <meta name="twitter:description" content="Comparativa historica y de temporada entre los dos grandes del futbol espanol">
+    <meta name="twitter:title" content="Real Madrid vs FC Barcelona - Dashboard Estadístico">
+    <meta name="twitter:description" content="Comparativa histórica y de temporada entre los dos grandes del fútbol español">
     <meta name="twitter:image" content="https://kns303.github.io/realmadridvsbarcelona/assets/icon-512.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,7 +45,7 @@
     <!-- Loading Screen -->
     <div id="loading">
         <div class="loader"></div>
-        <p data-i18n="loading">Cargando estadisticas...</p>
+        <p data-i18n="loading">Cargando estadísticas...</p>
     </div>
 
     <!-- Navigation -->
@@ -57,9 +57,9 @@
                 <img src="assets/barca-logo.svg" alt="FC Barcelona" class="nav-crest">
             </a>
             <button class="lang-btn" id="lang-btn" type="button" aria-label="Change language">
-                <span id="lang-es-label" class="lang-active">ES</span>
+                <span id="lang-es-label" class="lang-active lang-flag">&#x1F1EA;&#x1F1F8;</span>
                 <span class="lang-sep">|</span>
-                <span id="lang-en-label" class="lang-inactive">EN</span>
+                <span id="lang-en-label" class="lang-inactive lang-flag">&#x1F1EC;&#x1F1E7;</span>
             </button>
             <button class="theme-btn" id="theme-btn" aria-label="Cambiar tema claro/oscuro">
                 <!-- Moon: visible in dark mode -->
@@ -91,18 +91,37 @@
                 <span></span>
             </button>
             <ul class="nav-links" id="nav-links">
-                <li><a href="#titulos" data-i18n="nav.titulos">Titulos</a></li>
+                <li><a href="#titulos" data-i18n="nav.titulos">Títulos</a></li>
                 <li><a href="#historial" data-i18n="nav.historial">Historial</a></li>
-                <li><a href="#clasico" data-i18n="nav.clasico">El Clasico</a></li>
-                <li><a href="#estadisticas" data-i18n="nav.estadisticas">Estadisticas</a></li>
+                <li><a href="#clasico" data-i18n="nav.clasico">El Clásico</a></li>
+                <li><a href="#estadisticas" data-i18n="nav.estadisticas">Estadísticas</a></li>
                 <li><a href="#jugadores" data-i18n="nav.jugadores">Jugadores</a></li>
                 <li><a href="#comparador" data-i18n="nav.comparador">Comparador</a></li>
+                <li class="nav-mobile-controls">
+                    <button class="theme-btn theme-btn-mobile" id="theme-btn-mobile" aria-label="Cambiar tema claro/oscuro">
+                        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                        </svg>
+                        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"/>
+                            <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                            <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                        </svg>
+                    </button>
+                    <button class="lang-btn lang-btn-mobile" id="lang-btn-mobile" type="button" aria-label="Change language">
+                        <span class="lang-active lang-flag" id="lang-es-label-mobile">&#x1F1EA;&#x1F1F8;</span>
+                        <span class="lang-sep">|</span>
+                        <span class="lang-inactive lang-flag" id="lang-en-label-mobile">&#x1F1EC;&#x1F1E7;</span>
+                    </button>
+                </li>
             </ul>
         </div>
     </nav>
 
-    <!-- Banner cuenta atras Clasico -->
-    <div id="clasico-banner" class="clasico-banner hidden" role="complementary" aria-label="Proximo Clasico"></div>
+    <!-- Banner cuenta atrás Clásico -->
+    <div id="clasico-banner" class="clasico-banner hidden" role="complementary" aria-label="Próximo Clásico"></div>
 
     <!-- Mode Toggle -->
     <div id="mode-toggle" class="mode-toggle" role="switch" aria-checked="false" aria-label="Cambiar entre toda la historia y temporada actual" tabindex="0">
@@ -131,7 +150,7 @@
                     <div class="hero-vs animate-on-scroll">
                         <span class="vs-text">VS</span>
                         <div class="hero-proximo-clasico hidden" id="proximo-clasico">
-                            <span class="proximo-clasico-label" data-i18n="hero.proximoClasico">Proximo Clasico</span>
+                            <span class="proximo-clasico-label" data-i18n="hero.proximoClasico">Próximo Clásico</span>
                             <span class="proximo-clasico-fecha" id="proximo-clasico-fecha"></span>
                             <span class="proximo-clasico-comp" id="proximo-clasico-comp"></span>
                             <span class="proximo-clasico-sede" id="proximo-clasico-sede"></span>
@@ -149,14 +168,14 @@
                     <div class="hero-stats">
                         <div class="hero-stat">
                             <span class="hero-stat-number" data-counter="257">0</span>
-                            <span class="hero-stat-label" id="hero-stat-label-0" data-i18n="hero.clasicosDisputados">Clasicos disputados</span>
+                            <span class="hero-stat-label" id="hero-stat-label-0" data-i18n="hero.clasicosDisputados">Clásicos disputados</span>
                         </div>
                         <div class="hero-stat">
                             <span class="hero-stat-number" data-counter="823">0</span>
-                            <span class="hero-stat-label" id="hero-stat-label-1" data-i18n="hero.golesEnClasicos">Goles en clasicos</span>
+                            <span class="hero-stat-label" id="hero-stat-label-1" data-i18n="hero.golesEnClasicos">Goles en clásicos</span>
                         </div>
                     </div>
-                    <p class="hero-subtitle" id="hero-subtitle" data-i18n="hero.subtitle">Mas de 125 anos de rivalidad</p>
+                    <p class="hero-subtitle" id="hero-subtitle" data-i18n="hero.subtitle">Más de 125 años de rivalidad</p>
                 </div>
             </div>
             <a href="#titulos" class="scroll-indicator" aria-label="Scroll abajo">
@@ -170,15 +189,15 @@
         <section id="titulos" class="dashboard-section">
             <div class="section-container">
                 <h2 class="section-title animate-on-scroll" data-i18n="titulos.sectionTitle">
-                    Palmares Comparativo
+                    Palmarés Comparativo
                 </h2>
-                <p class="section-subtitle animate-on-scroll" data-i18n="titulos.sectionSubtitle">Todos los titulos oficiales de ambos clubes</p>
+                <p class="section-subtitle animate-on-scroll" data-i18n="titulos.sectionSubtitle">Todos los títulos oficiales de ambos clubes</p>
 
                 <!-- Title counters -->
                 <div class="counter-grid animate-on-scroll">
                     <div class="counter-card rm-card">
                         <span class="counter-number" data-counter="99" id="rm-total-titulos">0</span>
-                        <span class="counter-label" data-i18n="titulos.titulosTotales">Titulos totales</span>
+                        <span class="counter-label" data-i18n="titulos.titulosTotales">Títulos totales</span>
                         <span class="counter-team">Real Madrid</span>
                     </div>
                     <div class="counter-card neutral-card">
@@ -186,7 +205,7 @@
                     </div>
                     <div class="counter-card fcb-card">
                         <span class="counter-number" data-counter="91" id="fcb-total-titulos">0</span>
-                        <span class="counter-label" data-i18n="titulos.titulosTotales">Titulos totales</span>
+                        <span class="counter-label" data-i18n="titulos.titulosTotales">Títulos totales</span>
                         <span class="counter-team">FC Barcelona</span>
                     </div>
                 </div>
@@ -220,7 +239,7 @@
 
                 <!-- Timeline palmares por decada -->
                 <div class="palmares-timeline-section animate-on-scroll" data-mode-hide="season">
-                    <h3 class="palmares-timeline-title" data-i18n="titulos.timelineTitle">Palmares por Decada</h3>
+                    <h3 class="palmares-timeline-title" data-i18n="titulos.timelineTitle">Palmarés por Década</h3>
                     <p class="palmares-timeline-subtitle" data-i18n="titulos.timelineSubtitle">Liga, Champions y Copa del Rey · Real Madrid arriba · FC Barcelona abajo</p>
                     <div class="palmares-legend">
                         <div class="legend-item">
@@ -257,7 +276,7 @@
                 <h2 class="section-title animate-on-scroll" data-i18n="historial.sectionTitle">
                     Historial General
                 </h2>
-                <p class="section-subtitle animate-on-scroll" id="historial-subtitle" data-i18n="historial.sectionSubtitle">Rendimiento historico en todas las competiciones</p>
+                <p class="section-subtitle animate-on-scroll" id="historial-subtitle" data-i18n="historial.sectionSubtitle">Rendimiento histórico en todas las competiciones</p>
 
                 <!-- Counter cards -->
                 <div class="counter-grid-4 animate-on-scroll">
@@ -281,7 +300,7 @@
 
                 <!-- Mini Clasificación La Liga (solo Temporada Actual) -->
                 <div class="standings-card animate-on-scroll" id="standings-card" data-mode-hide="history">
-                    <h3 class="standings-title" data-i18n="historial.standings.title">Clasificacion La Liga</h3>
+                    <h3 class="standings-title" data-i18n="historial.standings.title">Clasificación La Liga</h3>
                     <div class="standings-table-wrapper">
                         <table class="standings-table" id="standings-table">
                             <thead>
@@ -338,11 +357,11 @@
         <section id="clasico" class="dashboard-section">
             <div class="section-container">
                 <h2 class="section-title animate-on-scroll" data-i18n="clasico.sectionTitle">
-                    El Clasico
+                    El Clásico
                 </h2>
                 <p class="section-subtitle animate-on-scroll" id="clasico-subtitle" data-i18n="clasico.sectionSubtitle">Enfrentamientos directos a lo largo de la historia</p>
 
-                <!-- Clasico counters -->
+                <!-- Clásico counters -->
                 <div class="counter-grid animate-on-scroll">
                     <div class="counter-card rm-card">
                         <span class="counter-number" data-counter="105">0</span>
@@ -358,7 +377,7 @@
                     </div>
                 </div>
 
-                <!-- Clasico donut -->
+                <!-- Clásico donut -->
                 <div class="chart-row animate-on-scroll">
                     <div class="chart-half">
                         <h3 class="chart-subtitle" data-i18n="clasico.resultadosGlobales">Resultados globales</h3>
@@ -367,7 +386,7 @@
                         </div>
                     </div>
                     <div class="chart-half">
-                        <h3 class="chart-subtitle" data-i18n="clasico.porCompeticion">Por competicion</h3>
+                        <h3 class="chart-subtitle" data-i18n="clasico.porCompeticion">Por competición</h3>
                         <div class="chart-container-sm">
                             <canvas id="chart-clasico-competicion"></canvas>
                         </div>
@@ -400,7 +419,7 @@
                         </div>
                     </div>
                     <div class="h2h-card">
-                        <h4 class="h2h-card-title" data-i18n="clasico.mejorRachaHistorica">Mejor Racha Historica</h4>
+                        <h4 class="h2h-card-title" data-i18n="clasico.mejorRachaHistorica">Mejor Racha Histórica</h4>
                         <div class="h2h-best-streak">
                             <div class="h2h-streak-item rm-side">
                                 <span class="h2h-streak-num rm-color">8</span>
@@ -414,7 +433,7 @@
                         </div>
                     </div>
                     <div class="h2h-card h2h-card-full">
-                        <h4 class="h2h-card-title" data-i18n="clasico.maximosGoleadores">Maximos Goleadores en El Clasico</h4>
+                        <h4 class="h2h-card-title" data-i18n="clasico.maximosGoleadores">Máximos Goleadores en El Clásico</h4>
                         <div class="h2h-scorers-list" id="h2h-scorers-list">
                             <div class="h2h-scorer-row">
                                 <span class="h2h-scorer-rank">1</span>
@@ -436,13 +455,13 @@
                             </div>
                             <div class="h2h-scorer-row">
                                 <span class="h2h-scorer-rank">4</span>
-                                <span class="h2h-scorer-name rm-color">Raul Gonzalez</span>
+                                <span class="h2h-scorer-name rm-color">Raúl González</span>
                                 <span class="h2h-scorer-team">RM</span>
                                 <span class="h2h-scorer-goals">15 goles</span>
                             </div>
                             <div class="h2h-scorer-row">
                                 <span class="h2h-scorer-rank">5</span>
-                                <span class="h2h-scorer-name fcb-color">Cesar Rodriguez</span>
+                                <span class="h2h-scorer-name fcb-color">César Rodríguez</span>
                                 <span class="h2h-scorer-team">FCB</span>
                                 <span class="h2h-scorer-goals">14 goles</span>
                             </div>
@@ -450,15 +469,15 @@
                     </div>
                 </div>
 
-                <!-- Ultimos Clasicos -->
-                <h3 class="subsection-title animate-on-scroll" id="ultimos-clasicos-title" data-i18n="clasico.ultimosClasicos">Ultimos Clasicos</h3>
+                <!-- Últimos Clásicos -->
+                <h3 class="subsection-title animate-on-scroll" id="ultimos-clasicos-title" data-i18n="clasico.ultimosClasicos">Últimos Clásicos</h3>
                 <div class="clasicos-cards-grid" id="clasicos-cards">
                     <!-- Generated by JS -->
                 </div>
 
                 <!-- Timeline -->
                 <div class="chart-container animate-on-scroll" data-mode-hide="season">
-                    <h3 class="chart-subtitle" data-i18n="clasico.evolucionDecada">Evolucion por decada</h3>
+                    <h3 class="chart-subtitle" data-i18n="clasico.evolucionDecada">Evolución por década</h3>
                     <canvas id="chart-clasico-timeline"></canvas>
                 </div>
             </div>
@@ -468,7 +487,7 @@
         <section id="estadisticas" class="dashboard-section alt-bg">
             <div class="section-container">
                 <h2 class="section-title animate-on-scroll" data-i18n="estadisticas.sectionTitle">
-                    Estadisticas Detalladas
+                    Estadísticas Detalladas
                 </h2>
                 <p class="section-subtitle animate-on-scroll" data-i18n="estadisticas.sectionSubtitle">Comparativa exhaustiva de rendimiento</p>
 
@@ -482,7 +501,7 @@
                     <!-- Generated by JS -->
                 </div>
 
-                <p class="stats-disclaimer animate-on-scroll" data-i18n="estadisticas.disclaimer">Los datos detallados de esta seccion son estimaciones basadas en registros disponibles desde el inicio del tracking estadistico avanzado (c. 2000). Las cifras anteriores a esa fecha son extrapolaciones a partir de fuentes historicas parciales.</p>
+                <p class="stats-disclaimer animate-on-scroll" data-i18n="estadisticas.disclaimer">Los datos detallados de esta sección son estimaciones basadas en registros disponibles desde el inicio del tracking estadístico avanzado (c. 2000). Las cifras anteriores a esa fecha son extrapolaciones a partir de fuentes históricas parciales.</p>
             </div>
         </section>
 
@@ -492,10 +511,10 @@
                 <h2 class="section-title animate-on-scroll" id="jugadores-title" data-i18n="jugadores.sectionTitleHistory">
                     Leyendas del Club
                 </h2>
-                <p class="section-subtitle animate-on-scroll" id="jugadores-subtitle" data-i18n="jugadores.sectionSubtitleHistory">Maximos goleadores y asistentes de la historia</p>
+                <p class="section-subtitle animate-on-scroll" id="jugadores-subtitle" data-i18n="jugadores.sectionSubtitleHistory">Máximos goleadores y asistentes de la historia</p>
 
                 <!-- Goleadores -->
-                <h3 class="subsection-title animate-on-scroll" id="goleadores-subtitle" data-i18n="jugadores.maximosGoleadores">Maximos Goleadores</h3>
+                <h3 class="subsection-title animate-on-scroll" id="goleadores-subtitle" data-i18n="jugadores.maximosGoleadores">Máximos Goleadores</h3>
                 <div class="tables-row animate-on-scroll">
                     <div class="table-half">
                         <div class="table-header rm-header">
@@ -514,7 +533,7 @@
                 </div>
 
                 <!-- Asistentes -->
-                <h3 class="subsection-title animate-on-scroll" id="asistentes-subtitle" data-i18n="jugadores.maximosAsistentes">Maximos Asistentes</h3>
+                <h3 class="subsection-title animate-on-scroll" id="asistentes-subtitle" data-i18n="jugadores.maximosAsistentes">Máximos Asistentes</h3>
                 <div class="tables-row animate-on-scroll">
                     <div class="table-half">
                         <div class="table-header rm-header">
@@ -576,7 +595,7 @@
                         <span class="btn-compartir-text" data-i18n="comparador.compartir">Compartir</span>
                     </button>
                 </div>
-                <p class="stats-disclaimer" data-i18n="comparador.disclaimer">N/D (No Disponible): las asistencias no se registraban oficialmente antes de los anos 90. Para jugadores de epocas anteriores al tracking estadistico moderno, este dato no existe en ninguna fuente fiable.</p>
+                <p class="stats-disclaimer" data-i18n="comparador.disclaimer">N/D (No Disponible): las asistencias no se registraban oficialmente antes de los años 90. Para jugadores de épocas anteriores al tracking estadístico moderno, este dato no existe en ninguna fuente fiable.</p>
             </div>
         </section>
 
@@ -585,10 +604,10 @@
     <!-- Footer -->
     <footer id="footer">
         <div class="footer-content">
-            <p class="footer-title" data-i18n="footer.title">El Clasico en Numeros</p>
+            <p class="footer-title" data-i18n="footer.title">El Clásico en Números</p>
             <p class="footer-sources" data-i18n="footer.sources">Fuentes: Wikipedia, Transfermarkt, BDFutbol, RFEF</p>
-            <p class="footer-disclaimer" data-i18n="footer.disclaimer">Los datos son aproximados y corresponden a registros historicos acumulados hasta marzo 2026.</p>
-            <p class="footer-copy" data-i18n="footer.copy">&copy; 2026 - Dashboard informativo sin animo de lucro</p>
+            <p class="footer-disclaimer" data-i18n="footer.disclaimer">Los datos son aproximados y corresponden a registros históricos acumulados hasta marzo 2026.</p>
+            <p class="footer-copy" data-i18n="footer.copy">&copy; 2026 - Dashboard informativo sin ánimo de lucro</p>
         </div>
     </footer>
 

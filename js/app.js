@@ -56,14 +56,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         // 6d. Renderizar clasificación La Liga (oculta inicialmente en modo history)
         renderStandings(dataService);
 
-        // 6d. Renderizar estadisticas h2h y tarjetas de últimos Clásicos
+        // 6d. Renderizar estadísticas h2h y tarjetas de últimos Clásicos
         renderH2HStats(dataService);
         renderClasicosCards(dataService, currentMode);
 
         // 6f. Inicializar comparador de jugadores
         initComparador(dataService, currentMode);
 
-        // 6e. Aplicar visibilidad inicial segun modo
+        // 6e. Aplicar visibilidad inicial según modo
         document.querySelectorAll('[data-mode-hide]').forEach(el => {
             el.style.display = el.dataset.modeHide === currentMode ? 'none' : '';
         });
@@ -1074,7 +1074,7 @@ function renderH2HStats(dataService) {
 
 function initThemeToggle(dataService, chartInstances, loadedSections, modeRef) {
     const btn = document.getElementById('theme-btn');
-    if (!btn) return;
+    const btnMobile = document.getElementById('theme-btn-mobile');
 
     // Apply theme to document and charts
     function applyTheme(theme, rebuildCharts) {
@@ -1095,11 +1095,14 @@ function initThemeToggle(dataService, chartInstances, loadedSections, modeRef) {
         }
     }
 
-    btn.addEventListener('click', () => {
+    function handleThemeClick() {
         const current = document.documentElement.getAttribute('data-theme');
         const next = current === 'light' ? 'dark' : 'light';
         applyTheme(next, true);
-    });
+    }
+
+    if (btn) btn.addEventListener('click', handleThemeClick);
+    if (btnMobile) btnMobile.addEventListener('click', handleThemeClick);
 
     // Sync chart colors with current theme on init (charts not yet loaded, will pick colors on creation)
     ChartFactory.refreshThemeColors();
@@ -1110,22 +1113,29 @@ function initThemeToggle(dataService, chartInstances, loadedSections, modeRef) {
 // ================================================
 
 function updateLangBtn() {
-    const esLabel = document.getElementById('lang-es-label');
-    const enLabel = document.getElementById('lang-en-label');
-    if (!esLabel || !enLabel) return;
     const lang = i18n.getLanguage();
-    esLabel.className = lang === 'es' ? 'lang-active' : 'lang-inactive';
-    enLabel.className = lang === 'en' ? 'lang-active' : 'lang-inactive';
+    // Update all lang labels (desktop + mobile)
+    ['', '-mobile'].forEach(suffix => {
+        const es = document.getElementById('lang-es-label' + suffix);
+        const en = document.getElementById('lang-en-label' + suffix);
+        if (es && en) {
+            es.className = (lang === 'es' ? 'lang-active' : 'lang-inactive') + ' lang-flag';
+            en.className = (lang === 'en' ? 'lang-active' : 'lang-inactive') + ' lang-flag';
+        }
+    });
 }
 
 function initLangToggle(dataService, chartInstances, loadedSections, modeRef) {
     const btn = document.getElementById('lang-btn');
-    if (!btn) return;
+    const btnMobile = document.getElementById('lang-btn-mobile');
 
-    btn.addEventListener('click', () => {
+    function handleLangClick() {
         const next = i18n.getLanguage() === 'es' ? 'en' : 'es';
         setLanguage(next, dataService, chartInstances, loadedSections, modeRef.getMode());
-    });
+    }
+
+    if (btn) btn.addEventListener('click', handleLangClick);
+    if (btnMobile) btnMobile.addEventListener('click', handleLangClick);
 }
 
 function setLanguage(lang, dataService, chartInstances, loadedSections, mode) {
