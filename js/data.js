@@ -427,6 +427,21 @@ DataService.STATS_DATA = {
         "fcbVictorias": 4,
         "empates": 3
       }
+    ],
+    "rachaActual": {
+      "equipo": "rm",
+      "partidos": 2
+    },
+    "mejorRachaHistorica": {
+      "rm": 8,
+      "fcb": 6
+    },
+    "goleadoresHistoricos": [
+      { "nombre": "Lionel Messi", "equipo": "fcb", "goles": 26 },
+      { "nombre": "Alfredo Di Stefano", "equipo": "rm", "goles": 18 },
+      { "nombre": "Cristiano Ronaldo", "equipo": "rm", "goles": 18 },
+      { "nombre": "Raul Gonzalez", "equipo": "rm", "goles": 15 },
+      { "nombre": "Cesar Rodriguez", "equipo": "fcb", "goles": 14 }
     ]
   },
   "estadisticasDetalladas": {

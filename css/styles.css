@@ -1502,6 +1502,222 @@ body::before {
 }
 
 /* ========================================
+   H2H Stats Grid
+   ======================================== */
+.h2h-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.h2h-card {
+    background: var(--bg-card);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-card);
+    padding: 1.4rem 1.6rem;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.h2h-card-full {
+    grid-column: 1 / -1;
+}
+
+.h2h-card-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin: 0 0 1rem 0;
+}
+
+/* Mayor Goleada */
+.h2h-goleada {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.h2h-goleada-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.75rem 0.5rem;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.03);
+}
+
+.h2h-goleada-item.rm-side {
+    border: 1px solid rgba(212,160,18,0.25);
+}
+
+.h2h-goleada-item.fcb-side {
+    border: 1px solid rgba(155,27,77,0.25);
+}
+
+.h2h-goleada-score {
+    font-family: 'DM Mono', monospace;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.h2h-goleada-item.rm-side .h2h-goleada-score {
+    color: var(--rm-gold);
+}
+
+.h2h-goleada-item.fcb-side .h2h-goleada-score {
+    color: var(--fcb-garnet);
+}
+
+.h2h-goleada-label {
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+    margin-top: 0.3rem;
+}
+
+.h2h-goleada-year {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    margin-top: 0.2rem;
+}
+
+/* Racha Actual */
+.h2h-racha {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    padding: 0.5rem 0;
+}
+
+.h2h-racha-equipo {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.h2h-racha-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.h2h-racha-label {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+}
+
+/* Mejor Racha Historica */
+.h2h-best-streak {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 0;
+}
+
+.h2h-streak-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.h2h-streak-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.h2h-streak-label {
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.h2h-streak-sep {
+    width: 1px;
+    height: 40px;
+    background: var(--border-subtle);
+    flex-shrink: 0;
+}
+
+/* Color helpers */
+.rm-color { color: var(--rm-gold); }
+.fcb-color { color: var(--fcb-garnet); }
+
+/* Scorers list */
+.h2h-scorers-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.h2h-scorer-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.55rem 0.75rem;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.025);
+    border: 1px solid var(--border-subtle);
+}
+
+.h2h-scorer-rank {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    min-width: 16px;
+    text-align: center;
+}
+
+.h2h-scorer-name {
+    flex: 1;
+    font-size: 0.88rem;
+    font-weight: 500;
+}
+
+.h2h-scorer-team {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    min-width: 28px;
+    text-align: center;
+}
+
+.h2h-scorer-goals {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .h2h-stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .h2h-card-full {
+        grid-column: 1;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .h2h-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ========================================
    Ultimos Clasicos Cards
    ======================================== */
 .clasicos-cards-grid {

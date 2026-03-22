@@ -52,7 +52,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         // 6d. Renderizar clasificación La Liga (oculta inicialmente en modo history)
         renderStandings(dataService);
 
-        // 6d. Renderizar tarjetas de últimos Clásicos
+        // 6d. Renderizar estadisticas h2h y tarjetas de últimos Clásicos
+        renderH2HStats(dataService);
         renderClasicosCards(dataService, currentMode);
 
         // 6f. Inicializar comparador de jugadores
@@ -982,5 +983,55 @@ function renderClasicosCards(dataService, mode) {
     // Observar las nuevas tarjetas para animacion de entrada
     if (typeof observeNewElements === 'function') {
         observeNewElements(container);
+    }
+}
+
+function renderH2HStats(dataService) {
+    const clasico = dataService.getClasico();
+    if (!clasico) return;
+
+    // Racha actual
+    const racha = clasico.rachaActual;
+    if (racha) {
+        const rachaEl = document.getElementById('h2h-racha-actual');
+        if (rachaEl) {
+            const equipoNombre = racha.equipo === 'rm' ? 'Real Madrid' : 'FC Barcelona';
+            const colorClass = racha.equipo === 'rm' ? 'rm-color' : 'fcb-color';
+            rachaEl.innerHTML = `
+                <span class="h2h-racha-equipo ${colorClass}">${equipoNombre}</span>
+                <span class="h2h-racha-num ${colorClass}">${racha.partidos}</span>
+                <span class="h2h-racha-label">victorias consecutivas</span>
+            `;
+        }
+    }
+
+    // Goleadores historicos
+    const goleadores = clasico.goleadoresHistoricos;
+    if (goleadores && goleadores.length > 0) {
+        const listEl = document.getElementById('h2h-scorers-list');
+        if (listEl) {
+            let currentRank = 1;
+            let prevGoles = null;
+            const ranked = goleadores.map((g, i) => {
+                if (g.goles !== prevGoles) {
+                    currentRank = i + 1;
+                    prevGoles = g.goles;
+                }
+                return Object.assign({}, g, { rank: currentRank });
+            });
+
+            listEl.innerHTML = ranked.map(g => {
+                const colorClass = g.equipo === 'rm' ? 'rm-color' : 'fcb-color';
+                const teamLabel = g.equipo === 'rm' ? 'RM' : 'FCB';
+                return `
+                    <div class="h2h-scorer-row">
+                        <span class="h2h-scorer-rank">${g.rank}</span>
+                        <span class="h2h-scorer-name ${colorClass}">${g.nombre}</span>
+                        <span class="h2h-scorer-team">${teamLabel}</span>
+                        <span class="h2h-scorer-goals">${g.goles} goles</span>
+                    </div>
+                `;
+            }).join('');
+        }
     }
 }
