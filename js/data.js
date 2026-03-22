@@ -223,6 +223,21 @@ DataService.STATS_DATA = {
     "copaLiga": "Copa de la Liga",
     "recopa": "Recopa de Europa"
   },
+  "palmaresPorDecada": {
+    "1900s": { "rm": { "liga": 0, "champions": 0, "copa": 4 }, "fcb": { "liga": 0, "champions": 0, "copa": 1 } },
+    "1910s": { "rm": { "liga": 0, "champions": 0, "copa": 1 }, "fcb": { "liga": 0, "champions": 0, "copa": 3 } },
+    "1920s": { "rm": { "liga": 0, "champions": 0, "copa": 0 }, "fcb": { "liga": 1, "champions": 0, "copa": 5 } },
+    "1930s": { "rm": { "liga": 2, "champions": 0, "copa": 2 }, "fcb": { "liga": 0, "champions": 0, "copa": 0 } },
+    "1940s": { "rm": { "liga": 0, "champions": 0, "copa": 2 }, "fcb": { "liga": 3, "champions": 0, "copa": 1 } },
+    "1950s": { "rm": { "liga": 4, "champions": 4, "copa": 0 }, "fcb": { "liga": 3, "champions": 0, "copa": 5 } },
+    "1960s": { "rm": { "liga": 8, "champions": 2, "copa": 2 }, "fcb": { "liga": 1, "champions": 0, "copa": 2 } },
+    "1970s": { "rm": { "liga": 5, "champions": 0, "copa": 3 }, "fcb": { "liga": 1, "champions": 0, "copa": 2 } },
+    "1980s": { "rm": { "liga": 5, "champions": 0, "copa": 3 }, "fcb": { "liga": 1, "champions": 0, "copa": 3 } },
+    "1990s": { "rm": { "liga": 3, "champions": 1, "copa": 1 }, "fcb": { "liga": 6, "champions": 1, "copa": 2 } },
+    "2000s": { "rm": { "liga": 4, "champions": 2, "copa": 0 }, "fcb": { "liga": 3, "champions": 2, "copa": 1 } },
+    "2010s": { "rm": { "liga": 2, "champions": 4, "copa": 2 }, "fcb": { "liga": 7, "champions": 2, "copa": 4 } },
+    "2020s": { "rm": { "liga": 3, "champions": 2, "copa": 0 }, "fcb": { "liga": 2, "champions": 0, "copa": 3 } }
+  },
   "historialGeneral": {
     "realMadrid": {
       "partidosJugados": 4850,

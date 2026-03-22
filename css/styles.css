@@ -2204,3 +2204,212 @@ body::before {
         opacity: 1;
     }
 }
+
+/* ========================================
+   Palmarés por Década - Timeline
+   ======================================== */
+.palmares-timeline-section {
+    margin-top: 48px;
+}
+
+.palmares-timeline-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: 6px;
+}
+
+.palmares-timeline-subtitle {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.palmares-legend {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+.palmares-legend .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    color: var(--text-secondary);
+}
+
+.palmares-legend .legend-item svg {
+    width: 13px;
+    height: 13px;
+    flex-shrink: 0;
+}
+
+.palmares-timeline-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--neutral) transparent;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 12px;
+}
+
+.palmares-timeline-wrapper::-webkit-scrollbar {
+    height: 3px;
+}
+
+.palmares-timeline-wrapper::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.palmares-timeline-wrapper::-webkit-scrollbar-thumb {
+    background: var(--neutral);
+    border-radius: 2px;
+}
+
+.palmares-timeline {
+    display: flex;
+    align-items: stretch;
+    min-width: max-content;
+    position: relative;
+    padding: 0 8px;
+}
+
+/* Horizontal axis line */
+.palmares-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 1px;
+    background: var(--border-subtle);
+    transform: translateY(-50%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.palmares-decada {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 84px;
+    scroll-snap-align: start;
+    position: relative;
+    z-index: 1;
+    padding: 0 2px;
+}
+
+.palmares-decada-axis {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: 4px 0;
+    flex-shrink: 0;
+}
+
+.palmares-decada-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-secondary);
+    text-align: center;
+    white-space: nowrap;
+    line-height: 1;
+}
+
+.palmares-axis-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--neutral);
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+}
+
+.palmares-trofeos-rm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    padding-bottom: 10px;
+    min-height: 72px;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.palmares-trofeos-fcb {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    padding-top: 10px;
+    min-height: 72px;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.trofeo-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.trofeo-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.trofeo-item svg {
+    width: 13px;
+    height: 13px;
+    flex-shrink: 0;
+}
+
+.trofeo-count {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.trofeo-item.rm-trofeo { color: var(--rm-gold); }
+.trofeo-item.rm-trofeo svg { color: var(--rm-gold); }
+.trofeo-item.rm-trofeo .trofeo-count { color: var(--rm-gold); }
+
+.trofeo-item.fcb-trofeo { color: var(--fcb-garnet); }
+.trofeo-item.fcb-trofeo svg { color: var(--fcb-garnet); }
+.trofeo-item.fcb-trofeo .trofeo-count { color: var(--fcb-garnet); }
+
+/* Empty state placeholder for decades with no titles */
+.palmares-trofeos-empty {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--bg-card);
+    opacity: 0.4;
+    flex-shrink: 0;
+    margin: auto 0;
+}
+
+@media (max-width: 600px) {
+    .palmares-decada {
+        width: 72px;
+    }
+    .palmares-decada-label {
+        font-size: 9px;
+    }
+    .trofeo-count {
+        font-size: 9px;
+    }
+}

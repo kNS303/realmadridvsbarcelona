@@ -79,6 +79,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         // 10. Banner campeon (solo en modo temporada actual)
         renderTitulosBanner(dataService, currentMode);
 
+        // 11. Renderizar timeline de palmarés por décadas
+        renderPalmaresTimeline(dataService);
+
         // 9. Ocultar loading, mostrar contenido
         setTimeout(() => {
             document.getElementById('loading').classList.add('hidden');
@@ -1034,4 +1037,62 @@ function renderH2HStats(dataService) {
             }).join('');
         }
     }
+}
+
+// ================================================
+// Timeline Palmarés por Décadas
+// ================================================
+
+function renderPalmaresTimeline(dataService) {
+    const container = document.getElementById('palmares-timeline');
+    if (!container) return;
+
+    const data = dataService.data.palmaresPorDecada;
+    if (!data) return;
+
+    const DECADAS = ['1900s','1910s','1920s','1930s','1940s','1950s','1960s','1970s','1980s','1990s','2000s','2010s','2020s'];
+
+    // SVG icons (inline, optimized for small size)
+    const SVG_LIGA = `<svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1L5.5 6H1l3.8 2.8-1.4 4.4L8 10.5l4.6 2.7-1.4-4.4L15 6h-4.5L8 1z"/></svg>`;
+    const SVG_CL   = `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2h6v5a3 3 0 01-6 0V2z"/><path d="M5 5H3a1 1 0 000 2h2"/><path d="M11 5h2a1 1 0 010 2h-2"/><path d="M8 10v3m-2 1h4"/></svg>`;
+    const SVG_COPA = `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2h8v4a4 4 0 01-8 0V2z"/><path d="M4 4H2.5a.5.5 0 000 1H4"/><path d="M12 4h1.5a.5.5 0 010 1H12"/><path d="M8 9v3m-2 2h4"/><path d="M6.5 1.5l.5.5.5-.5.5.5.5-.5"/></svg>`;
+
+    function buildTrofeos(dec, team, side) {
+        const t = data[dec]?.[team];
+        if (!t) return `<div class="palmares-trofeos-empty"></div>`;
+        const cls = team === 'rm' ? 'rm-trofeo' : 'fcb-trofeo';
+        const items = [];
+        if (t.liga > 0)      items.push(`<div class="trofeo-item ${cls}">${SVG_LIGA}<span class="trofeo-count">${t.liga}</span></div>`);
+        if (t.champions > 0) items.push(`<div class="trofeo-item ${cls}">${SVG_CL}<span class="trofeo-count">${t.champions}</span></div>`);
+        if (t.copa > 0)      items.push(`<div class="trofeo-item ${cls}">${SVG_COPA}<span class="trofeo-count">${t.copa}</span></div>`);
+        if (items.length === 0) return `<div class="palmares-trofeos-empty"></div>`;
+        return items.join('');
+    }
+
+    container.innerHTML = DECADAS.map(dec => `
+        <div class="palmares-decada">
+            <div class="palmares-trofeos-rm">${buildTrofeos(dec, 'rm', 'top')}</div>
+            <div class="palmares-decada-axis">
+                <div class="palmares-axis-dot"></div>
+                <div class="palmares-decada-label">${dec}</div>
+            </div>
+            <div class="palmares-trofeos-fcb">${buildTrofeos(dec, 'fcb', 'bottom')}</div>
+        </div>
+    `).join('');
+
+    // Animate trophies on scroll
+    const allTrofeos = container.querySelectorAll('.trofeo-item');
+    const obs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const trofeoItems = entry.target.querySelectorAll('.trofeo-item');
+                trofeoItems.forEach((el, i) => {
+                    setTimeout(() => el.classList.add('visible'), i * 40);
+                });
+                obs.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    container.querySelectorAll('.palmares-decada').forEach(dec => obs.observe(dec));
 }
