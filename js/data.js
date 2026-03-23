@@ -158,8 +158,8 @@ class DataService {
 // ====== DATOS ESTADÍSTICOS EMBEBIDOS ======
 DataService.STATS_DATA = {
   "meta": {
-    "lastUpdated": "2026-03-21",
-    "lastUpdatedTime": "16:50",
+    "lastUpdated": "2026-03-23",
+    "lastUpdatedTime": "15:53",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -224,35 +224,178 @@ DataService.STATS_DATA = {
     "recopa": "Recopa de Europa"
   },
   "palmaresPorDecada": {
-    "1900s": { "rm": { "liga": 0, "champions": 0, "copa": 4 }, "fcb": { "liga": 0, "champions": 0, "copa": 1 } },
-    "1910s": { "rm": { "liga": 0, "champions": 0, "copa": 1 }, "fcb": { "liga": 0, "champions": 0, "copa": 3 } },
-    "1920s": { "rm": { "liga": 0, "champions": 0, "copa": 0 }, "fcb": { "liga": 1, "champions": 0, "copa": 5 } },
-    "1930s": { "rm": { "liga": 2, "champions": 0, "copa": 2 }, "fcb": { "liga": 0, "champions": 0, "copa": 0 } },
-    "1940s": { "rm": { "liga": 0, "champions": 0, "copa": 2 }, "fcb": { "liga": 3, "champions": 0, "copa": 1 } },
-    "1950s": { "rm": { "liga": 4, "champions": 4, "copa": 0 }, "fcb": { "liga": 3, "champions": 0, "copa": 5 } },
-    "1960s": { "rm": { "liga": 8, "champions": 2, "copa": 2 }, "fcb": { "liga": 1, "champions": 0, "copa": 2 } },
-    "1970s": { "rm": { "liga": 5, "champions": 0, "copa": 3 }, "fcb": { "liga": 1, "champions": 0, "copa": 2 } },
-    "1980s": { "rm": { "liga": 5, "champions": 0, "copa": 3 }, "fcb": { "liga": 1, "champions": 0, "copa": 3 } },
-    "1990s": { "rm": { "liga": 3, "champions": 1, "copa": 1 }, "fcb": { "liga": 6, "champions": 1, "copa": 2 } },
-    "2000s": { "rm": { "liga": 4, "champions": 2, "copa": 0 }, "fcb": { "liga": 3, "champions": 2, "copa": 1 } },
-    "2010s": { "rm": { "liga": 2, "champions": 4, "copa": 2 }, "fcb": { "liga": 7, "champions": 2, "copa": 4 } },
-    "2020s": { "rm": { "liga": 3, "champions": 2, "copa": 0 }, "fcb": { "liga": 2, "champions": 0, "copa": 3 } }
+    "1900s": {
+      "rm": {
+        "liga": 0,
+        "champions": 0,
+        "copa": 4
+      },
+      "fcb": {
+        "liga": 0,
+        "champions": 0,
+        "copa": 1
+      }
+    },
+    "1910s": {
+      "rm": {
+        "liga": 0,
+        "champions": 0,
+        "copa": 1
+      },
+      "fcb": {
+        "liga": 0,
+        "champions": 0,
+        "copa": 3
+      }
+    },
+    "1920s": {
+      "rm": {
+        "liga": 0,
+        "champions": 0,
+        "copa": 0
+      },
+      "fcb": {
+        "liga": 1,
+        "champions": 0,
+        "copa": 5
+      }
+    },
+    "1930s": {
+      "rm": {
+        "liga": 2,
+        "champions": 0,
+        "copa": 2
+      },
+      "fcb": {
+        "liga": 0,
+        "champions": 0,
+        "copa": 0
+      }
+    },
+    "1940s": {
+      "rm": {
+        "liga": 0,
+        "champions": 0,
+        "copa": 2
+      },
+      "fcb": {
+        "liga": 3,
+        "champions": 0,
+        "copa": 1
+      }
+    },
+    "1950s": {
+      "rm": {
+        "liga": 4,
+        "champions": 4,
+        "copa": 0
+      },
+      "fcb": {
+        "liga": 3,
+        "champions": 0,
+        "copa": 5
+      }
+    },
+    "1960s": {
+      "rm": {
+        "liga": 8,
+        "champions": 2,
+        "copa": 2
+      },
+      "fcb": {
+        "liga": 1,
+        "champions": 0,
+        "copa": 2
+      }
+    },
+    "1970s": {
+      "rm": {
+        "liga": 5,
+        "champions": 0,
+        "copa": 3
+      },
+      "fcb": {
+        "liga": 1,
+        "champions": 0,
+        "copa": 2
+      }
+    },
+    "1980s": {
+      "rm": {
+        "liga": 5,
+        "champions": 0,
+        "copa": 3
+      },
+      "fcb": {
+        "liga": 1,
+        "champions": 0,
+        "copa": 3
+      }
+    },
+    "1990s": {
+      "rm": {
+        "liga": 3,
+        "champions": 1,
+        "copa": 1
+      },
+      "fcb": {
+        "liga": 6,
+        "champions": 1,
+        "copa": 2
+      }
+    },
+    "2000s": {
+      "rm": {
+        "liga": 4,
+        "champions": 2,
+        "copa": 0
+      },
+      "fcb": {
+        "liga": 3,
+        "champions": 2,
+        "copa": 1
+      }
+    },
+    "2010s": {
+      "rm": {
+        "liga": 2,
+        "champions": 4,
+        "copa": 2
+      },
+      "fcb": {
+        "liga": 7,
+        "champions": 2,
+        "copa": 4
+      }
+    },
+    "2020s": {
+      "rm": {
+        "liga": 3,
+        "champions": 2,
+        "copa": 0
+      },
+      "fcb": {
+        "liga": 2,
+        "champions": 0,
+        "copa": 3
+      }
+    }
   },
   "historialGeneral": {
     "realMadrid": {
-      "partidosJugados": 4850,
-      "ganados": 2710,
+      "partidosJugados": 4851,
+      "ganados": 2711,
       "empatados": 910,
       "perdidos": 1230,
-      "golesAFavor": 9250,
-      "golesEnContra": 5520
+      "golesAFavor": 9253,
+      "golesEnContra": 5522
     },
     "barcelona": {
-      "partidosJugados": 4780,
-      "ganados": 2680,
+      "partidosJugados": 4781,
+      "ganados": 2681,
       "empatados": 890,
       "perdidos": 1210,
-      "golesAFavor": 9150,
+      "golesAFavor": 9151,
       "golesEnContra": 5380
     }
   },
@@ -452,37 +595,57 @@ DataService.STATS_DATA = {
       "fcb": 6
     },
     "goleadoresHistoricos": [
-      { "nombre": "Lionel Messi", "equipo": "fcb", "goles": 26 },
-      { "nombre": "Alfredo Di Stefano", "equipo": "rm", "goles": 18 },
-      { "nombre": "Cristiano Ronaldo", "equipo": "rm", "goles": 18 },
-      { "nombre": "Raúl González", "equipo": "rm", "goles": 15 },
-      { "nombre": "César Rodríguez", "equipo": "fcb", "goles": 14 }
+      {
+        "nombre": "Lionel Messi",
+        "equipo": "fcb",
+        "goles": 26
+      },
+      {
+        "nombre": "Alfredo Di Stefano",
+        "equipo": "rm",
+        "goles": 18
+      },
+      {
+        "nombre": "Cristiano Ronaldo",
+        "equipo": "rm",
+        "goles": 18
+      },
+      {
+        "nombre": "Raúl González",
+        "equipo": "rm",
+        "goles": 15
+      },
+      {
+        "nombre": "César Rodríguez",
+        "equipo": "fcb",
+        "goles": 14
+      }
     ]
   },
   "estadisticasDetalladas": {
     "realMadrid": {
       "penaltisAFavor": 1847,
       "penaltisEnContra": 1093,
-      "tarjetasAmarillas": 7186,
+      "tarjetasAmarillas": 7189,
       "tarjetasRojas": 417,
-      "corners": 27952,
-      "faltas": 34827,
-      "fuerasDeJuego": 11849,
+      "corners": 27958,
+      "faltas": 34837,
+      "fuerasDeJuego": 11851,
       "posesionMedia": 53.4,
-      "tirosAPuerta": 44719,
-      "tirosAFuera": 37862
+      "tirosAPuerta": 44726,
+      "tirosAFuera": 37868
     },
     "barcelona": {
       "penaltisAFavor": 1793,
       "penaltisEnContra": 1042,
-      "tarjetasAmarillas": 6874,
+      "tarjetasAmarillas": 6877,
       "tarjetasRojas": 384,
-      "corners": 29418,
-      "faltas": 32764,
-      "fuerasDeJuego": 11295,
+      "corners": 29424,
+      "faltas": 32774,
+      "fuerasDeJuego": 11297,
       "posesionMedia": 57.8,
-      "tirosAPuerta": 43898,
-      "tirosAFuera": 36730
+      "tirosAPuerta": 43905,
+      "tirosAFuera": 36736
     }
   },
   "estadisticasLabels": {
@@ -674,21 +837,21 @@ DataService.STATS_DATA = {
   },
   "ultimoPartido": {
     "realMadrid": {
-      "rival": "Man City",
-      "golesLocal": 1,
+      "rival": "Atleti",
+      "golesLocal": 3,
       "golesVisitante": 2,
-      "esLocal": false,
-      "competicion": "Champions League",
-      "fecha": "2026-03-17",
+      "esLocal": true,
+      "competicion": "La Liga",
+      "fecha": "2026-03-22",
       "resultado": "victoria"
     },
     "barcelona": {
-      "rival": "Newcastle",
-      "golesLocal": 7,
-      "golesVisitante": 2,
+      "rival": "Rayo Vallecano",
+      "golesLocal": 1,
+      "golesVisitante": 0,
       "esLocal": true,
-      "competicion": "Champions League",
-      "fecha": "2026-03-18",
+      "competicion": "La Liga",
+      "fecha": "2026-03-22",
       "resultado": "victoria"
     }
   },
@@ -726,19 +889,19 @@ DataService.STATS_DATA = {
     },
     "historialGeneral": {
       "realMadrid": {
-        "partidosJugados": 40,
-        "ganados": 30,
+        "partidosJugados": 41,
+        "ganados": 31,
         "empatados": 3,
         "perdidos": 7,
-        "golesAFavor": 89,
-        "golesEnContra": 38
+        "golesAFavor": 92,
+        "golesEnContra": 40
       },
       "barcelona": {
-        "partidosJugados": 38,
-        "ganados": 29,
+        "partidosJugados": 39,
+        "ganados": 30,
         "empatados": 3,
         "perdidos": 6,
-        "golesAFavor": 107,
+        "golesAFavor": 108,
         "golesEnContra": 45
       }
     },
@@ -789,26 +952,26 @@ DataService.STATS_DATA = {
       "realMadrid": {
         "penaltisAFavor": 13,
         "penaltisEnContra": 7,
-        "tarjetasAmarillas": 103,
+        "tarjetasAmarillas": 106,
         "tarjetasRojas": 5,
-        "corners": 238,
-        "faltas": 390,
-        "fuerasDeJuego": 86,
+        "corners": 244,
+        "faltas": 400,
+        "fuerasDeJuego": 88,
         "posesionMedia": 55,
-        "tirosAPuerta": 295,
-        "tirosAFuera": 258
+        "tirosAPuerta": 302,
+        "tirosAFuera": 264
       },
       "barcelona": {
         "penaltisAFavor": 12,
         "penaltisEnContra": 7,
-        "tarjetasAmarillas": 98,
+        "tarjetasAmarillas": 101,
         "tarjetasRojas": 5,
-        "corners": 226,
-        "faltas": 371,
-        "fuerasDeJuego": 82,
+        "corners": 232,
+        "faltas": 381,
+        "fuerasDeJuego": 84,
         "posesionMedia": 55,
-        "tirosAPuerta": 281,
-        "tirosAFuera": 245
+        "tirosAPuerta": 288,
+        "tirosAFuera": 251
       }
     },
     "topJugadores": {
@@ -817,31 +980,31 @@ DataService.STATS_DATA = {
           {
             "nombre": "Kylian Mbappé",
             "goles": 36,
-            "partidos": 33,
+            "partidos": 34,
             "periodo": "2025-26"
           },
           {
             "nombre": "Vinicius Junior",
-            "goles": 14,
-            "partidos": 38,
+            "goles": 16,
+            "partidos": 39,
             "periodo": "2025-26"
           },
           {
             "nombre": "Federico Valverde",
-            "goles": 6,
-            "partidos": 38,
+            "goles": 7,
+            "partidos": 39,
             "periodo": "2025-26"
           },
           {
-            "nombre": "Arda Güler",
+            "nombre": "Arda Guler",
             "goles": 4,
-            "partidos": 27,
+            "partidos": 28,
             "periodo": "2025-26"
           },
           {
             "nombre": "Jude Bellingham",
             "goles": 4,
-            "partidos": 17,
+            "partidos": 18,
             "periodo": "2025-26"
           }
         ],
@@ -849,31 +1012,31 @@ DataService.STATS_DATA = {
           {
             "nombre": "Lamine Yamal",
             "goles": 19,
-            "partidos": 32,
+            "partidos": 33,
             "periodo": "2025-26"
           },
           {
             "nombre": "Robert Lewandowski",
             "goles": 15,
-            "partidos": 34,
+            "partidos": 35,
             "periodo": "2025-26"
           },
           {
             "nombre": "Raphinha",
             "goles": 14,
-            "partidos": 27,
+            "partidos": 28,
             "periodo": "2025-26"
           },
           {
-            "nombre": "Ferran Torres",
+            "nombre": "Ferrán Torres",
             "goles": 12,
-            "partidos": 26,
+            "partidos": 27,
             "periodo": "2025-26"
           },
           {
             "nombre": "Fermín López",
             "goles": 11,
-            "partidos": 32,
+            "partidos": 33,
             "periodo": "2025-26"
           }
         ]
@@ -883,31 +1046,31 @@ DataService.STATS_DATA = {
           {
             "nombre": "Vinicius Junior",
             "asistencias": 10,
-            "partidos": 38,
+            "partidos": 39,
             "periodo": "2025-26"
           },
           {
             "nombre": "Federico Valverde",
             "asistencias": 9,
-            "partidos": 38,
+            "partidos": 39,
             "periodo": "2025-26"
           },
           {
-            "nombre": "Arda Güler",
+            "nombre": "Arda Guler",
             "asistencias": 8,
-            "partidos": 27,
+            "partidos": 28,
             "periodo": "2025-26"
           },
           {
             "nombre": "Kylian Mbappé",
             "asistencias": 5,
-            "partidos": 33,
+            "partidos": 34,
             "periodo": "2025-26"
           },
           {
             "nombre": "Jude Bellingham",
             "asistencias": 3,
-            "partidos": 17,
+            "partidos": 18,
             "periodo": "2025-26"
           }
         ],
@@ -915,63 +1078,75 @@ DataService.STATS_DATA = {
           {
             "nombre": "Lamine Yamal",
             "asistencias": 12,
-            "partidos": 32,
+            "partidos": 33,
             "periodo": "2025-26"
           },
           {
             "nombre": "Fermín López",
             "asistencias": 12,
-            "partidos": 32,
+            "partidos": 33,
             "periodo": "2025-26"
           },
           {
             "nombre": "Marcus Rashford",
             "asistencias": 9,
-            "partidos": 36,
+            "partidos": 37,
             "periodo": "2025-26"
           },
           {
             "nombre": "Dani Olmo",
             "asistencias": 7,
-            "partidos": 23,
+            "partidos": 24,
             "periodo": "2025-26"
           },
           {
             "nombre": "Pedri",
             "asistencias": 7,
-            "partidos": 20,
+            "partidos": 21,
             "periodo": "2025-26"
           }
         ]
       }
     },
+    "formaReciente": {
+      "realMadrid": [
+        "V",
+        "V",
+        "V",
+        "V",
+        "V"
+      ],
+      "barcelona": [
+        "V",
+        "V",
+        "V",
+        "E",
+        "V"
+      ]
+    },
     "standings": {
       "realMadrid": {
         "position": 2,
-        "playedGames": 28,
-        "won": 19,
+        "playedGames": 29,
+        "won": 22,
         "draw": 3,
-        "lost": 6,
-        "points": 60,
-        "goalsFor": 58,
-        "goalsAgainst": 27,
-        "goalDifference": 31
+        "lost": 4,
+        "points": 69,
+        "goalsFor": 63,
+        "goalsAgainst": 26,
+        "goalDifference": 37
       },
       "barcelona": {
         "position": 1,
-        "playedGames": 28,
-        "won": 21,
-        "draw": 3,
+        "playedGames": 29,
+        "won": 24,
+        "draw": 1,
         "lost": 4,
-        "points": 66,
-        "goalsFor": 73,
-        "goalsAgainst": 30,
-        "goalDifference": 43
+        "points": 73,
+        "goalsFor": 78,
+        "goalsAgainst": 28,
+        "goalDifference": 50
       }
-    },
-    "formaReciente": {
-      "realMadrid": ["V", "V", "E", "V", "V"],
-      "barcelona": ["V", "V", "V", "D", "V"]
     }
   },
   "historicalBaseline": {
@@ -1057,22 +1232,17 @@ DataService.STATS_DATA = {
   },
   "proximoPartido": {
     "realMadrid": {
-      "rival": "Atleti",
-      "fecha": "22 de marzo de 2026",
+      "rival": "Mallorca",
+      "fecha": "4 de abril de 2026",
       "competicion": "La Liga",
-      "esLocal": true
+      "esLocal": false
     },
     "barcelona": {
-      "rival": "Rayo Vallecano",
-      "fecha": "22 de marzo de 2026",
+      "rival": "Atleti",
+      "fecha": "4 de abril de 2026",
       "competicion": "La Liga",
-      "esLocal": true
+      "esLocal": false
     }
   },
-  "proximoClasico": {
-    "fecha": "26 de abril de 2026",
-    "isoFecha": "2026-04-26",
-    "competicion": "La Liga",
-    "sede": "Camp Nou"
-  }
+  "proximoClasico": null
 };
