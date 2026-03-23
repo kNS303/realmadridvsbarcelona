@@ -22,7 +22,7 @@
  *   API_KEY=tu_key node scripts/update-stats.js
  *   API_KEY=tu_key node scripts/update-stats.js --dry-run
  *
- * Programación: GitHub Actions cron (martes 06:00 UTC)
+ * Programación: GitHub Actions cron (diario 06:00 UTC / 08:00 ESP)
  */
 
 const https = require('https');
