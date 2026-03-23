@@ -8,7 +8,7 @@ Desplegado en: https://kns303.github.io/realmadridvsbarcelona/
 - HTML + CSS + JS vanilla (sin frameworks)
 - Chart.js 4.4.0 via CDN
 - GitHub Pages (deploy automático via workflow en cada push a main)
-- GitHub Actions cron diario para actualización de datos (06:00 UTC / 08:00 ESP)
+- GitHub Actions cron 2x/día para actualización de datos (15:00 + 21:59 UTC / 17:00 + 23:59 ESP)
 - API: football-data.org (free tier, 10 req/min, secret: FOOTBALL_API_KEY)
 - PWA: manifest.json + sw.js (stale-while-revalidate, offline fallback)
 
@@ -63,7 +63,7 @@ server.js               - Servidor local para desarrollo
 
 ## Sistema de actualización de datos
 - Script v3.0 con sistema de acumulación histórica
-- Cron DIARIO (06:00 UTC / 08:00 ESP) - ejecuta scripts/update-stats.js
+- Cron 2x/día (15:00 + 21:59 UTC / 17:00 + 23:59 ESP) - ejecuta scripts/update-stats.js
 - `historicalBaseline`: snapshot pre-temporada almacenado en stats.json
 - Cada update: histórico_mostrado = baseline + temporada_actual
 - Rollover automático al detectar nueva temporada (agosto)

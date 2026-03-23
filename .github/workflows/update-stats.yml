@@ -3,8 +3,10 @@ name: 📊 Actualizar estadísticas
 # Cuándo se ejecuta:
 on:
   schedule:
-    # Cada día a las 06:00 UTC (08:00 hora España)
-    - cron: '0 6 * * *'
+    # Cada día a las 15:00 UTC (17:00 hora España)
+    - cron: '0 15 * * *'
+    # Cada día a las 21:59 UTC (23:59 hora España)
+    - cron: '59 21 * * *'
   # También se puede ejecutar manualmente desde GitHub
   workflow_dispatch:
 
