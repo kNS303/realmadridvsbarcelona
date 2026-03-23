@@ -454,7 +454,7 @@ async function fetchNextMatches(teamId, teamName) {
 
     try {
         const data = await fetchAPIJSON(
-            `https://api.football-data.org/v4/teams/${teamId}/matches?status=SCHEDULED&limit=5`
+            `https://api.football-data.org/v4/teams/${teamId}/matches?status=SCHEDULED&limit=15`
         );
         if (!data || !data.matches) return null;
 
@@ -519,6 +519,7 @@ function findNextClasico(rmNextMatches) {
 
     return {
         fecha,
+        isoFecha: fechaObj.toISOString().split('T')[0],
         competicion,
         sede: rmEsLocal ? 'Santiago Bernabéu' : 'Camp Nou'
     };
