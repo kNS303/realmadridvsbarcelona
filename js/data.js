@@ -159,7 +159,7 @@ class DataService {
 DataService.STATS_DATA = {
   "meta": {
     "lastUpdated": "2026-03-23",
-    "lastUpdatedTime": "15:53",
+    "lastUpdatedTime": "17:06",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -1244,5 +1244,10 @@ DataService.STATS_DATA = {
       "esLocal": false
     }
   },
-  "proximoClasico": null
+  "proximoClasico": {
+    "fecha": "10 de mayo de 2026",
+    "isoFecha": "2026-05-10",
+    "competicion": "La Liga",
+    "sede": "Camp Nou"
+  }
 };
