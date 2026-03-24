@@ -1,7 +1,7 @@
 /**
  * Service Worker - Stale-while-revalidate con offline fallback
  */
-const CACHE_NAME = 'rmvsfcb-v2';
+const CACHE_NAME = 'rmvsfcb-v3';
 const STATIC_ASSETS = [
     './',
     './index.html',
@@ -11,6 +11,7 @@ const STATIC_ASSETS = [
     './js/charts.js',
     './js/animations.js',
     './js/tables.js',
+    './js/i18n.js',
     './js/notifications.js',
     './assets/madrid-logo.svg',
     './assets/barca-logo.svg',
