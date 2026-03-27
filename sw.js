@@ -1,7 +1,7 @@
 /**
  * Service Worker - Stale-while-revalidate con offline fallback
  */
-const CACHE_NAME = 'rmvsfcb-v3';
+const CACHE_NAME = 'rmvsfcb-v4';
 const STATIC_ASSETS = [
     './',
     './index.html',
@@ -40,7 +40,7 @@ self.addEventListener('activate', event => {
     );
 });
 
-// Fetch: stale-while-revalidate strategy
+// Fetch: estrategia mixta
 self.addEventListener('fetch', event => {
     // Only handle GET requests
     if (event.request.method !== 'GET') return;
@@ -52,6 +52,23 @@ self.addEventListener('fetch', event => {
 
     if (!isSameOrigin && !isCDN) return;
 
+    // Network-first para archivos de datos (se actualizan con el cron diario)
+    const isDataFile = url.pathname.endsWith('/data.js') || url.pathname.endsWith('/stats.json');
+    if (isDataFile) {
+        event.respondWith(
+            fetch(event.request)
+                .then(networkResponse => {
+                    if (networkResponse && networkResponse.status === 200) {
+                        caches.open(CACHE_NAME).then(cache => cache.put(event.request, networkResponse.clone()));
+                    }
+                    return networkResponse;
+                })
+                .catch(() => caches.match(event.request))
+        );
+        return;
+    }
+
+    // Stale-while-revalidate para el resto de assets estáticos
     event.respondWith(
         caches.open(CACHE_NAME).then(cache =>
             cache.match(event.request).then(cachedResponse => {
