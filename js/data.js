@@ -159,7 +159,7 @@ class DataService {
 DataService.STATS_DATA = {
   "meta": {
     "lastUpdated": "2026-03-29",
-    "lastUpdatedTime": "17:36",
+    "lastUpdatedTime": "00:16",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
