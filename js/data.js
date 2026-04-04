@@ -158,8 +158,8 @@ class DataService {
 // ====== DATOS ESTADÍSTICOS EMBEBIDOS ======
 DataService.STATS_DATA = {
   "meta": {
-    "lastUpdated": "2026-04-03",
-    "lastUpdatedTime": "00:19",
+    "lastUpdated": "2026-04-04",
+    "lastUpdatedTime": "17:37",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -980,13 +980,13 @@ DataService.STATS_DATA = {
           {
             "nombre": "Kylian Mbappé",
             "goles": 36,
-            "partidos": 34,
+            "partidos": 35,
             "periodo": "2025-26"
           },
           {
             "nombre": "Vinicius Junior",
             "goles": 16,
-            "partidos": 39,
+            "partidos": 40,
             "periodo": "2025-26"
           },
           {
@@ -998,13 +998,13 @@ DataService.STATS_DATA = {
           {
             "nombre": "Arda Guler",
             "goles": 4,
-            "partidos": 28,
+            "partidos": 29,
             "periodo": "2025-26"
           },
           {
             "nombre": "Jude Bellingham",
             "goles": 4,
-            "partidos": 18,
+            "partidos": 19,
             "periodo": "2025-26"
           }
         ],
@@ -1046,7 +1046,7 @@ DataService.STATS_DATA = {
           {
             "nombre": "Vinicius Junior",
             "asistencias": 10,
-            "partidos": 39,
+            "partidos": 40,
             "periodo": "2025-26"
           },
           {
@@ -1058,19 +1058,19 @@ DataService.STATS_DATA = {
           {
             "nombre": "Arda Guler",
             "asistencias": 8,
-            "partidos": 28,
+            "partidos": 29,
             "periodo": "2025-26"
           },
           {
             "nombre": "Kylian Mbappé",
             "asistencias": 5,
-            "partidos": 34,
+            "partidos": 35,
             "periodo": "2025-26"
           },
           {
             "nombre": "Jude Bellingham",
             "asistencias": 3,
-            "partidos": 18,
+            "partidos": 19,
             "periodo": "2025-26"
           }
         ],
@@ -1232,10 +1232,10 @@ DataService.STATS_DATA = {
   },
   "proximoPartido": {
     "realMadrid": {
-      "rival": "Mallorca",
-      "fecha": "4 de abril de 2026",
-      "competicion": "La Liga",
-      "esLocal": false
+      "rival": "Bayern",
+      "fecha": "7 de abril de 2026",
+      "competicion": "Champions League",
+      "esLocal": true
     },
     "barcelona": {
       "rival": "Atleti",
