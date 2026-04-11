@@ -158,8 +158,8 @@ class DataService {
 // ====== DATOS ESTADÍSTICOS EMBEBIDOS ======
 DataService.STATS_DATA = {
   "meta": {
-    "lastUpdated": "2026-04-10",
-    "lastUpdatedTime": "00:23",
+    "lastUpdated": "2026-04-11",
+    "lastUpdatedTime": "17:37",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -1012,13 +1012,13 @@ DataService.STATS_DATA = {
           {
             "nombre": "Lamine Yamal",
             "goles": 19,
-            "partidos": 35,
+            "partidos": 36,
             "periodo": "2025-26"
           },
           {
             "nombre": "Robert Lewandowski",
             "goles": 16,
-            "partidos": 37,
+            "partidos": 38,
             "periodo": "2025-26"
           },
           {
@@ -1030,13 +1030,13 @@ DataService.STATS_DATA = {
           {
             "nombre": "Ferrán Torres",
             "goles": 12,
-            "partidos": 28,
+            "partidos": 29,
             "periodo": "2025-26"
           },
           {
             "nombre": "Fermín López",
             "goles": 11,
-            "partidos": 35,
+            "partidos": 36,
             "periodo": "2025-26"
           }
         ]
@@ -1078,25 +1078,25 @@ DataService.STATS_DATA = {
           {
             "nombre": "Lamine Yamal",
             "asistencias": 12,
-            "partidos": 35,
+            "partidos": 36,
             "periodo": "2025-26"
           },
           {
             "nombre": "Fermín López",
             "asistencias": 12,
-            "partidos": 35,
+            "partidos": 36,
             "periodo": "2025-26"
           },
           {
             "nombre": "Marcus Rashford",
             "asistencias": 9,
-            "partidos": 39,
+            "partidos": 40,
             "periodo": "2025-26"
           },
           {
             "nombre": "Dani Olmo",
             "asistencias": 8,
-            "partidos": 25,
+            "partidos": 26,
             "periodo": "2025-26"
           },
           {
