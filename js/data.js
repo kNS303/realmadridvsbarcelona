@@ -159,7 +159,7 @@ class DataService {
 DataService.STATS_DATA = {
   "meta": {
     "lastUpdated": "2026-04-15",
-    "lastUpdatedTime": "18:08",
+    "lastUpdatedTime": "00:31",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -383,12 +383,12 @@ DataService.STATS_DATA = {
   },
   "historialGeneral": {
     "realMadrid": {
-      "partidosJugados": 4854,
+      "partidosJugados": 4855,
       "ganados": 2711,
       "empatados": 911,
-      "perdidos": 1232,
-      "golesAFavor": 9256,
-      "golesEnContra": 5527
+      "perdidos": 1233,
+      "golesAFavor": 9259,
+      "golesEnContra": 5531
     },
     "barcelona": {
       "partidosJugados": 4785,
@@ -626,14 +626,14 @@ DataService.STATS_DATA = {
     "realMadrid": {
       "penaltisAFavor": 1847,
       "penaltisEnContra": 1093,
-      "tarjetasAmarillas": 7198,
+      "tarjetasAmarillas": 7201,
       "tarjetasRojas": 417,
-      "corners": 27976,
-      "faltas": 34867,
-      "fuerasDeJuego": 11857,
+      "corners": 27982,
+      "faltas": 34877,
+      "fuerasDeJuego": 11859,
       "posesionMedia": 53.4,
-      "tirosAPuerta": 44747,
-      "tirosAFuera": 37886
+      "tirosAPuerta": 44754,
+      "tirosAFuera": 37892
     },
     "barcelona": {
       "penaltisAFavor": 1793,
@@ -837,13 +837,13 @@ DataService.STATS_DATA = {
   },
   "ultimoPartido": {
     "realMadrid": {
-      "rival": "Girona",
-      "golesLocal": 1,
-      "golesVisitante": 1,
-      "esLocal": true,
-      "competicion": "La Liga",
-      "fecha": "2026-04-10",
-      "resultado": "empate"
+      "rival": "Bayern",
+      "golesLocal": 4,
+      "golesVisitante": 3,
+      "esLocal": false,
+      "competicion": "Champions League",
+      "fecha": "2026-04-15",
+      "resultado": "derrota"
     },
     "barcelona": {
       "rival": "Atleti",
@@ -889,12 +889,12 @@ DataService.STATS_DATA = {
     },
     "historialGeneral": {
       "realMadrid": {
-        "partidosJugados": 44,
+        "partidosJugados": 45,
         "ganados": 31,
         "empatados": 4,
-        "perdidos": 9,
-        "golesAFavor": 95,
-        "golesEnContra": 45
+        "perdidos": 10,
+        "golesAFavor": 98,
+        "golesEnContra": 49
       },
       "barcelona": {
         "partidosJugados": 43,
@@ -952,14 +952,14 @@ DataService.STATS_DATA = {
       "realMadrid": {
         "penaltisAFavor": 13,
         "penaltisEnContra": 7,
-        "tarjetasAmarillas": 115,
+        "tarjetasAmarillas": 118,
         "tarjetasRojas": 5,
-        "corners": 262,
-        "faltas": 430,
-        "fuerasDeJuego": 94,
+        "corners": 268,
+        "faltas": 440,
+        "fuerasDeJuego": 96,
         "posesionMedia": 55,
-        "tirosAPuerta": 323,
-        "tirosAFuera": 282
+        "tirosAPuerta": 330,
+        "tirosAFuera": 288
       },
       "barcelona": {
         "penaltisAFavor": 12,
@@ -979,20 +979,20 @@ DataService.STATS_DATA = {
         "realMadrid": [
           {
             "nombre": "Kylian Mbappé",
-            "goles": 37,
-            "partidos": 37,
+            "goles": 38,
+            "partidos": 38,
             "periodo": "2025-26"
           },
           {
             "nombre": "Vinicius Junior",
             "goles": 16,
-            "partidos": 42,
+            "partidos": 43,
             "periodo": "2025-26"
           },
           {
             "nombre": "Federico Valverde",
             "goles": 8,
-            "partidos": 41,
+            "partidos": 42,
             "periodo": "2025-26"
           },
           {
@@ -1045,14 +1045,14 @@ DataService.STATS_DATA = {
         "realMadrid": [
           {
             "nombre": "Vinicius Junior",
-            "asistencias": 10,
-            "partidos": 42,
+            "asistencias": 11,
+            "partidos": 43,
             "periodo": "2025-26"
           },
           {
             "nombre": "Federico Valverde",
             "asistencias": 9,
-            "partidos": 41,
+            "partidos": 42,
             "periodo": "2025-26"
           },
           {
@@ -1064,7 +1064,7 @@ DataService.STATS_DATA = {
           {
             "nombre": "Kylian Mbappé",
             "asistencias": 5,
-            "partidos": 37,
+            "partidos": 38,
             "periodo": "2025-26"
           },
           {
@@ -1110,10 +1110,10 @@ DataService.STATS_DATA = {
     },
     "formaReciente": {
       "realMadrid": [
+        "D",
         "E",
         "D",
         "D",
-        "V",
         "V"
       ],
       "barcelona": [
@@ -1232,10 +1232,10 @@ DataService.STATS_DATA = {
   },
   "proximoPartido": {
     "realMadrid": {
-      "rival": "Bayern",
-      "fecha": "15 de abril de 2026",
-      "competicion": "Champions League",
-      "esLocal": false
+      "rival": "Alavés",
+      "fecha": "21 de abril de 2026",
+      "competicion": "La Liga",
+      "esLocal": true
     },
     "barcelona": {
       "rival": "Celta",
