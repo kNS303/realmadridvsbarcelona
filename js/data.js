@@ -159,7 +159,7 @@ class DataService {
 DataService.STATS_DATA = {
   "meta": {
     "lastUpdated": "2026-04-21",
-    "lastUpdatedTime": "18:13",
+    "lastUpdatedTime": "00:28",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -383,12 +383,12 @@ DataService.STATS_DATA = {
   },
   "historialGeneral": {
     "realMadrid": {
-      "partidosJugados": 4855,
-      "ganados": 2711,
+      "partidosJugados": 4856,
+      "ganados": 2712,
       "empatados": 911,
       "perdidos": 1233,
-      "golesAFavor": 9259,
-      "golesEnContra": 5531
+      "golesAFavor": 9261,
+      "golesEnContra": 5532
     },
     "barcelona": {
       "partidosJugados": 4785,
@@ -626,14 +626,14 @@ DataService.STATS_DATA = {
     "realMadrid": {
       "penaltisAFavor": 1847,
       "penaltisEnContra": 1093,
-      "tarjetasAmarillas": 7201,
+      "tarjetasAmarillas": 7204,
       "tarjetasRojas": 417,
-      "corners": 27982,
-      "faltas": 34877,
-      "fuerasDeJuego": 11859,
+      "corners": 27988,
+      "faltas": 34887,
+      "fuerasDeJuego": 11861,
       "posesionMedia": 53.4,
-      "tirosAPuerta": 44754,
-      "tirosAFuera": 37892
+      "tirosAPuerta": 44761,
+      "tirosAFuera": 37898
     },
     "barcelona": {
       "penaltisAFavor": 1793,
@@ -837,13 +837,13 @@ DataService.STATS_DATA = {
   },
   "ultimoPartido": {
     "realMadrid": {
-      "rival": "Bayern",
-      "golesLocal": 4,
-      "golesVisitante": 3,
-      "esLocal": false,
-      "competicion": "Champions League",
-      "fecha": "2026-04-15",
-      "resultado": "derrota"
+      "rival": "Alavés",
+      "golesLocal": 2,
+      "golesVisitante": 1,
+      "esLocal": true,
+      "competicion": "La Liga",
+      "fecha": "2026-04-21",
+      "resultado": "victoria"
     },
     "barcelona": {
       "rival": "Atleti",
@@ -889,12 +889,12 @@ DataService.STATS_DATA = {
     },
     "historialGeneral": {
       "realMadrid": {
-        "partidosJugados": 45,
-        "ganados": 31,
+        "partidosJugados": 46,
+        "ganados": 32,
         "empatados": 4,
         "perdidos": 10,
-        "golesAFavor": 98,
-        "golesEnContra": 49
+        "golesAFavor": 100,
+        "golesEnContra": 50
       },
       "barcelona": {
         "partidosJugados": 43,
@@ -952,14 +952,14 @@ DataService.STATS_DATA = {
       "realMadrid": {
         "penaltisAFavor": 13,
         "penaltisEnContra": 7,
-        "tarjetasAmarillas": 118,
+        "tarjetasAmarillas": 121,
         "tarjetasRojas": 5,
-        "corners": 268,
-        "faltas": 440,
-        "fuerasDeJuego": 96,
+        "corners": 274,
+        "faltas": 450,
+        "fuerasDeJuego": 98,
         "posesionMedia": 55,
-        "tirosAPuerta": 330,
-        "tirosAFuera": 288
+        "tirosAPuerta": 337,
+        "tirosAFuera": 294
       },
       "barcelona": {
         "penaltisAFavor": 12,
@@ -979,32 +979,32 @@ DataService.STATS_DATA = {
         "realMadrid": [
           {
             "nombre": "Kylian Mbappé",
-            "goles": 38,
-            "partidos": 38,
+            "goles": 39,
+            "partidos": 39,
             "periodo": "2025-26"
           },
           {
             "nombre": "Vinicius Junior",
-            "goles": 16,
-            "partidos": 43,
+            "goles": 17,
+            "partidos": 44,
             "periodo": "2025-26"
           },
           {
             "nombre": "Federico Valverde",
             "goles": 8,
-            "partidos": 42,
+            "partidos": 43,
             "periodo": "2025-26"
           },
           {
             "nombre": "Arda Guler",
             "goles": 4,
-            "partidos": 30,
+            "partidos": 31,
             "periodo": "2025-26"
           },
           {
             "nombre": "Jude Bellingham",
             "goles": 4,
-            "partidos": 20,
+            "partidos": 21,
             "periodo": "2025-26"
           }
         ],
@@ -1046,31 +1046,31 @@ DataService.STATS_DATA = {
           {
             "nombre": "Vinicius Junior",
             "asistencias": 11,
-            "partidos": 43,
+            "partidos": 44,
             "periodo": "2025-26"
           },
           {
             "nombre": "Federico Valverde",
-            "asistencias": 9,
-            "partidos": 42,
+            "asistencias": 10,
+            "partidos": 43,
             "periodo": "2025-26"
           },
           {
             "nombre": "Arda Guler",
-            "asistencias": 8,
-            "partidos": 30,
+            "asistencias": 9,
+            "partidos": 31,
             "periodo": "2025-26"
           },
           {
             "nombre": "Kylian Mbappé",
             "asistencias": 5,
-            "partidos": 38,
+            "partidos": 39,
             "periodo": "2025-26"
           },
           {
             "nombre": "Jude Bellingham",
             "asistencias": 3,
-            "partidos": 20,
+            "partidos": 21,
             "periodo": "2025-26"
           }
         ],
@@ -1110,11 +1110,11 @@ DataService.STATS_DATA = {
     },
     "formaReciente": {
       "realMadrid": [
+        "V",
         "D",
         "E",
         "D",
-        "D",
-        "V"
+        "D"
       ],
       "barcelona": [
         "V",
@@ -1127,14 +1127,14 @@ DataService.STATS_DATA = {
     "standings": {
       "realMadrid": {
         "position": 2,
-        "playedGames": 31,
-        "won": 22,
+        "playedGames": 32,
+        "won": 23,
         "draw": 4,
         "lost": 5,
-        "points": 70,
-        "goalsFor": 65,
-        "goalsAgainst": 29,
-        "goalDifference": 36
+        "points": 73,
+        "goalsFor": 67,
+        "goalsAgainst": 30,
+        "goalDifference": 37
       },
       "barcelona": {
         "position": 1,
@@ -1232,10 +1232,10 @@ DataService.STATS_DATA = {
   },
   "proximoPartido": {
     "realMadrid": {
-      "rival": "Alavés",
-      "fecha": "21 de abril de 2026",
+      "rival": "Real Betis",
+      "fecha": "24 de abril de 2026",
       "competicion": "La Liga",
-      "esLocal": true
+      "esLocal": false
     },
     "barcelona": {
       "rival": "Celta",
