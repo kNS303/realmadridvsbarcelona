@@ -159,7 +159,7 @@ class DataService {
 DataService.STATS_DATA = {
   "meta": {
     "lastUpdated": "2026-04-22",
-    "lastUpdatedTime": "18:10",
+    "lastUpdatedTime": "00:36",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -391,11 +391,11 @@ DataService.STATS_DATA = {
       "golesEnContra": 5532
     },
     "barcelona": {
-      "partidosJugados": 4785,
-      "ganados": 2684,
+      "partidosJugados": 4786,
+      "ganados": 2685,
       "empatados": 890,
       "perdidos": 1211,
-      "golesAFavor": 9159,
+      "golesAFavor": 9160,
       "golesEnContra": 5385
     }
   },
@@ -638,14 +638,14 @@ DataService.STATS_DATA = {
     "barcelona": {
       "penaltisAFavor": 1793,
       "penaltisEnContra": 1042,
-      "tarjetasAmarillas": 6889,
+      "tarjetasAmarillas": 6892,
       "tarjetasRojas": 384,
-      "corners": 29448,
-      "faltas": 32814,
-      "fuerasDeJuego": 11305,
+      "corners": 29454,
+      "faltas": 32824,
+      "fuerasDeJuego": 11307,
       "posesionMedia": 57.8,
-      "tirosAPuerta": 43933,
-      "tirosAFuera": 36760
+      "tirosAPuerta": 43940,
+      "tirosAFuera": 36766
     }
   },
   "estadisticasLabels": {
@@ -846,12 +846,12 @@ DataService.STATS_DATA = {
       "resultado": "victoria"
     },
     "barcelona": {
-      "rival": "Atleti",
+      "rival": "Celta",
       "golesLocal": 1,
-      "golesVisitante": 2,
-      "esLocal": false,
-      "competicion": "Champions League",
-      "fecha": "2026-04-14",
+      "golesVisitante": 0,
+      "esLocal": true,
+      "competicion": "La Liga",
+      "fecha": "2026-04-22",
       "resultado": "victoria"
     }
   },
@@ -897,11 +897,11 @@ DataService.STATS_DATA = {
         "golesEnContra": 50
       },
       "barcelona": {
-        "partidosJugados": 43,
-        "ganados": 33,
+        "partidosJugados": 44,
+        "ganados": 34,
         "empatados": 3,
         "perdidos": 7,
-        "golesAFavor": 116,
+        "golesAFavor": 117,
         "golesEnContra": 50
       }
     },
@@ -964,14 +964,14 @@ DataService.STATS_DATA = {
       "barcelona": {
         "penaltisAFavor": 12,
         "penaltisEnContra": 7,
-        "tarjetasAmarillas": 113,
+        "tarjetasAmarillas": 116,
         "tarjetasRojas": 5,
-        "corners": 256,
-        "faltas": 421,
-        "fuerasDeJuego": 92,
+        "corners": 262,
+        "faltas": 431,
+        "fuerasDeJuego": 94,
         "posesionMedia": 55,
-        "tirosAPuerta": 316,
-        "tirosAFuera": 275
+        "tirosAPuerta": 323,
+        "tirosAFuera": 281
       }
     },
     "topJugadores": {
@@ -1011,20 +1011,20 @@ DataService.STATS_DATA = {
         "barcelona": [
           {
             "nombre": "Lamine Yamal",
-            "goles": 21,
-            "partidos": 37,
+            "goles": 22,
+            "partidos": 38,
             "periodo": "2025-26"
           },
           {
             "nombre": "Ferrán Torres",
             "goles": 17,
-            "partidos": 40,
+            "partidos": 41,
             "periodo": "2025-26"
           },
           {
             "nombre": "Robert Lewandowski",
             "goles": 16,
-            "partidos": 39,
+            "partidos": 40,
             "periodo": "2025-26"
           },
           {
@@ -1036,7 +1036,7 @@ DataService.STATS_DATA = {
           {
             "nombre": "Marcus Rashford",
             "goles": 11,
-            "partidos": 41,
+            "partidos": 42,
             "periodo": "2025-26"
           }
         ]
@@ -1078,25 +1078,25 @@ DataService.STATS_DATA = {
           {
             "nombre": "Lamine Yamal",
             "asistencias": 14,
-            "partidos": 37,
+            "partidos": 38,
             "periodo": "2025-26"
           },
           {
             "nombre": "Fermín López",
             "asistencias": 12,
-            "partidos": 37,
+            "partidos": 38,
             "periodo": "2025-26"
           },
           {
             "nombre": "Marcus Rashford",
             "asistencias": 9,
-            "partidos": 41,
+            "partidos": 42,
             "periodo": "2025-26"
           },
           {
             "nombre": "Dani Olmo",
             "asistencias": 8,
-            "partidos": 26,
+            "partidos": 27,
             "periodo": "2025-26"
           },
           {
@@ -1119,8 +1119,8 @@ DataService.STATS_DATA = {
       "barcelona": [
         "V",
         "V",
-        "D",
         "V",
+        "D",
         "V"
       ]
     },
@@ -1138,14 +1138,14 @@ DataService.STATS_DATA = {
       },
       "barcelona": {
         "position": 1,
-        "playedGames": 31,
-        "won": 26,
+        "playedGames": 32,
+        "won": 27,
         "draw": 1,
         "lost": 4,
-        "points": 79,
-        "goalsFor": 84,
+        "points": 82,
+        "goalsFor": 85,
         "goalsAgainst": 30,
-        "goalDifference": 54
+        "goalDifference": 55
       }
     }
   },
@@ -1238,10 +1238,10 @@ DataService.STATS_DATA = {
       "esLocal": false
     },
     "barcelona": {
-      "rival": "Celta",
-      "fecha": "22 de abril de 2026",
+      "rival": "Getafe",
+      "fecha": "25 de abril de 2026",
       "competicion": "La Liga",
-      "esLocal": true
+      "esLocal": false
     }
   },
   "proximoClasico": {
