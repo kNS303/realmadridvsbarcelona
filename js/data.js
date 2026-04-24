@@ -159,7 +159,7 @@ class DataService {
 DataService.STATS_DATA = {
   "meta": {
     "lastUpdated": "2026-04-24",
-    "lastUpdatedTime": "18:07",
+    "lastUpdatedTime": "00:29",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -383,12 +383,12 @@ DataService.STATS_DATA = {
   },
   "historialGeneral": {
     "realMadrid": {
-      "partidosJugados": 4856,
+      "partidosJugados": 4857,
       "ganados": 2712,
-      "empatados": 911,
+      "empatados": 912,
       "perdidos": 1233,
-      "golesAFavor": 9261,
-      "golesEnContra": 5532
+      "golesAFavor": 9262,
+      "golesEnContra": 5533
     },
     "barcelona": {
       "partidosJugados": 4786,
@@ -626,14 +626,14 @@ DataService.STATS_DATA = {
     "realMadrid": {
       "penaltisAFavor": 1847,
       "penaltisEnContra": 1093,
-      "tarjetasAmarillas": 7204,
+      "tarjetasAmarillas": 7207,
       "tarjetasRojas": 417,
-      "corners": 27988,
-      "faltas": 34887,
-      "fuerasDeJuego": 11861,
+      "corners": 27994,
+      "faltas": 34897,
+      "fuerasDeJuego": 11863,
       "posesionMedia": 53.4,
-      "tirosAPuerta": 44761,
-      "tirosAFuera": 37898
+      "tirosAPuerta": 44768,
+      "tirosAFuera": 37904
     },
     "barcelona": {
       "penaltisAFavor": 1793,
@@ -837,13 +837,13 @@ DataService.STATS_DATA = {
   },
   "ultimoPartido": {
     "realMadrid": {
-      "rival": "Alavés",
-      "golesLocal": 2,
+      "rival": "Real Betis",
+      "golesLocal": 1,
       "golesVisitante": 1,
-      "esLocal": true,
+      "esLocal": false,
       "competicion": "La Liga",
-      "fecha": "2026-04-21",
-      "resultado": "victoria"
+      "fecha": "2026-04-24",
+      "resultado": "empate"
     },
     "barcelona": {
       "rival": "Celta",
@@ -889,12 +889,12 @@ DataService.STATS_DATA = {
     },
     "historialGeneral": {
       "realMadrid": {
-        "partidosJugados": 46,
+        "partidosJugados": 47,
         "ganados": 32,
-        "empatados": 4,
+        "empatados": 5,
         "perdidos": 10,
-        "golesAFavor": 100,
-        "golesEnContra": 50
+        "golesAFavor": 101,
+        "golesEnContra": 51
       },
       "barcelona": {
         "partidosJugados": 44,
@@ -952,14 +952,14 @@ DataService.STATS_DATA = {
       "realMadrid": {
         "penaltisAFavor": 13,
         "penaltisEnContra": 7,
-        "tarjetasAmarillas": 121,
+        "tarjetasAmarillas": 124,
         "tarjetasRojas": 5,
-        "corners": 274,
-        "faltas": 450,
-        "fuerasDeJuego": 98,
+        "corners": 280,
+        "faltas": 460,
+        "fuerasDeJuego": 100,
         "posesionMedia": 55,
-        "tirosAPuerta": 337,
-        "tirosAFuera": 294
+        "tirosAPuerta": 344,
+        "tirosAFuera": 300
       },
       "barcelona": {
         "penaltisAFavor": 12,
@@ -980,19 +980,19 @@ DataService.STATS_DATA = {
           {
             "nombre": "Kylian Mbappé",
             "goles": 39,
-            "partidos": 39,
+            "partidos": 40,
             "periodo": "2025-26"
           },
           {
             "nombre": "Vinicius Junior",
-            "goles": 17,
-            "partidos": 44,
+            "goles": 18,
+            "partidos": 45,
             "periodo": "2025-26"
           },
           {
             "nombre": "Federico Valverde",
             "goles": 8,
-            "partidos": 43,
+            "partidos": 44,
             "periodo": "2025-26"
           },
           {
@@ -1004,7 +1004,7 @@ DataService.STATS_DATA = {
           {
             "nombre": "Jude Bellingham",
             "goles": 4,
-            "partidos": 21,
+            "partidos": 22,
             "periodo": "2025-26"
           }
         ],
@@ -1046,13 +1046,13 @@ DataService.STATS_DATA = {
           {
             "nombre": "Vinicius Junior",
             "asistencias": 11,
-            "partidos": 44,
+            "partidos": 45,
             "periodo": "2025-26"
           },
           {
             "nombre": "Federico Valverde",
             "asistencias": 10,
-            "partidos": 43,
+            "partidos": 44,
             "periodo": "2025-26"
           },
           {
@@ -1064,13 +1064,13 @@ DataService.STATS_DATA = {
           {
             "nombre": "Kylian Mbappé",
             "asistencias": 5,
-            "partidos": 39,
+            "partidos": 40,
             "periodo": "2025-26"
           },
           {
             "nombre": "Jude Bellingham",
             "asistencias": 3,
-            "partidos": 21,
+            "partidos": 22,
             "periodo": "2025-26"
           }
         ],
@@ -1110,10 +1110,10 @@ DataService.STATS_DATA = {
     },
     "formaReciente": {
       "realMadrid": [
+        "E",
         "V",
         "D",
         "E",
-        "D",
         "D"
       ],
       "barcelona": [
@@ -1127,13 +1127,13 @@ DataService.STATS_DATA = {
     "standings": {
       "realMadrid": {
         "position": 2,
-        "playedGames": 32,
+        "playedGames": 33,
         "won": 23,
-        "draw": 4,
+        "draw": 5,
         "lost": 5,
-        "points": 73,
-        "goalsFor": 67,
-        "goalsAgainst": 30,
+        "points": 74,
+        "goalsFor": 68,
+        "goalsAgainst": 31,
         "goalDifference": 37
       },
       "barcelona": {
@@ -1232,8 +1232,8 @@ DataService.STATS_DATA = {
   },
   "proximoPartido": {
     "realMadrid": {
-      "rival": "Real Betis",
-      "fecha": "24 de abril de 2026",
+      "rival": "Espanyol",
+      "fecha": "3 de mayo de 2026",
       "competicion": "La Liga",
       "esLocal": false
     },
