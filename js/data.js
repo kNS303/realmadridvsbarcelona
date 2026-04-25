@@ -159,7 +159,7 @@ class DataService {
 DataService.STATS_DATA = {
   "meta": {
     "lastUpdated": "2026-04-25",
-    "lastUpdatedTime": "17:42",
+    "lastUpdatedTime": "00:22",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -391,11 +391,11 @@ DataService.STATS_DATA = {
       "golesEnContra": 5533
     },
     "barcelona": {
-      "partidosJugados": 4786,
-      "ganados": 2685,
+      "partidosJugados": 4787,
+      "ganados": 2686,
       "empatados": 890,
       "perdidos": 1211,
-      "golesAFavor": 9160,
+      "golesAFavor": 9162,
       "golesEnContra": 5385
     }
   },
@@ -638,14 +638,14 @@ DataService.STATS_DATA = {
     "barcelona": {
       "penaltisAFavor": 1793,
       "penaltisEnContra": 1042,
-      "tarjetasAmarillas": 6892,
+      "tarjetasAmarillas": 6895,
       "tarjetasRojas": 384,
-      "corners": 29454,
-      "faltas": 32824,
-      "fuerasDeJuego": 11307,
+      "corners": 29460,
+      "faltas": 32834,
+      "fuerasDeJuego": 11309,
       "posesionMedia": 57.8,
-      "tirosAPuerta": 43940,
-      "tirosAFuera": 36766
+      "tirosAPuerta": 43947,
+      "tirosAFuera": 36772
     }
   },
   "estadisticasLabels": {
@@ -846,12 +846,12 @@ DataService.STATS_DATA = {
       "resultado": "empate"
     },
     "barcelona": {
-      "rival": "Celta",
-      "golesLocal": 1,
-      "golesVisitante": 0,
-      "esLocal": true,
+      "rival": "Getafe",
+      "golesLocal": 0,
+      "golesVisitante": 2,
+      "esLocal": false,
       "competicion": "La Liga",
-      "fecha": "2026-04-22",
+      "fecha": "2026-04-25",
       "resultado": "victoria"
     }
   },
@@ -897,11 +897,11 @@ DataService.STATS_DATA = {
         "golesEnContra": 51
       },
       "barcelona": {
-        "partidosJugados": 44,
-        "ganados": 34,
+        "partidosJugados": 45,
+        "ganados": 35,
         "empatados": 3,
         "perdidos": 7,
-        "golesAFavor": 117,
+        "golesAFavor": 119,
         "golesEnContra": 50
       }
     },
@@ -964,14 +964,14 @@ DataService.STATS_DATA = {
       "barcelona": {
         "penaltisAFavor": 12,
         "penaltisEnContra": 7,
-        "tarjetasAmarillas": 116,
+        "tarjetasAmarillas": 119,
         "tarjetasRojas": 5,
-        "corners": 262,
-        "faltas": 431,
-        "fuerasDeJuego": 94,
+        "corners": 268,
+        "faltas": 441,
+        "fuerasDeJuego": 96,
         "posesionMedia": 55,
-        "tirosAPuerta": 323,
-        "tirosAFuera": 281
+        "tirosAPuerta": 330,
+        "tirosAFuera": 287
       }
     },
     "topJugadores": {
@@ -1034,9 +1034,9 @@ DataService.STATS_DATA = {
             "periodo": "2025-26"
           },
           {
-            "nombre": "Fermín López",
+            "nombre": "Marcus Rashford",
             "goles": 12,
-            "partidos": 39,
+            "partidos": 43,
             "periodo": "2025-26"
           }
         ]
@@ -1120,8 +1120,8 @@ DataService.STATS_DATA = {
         "V",
         "V",
         "V",
-        "D",
-        "V"
+        "V",
+        "D"
       ]
     },
     "standings": {
@@ -1138,14 +1138,14 @@ DataService.STATS_DATA = {
       },
       "barcelona": {
         "position": 1,
-        "playedGames": 32,
-        "won": 27,
+        "playedGames": 33,
+        "won": 28,
         "draw": 1,
         "lost": 4,
-        "points": 82,
-        "goalsFor": 85,
+        "points": 85,
+        "goalsFor": 87,
         "goalsAgainst": 30,
-        "goalDifference": 55
+        "goalDifference": 57
       }
     }
   },
