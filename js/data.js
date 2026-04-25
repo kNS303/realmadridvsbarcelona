@@ -158,8 +158,8 @@ class DataService {
 // ====== DATOS ESTADÍSTICOS EMBEBIDOS ======
 DataService.STATS_DATA = {
   "meta": {
-    "lastUpdated": "2026-04-24",
-    "lastUpdatedTime": "00:29",
+    "lastUpdated": "2026-04-25",
+    "lastUpdatedTime": "17:42",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -1018,13 +1018,13 @@ DataService.STATS_DATA = {
           {
             "nombre": "Ferrán Torres",
             "goles": 17,
-            "partidos": 41,
+            "partidos": 42,
             "periodo": "2025-26"
           },
           {
             "nombre": "Robert Lewandowski",
             "goles": 16,
-            "partidos": 40,
+            "partidos": 41,
             "periodo": "2025-26"
           },
           {
@@ -1034,9 +1034,9 @@ DataService.STATS_DATA = {
             "periodo": "2025-26"
           },
           {
-            "nombre": "Marcus Rashford",
-            "goles": 11,
-            "partidos": 42,
+            "nombre": "Fermín López",
+            "goles": 12,
+            "partidos": 39,
             "periodo": "2025-26"
           }
         ]
@@ -1084,19 +1084,19 @@ DataService.STATS_DATA = {
           {
             "nombre": "Fermín López",
             "asistencias": 12,
-            "partidos": 38,
+            "partidos": 39,
             "periodo": "2025-26"
           },
           {
             "nombre": "Marcus Rashford",
             "asistencias": 9,
-            "partidos": 42,
+            "partidos": 43,
             "periodo": "2025-26"
           },
           {
             "nombre": "Dani Olmo",
             "asistencias": 8,
-            "partidos": 27,
+            "partidos": 28,
             "periodo": "2025-26"
           },
           {
@@ -1238,8 +1238,8 @@ DataService.STATS_DATA = {
       "esLocal": false
     },
     "barcelona": {
-      "rival": "Getafe",
-      "fecha": "25 de abril de 2026",
+      "rival": "Osasuna",
+      "fecha": "2 de mayo de 2026",
       "competicion": "La Liga",
       "esLocal": false
     }
