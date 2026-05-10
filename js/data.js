@@ -159,7 +159,7 @@ class DataService {
 DataService.STATS_DATA = {
   "meta": {
     "lastUpdated": "2026-05-10",
-    "lastUpdatedTime": "17:58",
+    "lastUpdatedTime": "00:33",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -203,7 +203,7 @@ DataService.STATS_DATA = {
       "recopa": 0
     },
     "barcelona": {
-      "liga": 28,
+      "liga": 29,
       "championsLeague": 5,
       "copaDelRey": 32,
       "supercopaEspana": 16,
@@ -383,29 +383,29 @@ DataService.STATS_DATA = {
   },
   "historialGeneral": {
     "realMadrid": {
-      "partidosJugados": 4858,
+      "partidosJugados": 4859,
       "ganados": 2713,
       "empatados": 912,
-      "perdidos": 1233,
+      "perdidos": 1234,
       "golesAFavor": 9264,
-      "golesEnContra": 5533
+      "golesEnContra": 5535
     },
     "barcelona": {
-      "partidosJugados": 4788,
-      "ganados": 2687,
+      "partidosJugados": 4789,
+      "ganados": 2688,
       "empatados": 890,
       "perdidos": 1211,
-      "golesAFavor": 9164,
+      "golesAFavor": 9166,
       "golesEnContra": 5386
     }
   },
   "elClasico": {
-    "totalPartidos": 263,
+    "totalPartidos": 265,
     "victoriasRealMadrid": 106,
-    "victoriasBarcelona": 105,
+    "victoriasBarcelona": 107,
     "empates": 52,
     "golesRealMadrid": 420,
-    "golesBarcelona": 403,
+    "golesBarcelona": 405,
     "mayorGoleadaRM": {
       "resultado": "11-1",
       "fecha": "13 junio 1943",
@@ -424,6 +424,14 @@ DataService.STATS_DATA = {
         "golesRM": 2,
         "golesFCB": 1,
         "ganador": "rm"
+      },
+      {
+        "fecha": "10 de mayo de 2026",
+        "competicion": "La Liga",
+        "resultado": "FC Barcelona 2-0 Real Madrid",
+        "golesRM": 0,
+        "golesFCB": 2,
+        "ganador": "fcb"
       },
       {
         "fecha": "21 de abril de 2025",
@@ -488,21 +496,13 @@ DataService.STATS_DATA = {
         "golesRM": 1,
         "golesFCB": 3,
         "ganador": "fcb"
-      },
-      {
-        "fecha": "16 de octubre de 2022",
-        "competicion": "La Liga",
-        "resultado": "Real Madrid 3-1 FC Barcelona",
-        "golesRM": 3,
-        "golesFCB": 1,
-        "ganador": "rm"
       }
     ],
     "porCompeticion": {
       "liga": {
-        "partidos": 186,
+        "partidos": 187,
         "rmVictorias": 76,
-        "fcbVictorias": 73,
+        "fcbVictorias": 74,
         "empates": 37
       },
       "copaDelRey": {
@@ -626,26 +626,26 @@ DataService.STATS_DATA = {
     "realMadrid": {
       "penaltisAFavor": 1847,
       "penaltisEnContra": 1093,
-      "tarjetasAmarillas": 7210,
+      "tarjetasAmarillas": 7213,
       "tarjetasRojas": 417,
-      "corners": 28000,
-      "faltas": 34907,
-      "fuerasDeJuego": 11865,
+      "corners": 28006,
+      "faltas": 34917,
+      "fuerasDeJuego": 11867,
       "posesionMedia": 53.4,
-      "tirosAPuerta": 44775,
-      "tirosAFuera": 37910
+      "tirosAPuerta": 44782,
+      "tirosAFuera": 37916
     },
     "barcelona": {
       "penaltisAFavor": 1793,
       "penaltisEnContra": 1042,
-      "tarjetasAmarillas": 6898,
+      "tarjetasAmarillas": 6901,
       "tarjetasRojas": 384,
-      "corners": 29466,
-      "faltas": 32844,
-      "fuerasDeJuego": 11311,
+      "corners": 29472,
+      "faltas": 32854,
+      "fuerasDeJuego": 11313,
       "posesionMedia": 57.8,
-      "tirosAPuerta": 43954,
-      "tirosAFuera": 36778
+      "tirosAPuerta": 43961,
+      "tirosAFuera": 36784
     }
   },
   "estadisticasLabels": {
@@ -837,21 +837,21 @@ DataService.STATS_DATA = {
   },
   "ultimoPartido": {
     "realMadrid": {
-      "rival": "Espanyol",
-      "golesLocal": 0,
-      "golesVisitante": 2,
+      "rival": "Barça",
+      "golesLocal": 2,
+      "golesVisitante": 0,
       "esLocal": false,
       "competicion": "La Liga",
-      "fecha": "2026-05-03",
-      "resultado": "victoria"
+      "fecha": "2026-05-10",
+      "resultado": "derrota"
     },
     "barcelona": {
-      "rival": "Osasuna",
-      "golesLocal": 1,
-      "golesVisitante": 2,
-      "esLocal": false,
+      "rival": "Real Madrid",
+      "golesLocal": 2,
+      "golesVisitante": 0,
+      "esLocal": true,
       "competicion": "La Liga",
-      "fecha": "2026-05-02",
+      "fecha": "2026-05-10",
       "resultado": "victoria"
     }
   },
@@ -861,8 +861,8 @@ DataService.STATS_DATA = {
       "nota": "Datos de la temporada 2025-26 en todas las competiciones. Actualizado automáticamente."
     },
     "heroStats": {
-      "clasicosDisputados": 1,
-      "golesEnClasicos": 3,
+      "clasicosDisputados": 2,
+      "golesEnClasicos": 5,
       "subtitulo": "Temporada 2025-26"
     },
     "titulos": {
@@ -889,42 +889,48 @@ DataService.STATS_DATA = {
     },
     "historialGeneral": {
       "realMadrid": {
-        "partidosJugados": 48,
+        "partidosJugados": 49,
         "ganados": 33,
         "empatados": 5,
-        "perdidos": 10,
+        "perdidos": 11,
         "golesAFavor": 103,
-        "golesEnContra": 51
+        "golesEnContra": 53
       },
       "barcelona": {
-        "partidosJugados": 46,
-        "ganados": 36,
+        "partidosJugados": 47,
+        "ganados": 37,
         "empatados": 3,
         "perdidos": 7,
-        "golesAFavor": 121,
+        "golesAFavor": 123,
         "golesEnContra": 51
       }
     },
     "elClasico": {
-      "totalPartidos": 1,
+      "totalPartidos": 2,
       "victoriasRealMadrid": 1,
-      "victoriasBarcelona": 0,
+      "victoriasBarcelona": 1,
       "empates": 0,
       "golesRealMadrid": 2,
-      "golesBarcelona": 1,
+      "golesBarcelona": 3,
       "partidos": [
         {
           "fecha": "26 de octubre de 2025",
           "competicion": "La Liga",
           "resultado": "Real Madrid 2-1 FC Barcelona",
           "goleadores": ""
+        },
+        {
+          "fecha": "10 de mayo de 2026",
+          "competicion": "La Liga",
+          "resultado": "FC Barcelona 2-0 Real Madrid",
+          "goleadores": ""
         }
       ],
       "porCompeticion": {
         "liga": {
-          "partidos": 1,
+          "partidos": 2,
           "rmVictorias": 1,
-          "fcbVictorias": 0,
+          "fcbVictorias": 1,
           "empates": 0
         },
         "copaDelRey": {
@@ -952,26 +958,26 @@ DataService.STATS_DATA = {
       "realMadrid": {
         "penaltisAFavor": 13,
         "penaltisEnContra": 7,
-        "tarjetasAmarillas": 127,
+        "tarjetasAmarillas": 130,
         "tarjetasRojas": 5,
-        "corners": 286,
-        "faltas": 470,
-        "fuerasDeJuego": 102,
+        "corners": 292,
+        "faltas": 480,
+        "fuerasDeJuego": 104,
         "posesionMedia": 55,
-        "tirosAPuerta": 351,
-        "tirosAFuera": 306
+        "tirosAPuerta": 358,
+        "tirosAFuera": 312
       },
       "barcelona": {
         "penaltisAFavor": 12,
         "penaltisEnContra": 7,
-        "tarjetasAmarillas": 122,
+        "tarjetasAmarillas": 125,
         "tarjetasRojas": 5,
-        "corners": 274,
-        "faltas": 451,
-        "fuerasDeJuego": 98,
+        "corners": 280,
+        "faltas": 461,
+        "fuerasDeJuego": 100,
         "posesionMedia": 55,
-        "tirosAPuerta": 337,
-        "tirosAFuera": 293
+        "tirosAPuerta": 344,
+        "tirosAFuera": 299
       }
     },
     "topJugadores": {
@@ -986,7 +992,7 @@ DataService.STATS_DATA = {
           {
             "nombre": "Vinicius Junior",
             "goles": 20,
-            "partidos": 46,
+            "partidos": 47,
             "periodo": "2025-26"
           },
           {
@@ -1004,7 +1010,7 @@ DataService.STATS_DATA = {
           {
             "nombre": "Jude Bellingham",
             "goles": 4,
-            "partidos": 23,
+            "partidos": 24,
             "periodo": "2025-26"
           }
         ],
@@ -1017,26 +1023,26 @@ DataService.STATS_DATA = {
           },
           {
             "nombre": "Ferrán Torres",
-            "goles": 18,
-            "partidos": 43,
+            "goles": 19,
+            "partidos": 44,
             "periodo": "2025-26"
           },
           {
             "nombre": "Robert Lewandowski",
             "goles": 17,
-            "partidos": 42,
+            "partidos": 43,
             "periodo": "2025-26"
           },
           {
             "nombre": "Raphinha",
             "goles": 14,
-            "partidos": 29,
+            "partidos": 30,
             "periodo": "2025-26"
           },
           {
             "nombre": "Marcus Rashford",
-            "goles": 12,
-            "partidos": 44,
+            "goles": 13,
+            "partidos": 45,
             "periodo": "2025-26"
           }
         ]
@@ -1046,7 +1052,7 @@ DataService.STATS_DATA = {
           {
             "nombre": "Vinicius Junior",
             "asistencias": 11,
-            "partidos": 46,
+            "partidos": 47,
             "periodo": "2025-26"
           },
           {
@@ -1070,7 +1076,7 @@ DataService.STATS_DATA = {
           {
             "nombre": "Jude Bellingham",
             "asistencias": 4,
-            "partidos": 23,
+            "partidos": 24,
             "periodo": "2025-26"
           }
         ],
@@ -1084,25 +1090,25 @@ DataService.STATS_DATA = {
           {
             "nombre": "Fermín López",
             "asistencias": 13,
-            "partidos": 40,
+            "partidos": 41,
             "periodo": "2025-26"
           },
           {
             "nombre": "Marcus Rashford",
             "asistencias": 10,
-            "partidos": 44,
+            "partidos": 45,
             "periodo": "2025-26"
           },
           {
             "nombre": "Dani Olmo",
-            "asistencias": 8,
-            "partidos": 29,
+            "asistencias": 9,
+            "partidos": 30,
             "periodo": "2025-26"
           },
           {
             "nombre": "Raphinha",
             "asistencias": 5,
-            "partidos": 29,
+            "partidos": 30,
             "periodo": "2025-26"
           }
         ]
@@ -1110,11 +1116,11 @@ DataService.STATS_DATA = {
     },
     "formaReciente": {
       "realMadrid": [
+        "D",
         "V",
         "E",
         "V",
-        "D",
-        "E"
+        "D"
       ],
       "barcelona": [
         "V",
@@ -1127,25 +1133,25 @@ DataService.STATS_DATA = {
     "standings": {
       "realMadrid": {
         "position": 2,
-        "playedGames": 34,
+        "playedGames": 35,
         "won": 24,
         "draw": 5,
-        "lost": 5,
+        "lost": 6,
         "points": 77,
         "goalsFor": 70,
-        "goalsAgainst": 31,
-        "goalDifference": 39
+        "goalsAgainst": 33,
+        "goalDifference": 37
       },
       "barcelona": {
         "position": 1,
-        "playedGames": 34,
-        "won": 29,
+        "playedGames": 35,
+        "won": 30,
         "draw": 1,
         "lost": 4,
-        "points": 88,
-        "goalsFor": 89,
+        "points": 91,
+        "goalsFor": 91,
         "goalsAgainst": 31,
-        "goalDifference": 58
+        "goalDifference": 60
       }
     }
   },
@@ -1196,9 +1202,9 @@ DataService.STATS_DATA = {
       }
     },
     "elClasico": {
-      "totalPartidos": 262,
+      "totalPartidos": 263,
       "victoriasRealMadrid": 105,
-      "victoriasBarcelona": 105,
+      "victoriasBarcelona": 106,
       "empates": 52,
       "golesRealMadrid": 418,
       "golesBarcelona": 402,
@@ -1232,22 +1238,17 @@ DataService.STATS_DATA = {
   },
   "proximoPartido": {
     "realMadrid": {
-      "rival": "Barça",
-      "fecha": "10 de mayo de 2026",
-      "competicion": "La Liga",
-      "esLocal": false
-    },
-    "barcelona": {
-      "rival": "Real Madrid",
-      "fecha": "10 de mayo de 2026",
+      "rival": "Real Oviedo",
+      "fecha": "14 de mayo de 2026",
       "competicion": "La Liga",
       "esLocal": true
+    },
+    "barcelona": {
+      "rival": "Alavés",
+      "fecha": "13 de mayo de 2026",
+      "competicion": "La Liga",
+      "esLocal": false
     }
   },
-  "proximoClasico": {
-    "fecha": "10 de mayo de 2026",
-    "isoFecha": "2026-05-10",
-    "competicion": "La Liga",
-    "sede": "Camp Nou"
-  }
+  "proximoClasico": null
 };
