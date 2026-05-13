@@ -159,7 +159,7 @@ class DataService {
 DataService.STATS_DATA = {
   "meta": {
     "lastUpdated": "2026-05-13",
-    "lastUpdatedTime": "19:19",
+    "lastUpdatedTime": "00:54",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -391,12 +391,12 @@ DataService.STATS_DATA = {
       "golesEnContra": 5535
     },
     "barcelona": {
-      "partidosJugados": 4789,
+      "partidosJugados": 4790,
       "ganados": 2688,
       "empatados": 890,
-      "perdidos": 1211,
+      "perdidos": 1212,
       "golesAFavor": 9166,
-      "golesEnContra": 5386
+      "golesEnContra": 5387
     }
   },
   "elClasico": {
@@ -638,14 +638,14 @@ DataService.STATS_DATA = {
     "barcelona": {
       "penaltisAFavor": 1793,
       "penaltisEnContra": 1042,
-      "tarjetasAmarillas": 6901,
+      "tarjetasAmarillas": 6904,
       "tarjetasRojas": 384,
-      "corners": 29472,
-      "faltas": 32854,
-      "fuerasDeJuego": 11313,
+      "corners": 29478,
+      "faltas": 32864,
+      "fuerasDeJuego": 11315,
       "posesionMedia": 57.8,
-      "tirosAPuerta": 43961,
-      "tirosAFuera": 36784
+      "tirosAPuerta": 43968,
+      "tirosAFuera": 36790
     }
   },
   "estadisticasLabels": {
@@ -846,13 +846,13 @@ DataService.STATS_DATA = {
       "resultado": "derrota"
     },
     "barcelona": {
-      "rival": "Real Madrid",
-      "golesLocal": 2,
+      "rival": "Alavés",
+      "golesLocal": 1,
       "golesVisitante": 0,
-      "esLocal": true,
+      "esLocal": false,
       "competicion": "La Liga",
-      "fecha": "2026-05-10",
-      "resultado": "victoria"
+      "fecha": "2026-05-13",
+      "resultado": "derrota"
     }
   },
   "temporadaActual": {
@@ -897,12 +897,12 @@ DataService.STATS_DATA = {
         "golesEnContra": 53
       },
       "barcelona": {
-        "partidosJugados": 47,
+        "partidosJugados": 48,
         "ganados": 37,
         "empatados": 3,
-        "perdidos": 7,
+        "perdidos": 8,
         "golesAFavor": 123,
-        "golesEnContra": 51
+        "golesEnContra": 52
       }
     },
     "elClasico": {
@@ -970,14 +970,14 @@ DataService.STATS_DATA = {
       "barcelona": {
         "penaltisAFavor": 12,
         "penaltisEnContra": 7,
-        "tarjetasAmarillas": 125,
+        "tarjetasAmarillas": 128,
         "tarjetasRojas": 5,
-        "corners": 280,
-        "faltas": 461,
-        "fuerasDeJuego": 100,
+        "corners": 286,
+        "faltas": 471,
+        "fuerasDeJuego": 102,
         "posesionMedia": 55,
-        "tirosAPuerta": 344,
-        "tirosAFuera": 299
+        "tirosAPuerta": 351,
+        "tirosAFuera": 305
       }
     },
     "topJugadores": {
@@ -1024,13 +1024,13 @@ DataService.STATS_DATA = {
           {
             "nombre": "Ferrán Torres",
             "goles": 19,
-            "partidos": 44,
+            "partidos": 45,
             "periodo": "2025-26"
           },
           {
             "nombre": "Robert Lewandowski",
             "goles": 17,
-            "partidos": 43,
+            "partidos": 44,
             "periodo": "2025-26"
           },
           {
@@ -1042,7 +1042,7 @@ DataService.STATS_DATA = {
           {
             "nombre": "Marcus Rashford",
             "goles": 13,
-            "partidos": 45,
+            "partidos": 46,
             "periodo": "2025-26"
           }
         ]
@@ -1096,13 +1096,13 @@ DataService.STATS_DATA = {
           {
             "nombre": "Marcus Rashford",
             "asistencias": 10,
-            "partidos": 45,
+            "partidos": 46,
             "periodo": "2025-26"
           },
           {
             "nombre": "Dani Olmo",
             "asistencias": 9,
-            "partidos": 30,
+            "partidos": 31,
             "periodo": "2025-26"
           },
           {
@@ -1123,7 +1123,7 @@ DataService.STATS_DATA = {
         "D"
       ],
       "barcelona": [
-        "V",
+        "D",
         "V",
         "V",
         "V",
@@ -1144,14 +1144,14 @@ DataService.STATS_DATA = {
       },
       "barcelona": {
         "position": 1,
-        "playedGames": 35,
+        "playedGames": 36,
         "won": 30,
         "draw": 1,
-        "lost": 4,
+        "lost": 5,
         "points": 91,
         "goalsFor": 91,
-        "goalsAgainst": 31,
-        "goalDifference": 60
+        "goalsAgainst": 32,
+        "goalDifference": 59
       }
     }
   },
@@ -1244,10 +1244,10 @@ DataService.STATS_DATA = {
       "esLocal": true
     },
     "barcelona": {
-      "rival": "Alavés",
-      "fecha": "13 de mayo de 2026",
+      "rival": "Real Betis",
+      "fecha": "17 de mayo de 2026",
       "competicion": "La Liga",
-      "esLocal": false
+      "esLocal": true
     }
   },
   "proximoClasico": null
