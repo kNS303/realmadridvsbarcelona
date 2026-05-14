@@ -159,7 +159,7 @@ class DataService {
 DataService.STATS_DATA = {
   "meta": {
     "lastUpdated": "2026-05-14",
-    "lastUpdatedTime": "19:03",
+    "lastUpdatedTime": "00:46",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -383,11 +383,11 @@ DataService.STATS_DATA = {
   },
   "historialGeneral": {
     "realMadrid": {
-      "partidosJugados": 4859,
-      "ganados": 2713,
+      "partidosJugados": 4860,
+      "ganados": 2714,
       "empatados": 912,
       "perdidos": 1234,
-      "golesAFavor": 9264,
+      "golesAFavor": 9266,
       "golesEnContra": 5535
     },
     "barcelona": {
@@ -626,14 +626,14 @@ DataService.STATS_DATA = {
     "realMadrid": {
       "penaltisAFavor": 1847,
       "penaltisEnContra": 1093,
-      "tarjetasAmarillas": 7213,
+      "tarjetasAmarillas": 7216,
       "tarjetasRojas": 417,
-      "corners": 28006,
-      "faltas": 34917,
-      "fuerasDeJuego": 11867,
+      "corners": 28012,
+      "faltas": 34927,
+      "fuerasDeJuego": 11869,
       "posesionMedia": 53.4,
-      "tirosAPuerta": 44782,
-      "tirosAFuera": 37916
+      "tirosAPuerta": 44789,
+      "tirosAFuera": 37922
     },
     "barcelona": {
       "penaltisAFavor": 1793,
@@ -837,13 +837,13 @@ DataService.STATS_DATA = {
   },
   "ultimoPartido": {
     "realMadrid": {
-      "rival": "Barça",
+      "rival": "Real Oviedo",
       "golesLocal": 2,
       "golesVisitante": 0,
-      "esLocal": false,
+      "esLocal": true,
       "competicion": "La Liga",
-      "fecha": "2026-05-10",
-      "resultado": "derrota"
+      "fecha": "2026-05-14",
+      "resultado": "victoria"
     },
     "barcelona": {
       "rival": "Alavés",
@@ -889,11 +889,11 @@ DataService.STATS_DATA = {
     },
     "historialGeneral": {
       "realMadrid": {
-        "partidosJugados": 49,
-        "ganados": 33,
+        "partidosJugados": 50,
+        "ganados": 34,
         "empatados": 5,
         "perdidos": 11,
-        "golesAFavor": 103,
+        "golesAFavor": 105,
         "golesEnContra": 53
       },
       "barcelona": {
@@ -958,14 +958,14 @@ DataService.STATS_DATA = {
       "realMadrid": {
         "penaltisAFavor": 13,
         "penaltisEnContra": 7,
-        "tarjetasAmarillas": 130,
+        "tarjetasAmarillas": 133,
         "tarjetasRojas": 5,
-        "corners": 292,
-        "faltas": 480,
-        "fuerasDeJuego": 104,
+        "corners": 298,
+        "faltas": 490,
+        "fuerasDeJuego": 106,
         "posesionMedia": 55,
-        "tirosAPuerta": 358,
-        "tirosAFuera": 312
+        "tirosAPuerta": 365,
+        "tirosAFuera": 318
       },
       "barcelona": {
         "penaltisAFavor": 12,
@@ -986,13 +986,13 @@ DataService.STATS_DATA = {
           {
             "nombre": "Kylian Mbappé",
             "goles": 39,
-            "partidos": 40,
+            "partidos": 41,
             "periodo": "2025-26"
           },
           {
             "nombre": "Vinicius Junior",
             "goles": 20,
-            "partidos": 47,
+            "partidos": 48,
             "periodo": "2025-26"
           },
           {
@@ -1002,15 +1002,15 @@ DataService.STATS_DATA = {
             "periodo": "2025-26"
           },
           {
-            "nombre": "Arda Guler",
-            "goles": 4,
-            "partidos": 31,
+            "nombre": "Jude Bellingham",
+            "goles": 5,
+            "partidos": 25,
             "periodo": "2025-26"
           },
           {
-            "nombre": "Jude Bellingham",
-            "goles": 4,
-            "partidos": 24,
+            "nombre": "Gonzalo García",
+            "goles": 5,
+            "partidos": 35,
             "periodo": "2025-26"
           }
         ],
@@ -1052,7 +1052,7 @@ DataService.STATS_DATA = {
           {
             "nombre": "Vinicius Junior",
             "asistencias": 11,
-            "partidos": 47,
+            "partidos": 48,
             "periodo": "2025-26"
           },
           {
@@ -1070,13 +1070,13 @@ DataService.STATS_DATA = {
           {
             "nombre": "Kylian Mbappé",
             "asistencias": 5,
-            "partidos": 40,
+            "partidos": 41,
             "periodo": "2025-26"
           },
           {
             "nombre": "Jude Bellingham",
             "asistencias": 4,
-            "partidos": 24,
+            "partidos": 25,
             "periodo": "2025-26"
           }
         ],
@@ -1116,11 +1116,11 @@ DataService.STATS_DATA = {
     },
     "formaReciente": {
       "realMadrid": [
+        "V",
         "D",
         "V",
         "E",
-        "V",
-        "D"
+        "V"
       ],
       "barcelona": [
         "D",
@@ -1133,14 +1133,14 @@ DataService.STATS_DATA = {
     "standings": {
       "realMadrid": {
         "position": 2,
-        "playedGames": 35,
-        "won": 24,
+        "playedGames": 36,
+        "won": 25,
         "draw": 5,
         "lost": 6,
-        "points": 77,
-        "goalsFor": 70,
+        "points": 80,
+        "goalsFor": 72,
         "goalsAgainst": 33,
-        "goalDifference": 37
+        "goalDifference": 39
       },
       "barcelona": {
         "position": 1,
@@ -1238,10 +1238,10 @@ DataService.STATS_DATA = {
   },
   "proximoPartido": {
     "realMadrid": {
-      "rival": "Real Oviedo",
-      "fecha": "14 de mayo de 2026",
+      "rival": "Sevilla FC",
+      "fecha": "17 de mayo de 2026",
       "competicion": "La Liga",
-      "esLocal": true
+      "esLocal": false
     },
     "barcelona": {
       "rival": "Real Betis",
