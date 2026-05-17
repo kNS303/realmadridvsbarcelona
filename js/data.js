@@ -159,7 +159,7 @@ class DataService {
 DataService.STATS_DATA = {
   "meta": {
     "lastUpdated": "2026-05-17",
-    "lastUpdatedTime": "18:01",
+    "lastUpdatedTime": "00:39",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -383,20 +383,20 @@ DataService.STATS_DATA = {
   },
   "historialGeneral": {
     "realMadrid": {
-      "partidosJugados": 4860,
-      "ganados": 2714,
+      "partidosJugados": 4861,
+      "ganados": 2715,
       "empatados": 912,
       "perdidos": 1234,
-      "golesAFavor": 9266,
+      "golesAFavor": 9267,
       "golesEnContra": 5535
     },
     "barcelona": {
-      "partidosJugados": 4790,
-      "ganados": 2688,
+      "partidosJugados": 4791,
+      "ganados": 2689,
       "empatados": 890,
       "perdidos": 1212,
-      "golesAFavor": 9166,
-      "golesEnContra": 5387
+      "golesAFavor": 9169,
+      "golesEnContra": 5388
     }
   },
   "elClasico": {
@@ -626,26 +626,26 @@ DataService.STATS_DATA = {
     "realMadrid": {
       "penaltisAFavor": 1847,
       "penaltisEnContra": 1093,
-      "tarjetasAmarillas": 7216,
+      "tarjetasAmarillas": 7219,
       "tarjetasRojas": 417,
-      "corners": 28012,
-      "faltas": 34927,
-      "fuerasDeJuego": 11869,
+      "corners": 28018,
+      "faltas": 34937,
+      "fuerasDeJuego": 11871,
       "posesionMedia": 53.4,
-      "tirosAPuerta": 44789,
-      "tirosAFuera": 37922
+      "tirosAPuerta": 44796,
+      "tirosAFuera": 37928
     },
     "barcelona": {
       "penaltisAFavor": 1793,
       "penaltisEnContra": 1042,
-      "tarjetasAmarillas": 6904,
+      "tarjetasAmarillas": 6907,
       "tarjetasRojas": 384,
-      "corners": 29478,
-      "faltas": 32864,
-      "fuerasDeJuego": 11315,
+      "corners": 29484,
+      "faltas": 32874,
+      "fuerasDeJuego": 11317,
       "posesionMedia": 57.8,
-      "tirosAPuerta": 43968,
-      "tirosAFuera": 36790
+      "tirosAPuerta": 43975,
+      "tirosAFuera": 36796
     }
   },
   "estadisticasLabels": {
@@ -837,22 +837,22 @@ DataService.STATS_DATA = {
   },
   "ultimoPartido": {
     "realMadrid": {
-      "rival": "Real Oviedo",
-      "golesLocal": 2,
-      "golesVisitante": 0,
-      "esLocal": true,
+      "rival": "Sevilla FC",
+      "golesLocal": 0,
+      "golesVisitante": 1,
+      "esLocal": false,
       "competicion": "La Liga",
-      "fecha": "2026-05-14",
+      "fecha": "2026-05-17",
       "resultado": "victoria"
     },
     "barcelona": {
-      "rival": "Alavés",
-      "golesLocal": 1,
-      "golesVisitante": 0,
-      "esLocal": false,
+      "rival": "Real Betis",
+      "golesLocal": 3,
+      "golesVisitante": 1,
+      "esLocal": true,
       "competicion": "La Liga",
-      "fecha": "2026-05-13",
-      "resultado": "derrota"
+      "fecha": "2026-05-17",
+      "resultado": "victoria"
     }
   },
   "temporadaActual": {
@@ -889,20 +889,20 @@ DataService.STATS_DATA = {
     },
     "historialGeneral": {
       "realMadrid": {
-        "partidosJugados": 50,
-        "ganados": 34,
+        "partidosJugados": 51,
+        "ganados": 35,
         "empatados": 5,
         "perdidos": 11,
-        "golesAFavor": 105,
+        "golesAFavor": 106,
         "golesEnContra": 53
       },
       "barcelona": {
-        "partidosJugados": 48,
-        "ganados": 37,
+        "partidosJugados": 49,
+        "ganados": 38,
         "empatados": 3,
         "perdidos": 8,
-        "golesAFavor": 123,
-        "golesEnContra": 52
+        "golesAFavor": 126,
+        "golesEnContra": 53
       }
     },
     "elClasico": {
@@ -958,26 +958,26 @@ DataService.STATS_DATA = {
       "realMadrid": {
         "penaltisAFavor": 13,
         "penaltisEnContra": 7,
-        "tarjetasAmarillas": 133,
+        "tarjetasAmarillas": 136,
         "tarjetasRojas": 5,
-        "corners": 298,
-        "faltas": 490,
-        "fuerasDeJuego": 106,
+        "corners": 304,
+        "faltas": 500,
+        "fuerasDeJuego": 108,
         "posesionMedia": 55,
-        "tirosAPuerta": 365,
-        "tirosAFuera": 318
+        "tirosAPuerta": 372,
+        "tirosAFuera": 324
       },
       "barcelona": {
         "penaltisAFavor": 12,
         "penaltisEnContra": 7,
-        "tarjetasAmarillas": 128,
+        "tarjetasAmarillas": 131,
         "tarjetasRojas": 5,
-        "corners": 286,
-        "faltas": 471,
-        "fuerasDeJuego": 102,
+        "corners": 292,
+        "faltas": 481,
+        "fuerasDeJuego": 104,
         "posesionMedia": 55,
-        "tirosAPuerta": 351,
-        "tirosAFuera": 305
+        "tirosAPuerta": 358,
+        "tirosAFuera": 311
       }
     },
     "topJugadores": {
@@ -986,13 +986,13 @@ DataService.STATS_DATA = {
           {
             "nombre": "Kylian Mbappé",
             "goles": 39,
-            "partidos": 41,
+            "partidos": 42,
             "periodo": "2025-26"
           },
           {
             "nombre": "Vinicius Junior",
-            "goles": 20,
-            "partidos": 48,
+            "goles": 21,
+            "partidos": 49,
             "periodo": "2025-26"
           },
           {
@@ -1004,13 +1004,13 @@ DataService.STATS_DATA = {
           {
             "nombre": "Jude Bellingham",
             "goles": 5,
-            "partidos": 25,
+            "partidos": 26,
             "periodo": "2025-26"
           },
           {
             "nombre": "Gonzalo García",
             "goles": 5,
-            "partidos": 35,
+            "partidos": 36,
             "periodo": "2025-26"
           }
         ],
@@ -1030,19 +1030,19 @@ DataService.STATS_DATA = {
           {
             "nombre": "Robert Lewandowski",
             "goles": 17,
-            "partidos": 44,
+            "partidos": 45,
             "periodo": "2025-26"
           },
           {
             "nombre": "Raphinha",
-            "goles": 14,
-            "partidos": 30,
+            "goles": 16,
+            "partidos": 31,
             "periodo": "2025-26"
           },
           {
             "nombre": "Marcus Rashford",
             "goles": 13,
-            "partidos": 46,
+            "partidos": 47,
             "periodo": "2025-26"
           }
         ]
@@ -1052,7 +1052,7 @@ DataService.STATS_DATA = {
           {
             "nombre": "Vinicius Junior",
             "asistencias": 11,
-            "partidos": 48,
+            "partidos": 49,
             "periodo": "2025-26"
           },
           {
@@ -1070,13 +1070,13 @@ DataService.STATS_DATA = {
           {
             "nombre": "Kylian Mbappé",
             "asistencias": 5,
-            "partidos": 41,
+            "partidos": 42,
             "periodo": "2025-26"
           },
           {
             "nombre": "Jude Bellingham",
             "asistencias": 4,
-            "partidos": 25,
+            "partidos": 26,
             "periodo": "2025-26"
           }
         ],
@@ -1090,25 +1090,25 @@ DataService.STATS_DATA = {
           {
             "nombre": "Fermín López",
             "asistencias": 13,
-            "partidos": 41,
+            "partidos": 42,
             "periodo": "2025-26"
           },
           {
             "nombre": "Marcus Rashford",
             "asistencias": 10,
-            "partidos": 46,
+            "partidos": 47,
             "periodo": "2025-26"
           },
           {
             "nombre": "Dani Olmo",
             "asistencias": 9,
-            "partidos": 31,
+            "partidos": 32,
             "periodo": "2025-26"
           },
           {
             "nombre": "Raphinha",
             "asistencias": 5,
-            "partidos": 30,
+            "partidos": 31,
             "periodo": "2025-26"
           }
         ]
@@ -1117,14 +1117,14 @@ DataService.STATS_DATA = {
     "formaReciente": {
       "realMadrid": [
         "V",
+        "V",
         "D",
         "V",
-        "E",
-        "V"
+        "E"
       ],
       "barcelona": [
-        "D",
         "V",
+        "D",
         "V",
         "V",
         "V"
@@ -1133,25 +1133,25 @@ DataService.STATS_DATA = {
     "standings": {
       "realMadrid": {
         "position": 2,
-        "playedGames": 36,
-        "won": 25,
+        "playedGames": 37,
+        "won": 26,
         "draw": 5,
         "lost": 6,
-        "points": 80,
-        "goalsFor": 72,
+        "points": 83,
+        "goalsFor": 73,
         "goalsAgainst": 33,
-        "goalDifference": 39
+        "goalDifference": 40
       },
       "barcelona": {
         "position": 1,
-        "playedGames": 36,
-        "won": 30,
+        "playedGames": 37,
+        "won": 31,
         "draw": 1,
         "lost": 5,
-        "points": 91,
-        "goalsFor": 91,
-        "goalsAgainst": 32,
-        "goalDifference": 59
+        "points": 94,
+        "goalsFor": 94,
+        "goalsAgainst": 33,
+        "goalDifference": 61
       }
     }
   },
@@ -1238,16 +1238,16 @@ DataService.STATS_DATA = {
   },
   "proximoPartido": {
     "realMadrid": {
-      "rival": "Sevilla FC",
-      "fecha": "17 de mayo de 2026",
-      "competicion": "La Liga",
-      "esLocal": false
-    },
-    "barcelona": {
-      "rival": "Real Betis",
-      "fecha": "17 de mayo de 2026",
+      "rival": "Athletic",
+      "fecha": "23 de mayo de 2026",
       "competicion": "La Liga",
       "esLocal": true
+    },
+    "barcelona": {
+      "rival": "Valencia",
+      "fecha": "23 de mayo de 2026",
+      "competicion": "La Liga",
+      "esLocal": false
     }
   },
   "proximoClasico": null
