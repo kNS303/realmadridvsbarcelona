@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastUpdated": "2026-05-23",
-    "lastUpdatedTime": "18:04",
+    "lastUpdatedTime": "00:39",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -225,20 +225,20 @@
   },
   "historialGeneral": {
     "realMadrid": {
-      "partidosJugados": 4861,
-      "ganados": 2715,
+      "partidosJugados": 4862,
+      "ganados": 2716,
       "empatados": 912,
       "perdidos": 1234,
-      "golesAFavor": 9267,
-      "golesEnContra": 5535
+      "golesAFavor": 9271,
+      "golesEnContra": 5537
     },
     "barcelona": {
-      "partidosJugados": 4791,
+      "partidosJugados": 4792,
       "ganados": 2689,
       "empatados": 890,
-      "perdidos": 1212,
-      "golesAFavor": 9169,
-      "golesEnContra": 5388
+      "perdidos": 1213,
+      "golesAFavor": 9170,
+      "golesEnContra": 5391
     }
   },
   "elClasico": {
@@ -468,26 +468,26 @@
     "realMadrid": {
       "penaltisAFavor": 1847,
       "penaltisEnContra": 1093,
-      "tarjetasAmarillas": 7219,
+      "tarjetasAmarillas": 7222,
       "tarjetasRojas": 417,
-      "corners": 28018,
-      "faltas": 34937,
-      "fuerasDeJuego": 11871,
+      "corners": 28024,
+      "faltas": 34947,
+      "fuerasDeJuego": 11873,
       "posesionMedia": 53.4,
-      "tirosAPuerta": 44796,
-      "tirosAFuera": 37928
+      "tirosAPuerta": 44803,
+      "tirosAFuera": 37934
     },
     "barcelona": {
       "penaltisAFavor": 1793,
       "penaltisEnContra": 1042,
-      "tarjetasAmarillas": 6907,
+      "tarjetasAmarillas": 6910,
       "tarjetasRojas": 384,
-      "corners": 29484,
-      "faltas": 32874,
-      "fuerasDeJuego": 11317,
+      "corners": 29490,
+      "faltas": 32884,
+      "fuerasDeJuego": 11319,
       "posesionMedia": 57.8,
-      "tirosAPuerta": 43975,
-      "tirosAFuera": 36796
+      "tirosAPuerta": 43982,
+      "tirosAFuera": 36802
     }
   },
   "estadisticasLabels": {
@@ -679,22 +679,22 @@
   },
   "ultimoPartido": {
     "realMadrid": {
-      "rival": "Sevilla FC",
-      "golesLocal": 0,
-      "golesVisitante": 1,
-      "esLocal": false,
+      "rival": "Athletic",
+      "golesLocal": 4,
+      "golesVisitante": 2,
+      "esLocal": true,
       "competicion": "La Liga",
-      "fecha": "2026-05-17",
+      "fecha": "2026-05-23",
       "resultado": "victoria"
     },
     "barcelona": {
-      "rival": "Real Betis",
+      "rival": "Valencia",
       "golesLocal": 3,
       "golesVisitante": 1,
-      "esLocal": true,
+      "esLocal": false,
       "competicion": "La Liga",
-      "fecha": "2026-05-17",
-      "resultado": "victoria"
+      "fecha": "2026-05-23",
+      "resultado": "derrota"
     }
   },
   "temporadaActual": {
@@ -719,7 +719,7 @@
         "recopa": 0
       },
       "barcelona": {
-        "liga": 0,
+        "liga": 1,
         "championsLeague": 0,
         "copaDelRey": 0,
         "supercopaEspana": 0,
@@ -731,20 +731,20 @@
     },
     "historialGeneral": {
       "realMadrid": {
-        "partidosJugados": 51,
-        "ganados": 35,
+        "partidosJugados": 52,
+        "ganados": 36,
         "empatados": 5,
         "perdidos": 11,
-        "golesAFavor": 106,
-        "golesEnContra": 53
+        "golesAFavor": 110,
+        "golesEnContra": 55
       },
       "barcelona": {
-        "partidosJugados": 49,
+        "partidosJugados": 50,
         "ganados": 38,
         "empatados": 3,
-        "perdidos": 8,
-        "golesAFavor": 126,
-        "golesEnContra": 53
+        "perdidos": 9,
+        "golesAFavor": 127,
+        "golesEnContra": 56
       }
     },
     "elClasico": {
@@ -800,26 +800,26 @@
       "realMadrid": {
         "penaltisAFavor": 13,
         "penaltisEnContra": 7,
-        "tarjetasAmarillas": 136,
+        "tarjetasAmarillas": 139,
         "tarjetasRojas": 5,
-        "corners": 304,
-        "faltas": 500,
-        "fuerasDeJuego": 108,
+        "corners": 310,
+        "faltas": 510,
+        "fuerasDeJuego": 110,
         "posesionMedia": 55,
-        "tirosAPuerta": 372,
-        "tirosAFuera": 324
+        "tirosAPuerta": 379,
+        "tirosAFuera": 330
       },
       "barcelona": {
         "penaltisAFavor": 12,
         "penaltisEnContra": 7,
-        "tarjetasAmarillas": 131,
+        "tarjetasAmarillas": 134,
         "tarjetasRojas": 5,
-        "corners": 292,
-        "faltas": 481,
-        "fuerasDeJuego": 104,
+        "corners": 298,
+        "faltas": 491,
+        "fuerasDeJuego": 106,
         "posesionMedia": 55,
-        "tirosAPuerta": 358,
-        "tirosAFuera": 311
+        "tirosAPuerta": 365,
+        "tirosAFuera": 317
       }
     },
     "topJugadores": {
@@ -827,8 +827,8 @@
         "realMadrid": [
           {
             "nombre": "Kylian Mbappé",
-            "goles": 39,
-            "partidos": 42,
+            "goles": 40,
+            "partidos": 43,
             "periodo": "2025-26"
           },
           {
@@ -840,19 +840,19 @@
           {
             "nombre": "Federico Valverde",
             "goles": 8,
-            "partidos": 45,
+            "partidos": 46,
             "periodo": "2025-26"
           },
           {
             "nombre": "Jude Bellingham",
-            "goles": 5,
-            "partidos": 26,
+            "goles": 6,
+            "partidos": 27,
             "periodo": "2025-26"
           },
           {
             "nombre": "Gonzalo García",
-            "goles": 5,
-            "partidos": 36,
+            "goles": 6,
+            "partidos": 37,
             "periodo": "2025-26"
           }
         ],
@@ -866,13 +866,13 @@
           {
             "nombre": "Ferrán Torres",
             "goles": 19,
-            "partidos": 45,
+            "partidos": 46,
             "periodo": "2025-26"
           },
           {
             "nombre": "Robert Lewandowski",
-            "goles": 17,
-            "partidos": 45,
+            "goles": 18,
+            "partidos": 46,
             "periodo": "2025-26"
           },
           {
@@ -884,7 +884,7 @@
           {
             "nombre": "Marcus Rashford",
             "goles": 13,
-            "partidos": 47,
+            "partidos": 48,
             "periodo": "2025-26"
           }
         ]
@@ -900,25 +900,25 @@
           {
             "nombre": "Federico Valverde",
             "asistencias": 10,
-            "partidos": 45,
+            "partidos": 46,
             "periodo": "2025-26"
           },
           {
             "nombre": "Arda Guler",
             "asistencias": 9,
-            "partidos": 31,
+            "partidos": 32,
             "periodo": "2025-26"
           },
           {
             "nombre": "Kylian Mbappé",
             "asistencias": 5,
-            "partidos": 42,
+            "partidos": 43,
             "periodo": "2025-26"
           },
           {
             "nombre": "Jude Bellingham",
             "asistencias": 4,
-            "partidos": 26,
+            "partidos": 27,
             "periodo": "2025-26"
           }
         ],
@@ -938,13 +938,13 @@
           {
             "nombre": "Marcus Rashford",
             "asistencias": 10,
-            "partidos": 47,
+            "partidos": 48,
             "periodo": "2025-26"
           },
           {
             "nombre": "Dani Olmo",
             "asistencias": 9,
-            "partidos": 32,
+            "partidos": 33,
             "periodo": "2025-26"
           },
           {
@@ -960,14 +960,14 @@
       "realMadrid": [
         "V",
         "V",
-        "D",
         "V",
-        "E"
+        "D",
+        "V"
       ],
       "barcelona": [
-        "V",
         "D",
         "V",
+        "D",
         "V",
         "V"
       ]
@@ -975,25 +975,25 @@
     "standings": {
       "realMadrid": {
         "position": 2,
-        "playedGames": 37,
-        "won": 26,
+        "playedGames": 38,
+        "won": 27,
         "draw": 5,
         "lost": 6,
-        "points": 83,
-        "goalsFor": 73,
-        "goalsAgainst": 33,
-        "goalDifference": 40
+        "points": 86,
+        "goalsFor": 77,
+        "goalsAgainst": 35,
+        "goalDifference": 42
       },
       "barcelona": {
         "position": 1,
-        "playedGames": 37,
+        "playedGames": 38,
         "won": 31,
         "draw": 1,
-        "lost": 5,
+        "lost": 6,
         "points": 94,
-        "goalsFor": 94,
-        "goalsAgainst": 33,
-        "goalDifference": 61
+        "goalsFor": 95,
+        "goalsAgainst": 36,
+        "goalDifference": 59
       }
     }
   },
