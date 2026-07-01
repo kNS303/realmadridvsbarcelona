@@ -158,8 +158,8 @@ class DataService {
 // ====== DATOS ESTADÍSTICOS EMBEBIDOS ======
 DataService.STATS_DATA = {
   "meta": {
-    "lastUpdated": "2026-06-30",
-    "lastUpdatedTime": "00:59",
+    "lastUpdated": "2026-07-01",
+    "lastUpdatedTime": "19:20",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -1238,17 +1238,22 @@ DataService.STATS_DATA = {
   },
   "proximoPartido": {
     "realMadrid": {
-      "rival": "Athletic",
-      "fecha": "23 de mayo de 2026",
+      "rival": "Real Sociedad",
+      "fecha": "16 de agosto de 2026",
       "competicion": "La Liga",
       "esLocal": true
     },
     "barcelona": {
-      "rival": "Valencia",
-      "fecha": "23 de mayo de 2026",
+      "rival": "Athletic",
+      "fecha": "16 de agosto de 2026",
       "competicion": "La Liga",
-      "esLocal": false
+      "esLocal": true
     }
   },
-  "proximoClasico": null
+  "proximoClasico": {
+    "fecha": "25 de octubre de 2026",
+    "isoFecha": "2026-10-25",
+    "competicion": "La Liga",
+    "sede": "Camp Nou"
+  }
 };
