@@ -159,7 +159,7 @@ class DataService {
 DataService.STATS_DATA = {
   "meta": {
     "lastUpdated": "2026-07-21",
-    "lastUpdatedTime": "18:25",
+    "lastUpdatedTime": "00:41",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -1238,16 +1238,16 @@ DataService.STATS_DATA = {
   },
   "proximoPartido": {
     "realMadrid": {
-      "rival": "Real Sociedad",
-      "fecha": "16 de agosto de 2026",
+      "rival": "Espanyol",
+      "fecha": "22 de agosto de 2026",
       "competicion": "La Liga",
-      "esLocal": true
+      "esLocal": false
     },
     "barcelona": {
-      "rival": "Athletic",
-      "fecha": "16 de agosto de 2026",
+      "rival": "Elche",
+      "fecha": "23 de agosto de 2026",
       "competicion": "La Liga",
-      "esLocal": true
+      "esLocal": false
     }
   },
   "proximoClasico": {
