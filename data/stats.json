@@ -1,7 +1,7 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-31",
-    "lastUpdatedTime": "00:45",
+    "lastUpdated": "2026-08-01",
+    "lastUpdatedTime": "18:03",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -242,12 +242,12 @@
     }
   },
   "elClasico": {
-    "totalPartidos": 264,
+    "totalPartidos": 266,
     "victoriasRealMadrid": 106,
     "victoriasBarcelona": 106,
     "empates": 52,
-    "golesRealMadrid": 420,
-    "golesBarcelona": 405,
+    "golesRealMadrid": 422,
+    "golesBarcelona": 408,
     "mayorGoleadaRM": {
       "resultado": "11-1",
       "fecha": "13 junio 1943",
@@ -342,9 +342,9 @@
     ],
     "porCompeticion": {
       "liga": {
-        "partidos": 187,
-        "rmVictorias": 76,
-        "fcbVictorias": 74,
+        "partidos": 189,
+        "rmVictorias": 77,
+        "fcbVictorias": 75,
         "empates": 37
       },
       "copaDelRey": {
@@ -699,13 +699,13 @@
   },
   "temporadaActual": {
     "meta": {
-      "temporada": "2025-26",
-      "nota": "Datos de la temporada 2025-26 en todas las competiciones. Actualizado automáticamente."
+      "temporada": "2026-27",
+      "nota": "Datos de la temporada 2026-27 en todas las competiciones. Actualizado automáticamente."
     },
     "heroStats": {
       "clasicosDisputados": 2,
       "golesEnClasicos": 5,
-      "subtitulo": "Temporada 2025-26"
+      "subtitulo": "Temporada 2026-27"
     },
     "titulos": {
       "realMadrid": {
@@ -719,7 +719,7 @@
         "recopa": 0
       },
       "barcelona": {
-        "liga": 1,
+        "liga": 0,
         "championsLeague": 0,
         "copaDelRey": 0,
         "supercopaEspana": 0,
@@ -731,20 +731,20 @@
     },
     "historialGeneral": {
       "realMadrid": {
-        "partidosJugados": 52,
-        "ganados": 36,
-        "empatados": 5,
-        "perdidos": 11,
-        "golesAFavor": 110,
-        "golesEnContra": 55
+        "partidosJugados": 0,
+        "ganados": 0,
+        "empatados": 0,
+        "perdidos": 0,
+        "golesAFavor": 0,
+        "golesEnContra": 0
       },
       "barcelona": {
-        "partidosJugados": 50,
-        "ganados": 38,
-        "empatados": 3,
-        "perdidos": 9,
-        "golesAFavor": 127,
-        "golesEnContra": 56
+        "partidosJugados": 0,
+        "ganados": 0,
+        "empatados": 0,
+        "perdidos": 0,
+        "golesAFavor": 0,
+        "golesEnContra": 0
       }
     },
     "elClasico": {
@@ -798,28 +798,28 @@
     },
     "estadisticasDetalladas": {
       "realMadrid": {
-        "penaltisAFavor": 13,
-        "penaltisEnContra": 7,
-        "tarjetasAmarillas": 139,
-        "tarjetasRojas": 5,
-        "corners": 310,
-        "faltas": 510,
-        "fuerasDeJuego": 110,
+        "penaltisAFavor": 0,
+        "penaltisEnContra": 0,
+        "tarjetasAmarillas": 0,
+        "tarjetasRojas": 0,
+        "corners": 0,
+        "faltas": 0,
+        "fuerasDeJuego": 0,
         "posesionMedia": 55,
-        "tirosAPuerta": 379,
-        "tirosAFuera": 330
+        "tirosAPuerta": 0,
+        "tirosAFuera": 0
       },
       "barcelona": {
-        "penaltisAFavor": 12,
-        "penaltisEnContra": 7,
-        "tarjetasAmarillas": 134,
-        "tarjetasRojas": 5,
-        "corners": 298,
-        "faltas": 491,
-        "fuerasDeJuego": 106,
+        "penaltisAFavor": 0,
+        "penaltisEnContra": 0,
+        "tarjetasAmarillas": 0,
+        "tarjetasRojas": 0,
+        "corners": 0,
+        "faltas": 0,
+        "fuerasDeJuego": 0,
         "posesionMedia": 55,
-        "tirosAPuerta": 365,
-        "tirosAFuera": 317
+        "tirosAPuerta": 0,
+        "tirosAFuera": 0
       }
     },
     "topJugadores": {
@@ -957,104 +957,92 @@
       }
     },
     "formaReciente": {
-      "realMadrid": [
-        "V",
-        "V",
-        "V",
-        "D",
-        "V"
-      ],
-      "barcelona": [
-        "D",
-        "V",
-        "D",
-        "V",
-        "V"
-      ]
+      "realMadrid": [],
+      "barcelona": []
     },
     "standings": {
       "realMadrid": {
-        "position": 2,
-        "playedGames": 38,
-        "won": 27,
-        "draw": 5,
-        "lost": 6,
-        "points": 86,
-        "goalsFor": 77,
-        "goalsAgainst": 35,
-        "goalDifference": 42
+        "position": 19,
+        "playedGames": 0,
+        "won": 0,
+        "draw": 0,
+        "lost": 0,
+        "points": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0
       },
       "barcelona": {
-        "position": 1,
-        "playedGames": 38,
-        "won": 31,
-        "draw": 1,
-        "lost": 6,
-        "points": 94,
-        "goalsFor": 95,
-        "goalsAgainst": 36,
-        "goalDifference": 59
+        "position": 20,
+        "playedGames": 0,
+        "won": 0,
+        "draw": 0,
+        "lost": 0,
+        "points": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0
       }
     }
   },
   "historicalBaseline": {
-    "temporada": "2025-26",
+    "temporada": "2026-27",
     "historialGeneral": {
       "realMadrid": {
-        "partidosJugados": 4810,
-        "ganados": 2680,
-        "empatados": 907,
-        "perdidos": 1223,
-        "golesAFavor": 9161,
-        "golesEnContra": 5482
+        "partidosJugados": 4862,
+        "ganados": 2716,
+        "empatados": 912,
+        "perdidos": 1234,
+        "golesAFavor": 9271,
+        "golesEnContra": 5537
       },
       "barcelona": {
-        "partidosJugados": 4742,
-        "ganados": 2651,
-        "empatados": 887,
-        "perdidos": 1204,
-        "golesAFavor": 9043,
-        "golesEnContra": 5335
+        "partidosJugados": 4792,
+        "ganados": 2689,
+        "empatados": 890,
+        "perdidos": 1213,
+        "golesAFavor": 9170,
+        "golesEnContra": 5391
       }
     },
     "estadisticasDetalladas": {
       "realMadrid": {
-        "penaltisAFavor": 1834,
-        "penaltisEnContra": 1086,
-        "tarjetasAmarillas": 7083,
-        "tarjetasRojas": 412,
-        "corners": 27714,
-        "faltas": 34437,
-        "fuerasDeJuego": 11763,
+        "penaltisAFavor": 1847,
+        "penaltisEnContra": 1093,
+        "tarjetasAmarillas": 7222,
+        "tarjetasRojas": 417,
+        "corners": 28024,
+        "faltas": 34947,
+        "fuerasDeJuego": 11873,
         "posesionMedia": 53.4,
-        "tirosAPuerta": 44424,
-        "tirosAFuera": 37604
+        "tirosAPuerta": 44803,
+        "tirosAFuera": 37934
       },
       "barcelona": {
-        "penaltisAFavor": 1781,
-        "penaltisEnContra": 1035,
-        "tarjetasAmarillas": 6776,
-        "tarjetasRojas": 379,
-        "corners": 29192,
-        "faltas": 32393,
-        "fuerasDeJuego": 11213,
+        "penaltisAFavor": 1793,
+        "penaltisEnContra": 1042,
+        "tarjetasAmarillas": 6910,
+        "tarjetasRojas": 384,
+        "corners": 29490,
+        "faltas": 32884,
+        "fuerasDeJuego": 11319,
         "posesionMedia": 57.8,
-        "tirosAPuerta": 43617,
-        "tirosAFuera": 36485
+        "tirosAPuerta": 43982,
+        "tirosAFuera": 36802
       }
     },
     "elClasico": {
-      "totalPartidos": 262,
+      "totalPartidos": 264,
       "victoriasRealMadrid": 105,
       "victoriasBarcelona": 105,
       "empates": 52,
-      "golesRealMadrid": 418,
-      "golesBarcelona": 402,
+      "golesRealMadrid": 420,
+      "golesBarcelona": 405,
       "porCompeticion": {
         "liga": {
-          "partidos": 185,
-          "rmVictorias": 75,
-          "fcbVictorias": 73,
+          "partidos": 187,
+          "rmVictorias": 76,
+          "fcbVictorias": 74,
           "empates": 37
         },
         "copaDelRey": {
