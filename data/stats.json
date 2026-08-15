@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastUpdated": "2026-08-15",
-    "lastUpdatedTime": "17:23",
+    "lastUpdatedTime": "00:02",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -962,7 +962,7 @@
     },
     "standings": {
       "realMadrid": {
-        "position": 18,
+        "position": 16,
         "playedGames": 0,
         "won": 0,
         "draw": 0,
@@ -973,7 +973,7 @@
         "goalDifference": 0
       },
       "barcelona": {
-        "position": 19,
+        "position": 17,
         "playedGames": 0,
         "won": 0,
         "draw": 0,
