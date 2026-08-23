@@ -159,7 +159,7 @@ class DataService {
 DataService.STATS_DATA = {
   "meta": {
     "lastUpdated": "2026-08-23",
-    "lastUpdatedTime": "17:25",
+    "lastUpdatedTime": "00:03",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -391,11 +391,11 @@ DataService.STATS_DATA = {
       "golesEnContra": 5538
     },
     "barcelona": {
-      "partidosJugados": 4792,
-      "ganados": 2689,
+      "partidosJugados": 4793,
+      "ganados": 2690,
       "empatados": 890,
       "perdidos": 1213,
-      "golesAFavor": 9170,
+      "golesAFavor": 9175,
       "golesEnContra": 5391
     }
   },
@@ -846,13 +846,13 @@ DataService.STATS_DATA = {
       "resultado": "victoria"
     },
     "barcelona": {
-      "rival": "Valencia",
-      "golesLocal": 3,
-      "golesVisitante": 1,
+      "rival": "Elche",
+      "golesLocal": 0,
+      "golesVisitante": 5,
       "esLocal": false,
       "competicion": "La Liga",
-      "fecha": "2026-05-23",
-      "resultado": "derrota"
+      "fecha": "2026-08-23",
+      "resultado": "victoria"
     }
   },
   "temporadaActual": {
@@ -897,11 +897,11 @@ DataService.STATS_DATA = {
         "golesEnContra": 1
       },
       "barcelona": {
-        "partidosJugados": 0,
-        "ganados": 0,
+        "partidosJugados": 1,
+        "ganados": 1,
         "empatados": 0,
         "perdidos": 0,
-        "golesAFavor": 0,
+        "golesAFavor": 5,
         "golesEnContra": 0
       }
     },
@@ -998,34 +998,22 @@ DataService.STATS_DATA = {
         ],
         "barcelona": [
           {
-            "nombre": "Lamine Yamal",
-            "goles": 22,
-            "partidos": 38,
-            "periodo": "2025-26"
-          },
-          {
-            "nombre": "Ferrán Torres",
-            "goles": 19,
-            "partidos": 46,
-            "periodo": "2025-26"
-          },
-          {
-            "nombre": "Robert Lewandowski",
-            "goles": 18,
-            "partidos": 46,
-            "periodo": "2025-26"
-          },
-          {
             "nombre": "Raphinha",
-            "goles": 16,
-            "partidos": 31,
-            "periodo": "2025-26"
+            "goles": 2,
+            "partidos": 1,
+            "periodo": "2026-27"
           },
           {
-            "nombre": "Marcus Rashford",
-            "goles": 13,
-            "partidos": 48,
-            "periodo": "2025-26"
+            "nombre": "Fermín López",
+            "goles": 2,
+            "partidos": 1,
+            "periodo": "2026-27"
+          },
+          {
+            "nombre": "Karim Adeyemi",
+            "goles": 1,
+            "partidos": 1,
+            "periodo": "2026-27"
           }
         ]
       },
@@ -1100,11 +1088,13 @@ DataService.STATS_DATA = {
       "realMadrid": [
         "V"
       ],
-      "barcelona": []
+      "barcelona": [
+        "V"
+      ]
     },
     "standings": {
       "realMadrid": {
-        "position": 5,
+        "position": 6,
         "playedGames": 1,
         "won": 1,
         "draw": 0,
@@ -1115,15 +1105,15 @@ DataService.STATS_DATA = {
         "goalDifference": 1
       },
       "barcelona": {
-        "position": 14,
-        "playedGames": 0,
-        "won": 0,
+        "position": 4,
+        "playedGames": 1,
+        "won": 1,
         "draw": 0,
         "lost": 0,
-        "points": 0,
-        "goalsFor": 0,
+        "points": 3,
+        "goalsFor": 5,
         "goalsAgainst": 0,
-        "goalDifference": 0
+        "goalDifference": 5
       }
     }
   },
@@ -1216,10 +1206,10 @@ DataService.STATS_DATA = {
       "esLocal": true
     },
     "barcelona": {
-      "rival": "Elche",
-      "fecha": "23 de agosto de 2026",
+      "rival": "Athletic",
+      "fecha": "27 de agosto de 2026",
       "competicion": "La Liga",
-      "esLocal": false
+      "esLocal": true
     }
   },
   "proximoClasico": {
