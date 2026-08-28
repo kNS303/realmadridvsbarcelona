@@ -158,8 +158,8 @@ class DataService {
 // ====== DATOS ESTADÍSTICOS EMBEBIDOS ======
 DataService.STATS_DATA = {
   "meta": {
-    "lastUpdated": "2026-08-27",
-    "lastUpdatedTime": "04:17",
+    "lastUpdated": "2026-08-28",
+    "lastUpdatedTime": "02:18",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -391,11 +391,11 @@ DataService.STATS_DATA = {
       "golesEnContra": 5539
     },
     "barcelona": {
-      "partidosJugados": 4793,
-      "ganados": 2690,
+      "partidosJugados": 4794,
+      "ganados": 2691,
       "empatados": 890,
       "perdidos": 1213,
-      "golesAFavor": 9175,
+      "golesAFavor": 9177,
       "golesEnContra": 5391
     }
   },
@@ -846,12 +846,12 @@ DataService.STATS_DATA = {
       "resultado": "victoria"
     },
     "barcelona": {
-      "rival": "Elche",
-      "golesLocal": 0,
-      "golesVisitante": 5,
-      "esLocal": false,
+      "rival": "Athletic",
+      "golesLocal": 2,
+      "golesVisitante": 0,
+      "esLocal": true,
       "competicion": "La Liga",
-      "fecha": "2026-08-23",
+      "fecha": "2026-08-27",
       "resultado": "victoria"
     }
   },
@@ -897,11 +897,11 @@ DataService.STATS_DATA = {
         "golesEnContra": 2
       },
       "barcelona": {
-        "partidosJugados": 1,
-        "ganados": 1,
+        "partidosJugados": 2,
+        "ganados": 2,
         "empatados": 0,
         "perdidos": 0,
-        "golesAFavor": 5,
+        "golesAFavor": 7,
         "golesEnContra": 0
       }
     },
@@ -1011,20 +1011,20 @@ DataService.STATS_DATA = {
         "barcelona": [
           {
             "nombre": "Raphinha",
-            "goles": 2,
-            "partidos": 1,
+            "goles": 3,
+            "partidos": 2,
             "periodo": "2026-27"
           },
           {
             "nombre": "Fermín López",
-            "goles": 2,
-            "partidos": 1,
+            "goles": 3,
+            "partidos": 2,
             "periodo": "2026-27"
           },
           {
             "nombre": "Karim Adeyemi",
             "goles": 1,
-            "partidos": 1,
+            "partidos": 2,
             "periodo": "2026-27"
           }
         ]
@@ -1084,12 +1084,13 @@ DataService.STATS_DATA = {
         "V"
       ],
       "barcelona": [
+        "V",
         "V"
       ]
     },
     "standings": {
       "realMadrid": {
-        "position": 1,
+        "position": 2,
         "playedGames": 2,
         "won": 2,
         "draw": 0,
@@ -1100,15 +1101,15 @@ DataService.STATS_DATA = {
         "goalDifference": 4
       },
       "barcelona": {
-        "position": 6,
-        "playedGames": 1,
-        "won": 1,
+        "position": 1,
+        "playedGames": 2,
+        "won": 2,
         "draw": 0,
         "lost": 0,
-        "points": 3,
-        "goalsFor": 5,
+        "points": 6,
+        "goalsFor": 7,
         "goalsAgainst": 0,
-        "goalDifference": 5
+        "goalDifference": 7
       }
     }
   },
@@ -1201,8 +1202,8 @@ DataService.STATS_DATA = {
       "esLocal": true
     },
     "barcelona": {
-      "rival": "Athletic",
-      "fecha": "27 de agosto de 2026",
+      "rival": "Rayo Vallecano",
+      "fecha": "31 de agosto de 2026",
       "competicion": "La Liga",
       "esLocal": true
     }
