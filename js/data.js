@@ -159,7 +159,7 @@ class DataService {
 DataService.STATS_DATA = {
   "meta": {
     "lastUpdated": "2026-08-29",
-    "lastUpdatedTime": "20:13",
+    "lastUpdatedTime": "01:40",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -1090,7 +1090,7 @@ DataService.STATS_DATA = {
     },
     "standings": {
       "realMadrid": {
-        "position": 3,
+        "position": 4,
         "playedGames": 2,
         "won": 2,
         "draw": 0,
@@ -1101,7 +1101,7 @@ DataService.STATS_DATA = {
         "goalDifference": 4
       },
       "barcelona": {
-        "position": 2,
+        "position": 3,
         "playedGames": 2,
         "won": 2,
         "draw": 0,
