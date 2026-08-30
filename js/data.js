@@ -158,8 +158,8 @@ class DataService {
 // ====== DATOS ESTADÍSTICOS EMBEBIDOS ======
 DataService.STATS_DATA = {
   "meta": {
-    "lastUpdated": "2026-08-29",
-    "lastUpdatedTime": "01:40",
+    "lastUpdated": "2026-08-30",
+    "lastUpdatedTime": "20:29",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -383,11 +383,11 @@ DataService.STATS_DATA = {
   },
   "historialGeneral": {
     "realMadrid": {
-      "partidosJugados": 4864,
-      "ganados": 2718,
+      "partidosJugados": 4865,
+      "ganados": 2719,
       "empatados": 912,
       "perdidos": 1234,
-      "golesAFavor": 9277,
+      "golesAFavor": 9281,
       "golesEnContra": 5539
     },
     "barcelona": {
@@ -837,12 +837,12 @@ DataService.STATS_DATA = {
   },
   "ultimoPartido": {
     "realMadrid": {
-      "rival": "Real Sociedad",
+      "rival": "Málaga",
       "golesLocal": 4,
-      "golesVisitante": 1,
+      "golesVisitante": 0,
       "esLocal": true,
       "competicion": "La Liga",
-      "fecha": "2026-08-26",
+      "fecha": "2026-08-30",
       "resultado": "victoria"
     },
     "barcelona": {
@@ -889,11 +889,11 @@ DataService.STATS_DATA = {
     },
     "historialGeneral": {
       "realMadrid": {
-        "partidosJugados": 2,
-        "ganados": 2,
+        "partidosJugados": 3,
+        "ganados": 3,
         "empatados": 0,
         "perdidos": 0,
-        "golesAFavor": 6,
+        "golesAFavor": 10,
         "golesEnContra": 2
       },
       "barcelona": {
@@ -985,26 +985,32 @@ DataService.STATS_DATA = {
         "realMadrid": [
           {
             "nombre": "Kylian Mbappé",
-            "goles": 3,
-            "partidos": 2,
+            "goles": 4,
+            "partidos": 3,
             "periodo": "2026-27"
           },
           {
             "nombre": "Jude Bellingham",
-            "goles": 1,
-            "partidos": 2,
+            "goles": 2,
+            "partidos": 3,
             "periodo": "2026-27"
           },
           {
             "nombre": "Carlos Espí",
             "goles": 1,
-            "partidos": 2,
+            "partidos": 3,
             "periodo": "2026-27"
           },
           {
             "nombre": "Vinicius Junior",
             "goles": 1,
-            "partidos": 2,
+            "partidos": 3,
+            "periodo": "2026-27"
+          },
+          {
+            "nombre": "Arda Guler",
+            "goles": 1,
+            "partidos": 3,
             "periodo": "2026-27"
           }
         ],
@@ -1034,13 +1040,19 @@ DataService.STATS_DATA = {
           {
             "nombre": "Jude Bellingham",
             "asistencias": 2,
-            "partidos": 2,
+            "partidos": 3,
             "periodo": "2026-27"
           },
           {
             "nombre": "Vinicius Junior",
+            "asistencias": 2,
+            "partidos": 3,
+            "periodo": "2026-27"
+          },
+          {
+            "nombre": "Arda Guler",
             "asistencias": 1,
-            "partidos": 2,
+            "partidos": 3,
             "periodo": "2026-27"
           }
         ],
@@ -1081,6 +1093,7 @@ DataService.STATS_DATA = {
     "formaReciente": {
       "realMadrid": [
         "V",
+        "V",
         "V"
       ],
       "barcelona": [
@@ -1090,18 +1103,18 @@ DataService.STATS_DATA = {
     },
     "standings": {
       "realMadrid": {
-        "position": 4,
-        "playedGames": 2,
-        "won": 2,
+        "position": 1,
+        "playedGames": 3,
+        "won": 3,
         "draw": 0,
         "lost": 0,
-        "points": 6,
-        "goalsFor": 6,
+        "points": 9,
+        "goalsFor": 10,
         "goalsAgainst": 2,
-        "goalDifference": 4
+        "goalDifference": 8
       },
       "barcelona": {
-        "position": 3,
+        "position": 4,
         "playedGames": 2,
         "won": 2,
         "draw": 0,
@@ -1196,10 +1209,10 @@ DataService.STATS_DATA = {
   },
   "proximoPartido": {
     "realMadrid": {
-      "rival": "Málaga",
-      "fecha": "30 de agosto de 2026",
+      "rival": "Real Betis",
+      "fecha": "4 de septiembre de 2026",
       "competicion": "La Liga",
-      "esLocal": true
+      "esLocal": false
     },
     "barcelona": {
       "rival": "Rayo Vallecano",
