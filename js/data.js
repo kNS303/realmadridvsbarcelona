@@ -158,8 +158,8 @@ class DataService {
 // ====== DATOS ESTADÍSTICOS EMBEBIDOS ======
 DataService.STATS_DATA = {
   "meta": {
-    "lastUpdated": "2026-08-30",
-    "lastUpdatedTime": "01:57",
+    "lastUpdated": "2026-08-31",
+    "lastUpdatedTime": "22:43",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -1017,20 +1017,26 @@ DataService.STATS_DATA = {
         "barcelona": [
           {
             "nombre": "Raphinha",
-            "goles": 3,
-            "partidos": 2,
+            "goles": 4,
+            "partidos": 3,
             "periodo": "2026-27"
           },
           {
             "nombre": "Fermín López",
             "goles": 3,
-            "partidos": 2,
+            "partidos": 3,
             "periodo": "2026-27"
           },
           {
             "nombre": "Karim Adeyemi",
             "goles": 1,
-            "partidos": 2,
+            "partidos": 3,
+            "periodo": "2026-27"
+          },
+          {
+            "nombre": "Lamine Yamal",
+            "goles": 1,
+            "partidos": 3,
             "periodo": "2026-27"
           }
         ]
@@ -1114,7 +1120,7 @@ DataService.STATS_DATA = {
         "goalDifference": 8
       },
       "barcelona": {
-        "position": 4,
+        "position": 5,
         "playedGames": 2,
         "won": 2,
         "draw": 0,
@@ -1215,10 +1221,10 @@ DataService.STATS_DATA = {
       "esLocal": false
     },
     "barcelona": {
-      "rival": "Rayo Vallecano",
-      "fecha": "31 de agosto de 2026",
+      "rival": "Valencia",
+      "fecha": "6 de septiembre de 2026",
       "competicion": "La Liga",
-      "esLocal": true
+      "esLocal": false
     }
   },
   "proximoClasico": {
