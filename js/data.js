@@ -158,8 +158,8 @@ class DataService {
 // ====== DATOS ESTADÍSTICOS EMBEBIDOS ======
 DataService.STATS_DATA = {
   "meta": {
-    "lastUpdated": "2026-08-31",
-    "lastUpdatedTime": "22:43",
+    "lastUpdated": "2026-09-01",
+    "lastUpdatedTime": "02:49",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -391,12 +391,12 @@ DataService.STATS_DATA = {
       "golesEnContra": 5539
     },
     "barcelona": {
-      "partidosJugados": 4794,
-      "ganados": 2691,
+      "partidosJugados": 4795,
+      "ganados": 2692,
       "empatados": 890,
       "perdidos": 1213,
-      "golesAFavor": 9177,
-      "golesEnContra": 5391
+      "golesAFavor": 9182,
+      "golesEnContra": 5393
     }
   },
   "elClasico": {
@@ -846,12 +846,12 @@ DataService.STATS_DATA = {
       "resultado": "victoria"
     },
     "barcelona": {
-      "rival": "Athletic",
-      "golesLocal": 2,
-      "golesVisitante": 0,
+      "rival": "Rayo Vallecano",
+      "golesLocal": 5,
+      "golesVisitante": 2,
       "esLocal": true,
       "competicion": "La Liga",
-      "fecha": "2026-08-27",
+      "fecha": "2026-08-31",
       "resultado": "victoria"
     }
   },
@@ -897,12 +897,12 @@ DataService.STATS_DATA = {
         "golesEnContra": 2
       },
       "barcelona": {
-        "partidosJugados": 2,
-        "ganados": 2,
+        "partidosJugados": 3,
+        "ganados": 3,
         "empatados": 0,
         "perdidos": 0,
-        "golesAFavor": 7,
-        "golesEnContra": 0
+        "golesAFavor": 12,
+        "golesEnContra": 2
       }
     },
     "elClasico": {
@@ -1017,7 +1017,7 @@ DataService.STATS_DATA = {
         "barcelona": [
           {
             "nombre": "Raphinha",
-            "goles": 4,
+            "goles": 5,
             "partidos": 3,
             "periodo": "2026-27"
           },
@@ -1028,13 +1028,13 @@ DataService.STATS_DATA = {
             "periodo": "2026-27"
           },
           {
-            "nombre": "Karim Adeyemi",
-            "goles": 1,
+            "nombre": "Lamine Yamal",
+            "goles": 2,
             "partidos": 3,
             "periodo": "2026-27"
           },
           {
-            "nombre": "Lamine Yamal",
+            "nombre": "Karim Adeyemi",
             "goles": 1,
             "partidos": 3,
             "periodo": "2026-27"
@@ -1064,34 +1064,10 @@ DataService.STATS_DATA = {
         ],
         "barcelona": [
           {
-            "nombre": "Lamine Yamal",
-            "asistencias": 14,
-            "partidos": 38,
-            "periodo": "2025-26"
-          },
-          {
-            "nombre": "Fermín López",
-            "asistencias": 13,
-            "partidos": 42,
-            "periodo": "2025-26"
-          },
-          {
-            "nombre": "Marcus Rashford",
-            "asistencias": 10,
-            "partidos": 48,
-            "periodo": "2025-26"
-          },
-          {
-            "nombre": "Dani Olmo",
-            "asistencias": 9,
-            "partidos": 33,
-            "periodo": "2025-26"
-          },
-          {
-            "nombre": "Raphinha",
-            "asistencias": 5,
-            "partidos": 31,
-            "periodo": "2025-26"
+            "nombre": "Karim Adeyemi",
+            "asistencias": 1,
+            "partidos": 3,
+            "periodo": "2026-27"
           }
         ]
       }
@@ -1104,12 +1080,13 @@ DataService.STATS_DATA = {
       ],
       "barcelona": [
         "V",
+        "V",
         "V"
       ]
     },
     "standings": {
       "realMadrid": {
-        "position": 1,
+        "position": 2,
         "playedGames": 3,
         "won": 3,
         "draw": 0,
@@ -1120,15 +1097,15 @@ DataService.STATS_DATA = {
         "goalDifference": 8
       },
       "barcelona": {
-        "position": 5,
-        "playedGames": 2,
-        "won": 2,
+        "position": 1,
+        "playedGames": 3,
+        "won": 3,
         "draw": 0,
         "lost": 0,
-        "points": 6,
-        "goalsFor": 7,
-        "goalsAgainst": 0,
-        "goalDifference": 7
+        "points": 9,
+        "goalsFor": 12,
+        "goalsAgainst": 2,
+        "goalDifference": 10
       }
     }
   },
