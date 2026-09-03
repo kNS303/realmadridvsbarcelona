@@ -158,8 +158,8 @@ class DataService {
 // ====== DATOS ESTADÍSTICOS EMBEBIDOS ======
 DataService.STATS_DATA = {
   "meta": {
-    "lastUpdated": "2026-09-02",
-    "lastUpdatedTime": "01:37",
+    "lastUpdated": "2026-09-03",
+    "lastUpdatedTime": "20:25",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
