@@ -159,7 +159,7 @@ class DataService {
 DataService.STATS_DATA = {
   "meta": {
     "lastUpdated": "2026-09-04",
-    "lastUpdatedTime": "20:11",
+    "lastUpdatedTime": "01:27",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -383,12 +383,12 @@ DataService.STATS_DATA = {
   },
   "historialGeneral": {
     "realMadrid": {
-      "partidosJugados": 4865,
+      "partidosJugados": 4866,
       "ganados": 2719,
       "empatados": 912,
-      "perdidos": 1234,
+      "perdidos": 1235,
       "golesAFavor": 9281,
-      "golesEnContra": 5539
+      "golesEnContra": 5540
     },
     "barcelona": {
       "partidosJugados": 4795,
@@ -837,13 +837,13 @@ DataService.STATS_DATA = {
   },
   "ultimoPartido": {
     "realMadrid": {
-      "rival": "Málaga",
-      "golesLocal": 4,
+      "rival": "Real Betis",
+      "golesLocal": 1,
       "golesVisitante": 0,
-      "esLocal": true,
+      "esLocal": false,
       "competicion": "La Liga",
-      "fecha": "2026-08-30",
-      "resultado": "victoria"
+      "fecha": "2026-09-04",
+      "resultado": "derrota"
     },
     "barcelona": {
       "rival": "Rayo Vallecano",
@@ -889,12 +889,12 @@ DataService.STATS_DATA = {
     },
     "historialGeneral": {
       "realMadrid": {
-        "partidosJugados": 3,
+        "partidosJugados": 4,
         "ganados": 3,
         "empatados": 0,
-        "perdidos": 0,
+        "perdidos": 1,
         "golesAFavor": 10,
-        "golesEnContra": 2
+        "golesEnContra": 3
       },
       "barcelona": {
         "partidosJugados": 3,
@@ -1074,6 +1074,7 @@ DataService.STATS_DATA = {
     },
     "formaReciente": {
       "realMadrid": [
+        "D",
         "V",
         "V",
         "V"
@@ -1087,14 +1088,14 @@ DataService.STATS_DATA = {
     "standings": {
       "realMadrid": {
         "position": 2,
-        "playedGames": 3,
+        "playedGames": 4,
         "won": 3,
         "draw": 0,
-        "lost": 0,
+        "lost": 1,
         "points": 9,
         "goalsFor": 10,
-        "goalsAgainst": 2,
-        "goalDifference": 8
+        "goalsAgainst": 3,
+        "goalDifference": 7
       },
       "barcelona": {
         "position": 1,
@@ -1192,10 +1193,10 @@ DataService.STATS_DATA = {
   },
   "proximoPartido": {
     "realMadrid": {
-      "rival": "Real Betis",
-      "fecha": "4 de septiembre de 2026",
-      "competicion": "La Liga",
-      "esLocal": false
+      "rival": "Inter",
+      "fecha": "8 de septiembre de 2026",
+      "competicion": "Champions League",
+      "esLocal": true
     },
     "barcelona": {
       "rival": "Valencia",
