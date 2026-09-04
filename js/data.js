@@ -158,8 +158,8 @@ class DataService {
 // ====== DATOS ESTADÍSTICOS EMBEBIDOS ======
 DataService.STATS_DATA = {
   "meta": {
-    "lastUpdated": "2026-09-03",
-    "lastUpdatedTime": "01:35",
+    "lastUpdated": "2026-09-04",
+    "lastUpdatedTime": "20:11",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -986,31 +986,31 @@ DataService.STATS_DATA = {
           {
             "nombre": "Kylian Mbappé",
             "goles": 4,
-            "partidos": 3,
+            "partidos": 4,
             "periodo": "2026-27"
           },
           {
             "nombre": "Jude Bellingham",
             "goles": 2,
-            "partidos": 3,
+            "partidos": 4,
             "periodo": "2026-27"
           },
           {
             "nombre": "Carlos Espí",
             "goles": 1,
-            "partidos": 3,
+            "partidos": 4,
             "periodo": "2026-27"
           },
           {
             "nombre": "Vinicius Junior",
             "goles": 1,
-            "partidos": 3,
+            "partidos": 4,
             "periodo": "2026-27"
           },
           {
             "nombre": "Arda Guler",
             "goles": 1,
-            "partidos": 3,
+            "partidos": 4,
             "periodo": "2026-27"
           }
         ],
@@ -1046,19 +1046,19 @@ DataService.STATS_DATA = {
           {
             "nombre": "Jude Bellingham",
             "asistencias": 2,
-            "partidos": 3,
+            "partidos": 4,
             "periodo": "2026-27"
           },
           {
             "nombre": "Vinicius Junior",
             "asistencias": 2,
-            "partidos": 3,
+            "partidos": 4,
             "periodo": "2026-27"
           },
           {
             "nombre": "Arda Guler",
             "asistencias": 1,
-            "partidos": 3,
+            "partidos": 4,
             "periodo": "2026-27"
           }
         ],
