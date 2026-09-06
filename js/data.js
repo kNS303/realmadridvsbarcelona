@@ -158,8 +158,8 @@ class DataService {
 // ====== DATOS ESTADÍSTICOS EMBEBIDOS ======
 DataService.STATS_DATA = {
   "meta": {
-    "lastUpdated": "2026-09-05",
-    "lastUpdatedTime": "01:25",
+    "lastUpdated": "2026-09-06",
+    "lastUpdatedTime": "19:32",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -391,11 +391,11 @@ DataService.STATS_DATA = {
       "golesEnContra": 5540
     },
     "barcelona": {
-      "partidosJugados": 4795,
-      "ganados": 2692,
+      "partidosJugados": 4796,
+      "ganados": 2693,
       "empatados": 890,
       "perdidos": 1213,
-      "golesAFavor": 9182,
+      "golesAFavor": 9187,
       "golesEnContra": 5393
     }
   },
@@ -846,12 +846,12 @@ DataService.STATS_DATA = {
       "resultado": "derrota"
     },
     "barcelona": {
-      "rival": "Rayo Vallecano",
-      "golesLocal": 5,
-      "golesVisitante": 2,
-      "esLocal": true,
+      "rival": "Valencia",
+      "golesLocal": 0,
+      "golesVisitante": 5,
+      "esLocal": false,
       "competicion": "La Liga",
-      "fecha": "2026-08-31",
+      "fecha": "2026-09-06",
       "resultado": "victoria"
     }
   },
@@ -897,11 +897,11 @@ DataService.STATS_DATA = {
         "golesEnContra": 3
       },
       "barcelona": {
-        "partidosJugados": 3,
-        "ganados": 3,
+        "partidosJugados": 4,
+        "ganados": 4,
         "empatados": 0,
         "perdidos": 0,
-        "golesAFavor": 12,
+        "golesAFavor": 17,
         "golesEnContra": 2
       }
     },
@@ -1017,26 +1017,32 @@ DataService.STATS_DATA = {
         "barcelona": [
           {
             "nombre": "Raphinha",
-            "goles": 5,
-            "partidos": 3,
+            "goles": 6,
+            "partidos": 4,
             "periodo": "2026-27"
           },
           {
             "nombre": "Fermín López",
-            "goles": 3,
-            "partidos": 3,
+            "goles": 4,
+            "partidos": 4,
             "periodo": "2026-27"
           },
           {
             "nombre": "Lamine Yamal",
-            "goles": 2,
-            "partidos": 3,
+            "goles": 4,
+            "partidos": 4,
             "periodo": "2026-27"
           },
           {
             "nombre": "Karim Adeyemi",
             "goles": 1,
-            "partidos": 3,
+            "partidos": 4,
+            "periodo": "2026-27"
+          },
+          {
+            "nombre": "Pedri",
+            "goles": 1,
+            "partidos": 4,
             "periodo": "2026-27"
           }
         ]
@@ -1064,9 +1070,21 @@ DataService.STATS_DATA = {
         ],
         "barcelona": [
           {
+            "nombre": "Fermín López",
+            "asistencias": 2,
+            "partidos": 4,
+            "periodo": "2026-27"
+          },
+          {
             "nombre": "Karim Adeyemi",
             "asistencias": 1,
-            "partidos": 3,
+            "partidos": 4,
+            "periodo": "2026-27"
+          },
+          {
+            "nombre": "Pedri",
+            "asistencias": 1,
+            "partidos": 4,
             "periodo": "2026-27"
           }
         ]
@@ -1080,6 +1098,7 @@ DataService.STATS_DATA = {
         "V"
       ],
       "barcelona": [
+        "V",
         "V",
         "V",
         "V"
@@ -1099,14 +1118,14 @@ DataService.STATS_DATA = {
       },
       "barcelona": {
         "position": 1,
-        "playedGames": 3,
-        "won": 3,
+        "playedGames": 4,
+        "won": 4,
         "draw": 0,
         "lost": 0,
-        "points": 9,
-        "goalsFor": 12,
+        "points": 12,
+        "goalsFor": 17,
         "goalsAgainst": 2,
-        "goalDifference": 10
+        "goalDifference": 15
       }
     }
   },
@@ -1199,10 +1218,10 @@ DataService.STATS_DATA = {
       "esLocal": true
     },
     "barcelona": {
-      "rival": "Valencia",
-      "fecha": "6 de septiembre de 2026",
-      "competicion": "La Liga",
-      "esLocal": false
+      "rival": "Feyenoord",
+      "fecha": "9 de septiembre de 2026",
+      "competicion": "Champions League",
+      "esLocal": true
     }
   },
   "proximoClasico": {
