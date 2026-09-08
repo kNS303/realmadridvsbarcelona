@@ -159,7 +159,7 @@ class DataService {
 DataService.STATS_DATA = {
   "meta": {
     "lastUpdated": "2026-09-08",
-    "lastUpdatedTime": "20:23",
+    "lastUpdatedTime": "01:43",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -383,12 +383,12 @@ DataService.STATS_DATA = {
   },
   "historialGeneral": {
     "realMadrid": {
-      "partidosJugados": 4866,
-      "ganados": 2719,
+      "partidosJugados": 4867,
+      "ganados": 2720,
       "empatados": 912,
       "perdidos": 1235,
-      "golesAFavor": 9281,
-      "golesEnContra": 5540
+      "golesAFavor": 9283,
+      "golesEnContra": 5541
     },
     "barcelona": {
       "partidosJugados": 4796,
@@ -837,13 +837,13 @@ DataService.STATS_DATA = {
   },
   "ultimoPartido": {
     "realMadrid": {
-      "rival": "Real Betis",
-      "golesLocal": 1,
-      "golesVisitante": 0,
-      "esLocal": false,
-      "competicion": "La Liga",
-      "fecha": "2026-09-04",
-      "resultado": "derrota"
+      "rival": "Inter",
+      "golesLocal": 2,
+      "golesVisitante": 1,
+      "esLocal": true,
+      "competicion": "Champions League",
+      "fecha": "2026-09-08",
+      "resultado": "victoria"
     },
     "barcelona": {
       "rival": "Valencia",
@@ -889,12 +889,12 @@ DataService.STATS_DATA = {
     },
     "historialGeneral": {
       "realMadrid": {
-        "partidosJugados": 4,
-        "ganados": 3,
+        "partidosJugados": 5,
+        "ganados": 4,
         "empatados": 0,
         "perdidos": 1,
-        "golesAFavor": 10,
-        "golesEnContra": 3
+        "golesAFavor": 12,
+        "golesEnContra": 4
       },
       "barcelona": {
         "partidosJugados": 4,
@@ -985,8 +985,8 @@ DataService.STATS_DATA = {
         "realMadrid": [
           {
             "nombre": "Kylian Mbappé",
-            "goles": 4,
-            "partidos": 4,
+            "goles": 5,
+            "partidos": 5,
             "periodo": "2026-27"
           },
           {
@@ -1092,6 +1092,7 @@ DataService.STATS_DATA = {
     },
     "formaReciente": {
       "realMadrid": [
+        "V",
         "D",
         "V",
         "V",
@@ -1212,9 +1213,9 @@ DataService.STATS_DATA = {
   },
   "proximoPartido": {
     "realMadrid": {
-      "rival": "Inter",
-      "fecha": "8 de septiembre de 2026",
-      "competicion": "Champions League",
+      "rival": "Rayo Vallecano",
+      "fecha": "12 de septiembre de 2026",
+      "competicion": "La Liga",
       "esLocal": true
     },
     "barcelona": {
