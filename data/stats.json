@@ -1,7 +1,7 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-08",
-    "lastUpdatedTime": "01:43",
+    "lastUpdated": "2026-09-09",
+    "lastUpdatedTime": "20:22",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -859,8 +859,8 @@
         "barcelona": [
           {
             "nombre": "Raphinha",
-            "goles": 6,
-            "partidos": 4,
+            "goles": 8,
+            "partidos": 5,
             "periodo": "2026-27"
           },
           {
@@ -877,8 +877,8 @@
           },
           {
             "nombre": "Karim Adeyemi",
-            "goles": 1,
-            "partidos": 4,
+            "goles": 2,
+            "partidos": 5,
             "periodo": "2026-27"
           },
           {
@@ -920,7 +920,7 @@
           {
             "nombre": "Karim Adeyemi",
             "asistencias": 1,
-            "partidos": 4,
+            "partidos": 5,
             "periodo": "2026-27"
           },
           {
@@ -1061,10 +1061,10 @@
       "esLocal": true
     },
     "barcelona": {
-      "rival": "Feyenoord",
-      "fecha": "9 de septiembre de 2026",
-      "competicion": "Champions League",
-      "esLocal": true
+      "rival": "Levante",
+      "fecha": "13 de septiembre de 2026",
+      "competicion": "La Liga",
+      "esLocal": false
     }
   },
   "proximoClasico": {

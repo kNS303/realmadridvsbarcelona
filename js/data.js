@@ -158,8 +158,8 @@ class DataService {
 // ====== DATOS ESTADÍSTICOS EMBEBIDOS ======
 DataService.STATS_DATA = {
   "meta": {
-    "lastUpdated": "2026-09-08",
-    "lastUpdatedTime": "01:43",
+    "lastUpdated": "2026-09-09",
+    "lastUpdatedTime": "20:22",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -1017,8 +1017,8 @@ DataService.STATS_DATA = {
         "barcelona": [
           {
             "nombre": "Raphinha",
-            "goles": 6,
-            "partidos": 4,
+            "goles": 8,
+            "partidos": 5,
             "periodo": "2026-27"
           },
           {
@@ -1035,8 +1035,8 @@ DataService.STATS_DATA = {
           },
           {
             "nombre": "Karim Adeyemi",
-            "goles": 1,
-            "partidos": 4,
+            "goles": 2,
+            "partidos": 5,
             "periodo": "2026-27"
           },
           {
@@ -1078,7 +1078,7 @@ DataService.STATS_DATA = {
           {
             "nombre": "Karim Adeyemi",
             "asistencias": 1,
-            "partidos": 4,
+            "partidos": 5,
             "periodo": "2026-27"
           },
           {
@@ -1219,10 +1219,10 @@ DataService.STATS_DATA = {
       "esLocal": true
     },
     "barcelona": {
-      "rival": "Feyenoord",
-      "fecha": "9 de septiembre de 2026",
-      "competicion": "Champions League",
-      "esLocal": true
+      "rival": "Levante",
+      "fecha": "13 de septiembre de 2026",
+      "competicion": "La Liga",
+      "esLocal": false
     }
   },
   "proximoClasico": {
