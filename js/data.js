@@ -159,7 +159,7 @@ class DataService {
 DataService.STATS_DATA = {
   "meta": {
     "lastUpdated": "2026-09-09",
-    "lastUpdatedTime": "20:22",
+    "lastUpdatedTime": "01:34",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -391,12 +391,12 @@ DataService.STATS_DATA = {
       "golesEnContra": 5541
     },
     "barcelona": {
-      "partidosJugados": 4796,
-      "ganados": 2693,
+      "partidosJugados": 4797,
+      "ganados": 2694,
       "empatados": 890,
       "perdidos": 1213,
-      "golesAFavor": 9187,
-      "golesEnContra": 5393
+      "golesAFavor": 9192,
+      "golesEnContra": 5394
     }
   },
   "elClasico": {
@@ -846,12 +846,12 @@ DataService.STATS_DATA = {
       "resultado": "victoria"
     },
     "barcelona": {
-      "rival": "Valencia",
-      "golesLocal": 0,
-      "golesVisitante": 5,
-      "esLocal": false,
-      "competicion": "La Liga",
-      "fecha": "2026-09-06",
+      "rival": "Feyenoord",
+      "golesLocal": 5,
+      "golesVisitante": 1,
+      "esLocal": true,
+      "competicion": "Champions League",
+      "fecha": "2026-09-09",
       "resultado": "victoria"
     }
   },
@@ -897,12 +897,12 @@ DataService.STATS_DATA = {
         "golesEnContra": 4
       },
       "barcelona": {
-        "partidosJugados": 4,
-        "ganados": 4,
+        "partidosJugados": 5,
+        "ganados": 5,
         "empatados": 0,
         "perdidos": 0,
-        "golesAFavor": 17,
-        "golesEnContra": 2
+        "golesAFavor": 22,
+        "golesEnContra": 3
       }
     },
     "elClasico": {
@@ -1022,13 +1022,13 @@ DataService.STATS_DATA = {
             "periodo": "2026-27"
           },
           {
-            "nombre": "Fermín López",
-            "goles": 4,
-            "partidos": 4,
+            "nombre": "Lamine Yamal",
+            "goles": 5,
+            "partidos": 5,
             "periodo": "2026-27"
           },
           {
-            "nombre": "Lamine Yamal",
+            "nombre": "Fermín López",
             "goles": 4,
             "partidos": 4,
             "periodo": "2026-27"
@@ -1076,6 +1076,12 @@ DataService.STATS_DATA = {
             "periodo": "2026-27"
           },
           {
+            "nombre": "Lamine Yamal",
+            "asistencias": 2,
+            "partidos": 5,
+            "periodo": "2026-27"
+          },
+          {
             "nombre": "Karim Adeyemi",
             "asistencias": 1,
             "partidos": 5,
@@ -1099,6 +1105,7 @@ DataService.STATS_DATA = {
         "V"
       ],
       "barcelona": [
+        "V",
         "V",
         "V",
         "V",
