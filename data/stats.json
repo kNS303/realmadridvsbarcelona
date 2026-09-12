@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastUpdated": "2026-09-12",
-    "lastUpdatedTime": "19:43",
+    "lastUpdatedTime": "01:28",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -225,12 +225,12 @@
   },
   "historialGeneral": {
     "realMadrid": {
-      "partidosJugados": 4867,
-      "ganados": 2720,
+      "partidosJugados": 4868,
+      "ganados": 2721,
       "empatados": 912,
       "perdidos": 1235,
-      "golesAFavor": 9283,
-      "golesEnContra": 5541
+      "golesAFavor": 9287,
+      "golesEnContra": 5542
     },
     "barcelona": {
       "partidosJugados": 4797,
@@ -679,12 +679,12 @@
   },
   "ultimoPartido": {
     "realMadrid": {
-      "rival": "Inter",
-      "golesLocal": 2,
+      "rival": "Rayo Vallecano",
+      "golesLocal": 4,
       "golesVisitante": 1,
       "esLocal": true,
-      "competicion": "Champions League",
-      "fecha": "2026-09-08",
+      "competicion": "La Liga",
+      "fecha": "2026-09-12",
       "resultado": "victoria"
     },
     "barcelona": {
@@ -731,12 +731,12 @@
     },
     "historialGeneral": {
       "realMadrid": {
-        "partidosJugados": 5,
-        "ganados": 4,
+        "partidosJugados": 6,
+        "ganados": 5,
         "empatados": 0,
         "perdidos": 1,
-        "golesAFavor": 12,
-        "golesEnContra": 4
+        "golesAFavor": 16,
+        "golesEnContra": 5
       },
       "barcelona": {
         "partidosJugados": 5,
@@ -827,32 +827,32 @@
         "realMadrid": [
           {
             "nombre": "Kylian Mbappé",
-            "goles": 5,
-            "partidos": 5,
+            "goles": 7,
+            "partidos": 6,
             "periodo": "2026-27"
           },
           {
             "nombre": "Jude Bellingham",
-            "goles": 2,
-            "partidos": 4,
+            "goles": 3,
+            "partidos": 5,
             "periodo": "2026-27"
           },
           {
             "nombre": "Carlos Espí",
             "goles": 1,
-            "partidos": 4,
+            "partidos": 5,
             "periodo": "2026-27"
           },
           {
             "nombre": "Vinicius Junior",
             "goles": 1,
-            "partidos": 4,
+            "partidos": 5,
             "periodo": "2026-27"
           },
           {
             "nombre": "Arda Guler",
             "goles": 1,
-            "partidos": 4,
+            "partidos": 5,
             "periodo": "2026-27"
           }
         ],
@@ -892,21 +892,27 @@
       "asistentes": {
         "realMadrid": [
           {
-            "nombre": "Jude Bellingham",
-            "asistencias": 2,
-            "partidos": 4,
+            "nombre": "Vinicius Junior",
+            "asistencias": 3,
+            "partidos": 5,
             "periodo": "2026-27"
           },
           {
-            "nombre": "Vinicius Junior",
+            "nombre": "Jude Bellingham",
             "asistencias": 2,
-            "partidos": 4,
+            "partidos": 5,
             "periodo": "2026-27"
           },
           {
             "nombre": "Arda Guler",
+            "asistencias": 2,
+            "partidos": 5,
+            "periodo": "2026-27"
+          },
+          {
+            "nombre": "Kylian Mbappé",
             "asistencias": 1,
-            "partidos": 4,
+            "partidos": 6,
             "periodo": "2026-27"
           }
         ],
@@ -941,8 +947,8 @@
     "formaReciente": {
       "realMadrid": [
         "V",
-        "D",
         "V",
+        "D",
         "V",
         "V"
       ],
@@ -956,15 +962,15 @@
     },
     "standings": {
       "realMadrid": {
-        "position": 4,
-        "playedGames": 4,
-        "won": 3,
+        "position": 2,
+        "playedGames": 5,
+        "won": 4,
         "draw": 0,
         "lost": 1,
-        "points": 9,
-        "goalsFor": 10,
-        "goalsAgainst": 3,
-        "goalDifference": 7
+        "points": 12,
+        "goalsFor": 14,
+        "goalsAgainst": 4,
+        "goalDifference": 10
       },
       "barcelona": {
         "position": 1,
@@ -1062,10 +1068,10 @@
   },
   "proximoPartido": {
     "realMadrid": {
-      "rival": "Rayo Vallecano",
-      "fecha": "12 de septiembre de 2026",
+      "rival": "Elche",
+      "fecha": "15 de septiembre de 2026",
       "competicion": "La Liga",
-      "esLocal": true
+      "esLocal": false
     },
     "barcelona": {
       "rival": "Levante",
