@@ -158,8 +158,8 @@ class DataService {
 // ====== DATOS ESTADÍSTICOS EMBEBIDOS ======
 DataService.STATS_DATA = {
   "meta": {
-    "lastUpdated": "2026-09-12",
-    "lastUpdatedTime": "01:28",
+    "lastUpdated": "2026-09-13",
+    "lastUpdatedTime": "19:59",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -391,12 +391,12 @@ DataService.STATS_DATA = {
       "golesEnContra": 5542
     },
     "barcelona": {
-      "partidosJugados": 4797,
-      "ganados": 2694,
+      "partidosJugados": 4798,
+      "ganados": 2695,
       "empatados": 890,
       "perdidos": 1213,
-      "golesAFavor": 9192,
-      "golesEnContra": 5394
+      "golesAFavor": 9196,
+      "golesEnContra": 5396
     }
   },
   "elClasico": {
@@ -846,12 +846,12 @@ DataService.STATS_DATA = {
       "resultado": "victoria"
     },
     "barcelona": {
-      "rival": "Feyenoord",
-      "golesLocal": 5,
-      "golesVisitante": 1,
-      "esLocal": true,
-      "competicion": "Champions League",
-      "fecha": "2026-09-09",
+      "rival": "Levante",
+      "golesLocal": 2,
+      "golesVisitante": 4,
+      "esLocal": false,
+      "competicion": "La Liga",
+      "fecha": "2026-09-13",
       "resultado": "victoria"
     }
   },
@@ -897,12 +897,12 @@ DataService.STATS_DATA = {
         "golesEnContra": 5
       },
       "barcelona": {
-        "partidosJugados": 5,
-        "ganados": 5,
+        "partidosJugados": 6,
+        "ganados": 6,
         "empatados": 0,
         "perdidos": 0,
-        "golesAFavor": 22,
-        "golesEnContra": 3
+        "golesAFavor": 26,
+        "golesEnContra": 5
       }
     },
     "elClasico": {
@@ -1018,31 +1018,31 @@ DataService.STATS_DATA = {
           {
             "nombre": "Raphinha",
             "goles": 8,
-            "partidos": 5,
+            "partidos": 6,
             "periodo": "2026-27"
           },
           {
             "nombre": "Lamine Yamal",
-            "goles": 5,
-            "partidos": 5,
+            "goles": 7,
+            "partidos": 6,
             "periodo": "2026-27"
           },
           {
             "nombre": "Fermín López",
             "goles": 4,
-            "partidos": 4,
+            "partidos": 5,
             "periodo": "2026-27"
           },
           {
             "nombre": "Karim Adeyemi",
-            "goles": 2,
-            "partidos": 5,
+            "goles": 3,
+            "partidos": 6,
             "periodo": "2026-27"
           },
           {
             "nombre": "Pedri",
             "goles": 1,
-            "partidos": 4,
+            "partidos": 5,
             "periodo": "2026-27"
           }
         ]
@@ -1076,13 +1076,19 @@ DataService.STATS_DATA = {
         ],
         "barcelona": [
           {
-            "nombre": "Fermín López",
+            "nombre": "Raphinha",
             "asistencias": 2,
-            "partidos": 4,
+            "partidos": 6,
             "periodo": "2026-27"
           },
           {
             "nombre": "Lamine Yamal",
+            "asistencias": 2,
+            "partidos": 6,
+            "periodo": "2026-27"
+          },
+          {
+            "nombre": "Fermín López",
             "asistencias": 2,
             "partidos": 5,
             "periodo": "2026-27"
@@ -1090,13 +1096,13 @@ DataService.STATS_DATA = {
           {
             "nombre": "Karim Adeyemi",
             "asistencias": 1,
-            "partidos": 5,
+            "partidos": 6,
             "periodo": "2026-27"
           },
           {
             "nombre": "Pedri",
             "asistencias": 1,
-            "partidos": 4,
+            "partidos": 5,
             "periodo": "2026-27"
           }
         ]
@@ -1132,14 +1138,14 @@ DataService.STATS_DATA = {
       },
       "barcelona": {
         "position": 1,
-        "playedGames": 4,
-        "won": 4,
+        "playedGames": 5,
+        "won": 5,
         "draw": 0,
         "lost": 0,
-        "points": 12,
-        "goalsFor": 17,
-        "goalsAgainst": 2,
-        "goalDifference": 15
+        "points": 15,
+        "goalsFor": 21,
+        "goalsAgainst": 4,
+        "goalDifference": 17
       }
     }
   },
@@ -1232,10 +1238,10 @@ DataService.STATS_DATA = {
       "esLocal": false
     },
     "barcelona": {
-      "rival": "Levante",
-      "fecha": "13 de septiembre de 2026",
+      "rival": "Santander",
+      "fecha": "16 de septiembre de 2026",
       "competicion": "La Liga",
-      "esLocal": false
+      "esLocal": true
     }
   },
   "proximoClasico": {
