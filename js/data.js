@@ -159,7 +159,7 @@ class DataService {
 DataService.STATS_DATA = {
   "meta": {
     "lastUpdated": "2026-09-15",
-    "lastUpdatedTime": "02:02",
+    "lastUpdatedTime": "20:46",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -986,31 +986,31 @@ DataService.STATS_DATA = {
           {
             "nombre": "Kylian Mbappé",
             "goles": 7,
-            "partidos": 6,
+            "partidos": 7,
             "periodo": "2026-27"
           },
           {
             "nombre": "Jude Bellingham",
             "goles": 3,
-            "partidos": 5,
+            "partidos": 6,
             "periodo": "2026-27"
           },
           {
             "nombre": "Carlos Espí",
             "goles": 1,
-            "partidos": 5,
+            "partidos": 6,
             "periodo": "2026-27"
           },
           {
             "nombre": "Vinicius Junior",
             "goles": 1,
-            "partidos": 5,
+            "partidos": 6,
             "periodo": "2026-27"
           },
           {
             "nombre": "Arda Guler",
             "goles": 1,
-            "partidos": 5,
+            "partidos": 6,
             "periodo": "2026-27"
           }
         ],
@@ -1052,25 +1052,25 @@ DataService.STATS_DATA = {
           {
             "nombre": "Vinicius Junior",
             "asistencias": 3,
-            "partidos": 5,
+            "partidos": 6,
             "periodo": "2026-27"
           },
           {
             "nombre": "Jude Bellingham",
             "asistencias": 2,
-            "partidos": 5,
+            "partidos": 6,
             "periodo": "2026-27"
           },
           {
             "nombre": "Arda Guler",
             "asistencias": 2,
-            "partidos": 5,
+            "partidos": 6,
             "periodo": "2026-27"
           },
           {
             "nombre": "Kylian Mbappé",
             "asistencias": 1,
-            "partidos": 6,
+            "partidos": 7,
             "periodo": "2026-27"
           }
         ],
