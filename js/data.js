@@ -158,8 +158,8 @@ class DataService {
 // ====== DATOS ESTADÍSTICOS EMBEBIDOS ======
 DataService.STATS_DATA = {
   "meta": {
-    "lastUpdated": "2026-09-15",
-    "lastUpdatedTime": "01:46",
+    "lastUpdated": "2026-09-16",
+    "lastUpdatedTime": "20:45",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -1018,31 +1018,31 @@ DataService.STATS_DATA = {
           {
             "nombre": "Raphinha",
             "goles": 8,
-            "partidos": 6,
+            "partidos": 7,
             "periodo": "2026-27"
           },
           {
             "nombre": "Lamine Yamal",
             "goles": 7,
-            "partidos": 6,
+            "partidos": 7,
             "periodo": "2026-27"
           },
           {
             "nombre": "Fermín López",
             "goles": 4,
-            "partidos": 5,
+            "partidos": 6,
             "periodo": "2026-27"
           },
           {
             "nombre": "Karim Adeyemi",
             "goles": 3,
-            "partidos": 6,
+            "partidos": 7,
             "periodo": "2026-27"
           },
           {
             "nombre": "Pedri",
             "goles": 1,
-            "partidos": 5,
+            "partidos": 6,
             "periodo": "2026-27"
           }
         ]
@@ -1078,31 +1078,31 @@ DataService.STATS_DATA = {
           {
             "nombre": "Raphinha",
             "asistencias": 2,
-            "partidos": 6,
+            "partidos": 7,
             "periodo": "2026-27"
           },
           {
             "nombre": "Lamine Yamal",
             "asistencias": 2,
-            "partidos": 6,
+            "partidos": 7,
             "periodo": "2026-27"
           },
           {
             "nombre": "Fermín López",
             "asistencias": 2,
-            "partidos": 5,
+            "partidos": 6,
             "periodo": "2026-27"
           },
           {
             "nombre": "Karim Adeyemi",
             "asistencias": 1,
-            "partidos": 6,
+            "partidos": 7,
             "periodo": "2026-27"
           },
           {
             "nombre": "Pedri",
             "asistencias": 1,
-            "partidos": 5,
+            "partidos": 6,
             "periodo": "2026-27"
           }
         ]
