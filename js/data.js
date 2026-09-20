@@ -158,8 +158,8 @@ class DataService {
 // ====== DATOS ESTADÍSTICOS EMBEBIDOS ======
 DataService.STATS_DATA = {
   "meta": {
-    "lastUpdated": "2026-09-19",
-    "lastUpdatedTime": "01:40",
+    "lastUpdated": "2026-09-20",
+    "lastUpdatedTime": "20:05",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -383,12 +383,12 @@ DataService.STATS_DATA = {
   },
   "historialGeneral": {
     "realMadrid": {
-      "partidosJugados": 4869,
+      "partidosJugados": 4870,
       "ganados": 2722,
       "empatados": 912,
-      "perdidos": 1235,
-      "golesAFavor": 9290,
-      "golesEnContra": 5544
+      "perdidos": 1236,
+      "golesAFavor": 9291,
+      "golesEnContra": 5546
     },
     "barcelona": {
       "partidosJugados": 4800,
@@ -837,13 +837,13 @@ DataService.STATS_DATA = {
   },
   "ultimoPartido": {
     "realMadrid": {
-      "rival": "Elche",
+      "rival": "Atleti",
       "golesLocal": 2,
-      "golesVisitante": 3,
+      "golesVisitante": 1,
       "esLocal": false,
       "competicion": "La Liga",
-      "fecha": "2026-09-15",
-      "resultado": "victoria"
+      "fecha": "2026-09-20",
+      "resultado": "derrota"
     },
     "barcelona": {
       "rival": "Sevilla FC",
@@ -889,12 +889,12 @@ DataService.STATS_DATA = {
     },
     "historialGeneral": {
       "realMadrid": {
-        "partidosJugados": 7,
+        "partidosJugados": 8,
         "ganados": 6,
         "empatados": 0,
-        "perdidos": 1,
-        "golesAFavor": 19,
-        "golesEnContra": 7
+        "perdidos": 2,
+        "golesAFavor": 20,
+        "golesEnContra": 9
       },
       "barcelona": {
         "partidosJugados": 8,
@@ -986,31 +986,31 @@ DataService.STATS_DATA = {
           {
             "nombre": "Kylian Mbappé",
             "goles": 8,
-            "partidos": 7,
+            "partidos": 8,
             "periodo": "2026-27"
           },
           {
             "nombre": "Jude Bellingham",
             "goles": 3,
-            "partidos": 6,
+            "partidos": 7,
             "periodo": "2026-27"
           },
           {
             "nombre": "Carlos Espí",
             "goles": 2,
-            "partidos": 6,
+            "partidos": 7,
             "periodo": "2026-27"
           },
           {
             "nombre": "Vinicius Junior",
             "goles": 1,
-            "partidos": 6,
+            "partidos": 7,
             "periodo": "2026-27"
           },
           {
             "nombre": "Arda Guler",
             "goles": 1,
-            "partidos": 6,
+            "partidos": 7,
             "periodo": "2026-27"
           }
         ],
@@ -1052,25 +1052,25 @@ DataService.STATS_DATA = {
           {
             "nombre": "Vinicius Junior",
             "asistencias": 3,
-            "partidos": 6,
+            "partidos": 7,
             "periodo": "2026-27"
           },
           {
             "nombre": "Kylian Mbappé",
             "asistencias": 2,
-            "partidos": 7,
+            "partidos": 8,
             "periodo": "2026-27"
           },
           {
             "nombre": "Jude Bellingham",
             "asistencias": 2,
-            "partidos": 6,
+            "partidos": 7,
             "periodo": "2026-27"
           },
           {
             "nombre": "Arda Guler",
             "asistencias": 2,
-            "partidos": 6,
+            "partidos": 7,
             "periodo": "2026-27"
           }
         ],
@@ -1110,11 +1110,11 @@ DataService.STATS_DATA = {
     },
     "formaReciente": {
       "realMadrid": [
-        "V",
-        "V",
-        "V",
         "D",
-        "V"
+        "V",
+        "V",
+        "V",
+        "D"
       ],
       "barcelona": [
         "V",
@@ -1126,15 +1126,15 @@ DataService.STATS_DATA = {
     },
     "standings": {
       "realMadrid": {
-        "position": 2,
-        "playedGames": 6,
+        "position": 3,
+        "playedGames": 7,
         "won": 5,
         "draw": 0,
-        "lost": 1,
+        "lost": 2,
         "points": 15,
-        "goalsFor": 17,
-        "goalsAgainst": 6,
-        "goalDifference": 11
+        "goalsFor": 18,
+        "goalsAgainst": 8,
+        "goalDifference": 10
       },
       "barcelona": {
         "position": 1,
@@ -1232,10 +1232,10 @@ DataService.STATS_DATA = {
   },
   "proximoPartido": {
     "realMadrid": {
-      "rival": "Atleti",
-      "fecha": "20 de septiembre de 2026",
+      "rival": "Villarreal",
+      "fecha": "10 de octubre de 2026",
       "competicion": "La Liga",
-      "esLocal": false
+      "esLocal": true
     },
     "barcelona": {
       "rival": "Getafe",
