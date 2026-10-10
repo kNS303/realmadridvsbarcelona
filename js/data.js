@@ -159,7 +159,7 @@ class DataService {
 DataService.STATS_DATA = {
   "meta": {
     "lastUpdated": "2026-10-10",
-    "lastUpdatedTime": "03:20",
+    "lastUpdatedTime": "21:10",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -391,11 +391,11 @@ DataService.STATS_DATA = {
       "golesEnContra": 5546
     },
     "barcelona": {
-      "partidosJugados": 4800,
-      "ganados": 2697,
+      "partidosJugados": 4801,
+      "ganados": 2698,
       "empatados": 890,
       "perdidos": 1213,
-      "golesAFavor": 9206,
+      "golesAFavor": 9209,
       "golesEnContra": 5399
     }
   },
@@ -846,12 +846,12 @@ DataService.STATS_DATA = {
       "resultado": "derrota"
     },
     "barcelona": {
-      "rival": "Sevilla FC",
-      "golesLocal": 1,
-      "golesVisitante": 3,
-      "esLocal": false,
+      "rival": "Getafe",
+      "golesLocal": 3,
+      "golesVisitante": 0,
+      "esLocal": true,
       "competicion": "La Liga",
-      "fecha": "2026-09-19",
+      "fecha": "2026-10-10",
       "resultado": "victoria"
     }
   },
@@ -897,11 +897,11 @@ DataService.STATS_DATA = {
         "golesEnContra": 9
       },
       "barcelona": {
-        "partidosJugados": 8,
-        "ganados": 8,
+        "partidosJugados": 9,
+        "ganados": 9,
         "empatados": 0,
         "perdidos": 0,
-        "golesAFavor": 36,
+        "golesAFavor": 39,
         "golesEnContra": 8
       }
     },
@@ -986,31 +986,31 @@ DataService.STATS_DATA = {
           {
             "nombre": "Kylian Mbappé",
             "goles": 8,
-            "partidos": 8,
+            "partidos": 9,
             "periodo": "2026-27"
           },
           {
             "nombre": "Jude Bellingham",
             "goles": 3,
-            "partidos": 7,
+            "partidos": 8,
             "periodo": "2026-27"
           },
           {
             "nombre": "Carlos Espí",
             "goles": 2,
-            "partidos": 7,
+            "partidos": 8,
             "periodo": "2026-27"
           },
           {
             "nombre": "Vinicius Junior",
             "goles": 1,
-            "partidos": 7,
+            "partidos": 8,
             "periodo": "2026-27"
           },
           {
             "nombre": "Arda Guler",
             "goles": 1,
-            "partidos": 7,
+            "partidos": 8,
             "periodo": "2026-27"
           }
         ],
@@ -1024,25 +1024,25 @@ DataService.STATS_DATA = {
           {
             "nombre": "Lamine Yamal",
             "goles": 8,
-            "partidos": 8,
+            "partidos": 9,
             "periodo": "2026-27"
           },
           {
             "nombre": "Fermín López",
             "goles": 4,
-            "partidos": 7,
+            "partidos": 8,
             "periodo": "2026-27"
           },
           {
             "nombre": "Karim Adeyemi",
             "goles": 3,
-            "partidos": 8,
+            "partidos": 9,
             "periodo": "2026-27"
           },
           {
             "nombre": "Gabriel Jesus",
-            "goles": 2,
-            "partidos": 5,
+            "goles": 3,
+            "partidos": 6,
             "periodo": "2026-27"
           }
         ]
@@ -1052,33 +1052,33 @@ DataService.STATS_DATA = {
           {
             "nombre": "Vinicius Junior",
             "asistencias": 3,
-            "partidos": 7,
+            "partidos": 8,
             "periodo": "2026-27"
           },
           {
             "nombre": "Kylian Mbappé",
             "asistencias": 2,
-            "partidos": 8,
+            "partidos": 9,
             "periodo": "2026-27"
           },
           {
             "nombre": "Jude Bellingham",
             "asistencias": 2,
-            "partidos": 7,
+            "partidos": 8,
             "periodo": "2026-27"
           },
           {
             "nombre": "Arda Guler",
             "asistencias": 2,
-            "partidos": 7,
+            "partidos": 8,
             "periodo": "2026-27"
           }
         ],
         "barcelona": [
           {
             "nombre": "Lamine Yamal",
-            "asistencias": 6,
-            "partidos": 8,
+            "asistencias": 7,
+            "partidos": 9,
             "periodo": "2026-27"
           },
           {
@@ -1090,19 +1090,19 @@ DataService.STATS_DATA = {
           {
             "nombre": "Fermín López",
             "asistencias": 2,
-            "partidos": 7,
+            "partidos": 8,
             "periodo": "2026-27"
           },
           {
             "nombre": "Karim Adeyemi",
             "asistencias": 2,
-            "partidos": 8,
+            "partidos": 9,
             "periodo": "2026-27"
           },
           {
             "nombre": "Pedri",
             "asistencias": 1,
-            "partidos": 7,
+            "partidos": 8,
             "periodo": "2026-27"
           }
         ]
@@ -1138,14 +1138,14 @@ DataService.STATS_DATA = {
       },
       "barcelona": {
         "position": 1,
-        "playedGames": 7,
-        "won": 7,
+        "playedGames": 8,
+        "won": 8,
         "draw": 0,
         "lost": 0,
-        "points": 21,
-        "goalsFor": 31,
+        "points": 24,
+        "goalsFor": 34,
         "goalsAgainst": 7,
-        "goalDifference": 24
+        "goalDifference": 27
       }
     }
   },
@@ -1232,16 +1232,16 @@ DataService.STATS_DATA = {
   },
   "proximoPartido": {
     "realMadrid": {
-      "rival": "Villarreal",
-      "fecha": "10 de octubre de 2026",
-      "competicion": "La Liga",
-      "esLocal": true
+      "rival": "Roma",
+      "fecha": "14 de octubre de 2026",
+      "competicion": "Champions League",
+      "esLocal": false
     },
     "barcelona": {
-      "rival": "Getafe",
-      "fecha": "10 de octubre de 2026",
-      "competicion": "La Liga",
-      "esLocal": true
+      "rival": "Galatasaray",
+      "fecha": "13 de octubre de 2026",
+      "competicion": "Champions League",
+      "esLocal": false
     }
   },
   "proximoClasico": {
