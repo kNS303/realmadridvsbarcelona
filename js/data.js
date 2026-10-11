@@ -158,8 +158,8 @@ class DataService {
 // ====== DATOS ESTADÍSTICOS EMBEBIDOS ======
 DataService.STATS_DATA = {
   "meta": {
-    "lastUpdated": "2026-10-10",
-    "lastUpdatedTime": "21:10",
+    "lastUpdated": "2026-10-11",
+    "lastUpdatedTime": "02:33",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -383,11 +383,11 @@ DataService.STATS_DATA = {
   },
   "historialGeneral": {
     "realMadrid": {
-      "partidosJugados": 4870,
-      "ganados": 2722,
+      "partidosJugados": 4871,
+      "ganados": 2723,
       "empatados": 912,
       "perdidos": 1236,
-      "golesAFavor": 9291,
+      "golesAFavor": 9292,
       "golesEnContra": 5546
     },
     "barcelona": {
@@ -837,13 +837,13 @@ DataService.STATS_DATA = {
   },
   "ultimoPartido": {
     "realMadrid": {
-      "rival": "Atleti",
-      "golesLocal": 2,
-      "golesVisitante": 1,
-      "esLocal": false,
+      "rival": "Villarreal",
+      "golesLocal": 1,
+      "golesVisitante": 0,
+      "esLocal": true,
       "competicion": "La Liga",
-      "fecha": "2026-09-20",
-      "resultado": "derrota"
+      "fecha": "2026-10-10",
+      "resultado": "victoria"
     },
     "barcelona": {
       "rival": "Getafe",
@@ -889,11 +889,11 @@ DataService.STATS_DATA = {
     },
     "historialGeneral": {
       "realMadrid": {
-        "partidosJugados": 8,
-        "ganados": 6,
+        "partidosJugados": 9,
+        "ganados": 7,
         "empatados": 0,
         "perdidos": 2,
-        "golesAFavor": 20,
+        "golesAFavor": 21,
         "golesEnContra": 9
       },
       "barcelona": {
@@ -1110,11 +1110,11 @@ DataService.STATS_DATA = {
     },
     "formaReciente": {
       "realMadrid": [
+        "V",
         "D",
         "V",
         "V",
-        "V",
-        "D"
+        "V"
       ],
       "barcelona": [
         "V",
@@ -1126,15 +1126,15 @@ DataService.STATS_DATA = {
     },
     "standings": {
       "realMadrid": {
-        "position": 4,
-        "playedGames": 7,
-        "won": 5,
+        "position": 3,
+        "playedGames": 8,
+        "won": 6,
         "draw": 0,
         "lost": 2,
-        "points": 15,
-        "goalsFor": 18,
+        "points": 18,
+        "goalsFor": 19,
         "goalsAgainst": 8,
-        "goalDifference": 10
+        "goalDifference": 11
       },
       "barcelona": {
         "position": 1,
