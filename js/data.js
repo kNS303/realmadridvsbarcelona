@@ -159,7 +159,7 @@ class DataService {
 DataService.STATS_DATA = {
   "meta": {
     "lastUpdated": "2026-10-13",
-    "lastUpdatedTime": "04:44",
+    "lastUpdatedTime": "22:33",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -1024,25 +1024,25 @@ DataService.STATS_DATA = {
           {
             "nombre": "Lamine Yamal",
             "goles": 8,
-            "partidos": 9,
+            "partidos": 10,
             "periodo": "2026-27"
           },
           {
             "nombre": "Fermín López",
-            "goles": 4,
-            "partidos": 8,
+            "goles": 5,
+            "partidos": 10,
             "periodo": "2026-27"
           },
           {
             "nombre": "Karim Adeyemi",
-            "goles": 3,
-            "partidos": 9,
+            "goles": 4,
+            "partidos": 10,
             "periodo": "2026-27"
           },
           {
             "nombre": "Gabriel Jesus",
             "goles": 3,
-            "partidos": 6,
+            "partidos": 7,
             "periodo": "2026-27"
           }
         ]
@@ -1077,8 +1077,8 @@ DataService.STATS_DATA = {
         "barcelona": [
           {
             "nombre": "Lamine Yamal",
-            "asistencias": 7,
-            "partidos": 9,
+            "asistencias": 9,
+            "partidos": 10,
             "periodo": "2026-27"
           },
           {
@@ -1090,19 +1090,19 @@ DataService.STATS_DATA = {
           {
             "nombre": "Fermín López",
             "asistencias": 2,
-            "partidos": 8,
+            "partidos": 10,
             "periodo": "2026-27"
           },
           {
             "nombre": "Karim Adeyemi",
             "asistencias": 2,
-            "partidos": 9,
+            "partidos": 10,
             "periodo": "2026-27"
           },
           {
-            "nombre": "Pedri",
+            "nombre": "Gabriel Jesus",
             "asistencias": 1,
-            "partidos": 8,
+            "partidos": 7,
             "periodo": "2026-27"
           }
         ]
@@ -1238,9 +1238,9 @@ DataService.STATS_DATA = {
       "esLocal": false
     },
     "barcelona": {
-      "rival": "Galatasaray",
-      "fecha": "13 de octubre de 2026",
-      "competicion": "Champions League",
+      "rival": "Real Betis",
+      "fecha": "17 de octubre de 2026",
+      "competicion": "La Liga",
       "esLocal": false
     }
   },
