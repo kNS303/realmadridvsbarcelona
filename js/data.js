@@ -159,7 +159,7 @@ class DataService {
 DataService.STATS_DATA = {
   "meta": {
     "lastUpdated": "2026-10-14",
-    "lastUpdatedTime": "02:40",
+    "lastUpdatedTime": "21:14",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -986,7 +986,7 @@ DataService.STATS_DATA = {
           {
             "nombre": "Kylian Mbappé",
             "goles": 8,
-            "partidos": 9,
+            "partidos": 10,
             "periodo": "2026-27"
           },
           {
@@ -1058,7 +1058,7 @@ DataService.STATS_DATA = {
           {
             "nombre": "Kylian Mbappé",
             "asistencias": 2,
-            "partidos": 9,
+            "partidos": 10,
             "periodo": "2026-27"
           },
           {
@@ -1232,10 +1232,10 @@ DataService.STATS_DATA = {
   },
   "proximoPartido": {
     "realMadrid": {
-      "rival": "Roma",
-      "fecha": "14 de octubre de 2026",
-      "competicion": "Champions League",
-      "esLocal": false
+      "rival": "Sevilla FC",
+      "fecha": "18 de octubre de 2026",
+      "competicion": "La Liga",
+      "esLocal": true
     },
     "barcelona": {
       "rival": "Real Betis",
