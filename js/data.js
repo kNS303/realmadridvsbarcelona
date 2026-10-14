@@ -158,8 +158,8 @@ class DataService {
 // ====== DATOS ESTADÍSTICOS EMBEBIDOS ======
 DataService.STATS_DATA = {
   "meta": {
-    "lastUpdated": "2026-10-13",
-    "lastUpdatedTime": "22:33",
+    "lastUpdated": "2026-10-14",
+    "lastUpdatedTime": "02:40",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -391,12 +391,12 @@ DataService.STATS_DATA = {
       "golesEnContra": 5546
     },
     "barcelona": {
-      "partidosJugados": 4801,
-      "ganados": 2698,
+      "partidosJugados": 4802,
+      "ganados": 2699,
       "empatados": 890,
       "perdidos": 1213,
-      "golesAFavor": 9209,
-      "golesEnContra": 5399
+      "golesAFavor": 9213,
+      "golesEnContra": 5400
     }
   },
   "elClasico": {
@@ -846,12 +846,12 @@ DataService.STATS_DATA = {
       "resultado": "victoria"
     },
     "barcelona": {
-      "rival": "Getafe",
-      "golesLocal": 3,
-      "golesVisitante": 0,
-      "esLocal": true,
-      "competicion": "La Liga",
-      "fecha": "2026-10-10",
+      "rival": "Galatasaray",
+      "golesLocal": 1,
+      "golesVisitante": 4,
+      "esLocal": false,
+      "competicion": "Champions League",
+      "fecha": "2026-10-13",
       "resultado": "victoria"
     }
   },
@@ -897,12 +897,12 @@ DataService.STATS_DATA = {
         "golesEnContra": 9
       },
       "barcelona": {
-        "partidosJugados": 9,
-        "ganados": 9,
+        "partidosJugados": 10,
+        "ganados": 10,
         "empatados": 0,
         "perdidos": 0,
-        "golesAFavor": 39,
-        "golesEnContra": 8
+        "golesAFavor": 43,
+        "golesEnContra": 9
       }
     },
     "elClasico": {
