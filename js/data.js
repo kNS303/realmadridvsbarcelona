@@ -158,8 +158,8 @@ class DataService {
 // ====== DATOS ESTADÍSTICOS EMBEBIDOS ======
 DataService.STATS_DATA = {
   "meta": {
-    "lastUpdated": "2026-10-14",
-    "lastUpdatedTime": "21:14",
+    "lastUpdated": "2026-10-15",
+    "lastUpdatedTime": "02:09",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -383,12 +383,12 @@ DataService.STATS_DATA = {
   },
   "historialGeneral": {
     "realMadrid": {
-      "partidosJugados": 4871,
-      "ganados": 2723,
+      "partidosJugados": 4872,
+      "ganados": 2724,
       "empatados": 912,
       "perdidos": 1236,
-      "golesAFavor": 9292,
-      "golesEnContra": 5546
+      "golesAFavor": 9296,
+      "golesEnContra": 5549
     },
     "barcelona": {
       "partidosJugados": 4802,
@@ -837,12 +837,12 @@ DataService.STATS_DATA = {
   },
   "ultimoPartido": {
     "realMadrid": {
-      "rival": "Villarreal",
-      "golesLocal": 1,
-      "golesVisitante": 0,
-      "esLocal": true,
-      "competicion": "La Liga",
-      "fecha": "2026-10-10",
+      "rival": "Roma",
+      "golesLocal": 3,
+      "golesVisitante": 4,
+      "esLocal": false,
+      "competicion": "Champions League",
+      "fecha": "2026-10-14",
       "resultado": "victoria"
     },
     "barcelona": {
@@ -889,12 +889,12 @@ DataService.STATS_DATA = {
     },
     "historialGeneral": {
       "realMadrid": {
-        "partidosJugados": 9,
-        "ganados": 7,
+        "partidosJugados": 10,
+        "ganados": 8,
         "empatados": 0,
         "perdidos": 2,
-        "golesAFavor": 21,
-        "golesEnContra": 9
+        "golesAFavor": 25,
+        "golesEnContra": 12
       },
       "barcelona": {
         "partidosJugados": 10,
@@ -985,7 +985,7 @@ DataService.STATS_DATA = {
         "realMadrid": [
           {
             "nombre": "Kylian Mbappé",
-            "goles": 8,
+            "goles": 9,
             "partidos": 10,
             "periodo": "2026-27"
           },
@@ -997,8 +997,8 @@ DataService.STATS_DATA = {
           },
           {
             "nombre": "Carlos Espí",
-            "goles": 2,
-            "partidos": 8,
+            "goles": 3,
+            "partidos": 10,
             "periodo": "2026-27"
           },
           {
@@ -1111,8 +1111,8 @@ DataService.STATS_DATA = {
     "formaReciente": {
       "realMadrid": [
         "V",
-        "D",
         "V",
+        "D",
         "V",
         "V"
       ],
