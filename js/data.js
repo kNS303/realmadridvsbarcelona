@@ -159,7 +159,7 @@ class DataService {
 DataService.STATS_DATA = {
   "meta": {
     "lastUpdated": "2026-10-17",
-    "lastUpdatedTime": "19:48",
+    "lastUpdatedTime": "01:31",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -391,12 +391,12 @@ DataService.STATS_DATA = {
       "golesEnContra": 5549
     },
     "barcelona": {
-      "partidosJugados": 4802,
-      "ganados": 2699,
+      "partidosJugados": 4803,
+      "ganados": 2700,
       "empatados": 890,
       "perdidos": 1213,
-      "golesAFavor": 9213,
-      "golesEnContra": 5400
+      "golesAFavor": 9218,
+      "golesEnContra": 5402
     }
   },
   "elClasico": {
@@ -846,12 +846,12 @@ DataService.STATS_DATA = {
       "resultado": "victoria"
     },
     "barcelona": {
-      "rival": "Galatasaray",
-      "golesLocal": 1,
-      "golesVisitante": 4,
+      "rival": "Real Betis",
+      "golesLocal": 2,
+      "golesVisitante": 5,
       "esLocal": false,
-      "competicion": "Champions League",
-      "fecha": "2026-10-13",
+      "competicion": "La Liga",
+      "fecha": "2026-10-17",
       "resultado": "victoria"
     }
   },
@@ -897,12 +897,12 @@ DataService.STATS_DATA = {
         "golesEnContra": 12
       },
       "barcelona": {
-        "partidosJugados": 10,
-        "ganados": 10,
+        "partidosJugados": 11,
+        "ganados": 11,
         "empatados": 0,
         "perdidos": 0,
-        "golesAFavor": 43,
-        "golesEnContra": 9
+        "golesAFavor": 48,
+        "golesEnContra": 11
       }
     },
     "elClasico": {
@@ -1034,15 +1034,15 @@ DataService.STATS_DATA = {
             "periodo": "2026-27"
           },
           {
-            "nombre": "Karim Adeyemi",
+            "nombre": "Gabriel Jesus",
             "goles": 4,
-            "partidos": 11,
+            "partidos": 8,
             "periodo": "2026-27"
           },
           {
-            "nombre": "Gabriel Jesus",
-            "goles": 3,
-            "partidos": 8,
+            "nombre": "Karim Adeyemi",
+            "goles": 4,
+            "partidos": 11,
             "periodo": "2026-27"
           }
         ]
@@ -1077,7 +1077,7 @@ DataService.STATS_DATA = {
         "barcelona": [
           {
             "nombre": "Lamine Yamal",
-            "asistencias": 9,
+            "asistencias": 10,
             "partidos": 11,
             "periodo": "2026-27"
           },
@@ -1138,14 +1138,14 @@ DataService.STATS_DATA = {
       },
       "barcelona": {
         "position": 1,
-        "playedGames": 8,
-        "won": 8,
+        "playedGames": 9,
+        "won": 9,
         "draw": 0,
         "lost": 0,
-        "points": 24,
-        "goalsFor": 34,
-        "goalsAgainst": 7,
-        "goalDifference": 27
+        "points": 27,
+        "goalsFor": 39,
+        "goalsAgainst": 9,
+        "goalDifference": 30
       }
     }
   },
