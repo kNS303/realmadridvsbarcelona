@@ -1,7 +1,7 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-16",
-    "lastUpdatedTime": "01:59",
+    "lastUpdated": "2026-10-17",
+    "lastUpdatedTime": "19:48",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -860,31 +860,31 @@
           {
             "nombre": "Raphinha",
             "goles": 14,
-            "partidos": 8,
+            "partidos": 9,
             "periodo": "2026-27"
           },
           {
             "nombre": "Lamine Yamal",
-            "goles": 8,
-            "partidos": 10,
+            "goles": 9,
+            "partidos": 11,
             "periodo": "2026-27"
           },
           {
             "nombre": "Fermín López",
             "goles": 5,
-            "partidos": 10,
+            "partidos": 11,
             "periodo": "2026-27"
           },
           {
             "nombre": "Karim Adeyemi",
             "goles": 4,
-            "partidos": 10,
+            "partidos": 11,
             "periodo": "2026-27"
           },
           {
             "nombre": "Gabriel Jesus",
             "goles": 3,
-            "partidos": 7,
+            "partidos": 8,
             "periodo": "2026-27"
           }
         ]
@@ -920,31 +920,31 @@
           {
             "nombre": "Lamine Yamal",
             "asistencias": 9,
-            "partidos": 10,
+            "partidos": 11,
+            "periodo": "2026-27"
+          },
+          {
+            "nombre": "Fermín López",
+            "asistencias": 3,
+            "partidos": 11,
             "periodo": "2026-27"
           },
           {
             "nombre": "Raphinha",
             "asistencias": 2,
-            "partidos": 8,
-            "periodo": "2026-27"
-          },
-          {
-            "nombre": "Fermín López",
-            "asistencias": 2,
-            "partidos": 10,
+            "partidos": 9,
             "periodo": "2026-27"
           },
           {
             "nombre": "Karim Adeyemi",
             "asistencias": 2,
-            "partidos": 10,
+            "partidos": 11,
             "periodo": "2026-27"
           },
           {
             "nombre": "Gabriel Jesus",
             "asistencias": 1,
-            "partidos": 7,
+            "partidos": 8,
             "periodo": "2026-27"
           }
         ]
@@ -1080,9 +1080,9 @@
       "esLocal": true
     },
     "barcelona": {
-      "rival": "Real Betis",
-      "fecha": "17 de octubre de 2026",
-      "competicion": "La Liga",
+      "rival": "PSG",
+      "fecha": "20 de octubre de 2026",
+      "competicion": "Champions League",
       "esLocal": false
     }
   },
