@@ -159,7 +159,7 @@ class DataService {
 DataService.STATS_DATA = {
   "meta": {
     "lastUpdated": "2026-10-20",
-    "lastUpdatedTime": "02:45",
+    "lastUpdatedTime": "21:02",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -1018,31 +1018,31 @@ DataService.STATS_DATA = {
           {
             "nombre": "Raphinha",
             "goles": 14,
-            "partidos": 9,
+            "partidos": 10,
             "periodo": "2026-27"
           },
           {
             "nombre": "Lamine Yamal",
             "goles": 9,
-            "partidos": 11,
+            "partidos": 12,
             "periodo": "2026-27"
           },
           {
             "nombre": "Fermín López",
             "goles": 5,
-            "partidos": 11,
+            "partidos": 12,
             "periodo": "2026-27"
           },
           {
             "nombre": "Gabriel Jesus",
             "goles": 4,
-            "partidos": 8,
+            "partidos": 9,
             "periodo": "2026-27"
           },
           {
             "nombre": "Karim Adeyemi",
             "goles": 4,
-            "partidos": 11,
+            "partidos": 12,
             "periodo": "2026-27"
           }
         ]
@@ -1084,31 +1084,31 @@ DataService.STATS_DATA = {
           {
             "nombre": "Lamine Yamal",
             "asistencias": 10,
-            "partidos": 11,
+            "partidos": 12,
             "periodo": "2026-27"
           },
           {
             "nombre": "Fermín López",
             "asistencias": 3,
-            "partidos": 11,
+            "partidos": 12,
             "periodo": "2026-27"
           },
           {
             "nombre": "Raphinha",
             "asistencias": 2,
-            "partidos": 9,
+            "partidos": 10,
             "periodo": "2026-27"
           },
           {
             "nombre": "Karim Adeyemi",
             "asistencias": 2,
-            "partidos": 11,
+            "partidos": 12,
             "periodo": "2026-27"
           },
           {
             "nombre": "Gabriel Jesus",
             "asistencias": 1,
-            "partidos": 8,
+            "partidos": 9,
             "periodo": "2026-27"
           }
         ]
@@ -1244,10 +1244,10 @@ DataService.STATS_DATA = {
       "esLocal": true
     },
     "barcelona": {
-      "rival": "PSG",
-      "fecha": "20 de octubre de 2026",
-      "competicion": "Champions League",
-      "esLocal": false
+      "rival": "Real Madrid",
+      "fecha": "25 de octubre de 2026",
+      "competicion": "La Liga",
+      "esLocal": true
     }
   },
   "proximoClasico": {
