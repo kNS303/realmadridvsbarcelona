@@ -159,7 +159,7 @@ class DataService {
 DataService.STATS_DATA = {
   "meta": {
     "lastUpdated": "2026-10-21",
-    "lastUpdatedTime": "02:12",
+    "lastUpdatedTime": "21:10",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -986,7 +986,7 @@ DataService.STATS_DATA = {
           {
             "nombre": "Kylian Mbappé",
             "goles": 11,
-            "partidos": 11,
+            "partidos": 12,
             "periodo": "2026-27"
           },
           {
@@ -998,7 +998,7 @@ DataService.STATS_DATA = {
           {
             "nombre": "Carlos Espí",
             "goles": 3,
-            "partidos": 11,
+            "partidos": 12,
             "periodo": "2026-27"
           },
           {
@@ -1064,7 +1064,7 @@ DataService.STATS_DATA = {
           {
             "nombre": "Kylian Mbappé",
             "asistencias": 2,
-            "partidos": 11,
+            "partidos": 12,
             "periodo": "2026-27"
           },
           {
@@ -1238,10 +1238,10 @@ DataService.STATS_DATA = {
   },
   "proximoPartido": {
     "realMadrid": {
-      "rival": "RB Leipzig",
-      "fecha": "21 de octubre de 2026",
-      "competicion": "Champions League",
-      "esLocal": true
+      "rival": "Barça",
+      "fecha": "25 de octubre de 2026",
+      "competicion": "La Liga",
+      "esLocal": false
     },
     "barcelona": {
       "rival": "Real Madrid",
