@@ -158,8 +158,8 @@ class DataService {
 // ====== DATOS ESTADÍSTICOS EMBEBIDOS ======
 DataService.STATS_DATA = {
   "meta": {
-    "lastUpdated": "2026-10-21",
-    "lastUpdatedTime": "21:10",
+    "lastUpdated": "2026-10-22",
+    "lastUpdatedTime": "02:16",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -383,12 +383,12 @@ DataService.STATS_DATA = {
   },
   "historialGeneral": {
     "realMadrid": {
-      "partidosJugados": 4873,
-      "ganados": 2725,
+      "partidosJugados": 4874,
+      "ganados": 2726,
       "empatados": 912,
       "perdidos": 1236,
-      "golesAFavor": 9300,
-      "golesEnContra": 5550
+      "golesAFavor": 9304,
+      "golesEnContra": 5551
     },
     "barcelona": {
       "partidosJugados": 4804,
@@ -837,12 +837,12 @@ DataService.STATS_DATA = {
   },
   "ultimoPartido": {
     "realMadrid": {
-      "rival": "Sevilla FC",
+      "rival": "RB Leipzig",
       "golesLocal": 4,
       "golesVisitante": 1,
       "esLocal": true,
-      "competicion": "La Liga",
-      "fecha": "2026-10-18",
+      "competicion": "Champions League",
+      "fecha": "2026-10-21",
       "resultado": "victoria"
     },
     "barcelona": {
@@ -889,12 +889,12 @@ DataService.STATS_DATA = {
     },
     "historialGeneral": {
       "realMadrid": {
-        "partidosJugados": 11,
-        "ganados": 9,
+        "partidosJugados": 12,
+        "ganados": 10,
         "empatados": 0,
         "perdidos": 2,
-        "golesAFavor": 29,
-        "golesEnContra": 13
+        "golesAFavor": 33,
+        "golesEnContra": 14
       },
       "barcelona": {
         "partidosJugados": 12,
@@ -985,7 +985,7 @@ DataService.STATS_DATA = {
         "realMadrid": [
           {
             "nombre": "Kylian Mbappé",
-            "goles": 11,
+            "goles": 12,
             "partidos": 12,
             "periodo": "2026-27"
           },
@@ -1050,6 +1050,12 @@ DataService.STATS_DATA = {
       "asistentes": {
         "realMadrid": [
           {
+            "nombre": "Kylian Mbappé",
+            "asistencias": 3,
+            "partidos": 12,
+            "periodo": "2026-27"
+          },
+          {
             "nombre": "Jude Bellingham",
             "asistencias": 3,
             "partidos": 9,
@@ -1059,12 +1065,6 @@ DataService.STATS_DATA = {
             "nombre": "Vinicius Junior",
             "asistencias": 3,
             "partidos": 8,
-            "periodo": "2026-27"
-          },
-          {
-            "nombre": "Kylian Mbappé",
-            "asistencias": 2,
-            "partidos": 12,
             "periodo": "2026-27"
           },
           {
@@ -1119,8 +1119,8 @@ DataService.STATS_DATA = {
         "V",
         "V",
         "V",
-        "D",
-        "V"
+        "V",
+        "D"
       ],
       "barcelona": [
         "D",
