@@ -158,8 +158,8 @@ class DataService {
 // ====== DATOS ESTADÍSTICOS EMBEBIDOS ======
 DataService.STATS_DATA = {
   "meta": {
-    "lastUpdated": "2026-10-25",
-    "lastUpdatedTime": "00:38",
+    "lastUpdated": "2026-10-26",
+    "lastUpdatedTime": "21:21",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -401,8 +401,8 @@ DataService.STATS_DATA = {
   },
   "elClasico": {
     "totalPartidos": 265,
-    "victoriasRealMadrid": 106,
-    "victoriasBarcelona": 105,
+    "victoriasRealMadrid": 107,
+    "victoriasBarcelona": 106,
     "empates": 52,
     "golesRealMadrid": 422,
     "golesBarcelona": 406,
@@ -1197,8 +1197,8 @@ DataService.STATS_DATA = {
     },
     "elClasico": {
       "totalPartidos": 264,
-      "victoriasRealMadrid": 105,
-      "victoriasBarcelona": 105,
+      "victoriasRealMadrid": 106,
+      "victoriasBarcelona": 106,
       "empates": 52,
       "golesRealMadrid": 420,
       "golesBarcelona": 405,
