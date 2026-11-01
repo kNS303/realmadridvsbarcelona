@@ -1,7 +1,7 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-31",
-    "lastUpdatedTime": "20:09",
+    "lastUpdated": "2026-11-01",
+    "lastUpdatedTime": "01:30",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -233,12 +233,12 @@
       "golesEnContra": 5552
     },
     "barcelona": {
-      "partidosJugados": 4805,
-      "ganados": 2700,
+      "partidosJugados": 4806,
+      "ganados": 2701,
       "empatados": 890,
       "perdidos": 1215,
-      "golesAFavor": 9221,
-      "golesEnContra": 5408
+      "golesAFavor": 9227,
+      "golesEnContra": 5409
     }
   },
   "elClasico": {
@@ -688,13 +688,13 @@
       "resultado": "victoria"
     },
     "barcelona": {
-      "rival": "Real Madrid",
-      "golesLocal": 1,
-      "golesVisitante": 2,
+      "rival": "Alavés",
+      "golesLocal": 6,
+      "golesVisitante": 1,
       "esLocal": true,
       "competicion": "La Liga",
-      "fecha": "2026-10-25",
-      "resultado": "derrota"
+      "fecha": "2026-10-31",
+      "resultado": "victoria"
     }
   },
   "temporadaActual": {
@@ -739,12 +739,12 @@
         "golesEnContra": 15
       },
       "barcelona": {
-        "partidosJugados": 13,
-        "ganados": 11,
+        "partidosJugados": 14,
+        "ganados": 12,
         "empatados": 0,
         "perdidos": 2,
-        "golesAFavor": 51,
-        "golesEnContra": 17
+        "golesAFavor": 57,
+        "golesEnContra": 18
       }
     },
     "elClasico": {
@@ -853,32 +853,32 @@
         "barcelona": [
           {
             "nombre": "Raphinha",
-            "goles": 15,
-            "partidos": 11,
+            "goles": 17,
+            "partidos": 12,
             "periodo": "2026-27"
           },
           {
             "nombre": "Lamine Yamal",
-            "goles": 10,
-            "partidos": 13,
+            "goles": 12,
+            "partidos": 14,
             "periodo": "2026-27"
           },
           {
             "nombre": "Fermín López",
-            "goles": 5,
-            "partidos": 13,
+            "goles": 6,
+            "partidos": 14,
             "periodo": "2026-27"
           },
           {
             "nombre": "Gabriel Jesus",
             "goles": 4,
-            "partidos": 10,
+            "partidos": 11,
             "periodo": "2026-27"
           },
           {
             "nombre": "Karim Adeyemi",
             "goles": 4,
-            "partidos": 13,
+            "partidos": 14,
             "periodo": "2026-27"
           }
         ]
@@ -919,32 +919,32 @@
         "barcelona": [
           {
             "nombre": "Lamine Yamal",
-            "asistencias": 10,
-            "partidos": 13,
+            "asistencias": 11,
+            "partidos": 14,
             "periodo": "2026-27"
           },
           {
             "nombre": "Fermín López",
+            "asistencias": 6,
+            "partidos": 14,
+            "periodo": "2026-27"
+          },
+          {
+            "nombre": "Anthony Gordon",
             "asistencias": 4,
-            "partidos": 13,
+            "partidos": 14,
             "periodo": "2026-27"
           },
           {
             "nombre": "Raphinha",
             "asistencias": 2,
+            "partidos": 12,
+            "periodo": "2026-27"
+          },
+          {
+            "nombre": "Gabriel Jesus",
+            "asistencias": 2,
             "partidos": 11,
-            "periodo": "2026-27"
-          },
-          {
-            "nombre": "Karim Adeyemi",
-            "asistencias": 2,
-            "partidos": 13,
-            "periodo": "2026-27"
-          },
-          {
-            "nombre": "Pedri",
-            "asistencias": 2,
-            "partidos": 10,
             "periodo": "2026-27"
           }
         ]
@@ -959,9 +959,9 @@
         "V"
       ],
       "barcelona": [
-        "D",
-        "D",
         "V",
+        "D",
+        "D",
         "V",
         "V"
       ]
@@ -979,15 +979,15 @@
         "goalDifference": 15
       },
       "barcelona": {
-        "position": 2,
-        "playedGames": 10,
-        "won": 9,
+        "position": 1,
+        "playedGames": 11,
+        "won": 10,
         "draw": 0,
         "lost": 1,
-        "points": 27,
-        "goalsFor": 40,
-        "goalsAgainst": 11,
-        "goalDifference": 29
+        "points": 30,
+        "goalsFor": 46,
+        "goalsAgainst": 12,
+        "goalDifference": 34
       }
     }
   },
@@ -1080,9 +1080,9 @@
       "esLocal": false
     },
     "barcelona": {
-      "rival": "Alavés",
-      "fecha": "31 de octubre de 2026",
-      "competicion": "La Liga",
+      "rival": "Aston Villa",
+      "fecha": "3 de noviembre de 2026",
+      "competicion": "Champions League",
       "esLocal": true
     }
   },
