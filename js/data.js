@@ -159,7 +159,7 @@ class DataService {
 DataService.STATS_DATA = {
   "meta": {
     "lastUpdated": "2026-11-04",
-    "lastUpdatedTime": "02:44",
+    "lastUpdatedTime": "22:06",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -383,12 +383,12 @@ DataService.STATS_DATA = {
   },
   "historialGeneral": {
     "realMadrid": {
-      "partidosJugados": 4876,
-      "ganados": 2728,
+      "partidosJugados": 4877,
+      "ganados": 2729,
       "empatados": 912,
       "perdidos": 1236,
-      "golesAFavor": 9309,
-      "golesEnContra": 5552
+      "golesAFavor": 9312,
+      "golesEnContra": 5554
     },
     "barcelona": {
       "partidosJugados": 4807,
@@ -837,12 +837,12 @@ DataService.STATS_DATA = {
   },
   "ultimoPartido": {
     "realMadrid": {
-      "rival": "Santander",
-      "golesLocal": 0,
+      "rival": "PAE AEK",
+      "golesLocal": 2,
       "golesVisitante": 3,
       "esLocal": false,
-      "competicion": "La Liga",
-      "fecha": "2026-11-01",
+      "competicion": "Champions League",
+      "fecha": "2026-11-04",
       "resultado": "victoria"
     },
     "barcelona": {
@@ -889,12 +889,12 @@ DataService.STATS_DATA = {
     },
     "historialGeneral": {
       "realMadrid": {
-        "partidosJugados": 14,
-        "ganados": 12,
+        "partidosJugados": 15,
+        "ganados": 13,
         "empatados": 0,
         "perdidos": 2,
-        "golesAFavor": 38,
-        "golesEnContra": 15
+        "golesAFavor": 41,
+        "golesEnContra": 17
       },
       "barcelona": {
         "partidosJugados": 15,
@@ -979,8 +979,8 @@ DataService.STATS_DATA = {
         "realMadrid": [
           {
             "nombre": "Kylian Mbappé",
-            "goles": 15,
-            "partidos": 14,
+            "goles": 16,
+            "partidos": 15,
             "periodo": "2026-27"
           },
           {
@@ -998,7 +998,7 @@ DataService.STATS_DATA = {
           {
             "nombre": "Carlos Espí",
             "goles": 3,
-            "partidos": 14,
+            "partidos": 15,
             "periodo": "2026-27"
           },
           {
@@ -1046,7 +1046,7 @@ DataService.STATS_DATA = {
           {
             "nombre": "Kylian Mbappé",
             "asistencias": 3,
-            "partidos": 14,
+            "partidos": 15,
             "periodo": "2026-27"
           },
           {
@@ -1232,9 +1232,9 @@ DataService.STATS_DATA = {
   },
   "proximoPartido": {
     "realMadrid": {
-      "rival": "PAE AEK",
-      "fecha": "4 de noviembre de 2026",
-      "competicion": "Champions League",
+      "rival": "Valencia",
+      "fecha": "7 de noviembre de 2026",
+      "competicion": "La Liga",
       "esLocal": false
     },
     "barcelona": {
