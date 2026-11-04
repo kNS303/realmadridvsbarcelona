@@ -158,8 +158,8 @@ class DataService {
 // ====== DATOS ESTADÍSTICOS EMBEBIDOS ======
 DataService.STATS_DATA = {
   "meta": {
-    "lastUpdated": "2026-11-03",
-    "lastUpdatedTime": "21:49",
+    "lastUpdated": "2026-11-04",
+    "lastUpdatedTime": "02:44",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -391,11 +391,11 @@ DataService.STATS_DATA = {
       "golesEnContra": 5552
     },
     "barcelona": {
-      "partidosJugados": 4806,
-      "ganados": 2701,
+      "partidosJugados": 4807,
+      "ganados": 2702,
       "empatados": 890,
       "perdidos": 1215,
-      "golesAFavor": 9227,
+      "golesAFavor": 9230,
       "golesEnContra": 5409
     }
   },
@@ -846,12 +846,12 @@ DataService.STATS_DATA = {
       "resultado": "victoria"
     },
     "barcelona": {
-      "rival": "Alavés",
-      "golesLocal": 6,
-      "golesVisitante": 1,
+      "rival": "Aston Villa",
+      "golesLocal": 3,
+      "golesVisitante": 0,
       "esLocal": true,
-      "competicion": "La Liga",
-      "fecha": "2026-10-31",
+      "competicion": "Champions League",
+      "fecha": "2026-11-03",
       "resultado": "victoria"
     }
   },
@@ -897,11 +897,11 @@ DataService.STATS_DATA = {
         "golesEnContra": 15
       },
       "barcelona": {
-        "partidosJugados": 14,
-        "ganados": 12,
+        "partidosJugados": 15,
+        "ganados": 13,
         "empatados": 0,
         "perdidos": 2,
-        "golesAFavor": 57,
+        "golesAFavor": 60,
         "golesEnContra": 18
       }
     },
@@ -1011,7 +1011,7 @@ DataService.STATS_DATA = {
         "barcelona": [
           {
             "nombre": "Raphinha",
-            "goles": 17,
+            "goles": 19,
             "partidos": 13,
             "periodo": "2026-27"
           },
@@ -1083,7 +1083,7 @@ DataService.STATS_DATA = {
           },
           {
             "nombre": "Fermín López",
-            "asistencias": 6,
+            "asistencias": 7,
             "partidos": 15,
             "periodo": "2026-27"
           },
@@ -1118,9 +1118,9 @@ DataService.STATS_DATA = {
       ],
       "barcelona": [
         "V",
-        "D",
-        "D",
         "V",
+        "D",
+        "D",
         "V"
       ]
     },
