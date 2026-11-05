@@ -158,8 +158,8 @@ class DataService {
 // ====== DATOS ESTADÍSTICOS EMBEBIDOS ======
 DataService.STATS_DATA = {
   "meta": {
-    "lastUpdated": "2026-11-04",
-    "lastUpdatedTime": "22:06",
+    "lastUpdated": "2026-11-05",
+    "lastUpdatedTime": "02:52",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -997,8 +997,8 @@ DataService.STATS_DATA = {
           },
           {
             "nombre": "Carlos Espí",
-            "goles": 3,
-            "partidos": 15,
+            "goles": 2,
+            "partidos": 11,
             "periodo": "2026-27"
           },
           {
