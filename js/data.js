@@ -159,7 +159,7 @@ class DataService {
 DataService.STATS_DATA = {
   "meta": {
     "lastUpdated": "2026-11-07",
-    "lastUpdatedTime": "02:19",
+    "lastUpdatedTime": "20:17",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -980,31 +980,31 @@ DataService.STATS_DATA = {
           {
             "nombre": "Kylian Mbappé",
             "goles": 16,
-            "partidos": 15,
+            "partidos": 16,
             "periodo": "2026-27"
           },
           {
             "nombre": "Jude Bellingham",
             "goles": 4,
-            "partidos": 11,
+            "partidos": 12,
             "periodo": "2026-27"
           },
           {
             "nombre": "Yan Diomandé",
             "goles": 3,
-            "partidos": 11,
+            "partidos": 12,
             "periodo": "2026-27"
           },
           {
             "nombre": "Carlos Espí",
             "goles": 2,
-            "partidos": 11,
+            "partidos": 12,
             "periodo": "2026-27"
           },
           {
             "nombre": "Arda Guler",
             "goles": 2,
-            "partidos": 11,
+            "partidos": 12,
             "periodo": "2026-27"
           }
         ],
@@ -1046,19 +1046,19 @@ DataService.STATS_DATA = {
           {
             "nombre": "Kylian Mbappé",
             "asistencias": 3,
-            "partidos": 15,
+            "partidos": 16,
             "periodo": "2026-27"
           },
           {
             "nombre": "Jude Bellingham",
             "asistencias": 3,
-            "partidos": 11,
+            "partidos": 12,
             "periodo": "2026-27"
           },
           {
             "nombre": "Arda Guler",
             "asistencias": 3,
-            "partidos": 11,
+            "partidos": 12,
             "periodo": "2026-27"
           },
           {
@@ -1070,7 +1070,7 @@ DataService.STATS_DATA = {
           {
             "nombre": "Yan Diomandé",
             "asistencias": 2,
-            "partidos": 11,
+            "partidos": 12,
             "periodo": "2026-27"
           }
         ],
