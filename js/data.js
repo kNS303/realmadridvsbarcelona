@@ -158,8 +158,8 @@ class DataService {
 // ====== DATOS ESTADÍSTICOS EMBEBIDOS ======
 DataService.STATS_DATA = {
   "meta": {
-    "lastUpdated": "2026-11-08",
-    "lastUpdatedTime": "20:24",
+    "lastUpdated": "2026-11-09",
+    "lastUpdatedTime": "02:15",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -391,12 +391,12 @@ DataService.STATS_DATA = {
       "golesEnContra": 5554
     },
     "barcelona": {
-      "partidosJugados": 4807,
-      "ganados": 2702,
+      "partidosJugados": 4808,
+      "ganados": 2703,
       "empatados": 890,
       "perdidos": 1215,
-      "golesAFavor": 9230,
-      "golesEnContra": 5409
+      "golesAFavor": 9232,
+      "golesEnContra": 5410
     }
   },
   "elClasico": {
@@ -846,12 +846,12 @@ DataService.STATS_DATA = {
       "resultado": "victoria"
     },
     "barcelona": {
-      "rival": "Aston Villa",
-      "golesLocal": 3,
-      "golesVisitante": 0,
-      "esLocal": true,
-      "competicion": "Champions League",
-      "fecha": "2026-11-03",
+      "rival": "Atleti",
+      "golesLocal": 1,
+      "golesVisitante": 2,
+      "esLocal": false,
+      "competicion": "La Liga",
+      "fecha": "2026-11-08",
       "resultado": "victoria"
     }
   },
@@ -897,12 +897,12 @@ DataService.STATS_DATA = {
         "golesEnContra": 17
       },
       "barcelona": {
-        "partidosJugados": 15,
-        "ganados": 13,
+        "partidosJugados": 16,
+        "ganados": 14,
         "empatados": 0,
         "perdidos": 2,
-        "golesAFavor": 60,
-        "golesEnContra": 18
+        "golesAFavor": 62,
+        "golesEnContra": 19
       }
     },
     "elClasico": {
@@ -1023,7 +1023,7 @@ DataService.STATS_DATA = {
           },
           {
             "nombre": "Fermín López",
-            "goles": 6,
+            "goles": 8,
             "partidos": 16,
             "periodo": "2026-27"
           },
@@ -1077,7 +1077,7 @@ DataService.STATS_DATA = {
         "barcelona": [
           {
             "nombre": "Lamine Yamal",
-            "asistencias": 11,
+            "asistencias": 12,
             "partidos": 16,
             "periodo": "2026-27"
           },
@@ -1119,9 +1119,9 @@ DataService.STATS_DATA = {
       "barcelona": [
         "V",
         "V",
+        "V",
         "D",
-        "D",
-        "V"
+        "D"
       ]
     },
     "standings": {
@@ -1138,14 +1138,14 @@ DataService.STATS_DATA = {
       },
       "barcelona": {
         "position": 1,
-        "playedGames": 11,
-        "won": 10,
+        "playedGames": 12,
+        "won": 11,
         "draw": 0,
         "lost": 1,
-        "points": 30,
-        "goalsFor": 46,
-        "goalsAgainst": 12,
-        "goalDifference": 34
+        "points": 33,
+        "goalsFor": 48,
+        "goalsAgainst": 13,
+        "goalDifference": 35
       }
     }
   },
@@ -1238,10 +1238,10 @@ DataService.STATS_DATA = {
       "esLocal": true
     },
     "barcelona": {
-      "rival": "Atleti",
-      "fecha": "8 de noviembre de 2026",
+      "rival": "Villarreal",
+      "fecha": "22 de noviembre de 2026",
       "competicion": "La Liga",
-      "esLocal": false
+      "esLocal": true
     }
   },
   "proximoClasico": null
