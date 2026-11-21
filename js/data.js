@@ -159,7 +159,7 @@ class DataService {
 DataService.STATS_DATA = {
   "meta": {
     "lastUpdated": "2026-11-21",
-    "lastUpdatedTime": "03:53",
+    "lastUpdatedTime": "21:49",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -980,31 +980,31 @@ DataService.STATS_DATA = {
           {
             "nombre": "Kylian Mbappé",
             "goles": 17,
-            "partidos": 16,
+            "partidos": 17,
             "periodo": "2026-27"
           },
           {
             "nombre": "Jude Bellingham",
             "goles": 4,
-            "partidos": 12,
+            "partidos": 13,
             "periodo": "2026-27"
           },
           {
             "nombre": "Arda Guler",
             "goles": 3,
-            "partidos": 12,
+            "partidos": 13,
             "periodo": "2026-27"
           },
           {
             "nombre": "Yan Diomandé",
             "goles": 3,
-            "partidos": 12,
+            "partidos": 13,
             "periodo": "2026-27"
           },
           {
             "nombre": "Carlos Espí",
             "goles": 2,
-            "partidos": 12,
+            "partidos": 13,
             "periodo": "2026-27"
           }
         ],
@@ -1046,31 +1046,31 @@ DataService.STATS_DATA = {
           {
             "nombre": "Arda Guler",
             "asistencias": 4,
-            "partidos": 12,
+            "partidos": 13,
             "periodo": "2026-27"
           },
           {
             "nombre": "Kylian Mbappé",
             "asistencias": 3,
-            "partidos": 16,
+            "partidos": 17,
             "periodo": "2026-27"
           },
           {
             "nombre": "Jude Bellingham",
             "asistencias": 3,
-            "partidos": 12,
+            "partidos": 13,
             "periodo": "2026-27"
           },
           {
             "nombre": "Vinicius Junior",
             "asistencias": 3,
-            "partidos": 8,
+            "partidos": 9,
             "periodo": "2026-27"
           },
           {
             "nombre": "Yan Diomandé",
             "asistencias": 2,
-            "partidos": 12,
+            "partidos": 13,
             "periodo": "2026-27"
           }
         ],
@@ -1232,9 +1232,9 @@ DataService.STATS_DATA = {
   },
   "proximoPartido": {
     "realMadrid": {
-      "rival": "Celta",
-      "fecha": "21 de noviembre de 2026",
-      "competicion": "La Liga",
+      "rival": "PSV",
+      "fecha": "24 de noviembre de 2026",
+      "competicion": "Champions League",
       "esLocal": true
     },
     "barcelona": {
