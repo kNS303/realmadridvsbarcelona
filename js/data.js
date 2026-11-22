@@ -158,8 +158,8 @@ class DataService {
 // ====== DATOS ESTADÍSTICOS EMBEBIDOS ======
 DataService.STATS_DATA = {
   "meta": {
-    "lastUpdated": "2026-11-21",
-    "lastUpdatedTime": "21:49",
+    "lastUpdated": "2026-11-22",
+    "lastUpdatedTime": "02:42",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -383,12 +383,12 @@ DataService.STATS_DATA = {
   },
   "historialGeneral": {
     "realMadrid": {
-      "partidosJugados": 4878,
-      "ganados": 2730,
+      "partidosJugados": 4879,
+      "ganados": 2731,
       "empatados": 912,
       "perdidos": 1236,
-      "golesAFavor": 9315,
-      "golesEnContra": 5554
+      "golesAFavor": 9317,
+      "golesEnContra": 5555
     },
     "barcelona": {
       "partidosJugados": 4808,
@@ -837,12 +837,12 @@ DataService.STATS_DATA = {
   },
   "ultimoPartido": {
     "realMadrid": {
-      "rival": "Valencia",
-      "golesLocal": 0,
-      "golesVisitante": 3,
-      "esLocal": false,
+      "rival": "Celta",
+      "golesLocal": 2,
+      "golesVisitante": 1,
+      "esLocal": true,
       "competicion": "La Liga",
-      "fecha": "2026-11-07",
+      "fecha": "2026-11-21",
       "resultado": "victoria"
     },
     "barcelona": {
@@ -889,12 +889,12 @@ DataService.STATS_DATA = {
     },
     "historialGeneral": {
       "realMadrid": {
-        "partidosJugados": 16,
-        "ganados": 14,
+        "partidosJugados": 17,
+        "ganados": 15,
         "empatados": 0,
         "perdidos": 2,
-        "golesAFavor": 44,
-        "golesEnContra": 17
+        "golesAFavor": 46,
+        "golesEnContra": 18
       },
       "barcelona": {
         "partidosJugados": 16,
@@ -985,7 +985,13 @@ DataService.STATS_DATA = {
           },
           {
             "nombre": "Jude Bellingham",
-            "goles": 4,
+            "goles": 5,
+            "partidos": 13,
+            "periodo": "2026-27"
+          },
+          {
+            "nombre": "Carlos Espí",
+            "goles": 3,
             "partidos": 13,
             "periodo": "2026-27"
           },
@@ -998,12 +1004,6 @@ DataService.STATS_DATA = {
           {
             "nombre": "Yan Diomandé",
             "goles": 3,
-            "partidos": 13,
-            "periodo": "2026-27"
-          },
-          {
-            "nombre": "Carlos Espí",
-            "goles": 2,
             "partidos": 13,
             "periodo": "2026-27"
           }
@@ -1044,15 +1044,15 @@ DataService.STATS_DATA = {
       "asistentes": {
         "realMadrid": [
           {
-            "nombre": "Arda Guler",
+            "nombre": "Kylian Mbappé",
             "asistencias": 4,
-            "partidos": 13,
+            "partidos": 17,
             "periodo": "2026-27"
           },
           {
-            "nombre": "Kylian Mbappé",
-            "asistencias": 3,
-            "partidos": 17,
+            "nombre": "Arda Guler",
+            "asistencias": 4,
+            "partidos": 13,
             "periodo": "2026-27"
           },
           {
@@ -1127,14 +1127,14 @@ DataService.STATS_DATA = {
     "standings": {
       "realMadrid": {
         "position": 2,
-        "playedGames": 12,
-        "won": 10,
+        "playedGames": 13,
+        "won": 11,
         "draw": 0,
         "lost": 2,
-        "points": 30,
-        "goalsFor": 31,
-        "goalsAgainst": 10,
-        "goalDifference": 21
+        "points": 33,
+        "goalsFor": 33,
+        "goalsAgainst": 11,
+        "goalDifference": 22
       },
       "barcelona": {
         "position": 1,
