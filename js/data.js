@@ -159,7 +159,7 @@ class DataService {
 DataService.STATS_DATA = {
   "meta": {
     "lastUpdated": "2026-11-24",
-    "lastUpdatedTime": "06:37",
+    "lastUpdatedTime": "00:47",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -383,12 +383,12 @@ DataService.STATS_DATA = {
   },
   "historialGeneral": {
     "realMadrid": {
-      "partidosJugados": 4879,
-      "ganados": 2731,
+      "partidosJugados": 4880,
+      "ganados": 2732,
       "empatados": 912,
       "perdidos": 1236,
-      "golesAFavor": 9317,
-      "golesEnContra": 5555
+      "golesAFavor": 9322,
+      "golesEnContra": 5556
     },
     "barcelona": {
       "partidosJugados": 4809,
@@ -837,12 +837,12 @@ DataService.STATS_DATA = {
   },
   "ultimoPartido": {
     "realMadrid": {
-      "rival": "Celta",
-      "golesLocal": 2,
+      "rival": "PSV",
+      "golesLocal": 5,
       "golesVisitante": 1,
       "esLocal": true,
-      "competicion": "La Liga",
-      "fecha": "2026-11-21",
+      "competicion": "Champions League",
+      "fecha": "2026-11-24",
       "resultado": "victoria"
     },
     "barcelona": {
@@ -889,12 +889,12 @@ DataService.STATS_DATA = {
     },
     "historialGeneral": {
       "realMadrid": {
-        "partidosJugados": 17,
-        "ganados": 15,
+        "partidosJugados": 18,
+        "ganados": 16,
         "empatados": 0,
         "perdidos": 2,
-        "golesAFavor": 46,
-        "golesEnContra": 18
+        "golesAFavor": 51,
+        "golesEnContra": 19
       },
       "barcelona": {
         "partidosJugados": 17,
@@ -979,14 +979,14 @@ DataService.STATS_DATA = {
         "realMadrid": [
           {
             "nombre": "Kylian Mbappé",
-            "goles": 17,
-            "partidos": 17,
+            "goles": 19,
+            "partidos": 18,
             "periodo": "2026-27"
           },
           {
             "nombre": "Jude Bellingham",
-            "goles": 5,
-            "partidos": 13,
+            "goles": 7,
+            "partidos": 18,
             "periodo": "2026-27"
           },
           {
@@ -1045,19 +1045,19 @@ DataService.STATS_DATA = {
         "realMadrid": [
           {
             "nombre": "Kylian Mbappé",
+            "asistencias": 5,
+            "partidos": 18,
+            "periodo": "2026-27"
+          },
+          {
+            "nombre": "Jude Bellingham",
             "asistencias": 4,
-            "partidos": 17,
+            "partidos": 18,
             "periodo": "2026-27"
           },
           {
             "nombre": "Arda Guler",
             "asistencias": 4,
-            "partidos": 13,
-            "periodo": "2026-27"
-          },
-          {
-            "nombre": "Jude Bellingham",
-            "asistencias": 3,
             "partidos": 13,
             "periodo": "2026-27"
           },
@@ -1232,9 +1232,9 @@ DataService.STATS_DATA = {
   },
   "proximoPartido": {
     "realMadrid": {
-      "rival": "PSV",
-      "fecha": "24 de noviembre de 2026",
-      "competicion": "Champions League",
+      "rival": "Alavés",
+      "fecha": "28 de noviembre de 2026",
+      "competicion": "La Liga",
       "esLocal": true
     },
     "barcelona": {
