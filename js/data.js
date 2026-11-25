@@ -159,7 +159,7 @@ class DataService {
 DataService.STATS_DATA = {
   "meta": {
     "lastUpdated": "2026-11-25",
-    "lastUpdatedTime": "05:38",
+    "lastUpdatedTime": "00:29",
     "fuentes": "Wikipedia, Transfermarkt, BDFutbol, RFEF",
     "nota": "Datos históricos acumulados hasta marzo 2026"
   },
@@ -391,12 +391,12 @@ DataService.STATS_DATA = {
       "golesEnContra": 5556
     },
     "barcelona": {
-      "partidosJugados": 4809,
-      "ganados": 2704,
+      "partidosJugados": 4810,
+      "ganados": 2705,
       "empatados": 890,
       "perdidos": 1215,
-      "golesAFavor": 9235,
-      "golesEnContra": 5412
+      "golesAFavor": 9239,
+      "golesEnContra": 5413
     }
   },
   "elClasico": {
@@ -846,12 +846,12 @@ DataService.STATS_DATA = {
       "resultado": "victoria"
     },
     "barcelona": {
-      "rival": "Villarreal",
-      "golesLocal": 3,
-      "golesVisitante": 2,
-      "esLocal": true,
-      "competicion": "La Liga",
-      "fecha": "2026-11-22",
+      "rival": "Sabah FK",
+      "golesLocal": 1,
+      "golesVisitante": 4,
+      "esLocal": false,
+      "competicion": "Champions League",
+      "fecha": "2026-11-25",
       "resultado": "victoria"
     }
   },
@@ -897,12 +897,12 @@ DataService.STATS_DATA = {
         "golesEnContra": 19
       },
       "barcelona": {
-        "partidosJugados": 17,
-        "ganados": 15,
+        "partidosJugados": 18,
+        "ganados": 16,
         "empatados": 0,
         "perdidos": 2,
-        "golesAFavor": 65,
-        "golesEnContra": 21
+        "golesAFavor": 69,
+        "golesEnContra": 22
       }
     },
     "elClasico": {
@@ -1012,7 +1012,7 @@ DataService.STATS_DATA = {
           {
             "nombre": "Raphinha",
             "goles": 19,
-            "partidos": 15,
+            "partidos": 16,
             "periodo": "2026-27"
           },
           {
@@ -1024,19 +1024,19 @@ DataService.STATS_DATA = {
           {
             "nombre": "Fermín López",
             "goles": 9,
-            "partidos": 17,
+            "partidos": 18,
             "periodo": "2026-27"
           },
           {
             "nombre": "Gabriel Jesus",
-            "goles": 4,
-            "partidos": 14,
+            "goles": 5,
+            "partidos": 15,
             "periodo": "2026-27"
           },
           {
             "nombre": "Karim Adeyemi",
-            "goles": 4,
-            "partidos": 17,
+            "goles": 5,
+            "partidos": 18,
             "periodo": "2026-27"
           }
         ]
@@ -1084,13 +1084,13 @@ DataService.STATS_DATA = {
           {
             "nombre": "Fermín López",
             "asistencias": 7,
-            "partidos": 17,
+            "partidos": 18,
             "periodo": "2026-27"
           },
           {
             "nombre": "Anthony Gordon",
             "asistencias": 4,
-            "partidos": 17,
+            "partidos": 18,
             "periodo": "2026-27"
           },
           {
@@ -1102,7 +1102,7 @@ DataService.STATS_DATA = {
           {
             "nombre": "Raphinha",
             "asistencias": 2,
-            "partidos": 15,
+            "partidos": 16,
             "periodo": "2026-27"
           }
         ]
@@ -1121,7 +1121,7 @@ DataService.STATS_DATA = {
         "V",
         "V",
         "V",
-        "D"
+        "V"
       ]
     },
     "standings": {
@@ -1238,9 +1238,9 @@ DataService.STATS_DATA = {
       "esLocal": true
     },
     "barcelona": {
-      "rival": "Sabah FK",
-      "fecha": "25 de noviembre de 2026",
-      "competicion": "Champions League",
+      "rival": "Deportivo",
+      "fecha": "29 de noviembre de 2026",
+      "competicion": "La Liga",
       "esLocal": false
     }
   },
